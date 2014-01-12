@@ -61,6 +61,9 @@ this.cutie = createjs;
 
         props = props || {};
 
+        // Remove the previously active scene
+        _stage.removeChild(_activeScene);
+
         // Set it as the active scene
         _activeScene = getScene(sceneName);
 
@@ -107,19 +110,27 @@ this.cutie = createjs;
     function preloadScenes(scenes) {
         var loader = new createjs.LoadQueue();
         loader.installPlugin(createjs.Sound);
-        loader.on("complete", scenes[0].onPreloadComplete.bind(scenes[0], scenes), scenes[0]);
-        loader.on("progress", scenes[0].onPreloadProgress, scenes[0]);
-
-        // Have all of the scene add on the the same LoadQueue
+        
+        // Have all of the scene add onto the the same LoadQueue
+        var needsPreload = false;
         for (var i = 0; i < scenes.length; i++) {
             if (!scenes[i].isPreloaded) {
                 // Create a new LoadQueue and give it to the scene to preload
                 scenes[i].preload(loader);
+                needsPreload = true;
             }
         }
-        
-        // Kick-off the loading (just in case any files were added to the queue and set to not immmediately load)
-        loader.load();
+
+        if (needsPreload) {
+            loader.on("complete", scenes[0].onPreloadComplete.bind(scenes[0], scenes), scenes[0]);
+            loader.on("progress", scenes[0].onPreloadProgress, scenes[0]);
+
+            // Kick-off the loading (just in case any files were added to the queue and set to not immmediately load)
+            loader.load();
+        }
+        else {
+            scenes[0].init();
+        }
     }
 
     function getScenes(sceneNames) {
