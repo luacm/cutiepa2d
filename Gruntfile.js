@@ -6,7 +6,9 @@ module.exports = function(grunt) {
         separator: ";"
       },
       dist: {
-        src: ["lib/createjs.min.js", "src/**/*.js"],
+        // Note the cutie.js is put in front of the other src files because it
+        // needs to be run before them. concat is smart enough to not double-include
+        src: ["lib/createjs.min.js", "src/cutie.js", "src/**/*.js"],
         dest: "build/cutiepa2d.js"
       }
     },
@@ -21,8 +23,14 @@ module.exports = function(grunt) {
       }
     },
     watch: {
-      files: ["src/**/*.js"],
-      tasks: ["concat", "uglify"]
+      default: {
+        files: ["src/**/*.js"],
+        tasks: ["concat"]  
+      },
+      production: {
+        files: ["src/**/*.js"],
+        tasks: ["concat", "uglify"]  
+      }
     }
   });
 
@@ -31,4 +39,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-contrib-concat");
 
   grunt.registerTask("default", ["concat"]);
+  grunt.registerTask("production", ["concat", "uglify"]);
 }

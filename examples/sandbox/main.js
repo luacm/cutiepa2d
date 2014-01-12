@@ -1,9 +1,12 @@
+// ======================================================
+// INIT
+// ======================================================
 window.onload = function() {
     // Set the log level
-    cutie.Log.level = cutie.Log.DEBUG;
+    cutie.Log.level = cutie.Log.VERBOSE;
 
-    var scene1 = new cutie.Scene(1);
-    var scene2 = new cutie.Scene(2);
-
-    cutie.start(scene1);
+    // Kick-off the game
+    cutie.start("title", {
+        "preloadScenes": ["game"]
+    });
 }

@@ -17,7 +17,7 @@ this.cutie = this.cutie || {};
         // ==================================================
         // DEFINITIONS
         // ==================================================
-        this.preloaded = false;
+        this.isPreloaded = false;
     }
 
     // ======================================================
@@ -25,6 +25,29 @@ this.cutie = this.cutie || {};
     // ======================================================
     Scene.prototype.preload = function(loader) {
         cutie.Log.v("cutie.Scene.preload()");
+    }
+
+    Scene.prototype.onPreloadProgress = function(e) {
+        // e.loaded e.total e.progress(0-1)
+        cutie.Log.v("cutie.Scene.onPreloadProgress()");
+    }
+
+    /**
+     * Called when this scene (or list of scenes) is done preloading
+     * @param  {cutie.Scene[]} scenes 
+     *         A list of scenes that were in this preload queue.
+     * @param  {createjs.Event} e 
+     *         The event info.
+     */
+    Scene.prototype.onPreloadComplete = function(scenes, e) {
+        cutie.Log.v("cutie.Scene.onPreloadComplete()");
+
+        // Mark all scenes as having been preloaded
+        for (var i = 0; i < scenes.length; i++)
+            scenes[i].isPreloaded = true;
+
+        // Kick-off the scene
+        this.init();
     }
 
     Scene.prototype.init = function() {
