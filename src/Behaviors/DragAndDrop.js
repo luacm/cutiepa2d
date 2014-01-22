@@ -21,8 +21,8 @@ this.cutie = this.cutie || {};
 
 	DragAndDrop.prototype.tick = function(obj) {
 		if(this.isClicked) {
-			obj.x += this.lastX - this.offsetX;
-			obj.y += this.lastY - this.offsetY;
+			obj.x = this.lastX - this.offsetX;
+			obj.y = this.lastY - this.offsetY;
 		}
 	};
 
@@ -40,7 +40,7 @@ this.cutie = this.cutie || {};
 		this.lastX = e.stageX;
 		this.lastY = e.stageY;
 	}
-	
+
 	module.DragAndDrop = DragAndDrop;
 })(this.cutie);
 
