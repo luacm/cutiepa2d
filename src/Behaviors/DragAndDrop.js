@@ -9,8 +9,6 @@ this.cutie = this.cutie || {};
         this.props = props;
     };
 
-    DragAndDrop.prototype = new module.Behavior();
-
     DragAndDrop.prototype.init = function(obj) {
         obj.addEventListener('mousedown', mousedown.bind(this, obj), false);
         obj.addEventListener('pressup', mouseup.bind(this, obj), false);
