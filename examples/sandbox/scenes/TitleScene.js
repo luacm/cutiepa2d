@@ -10,6 +10,8 @@
 
         var spidey = new cutie.Bitmap("assets/spiderman-ball.png");
         this.addChild(spidey); 
+
+        spidey.addBehavior(new cutie.DragAndDrop());
     }
 
     cutie.registerScene(scene, "title");
