@@ -2,12 +2,12 @@
 this.cutie = this.cutie || {};
 
 (function(module){
-    var _isDragging = false;
-    var _clickOffset = {}
-
     var DragAndDrop = function(props) {
         this.props = props;
     };
+
+    DragAndDrop.prototype._isDragging = false;
+    DragAndDrop.prototype._clickOffset = {};
 
     DragAndDrop.prototype.init = function(obj) {
         obj.addEventListener('mousedown', mousedown.bind(this, obj), false);
@@ -18,21 +18,21 @@ this.cutie = this.cutie || {};
     }
 
     DragAndDrop.prototype.tick = function(obj) {
-        if(_isDragging) {
+        if(this._isDragging) {
             var stage = cutie.getStage();
-            obj.x = stage.mouseX - _clickOffset.x;
-            obj.y = stage.mouseY - _clickOffset.y;
+            obj.x = stage.mouseX - this._clickOffset.x;
+            obj.y = stage.mouseY - this._clickOffset.y;
         }
     }
 
     function mousedown(obj, e) {
-        _isDragging = true;
-        _clickOffset.x = e.stageX - obj.x;
-        _clickOffset.y = e.stageY - obj.y;
+        this._isDragging = true;
+        this._clickOffset.x = e.stageX - obj.x;
+        this._clickOffset.y = e.stageY - obj.y;
     }
 
     function mouseup(obj, e) {
-        _isDragging = false;
+        this._isDragging = false;
     }
 
     module.DragAndDrop = DragAndDrop;
