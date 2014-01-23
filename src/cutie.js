@@ -33,6 +33,7 @@ this.cutie = createjs;
         // Fill in stuff using the properties the user gave
         _canvas = document.getElementById(props.canvasId || "js-canvas")
         _stage = new createjs.Stage(_canvas);
+        createjs.Touch.enable(_stage);
         createjs.Ticker.timingMode = createjs.Ticker.RAF_SYNCHED;
         createjs.Ticker.setFPS(props.fps || 60);
 
