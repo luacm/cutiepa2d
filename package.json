@@ -4,7 +4,8 @@
   "description": "A wrapper for CreateJS that makes creating games easy.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "./node_modules/.bin/grunt production"
   },
   "repository": {
     "type": "git",
@@ -16,6 +17,7 @@
     "url": "https://github.com/greysonp/cutiepa2d/issues"
   },
   "dependencies": {
+    "grunt-cli": "~0.1.11",
     "grunt-contrib-concat": "~0.3.0",
     "grunt-contrib-uglify": "~0.2.7",
     "grunt-contrib-watch": "~0.5.3",
