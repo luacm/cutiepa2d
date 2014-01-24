@@ -25,7 +25,7 @@ this.cutie = this.cutie || {};
         this.clean = function(obj) {
         }
 
-        this.tick = function(obj) {
+        this.tick = function(obj, e) {
             if(_isDragging) {
                 var stage = cutie.getStage();
                 obj.x = stage.mouseX - _clickOffset.x;

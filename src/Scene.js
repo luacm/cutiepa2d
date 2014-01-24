@@ -58,10 +58,17 @@ this.cutie = this.cutie || {};
 
     }
 
+    Scene.prototype._tickInternal = function(e) {
+        this.tick(e);
+        for(var i = 0; i < this.children.length; i++) {
+            this.children[i]._tickInternal(e);
+        }
+    }
+
     // ======================================================
     // PRIVATE FUNCTIONS
     // ======================================================
-
+    
      
     module.Scene = Scene;
 })(this.cutie);
