@@ -8,12 +8,18 @@
     scene.init = function() {
         cutie.Log.d("title.init()");
 
-        for (var i = 0; i < 3; i++) {
+        var path = [
+            {"x":200, "y":200},
+            {"x":0, "y":0},
+            {"x":0, "y":0},
+            {"x":200, "y":0}
+        ];
+        for (var i = 0; i < 1; i++) {
             var spidey = new cutie.Bitmap("assets/spiderman-ball.png");
             spidey.x = i * 70;
             spidey.y = i * 70;
-            this.addChild(spidey);     
-            spidey.addBehavior(new cutie.DragAndDrop());
+            this.addChild(spidey);
+            spidey.addBehavior(new cutie.Route({"path": path, "repeat": -1}));
         }
     }
 

@@ -21,11 +21,12 @@ this.cutie = this.cutie || {};
 		}
 	}
 
-	DisplayObject._tick = function() {
+	DisplayObject._tickInternal = function(e) {
 		this.behaviors = this.behaviors || [];
 		for(var i = 0; i < this.behaviors.length; i++) {
-			this.behaviors[i].tick(this);
+			this.behaviors[i].tick(this, e);
 		}
+		if(this.tick) this.tick(e);
 	}
 	
 })(this.cutie);

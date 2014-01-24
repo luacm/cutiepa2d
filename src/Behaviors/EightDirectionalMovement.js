@@ -6,15 +6,10 @@ this.cutie = this.cutie || {};
      * directions. Movement is equally fast in all directions
      * including diagonals
      * @param {Object} props
-     *        keys: [up, down, left, right]. Keycodes for directional movement
-     *        speed: Number. The pixels traversed per clock tick
+     *        keys: {up, down, left, right}. Keycodes for directional movement
+     *        speed: Number. Speed in px/s.
      */
-     var LEFT = 37;
-     var RIGHT = 39;
-     var UP = 38;
-     var DOWN = 40;
-
-
+  
     var EightDirectionalMovement = function(props) {
         // ================================================
         // VARIABLE DECLARATIONS
@@ -25,12 +20,13 @@ this.cutie = this.cutie || {};
         var _rightPressed = false;
 
         var props = props || {};
-        var _upKey = props.up || UP;
-        var _downKey = props.down || DOWN;
-        var _leftKey = props.left || LEFT;
-        var _rightKey = props.right || RIGHT;
+        var _upKey = props.keys.up || module.KeyCodes.UP;
+        var _rightKey = props.keys.right || module.KeyCodes.RIGHT;
+        var _downKey = props.keys.down || module.KeyCodes.DOWN;
+        var _leftKey = props.keys.left || module.KeyCodes.LEFT;
+        
 
-        var _speed = props.speed || 1;
+        var _speed = props.speed || 100;
         var _move = {};
         // ================================================
         // PUBLIC METHODS
@@ -40,15 +36,16 @@ this.cutie = this.cutie || {};
             document.addEventListener("keyup", keyrelease, false);
         };
 
-        this.tick = function(obj) {
+        this.tick = function(obj, e) {
             _move.x = 0;
             _move.y = 0;
-            if(_upPressed) _move.y -= _speed;
-            if(_downPressed) _move.y += _speed;
-            if(_leftPressed) _move.x -= _speed;
-            if(_rightPressed) _move.x += _speed;
+            var time = e.delta/1000;
+            if(_upPressed) _move.y -= _speed*time;
+            if(_downPressed) _move.y += _speed*time;
+            if(_leftPressed) _move.x -= _speed*time;
+            if(_rightPressed) _move.x += _speed*time;
 
-            if(Math.abs(_move.x) + Math.abs(_move.y)==2*_speed) {
+            if(Math.abs(_move.x) + Math.abs(_move.y)==2*_speed*time) {
                 _move.x /= Math.sqrt(2);
                 _move.y /= Math.sqrt(2);
             }

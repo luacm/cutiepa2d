@@ -99,8 +99,8 @@ this.cutie = createjs;
     // ======================================================
     // PRIVATE
     // ======================================================
-    function tick() {
-        _activeScene.tick();
+    function tick(e) {
+        _activeScene._tickInternal(e);
         _stage.update();
     }
 
