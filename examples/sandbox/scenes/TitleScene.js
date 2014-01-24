@@ -19,7 +19,7 @@
             spidey.x = i * 70;
             spidey.y = i * 70;
             this.addChild(spidey);
-            spidey.addBehavior(new cutie.Route({"path": path, "repeat": -1}));
+            spidey.addBehavior(new cutie.Behavior.Route({"path": path, "repeat": -1}));
         }
     }
 

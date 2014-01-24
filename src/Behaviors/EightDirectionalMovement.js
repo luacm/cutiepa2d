@@ -1,4 +1,5 @@
 this.cutie = this.cutie || {};
+this.cutie.Behavior = this.cutie.Behavior || {};
 
 (function(module){
     /**
@@ -76,4 +77,4 @@ this.cutie = this.cutie || {};
 
     // Copy our behavior into the module
     module.EightDirectionalMovement = EightDirectionalMovement;
-})(this.cutie);
+})(this.cutie.Behavior);

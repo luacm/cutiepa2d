@@ -1,4 +1,5 @@
 this.cutie = this.cutie || {};
+this.cutie.Behavior = this.cutie.Behavior || {};
 
 (function(module){
     /**
@@ -99,4 +100,4 @@ this.cutie = this.cutie || {};
     }
 
     module.AsteroidMovement = AsteroidMovement;
-})(this.cutie);
+})(this.cutie.Behavior);

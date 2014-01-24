@@ -1,4 +1,5 @@
 this.cutie = this.cutie || {};
+this.cutie.Behavior = this.cutie.Behavior || {};
 
 (function(module){
     /**
@@ -73,4 +74,4 @@ this.cutie = this.cutie || {};
     }
 
     module.Route = Route;
-})(this.cutie);
+})(this.cutie.Behavior);
