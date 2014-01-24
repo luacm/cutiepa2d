@@ -53,15 +53,10 @@ this.cutie.Behavior = this.cutie.Behavior || {};
 	            	}
 	            }
 	            else {
-	            	var theta = Math.abs(Math.atan(yDist/xDist));
+	            	var theta = Math.atan2(yDist,xDist);
 
-	            	var yMod = 0;
-	                var xMod = 0;
-	                if(xDist != 0) xMod = xDist/Math.abs(xDist);
-	                if(yDist != 0) yMod = yDist/Math.abs(yDist);
-
-	            	obj.x += dist*Math.cos(theta)*xMod;
-	            	obj.y += dist*Math.sin(theta)*yMod;
+	            	obj.x += dist*Math.cos(theta);
+	            	obj.y += dist*Math.sin(theta);
 	            }
             }
 
