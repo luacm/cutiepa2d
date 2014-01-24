@@ -6,14 +6,12 @@ this.cutie.Behavior = this.cutie.Behavior || {};
      * This behavior makes the object follow another object or the mouse.
      * 
      * @param {Object} props
-     *        targetMouse: Boolean. A boolean that specifies if the mouse
-     *          is the follow target. Default is true
      *        targetObj: Object. The object to be followed. Default is the 
      *          mouse
      *        speed: Number. The speed in px/s. Default is 100 px/s.
      *        distance: Number. The goal distance from the target in px. 
      *          Default is 0px. This will try to catch the given object
-     *        
+     *        setCenter: bool. Automatically register the image center. Default is true.
      *
      *
      */
@@ -24,19 +22,25 @@ this.cutie.Behavior = this.cutie.Behavior || {};
         // ================================================
         
         var props = props || {};
-        var _coords = props.path || [];
         var _targetCoord = {};
 
-        var _targetMouse = props.targetMouse || true;
-        var _targetObj = props.targetObj || {};
+        var _setCenter = props.setCenter || true;
+        var _targetObj = props.targetObj || false;
         var _speed = props.speed || 100;
-        var _distance = props.distance || 0;
+        var _followDistance = props.distance || 0;
+
+
         // ================================================
         // PUBLIC METHODS
         // ================================================
         this.init = function(obj) {
         	//If the mouse is the object
             setCoords();
+            if(_setCenter) {
+                obj.regX = obj.image.width/2;
+                obj.regY = obj.image.height/2;
+            }
+            console.log('targetobj:' + _targetObj);
         };
 
         this.tick = function(obj, e) {
@@ -44,31 +48,16 @@ this.cutie.Behavior = this.cutie.Behavior || {};
             setCoords();
             var xDist = _targetCoord.x - obj.x;
             var yDist = _targetCoord.y - obj.y;
-            console.log(obj);
-            //console.log('ObjX: ' + obj.x + ', ObjY: ' + obj.y + '\n');
 
-/*
-            var goal = Math.sqrt(xDist*xDist + yDist*yDist);
-            if(goal < dist) {
-            	obj.x = _coords[_coordNum].x;
-            	obj.y = _coords[_coordNum].y;
-            	_coordNum++;
-            	//module.Log.v(_coordNum + " move to " + _coords[_coordNum].x + " " + _coords[_coordNum].y + " " + _coords.length);
-            	if(_coordNum >= _coords.length) {
-            		if(_repeat == -1) _coordNum = 0;
-            		else _repeat--;
-            	}
-            }
-            else {
-                */
-            	var theta = Math.atan2(yDist/xDist);
-                //console.log('XDist ' + xDist + ' YDist: ' + yDist + ' theta ' + theta + '\n');
-                obj.rotation = theta * 180 / Math.PI;
-                //console.log('ROATION: ' + obj.rotation + '\n');
+
+            var distanceFrom = Math.sqrt(xDist*xDist + yDist*yDist);
+            //Will keep correct orientation even if within the distance
+            var theta = Math.atan2(yDist,xDist);
+            obj.rotation = (theta * 180 / Math.PI) + 90;
+            if(distanceFrom > _followDistance && dist < distanceFrom) {
             	obj.x += dist*Math.cos(theta);
             	obj.y += dist*Math.sin(theta);
-            //}
-            
+            }
 
         };
 
@@ -77,7 +66,7 @@ this.cutie.Behavior = this.cutie.Behavior || {};
         // ================================================
         
         function setCoords(){
-            if(_targetMouse) {
+            if(!_targetObj) {
                 var stage = cutie.getStage();
                 _targetCoord.x = stage.mouseX;
                 _targetCoord.y = stage.mouseY;
@@ -86,7 +75,6 @@ this.cutie.Behavior = this.cutie.Behavior || {};
                 _targetCoord.x = _targetObj.x;
                 _targetCoord.y = _targetObj.y;
             }
-            //console.log('TargetX: ' + _targetCoord.x + ', TargetY: ' + _targetCoord.y + '\n');
         }
 
     }

@@ -22,9 +22,9 @@ this.cutie.Behavior = this.cutie.Behavior || {};
         
         var props = props || {};
         var keys = props.keys || {};
-        var _forwardKey = keys.forward || module.KeyCodes.W;
-        var _rightKey = keys.turnRight || module.KeyCodes.D;
-        var _leftKey = keys.turnLeft || module.KeyCodes.A;
+        var _forwardKey = keys.forward || cutie.KeyCodes.W;
+        var _rightKey = keys.turnRight || cutie.KeyCodes.D;
+        var _leftKey = keys.turnLeft || cutie.KeyCodes.A;
 
         var _setCenter = props.setCenter || true;
 
@@ -57,10 +57,8 @@ this.cutie.Behavior = this.cutie.Behavior || {};
 
             var theta = (obj.rotation - 90)*Math.PI/180;
             if(_forwardDown) {
-                module.Log.v("forward");
                 _velocity.x += _accel*time*Math.cos(theta);
                 _velocity.y += _accel*time*Math.sin(theta);
-                module.Log.v("vx " + _velocity.x + " vy " + _velocity.y);
             }
             else {
                 var yMod = 0;
