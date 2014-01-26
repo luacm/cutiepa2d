@@ -4,6 +4,13 @@ this.cutie = this.cutie || {};
 
 	var DisplayObject = module.DisplayObject.prototype;
 
+	DisplayObject._clone = DisplayObject.clone;
+	DisplayObject.clone = function() {
+		var c = this._clone();
+		c.behaviors = this.behaviors.slice() || [];
+		return c;
+	}
+
 	DisplayObject.addBehavior = function(behavior) {
 		this.behaviors = this.behaviors || [];
 		behavior.init(this);
@@ -14,7 +21,7 @@ this.cutie = this.cutie || {};
 		var i = this.behaviors.length-1;
 		while(i >= 0){
 			if(this.behaviors[i].type == type){
-				this.behaviors[i].clean();
+				this.behaviors[i].clean(this);
 				this.behaviors.splice(i, 1);
 			}
 			i--;

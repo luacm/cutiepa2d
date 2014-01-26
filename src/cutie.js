@@ -97,6 +97,10 @@ this.cutie = createjs;
     module.getStage = function() {
         return _stage;
     }
+
+    module.getActiveScene = function() {
+        return _activeScene;
+    }
     // ======================================================
     // PRIVATE
     // ======================================================
