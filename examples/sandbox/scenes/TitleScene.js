@@ -14,13 +14,11 @@
         spidey.y = 200;
         spidey.addBehavior(new cutie.Behavior.Follow({"speed":0}));
         spidey.addBehavior(new cutie.Behavior.EightDirectionalMovement());
-
-        var v = new cutie.Vector(0, 0);
-        cutie.Log.v("x " + v.x + " y " + v.y);
+        //spidey.addBehavior(new cutie.Behavior.AsteroidMovement());
 
         var shootProps = {
-            "bullet": spidey,
-            "origin": {"x": 0, "y": 0}
+            "bullet": new cutie.Bitmap("assets/spiderman-ball.png"),
+            "origin": {"x": 50, "y": -50}
         };
         spidey.addBehavior(new cutie.Behavior.Shoot(shootProps));
     }

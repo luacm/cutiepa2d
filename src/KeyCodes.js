@@ -14,6 +14,7 @@ this.cutie = this.cutie || {};
 		"RETURN": 13,
 		"CTRL": 17,
 		"TAB": 9,
+		"SPACE": 32,
 		"Q": 81,
 		"E": 69,
 		"Z": 90,
