@@ -12,6 +12,7 @@ this.cutie.Behavior = this.cutie.Behavior || {};
      *        distance: Number. The goal distance from the target in px. 
      *          Default is 0px. This will try to catch the given object
      *        setCenter: bool. Automatically register the image center. Default is true.
+     *        angleOffset: Number. Degrees to shift the heading of the object. Default 90 (straight up).
      *
      *
      */
@@ -28,7 +29,7 @@ this.cutie.Behavior = this.cutie.Behavior || {};
         var _targetObj = props.targetObj || false;
         var _speed = props.speed || 100;
         var _followDistance = props.distance || 0;
-
+        var _angOffset = props.angleOffset || 90;
 
         // ================================================
         // PUBLIC METHODS
@@ -40,7 +41,6 @@ this.cutie.Behavior = this.cutie.Behavior || {};
                 obj.regX = obj.image.width/2;
                 obj.regY = obj.image.height/2;
             }
-            console.log('targetobj:' + _targetObj);
         };
 
         this.tick = function(obj, e) {
@@ -53,7 +53,7 @@ this.cutie.Behavior = this.cutie.Behavior || {};
             var distanceFrom = Math.sqrt(xDist*xDist + yDist*yDist);
             //Will keep correct orientation even if within the distance
             var theta = Math.atan2(yDist,xDist);
-            obj.rotation = (theta * 180 / Math.PI) + 90;
+            obj.rotation = (theta * 180 / Math.PI) + _angOffset;
             if(distanceFrom > _followDistance && dist < distanceFrom) {
             	obj.x += dist*Math.cos(theta);
             	obj.y += dist*Math.sin(theta);
