@@ -8,6 +8,8 @@ this.cutie = createjs;
     var _activeScene = {};
     var _canvas = {};
     var _stage = {};
+    var _hud = {};
+    var _fps = { "sum": 0, "numTicks": 0, "textView": {} };
 
     // ======================================================
     // PUBLIC
@@ -30,18 +32,23 @@ this.cutie = createjs;
 
         props = props || {};
 
-        // Fill in stuff using the properties the user gave
         _canvas = document.getElementById(props.canvasId || "js-canvas")
         _stage = new createjs.Stage(_canvas);
         createjs.Touch.enable(_stage);
         createjs.Ticker.timingMode = createjs.Ticker.RAF_SYNCHED;
+        _hud = new createjs.Container()
+
+        // Fill in stuff using the properties the user gave
         createjs.Ticker.setFPS(props.fps || 60);
+        showFPS(props.debugFPS);
 
         // Add the listener
         createjs.Ticker.addEventListener("tick", tick);
 
         // Set the scene
         this.setScene(scene, props);
+
+        _stage.addChild(_hud);
     }
 
     /**
@@ -97,12 +104,16 @@ this.cutie = createjs;
     module.getStage = function() {
         return _stage;
     }
+
     // ======================================================
     // PRIVATE
     // ======================================================
     function tick(e) {
         _activeScene._tickInternal(e);
         _stage.update();
+
+        _fps.sum += e.delta;
+        _fps.numTicks++;
     }
 
     /**
@@ -153,4 +164,26 @@ this.cutie = createjs;
         }
         return scene;
     }
+
+    function showFPS(props) {
+        if (props && props.visible) {
+            var size = props.size || "20px";
+            var color = props.color || "#000000";
+            var updateInterval = props.updateInterval || 500;
+
+            _fps.textView = new createjs.Text("", size + " Arial", color);
+            _hud.addChild(_fps.textView);
+            setInterval(updateFPS, updateInterval);
+        }
+    }
+
+    function updateFPS() {
+        var avg = _fps.sum/_fps.numTicks;
+        var fps = 1000/avg;
+        fps = Math.round(fps * 10) / 10;
+        _fps.textView.text = fps + " fps";
+
+        _fps.sum = _fps.numTicks = 0;
+    }
+
 })(this.cutie);
