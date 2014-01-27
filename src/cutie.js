@@ -10,6 +10,8 @@ this.cutie = createjs;
     var _stage = {};
     var _hud = {};
     var _fps = { "sum": 0, "numTicks": 0, "textView": {} };
+    module.WIDTH = 0;
+    module.HEIGHT = 0;
 
     // ======================================================
     // PUBLIC
@@ -32,11 +34,13 @@ this.cutie = createjs;
 
         props = props || {};
 
-        _canvas = document.getElementById(props.canvasId || "js-canvas")
+        _canvas = document.getElementById(props.canvasId || "js-canvas");
+        module.WIDTH = _canvas.width;
+        module.HEIGHT = _canvas.height;
         _stage = new createjs.Stage(_canvas);
         createjs.Touch.enable(_stage);
         createjs.Ticker.timingMode = createjs.Ticker.RAF_SYNCHED;
-        _hud = new createjs.Container()
+        _hud = new createjs.Container();
 
         // Fill in stuff using the properties the user gave
         createjs.Ticker.setFPS(props.fps || 60);
