@@ -1,4 +1,5 @@
 this.cutie = this.cutie || {};
+this.cutie.Behavior = this.cutie.Behavior || {};
 
 (function(module){
     /**
@@ -12,6 +13,7 @@ this.cutie = this.cutie || {};
      *        deceleration: Number. Speed lost in pixels/s^2 (when no key is pressed). Default is 1 px/s^2.
      *        rotation: Number. Rotation speed in deg/s. Default is 90 deg/s.
      *        setCenter: bool. Automatically register the image center. Default is true.
+     *        angleOffset: Number. Degrees to shift the heading of the object. Default 90 (straight up).
      */
 
     var AsteroidMovement = function(props) {
@@ -21,9 +23,9 @@ this.cutie = this.cutie || {};
         
         var props = props || {};
         var keys = props.keys || {};
-        var _forwardKey = keys.forward || module.KeyCodes.W;
-        var _rightKey = keys.turnRight || module.KeyCodes.D;
-        var _leftKey = keys.turnLeft || module.KeyCodes.A;
+        var _forwardKey = keys.forward || cutie.KeyCodes.W;
+        var _rightKey = keys.turnRight || cutie.KeyCodes.D;
+        var _leftKey = keys.turnLeft || cutie.KeyCodes.A;
 
         var _setCenter = props.setCenter || true;
 
@@ -32,8 +34,9 @@ this.cutie = this.cutie || {};
         var _leftDown = false;
 
         var _rotation = props.rotation || 90;
-        var _accel = props.acceleration || 5;
-        var _decel = props.deceleration || 1;
+        var _accel = props.acceleration || 100;
+        var _decel = props.deceleration || 40;
+        var _angOffset = props.angularOffset || 90;
 
         var _velocity = {"x":0, "y":0};//speed, orientation
 
@@ -54,32 +57,22 @@ this.cutie = this.cutie || {};
             if(_rightDown) obj.rotation += time*_rotation;
             if(_leftDown) obj.rotation -= time*_rotation;
 
-            var theta = (obj.rotation - 90)*Math.PI/180;
+            var theta = (obj.rotation - _angOffset)*Math.PI/180;
             if(_forwardDown) {
-                module.Log.v("forward");
                 _velocity.x += _accel*time*Math.cos(theta);
                 _velocity.y += _accel*time*Math.sin(theta);
-                module.Log.v("vx " + _velocity.x + " vy " + _velocity.y);
             }
             else {
-                var yMod = 0;
-                var xMod = 0;
-                if(_velocity.y != 0) yMod = _velocity.y/Math.abs(_velocity.y);
-                if(_velocity.x != 0) xMod = _velocity.x/Math.abs(_velocity.x);
+                theta = Math.atan2(_velocity.y, _velocity.x);
+                _velocity.x -= _decel*time*Math.cos(theta);
+                _velocity.y -= _decel*time*Math.sin(theta);
 
-                if(_velocity.x != 0) theta = Math.atan(Math.abs(_velocity.y/_velocity.x));
-                else theta = Math.PI/2;
-
-                _velocity.x -= _decel*time*xMod*Math.cos(theta);
-                _velocity.y -= _decel*time*yMod*Math.sin(theta);
-
-                if(_velocity.x*xMod < 0) _velocity.x = 0;
-                if(_velocity.y*yMod < 0) _velocity.y = 0;
-
+                _velocity.x = (Math.abs(_velocity.x) < 1)?0:_velocity.x;
+                _velocity.y = (Math.abs(_velocity.y) < 1)?0:_velocity.y;
             }
 
-            obj.x += _velocity.x;
-            obj.y += _velocity.y;
+            obj.x += _velocity.x*time;
+            obj.y += _velocity.y*time;
         };
 
         // ================================================
@@ -99,4 +92,4 @@ this.cutie = this.cutie || {};
     }
 
     module.AsteroidMovement = AsteroidMovement;
-})(this.cutie);
+})(this.cutie.Behavior);

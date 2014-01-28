@@ -14,12 +14,13 @@
             {"x":0, "y":0},
             {"x":200, "y":0}
         ];
+        
         for (var i = 0; i < 1; i++) {
             var spidey = new cutie.Bitmap("assets/spiderman-ball.png");
             spidey.x = i * 70;
             spidey.y = i * 70;
             this.addChild(spidey);
-            spidey.addBehavior(new cutie.Route({"path": path, "repeat": -1}));
+            spidey.addBehavior(new cutie.Behavior.Route({"path": path, "repeat": -1}));
         }
     }
 

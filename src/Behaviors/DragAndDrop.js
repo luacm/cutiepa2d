@@ -1,4 +1,5 @@
 this.cutie = this.cutie || {};
+this.cutie.Behavior = this.cutie.Behavior || {};
 
 (function(module){
     /**
@@ -18,8 +19,8 @@ this.cutie = this.cutie || {};
         // PUBLIC METHODS
         // ================================================
         this.init = function(obj) {
-            obj.addEventListener('mousedown', mousedown.bind(this, obj), false);
-            obj.addEventListener('pressup', mouseup.bind(this, obj), false);
+            obj.addEventListener("mousedown", mousedown.bind(this, obj), false);
+            obj.addEventListener("pressup", mouseup.bind(this, obj), false);
         }
 
         this.clean = function(obj) {
@@ -49,4 +50,4 @@ this.cutie = this.cutie || {};
 
     // Copy our behavior into the module
     module.DragAndDrop = DragAndDrop;
-})(this.cutie);
+})(this.cutie.Behavior);
