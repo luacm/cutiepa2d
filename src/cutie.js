@@ -3,6 +3,9 @@
 // them use two different namespaces.
 this.cutie = createjs;
 
+/**
+ * @namespace cutie
+ */
 (function(module) {
     var _scenes = {};
     var _activeScene = {};
@@ -18,6 +21,10 @@ this.cutie = createjs;
     // ======================================================
     /**
      * Starts the game.
+     * @memberof cutie
+     * @function start
+     * @public
+     * @static
      * @param  {cutie.Scene} scene 
      *         The scene to start the game with.
      * @param  {Object} props
@@ -59,6 +66,10 @@ this.cutie = createjs;
      * Takes the specified scene and sets it as the active scene. This will
      * now be the scene that receives calls to its tick() function. If it is 
      * not already preloaded, it will be preloaded
+     * @memberof cutie
+     * @function setScene
+     * @public
+     * @static
      * @param {cutie.Scene} scene 
      *        The scene to be made active.
      * @param {Object} props 
@@ -92,6 +103,10 @@ this.cutie = createjs;
 
     /**
      * Adds the scene to the list of registered scenes.
+     * @memberof cutie
+     * @function registerScene
+     * @public
+     * @static
      * @param  {cutie.Scene} scene 
      *         The scene you want to register.
      * @param  {String} name
@@ -105,6 +120,14 @@ this.cutie = createjs;
         _scenes[name] = scene;
     }
 
+    /**
+     * Gets a references to the stage being managed by cutie.
+     * @memberof cutie
+     * @function getStage
+     * @public
+     * @static
+     * @return {createjs.Stage} A reference to the stage being managed by cutie.
+     */
     module.getStage = function() {
         return _stage;
     }
@@ -112,6 +135,11 @@ this.cutie = createjs;
     // ======================================================
     // PRIVATE
     // ======================================================
+    /**
+     * Description
+     * @private
+     * @param  {createjs.Event} e description
+     */
     function tick(e) {
         _activeScene._tickInternal(e);
         _stage.update();
@@ -123,6 +151,7 @@ this.cutie = createjs;
     /**
      * Preloads a list of scenes, and adds the preload event listeners
      * to the first scene in the list
+     * @private
      * @param  {cutie.Scene} scenes 
      *         List of scenes to be preloaded.
      */
@@ -152,6 +181,12 @@ this.cutie = createjs;
         }
     }
 
+    /**
+     * Description
+     * @private
+     * @param  {String[]} sceneNames description
+     * @return {cutie.Scene[]}       description
+     */
     function getScenes(sceneNames) {
         var scenes = [];
         for (var i = 0; i < sceneNames.length; i++) {
@@ -160,6 +195,12 @@ this.cutie = createjs;
         return scenes;
     }
 
+    /**
+     * Description
+     * @private
+     * @param  {String} sceneNames  description
+     * @return {cutie.Scene}        description
+     */
     function getScene(sceneName) {
         var scene = _scenes[sceneName];
         if (!scene) {
@@ -169,6 +210,11 @@ this.cutie = createjs;
         return scene;
     }
 
+    /**
+     * Description
+     * @private
+     * @param  {Object} props description
+     */
     function showFPS(props) {
         if (props && props.visible) {
             var size = props.size || "20px";
@@ -181,6 +227,10 @@ this.cutie = createjs;
         }
     }
 
+    /**
+     * Description
+     * @private
+     */
     function updateFPS() {
         var avg = _fps.sum/_fps.numTicks;
         var fps = 1000/avg;

@@ -22,6 +22,14 @@ module.exports = function(grunt) {
         dest: "build/cutiepa2d.js"
       }
     },
+    jsdoc : {
+        dist : {
+            src: ["src/*.js", "src/Behaviors/*.js"], 
+            options: {
+                destination: "doc"
+            }
+        }
+    },
     watch: {
       default: {
         files: ["src/**/*.js"],
@@ -37,7 +45,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-contrib-uglify");
   grunt.loadNpmTasks("grunt-contrib-watch");
   grunt.loadNpmTasks("grunt-contrib-concat");
+  grunt.loadNpmTasks("grunt-jsdoc");
 
   grunt.registerTask("default", ["concat"]);
-  grunt.registerTask("production", ["concat", "uglify"]);
+  grunt.registerTask("production", ["concat", "uglify", "jsdoc"]);
 }

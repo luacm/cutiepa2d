@@ -4,7 +4,8 @@ this.cutie.Behavior = this.cutie.Behavior || {};
 (function(module){
    
    /**
-    * Gives an object movement 
+    * Gives an object movement via an on-screen joystick.
+    * @constructor
     * @param {Object} props 
     *        speed:
     *        faceDirection:
