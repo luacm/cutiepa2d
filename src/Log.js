@@ -1,18 +1,56 @@
 this.cutie = this.cutie || {};
 
+/** 
+ * @namespace cutie.Log
+ */
 (function(module) {
 
     var Log = {};
 
-    // Debug constants
+    /**
+     * @constant {Number} VERBOSE
+     * @memberof cutie.Log
+     * @public
+     */
     Log.VERBOSE = 2;
+
+    /**
+     * @constant {Number} DEBUG
+     * @memberof cutie.Log
+     * @public
+     */
     Log.DEBUG = 3;
+
+    /**
+     * @constant {Number} INFO
+     * @memberof cutie.Log
+     * @public
+     */
     Log.INFO = 4;
+
+    /**
+     * @constant {Number} WARN
+     * @memberof cutie.Log
+     * @public
+     */
     Log.WARN = 5;
+
+    /**
+     * @constant {Number} ERROR
+     * @memberof cutie.Log
+     * @public
+     */
     Log.ERROR = 6;
 
-    // Debug level - determines what level of messages are printed
+    /**
+     * Determines what level of messages are printed
+     * @member {Number} level
+     * @memberof cutie.Log
+     * @static
+     * @default cutie.Log.DEBUG
+     */
     Log.level = Log.DEBUG;
+
 
     Log.v = function(message) {
         log(message, Log.VERBOSE);

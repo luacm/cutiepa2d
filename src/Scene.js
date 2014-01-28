@@ -9,7 +9,6 @@ this.cutie = this.cutie || {};
      * manages things like preloading and collision detection.
      * @memberof cutie
      * @class Scene
-     * @name Scene
      * @constructor
      */
     var Scene = function() {
