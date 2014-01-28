@@ -21,10 +21,11 @@ this.cutie.Behavior = this.cutie.Behavior || {};
         var _rightPressed = false;
 
         var props = props || {};
-        var _upKey = props.keys.up || cutie.KeyCodes.UP;
-        var _rightKey = props.keys.right || cutie.KeyCodes.RIGHT;
-        var _downKey = props.keys.down || cutie.KeyCodes.DOWN;
-        var _leftKey = props.keys.left || cutie.KeyCodes.LEFT;
+        var keys = props.keys || {};
+        var _upKey = keys.up || cutie.KeyCodes.UP;
+        var _rightKey = keys.right || cutie.KeyCodes.RIGHT;
+        var _downKey = keys.down || cutie.KeyCodes.DOWN;
+        var _leftKey = keys.left || cutie.KeyCodes.LEFT;
         
 
         var _speed = props.speed || 100;
@@ -63,7 +64,6 @@ this.cutie.Behavior = this.cutie.Behavior || {};
             if(evt.which == _downKey) _downPressed = true;
             if(evt.which == _leftKey) _leftPressed = true;
             if(evt.which == _rightKey) _rightPressed = true;
-            module.Log.v("keypress");
         }
 
         function keyrelease(evt) {

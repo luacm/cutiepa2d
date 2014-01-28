@@ -36,7 +36,12 @@ this.cutie.Behavior = this.cutie.Behavior || {};
         var _rotation = props.rotation || 90;
         var _accel = props.acceleration || 100;
         var _decel = props.deceleration || 40;
-        var _angOffset = props.angularOffset || 90;
+
+        var _angOffset;
+        if('angleOffset' in props)
+            _angOffset = props.angularOffset;
+        else
+            _angOffset = 90;
 
         var _velocity = {"x":0, "y":0};//speed, orientation
 

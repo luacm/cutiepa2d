@@ -27,7 +27,11 @@ this.cutie.Behavior = this.cutie.Behavior || {};
 
         var _setCenter = props.setCenter || true;
         var _targetObj = props.targetObj || false;
-        var _speed = props.speed || 100;
+        var _speed;
+        if("speed" in props)
+            _speed = props.speed;
+        else
+            _speed = 100;
         var _followDistance = props.distance || 0;
         var _angOffset = props.angleOffset || 90;
 
