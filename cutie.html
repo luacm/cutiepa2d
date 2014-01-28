@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Namespace: cutie</title>
+    
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+    
+    <h1 class="page-title">Namespace: cutie</h1>
+    
+    
+
+
+
+<section>
+    
+<header>
+    <h2>
+    cutie
+    </h2>
+    
+</header>  
+
+<article>
+    <div class="container-overview">
+    
+    
+    
+        
+        
+        
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="cutie.js.html">cutie.js</a>, <a href="cutie.js.html#line6">line 6</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+        
+        
+    
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">Classes</h3>
+        
+        <dl>
+            <dt><a href="cutie.Scene.html">Scene</a></dt>
+            <dd></dd>
+        </dl>
+    
+    
+    
+        <h3 class="subsection-title">Namespaces</h3>
+        
+        <dl>
+            <dt><a href="namespaces.html#cutie.Behavior"><a href="cutie.Behavior.html">Behavior</a></a></dt>
+            <dd></dd>
+        
+            <dt><a href="namespaces.html#cutie.KeyCodes"><a href="cutie.KeyCodes.html">KeyCodes</a></a></dt>
+            <dd></dd>
+        
+            <dt><a href="namespaces.html#cutie.Log"><a href="cutie.Log.html">Log</a></a></dt>
+            <dd></dd>
+        
+            <dt><a href="namespaces.html#cutie.Util"><a href="cutie.Util.html">Util</a></a></dt>
+            <dd></dd>
+        </dl>
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">Methods</h3>
+        
+        <dl>
+            
+<dt>
+    <h4 class="name" id="getStage"><span class="type-signature">&lt;static> </span>getStage<span class="signature">()</span><span class="type-signature"> &rarr; {createjs.Stage}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Gets a references to the stage being managed by cutie.
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="cutie.js.html">cutie.js</a>, <a href="cutie.js.html#line123">line 123</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    A reference to the stage being managed by cutie.
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">createjs.Stage</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="registerScene"><span class="type-signature">&lt;static> </span>registerScene<span class="signature">(scene, name)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Adds the scene to the list of registered scenes.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>scene</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="cutie.Scene.html">cutie.Scene</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The scene you want to register.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The name you want to associate with the scene. This is the
+        name you will use when setting and preloading scenes.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="cutie.js.html">cutie.js</a>, <a href="cutie.js.html#line104">line 104</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="setScene"><span class="type-signature">&lt;static> </span>setScene<span class="signature">(scene, props)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Takes the specified scene and sets it as the active scene. This will
+now be the scene that receives calls to its tick() function. If it is 
+not already preloaded, it will be preloaded
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>scene</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="cutie.Scene.html">cutie.Scene</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The scene to be made active.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>props</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">A series of properties that affects how the scene is set.
+       "preloadScenes": Which additional scenes to preload when you 
+                        load this scene. The progress bar for this 
+                        scene will be representative of this list's
+                        preload progress.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="cutie.js.html">cutie.js</a>, <a href="cutie.js.html#line65">line 65</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="start"><span class="type-signature">&lt;static> </span>start<span class="signature">(scene, props)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Starts the game.
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>scene</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="cutie.Scene.html">cutie.Scene</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The scene to start the game with.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>props</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">A series of properties that affects how the scene is set.
+        "canvasId": The id of the canvas element you want to display
+                    your game in.
+        "preloadScenes": Which additional scenes to preload when you 
+                         load this scene. The progress bar for this 
+                         scene will be representative of this list's
+                         preload progress.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="cutie.js.html">cutie.js</a>, <a href="cutie.js.html#line22">line 22</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        </dl>
+    
+    
+    
+    
+    
+</article>
+
+</section>  
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Index</a></h2><h3>Classes</h3><ul><li><a href="cutie.Behavior.JoystickMovement.html">JoystickMovement</a></li><li><a href="cutie.Scene.html">Scene</a></li></ul><h3>Namespaces</h3><ul><li><a href="cutie.html">cutie</a></li><li><a href="cutie.Behavior.html">Behavior</a></li><li><a href="cutie.KeyCodes.html">KeyCodes</a></li><li><a href="cutie.Log.html">Log</a></li><li><a href="cutie.Util.html">Util</a></li></ul>
+</nav>
+
+<br clear="both">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.2</a> on Tue Jan 28 2014 09:01:05 GMT-0500 (EST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
