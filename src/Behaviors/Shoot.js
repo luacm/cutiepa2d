@@ -37,46 +37,23 @@ this.cutie.Behavior = this.cutie.Behavior || {};
         var _key = props.fireKey || cutie.KeyCodes.SPACE;
         var _rate = 1/props.fireRate || 1/5; //seconds per bullet
         var _origin = props.origin || new cutie.Vector(0, 0);
-        //_origin = Math.sqrt(_origin.x*_origin.x + _origin.y*_origin.y);
+
         _origin = new cutie.Vector(props.origin.x, props.origin.y);
 
-        var _angOffset;
-        if('angleOffset' in props)
-            _angOffset = props.angleOffset;
-        else
-            _angOffset = 90;
-
+        var _angOffset = ('angleOffset' in props)?props.angleOffset:90;
         var _delay = ('delay' in props)? props.delay:0;
-
-        var _speed;
-        if('speed' in props)
-            _speed = props.speed;
-        else
-            _speed = 300;
-
-        var _max;
-        if('max' in props)
-            _max = props.max;
-        else
-            _max = 10;
-
-        var _useMouse;
-        if('useMouse' in props)
-            _useMouse = props.useMouse;
-        else
-            _useMouse = false;
-
-        var _cont;
-        if('fireContinuous' in props)
-            _cont = props.fireContinuous;
-        else
-            _cont = false;
+        var _speed = ('speed' in props)? props.speed:300;
+        var _max = ('max' in props)? props.max:10;
+        var _useMouse = ('useMouse' in props)? props.useMouse:false;
+        var _cont = ('fireContinuous' in props)? props.fireContinuous:false;
 
         var _fired = false;
         var _pressTime = 0;
         var _firePressed = false;
         var _bullets = [];
+        var _bulletPool = [];
         var _scene = cutie.getActiveScene(); //needed to add bullets, consider replacing with a factory
+        var _stage = cutie.getStage();
 
         // ================================================
         // PUBLIC METHODS
@@ -105,13 +82,13 @@ this.cutie.Behavior = this.cutie.Behavior || {};
 
             if(_firePressed) {
                 if(_cont) {
+                    _pressTime += time;
                     while(_pressTime > 0) {
                         _pressTime -= _rate;
                         addBullet(obj);
                     }
                 }
                 else if(!_fired) {
-                    _delayTimer = _delay;
                     _fired = true;
                     addBullet(obj);
                 }
@@ -155,33 +132,56 @@ this.cutie.Behavior = this.cutie.Behavior || {};
                 _bullets.splice(0, 1);
             }
 
-            var clone = _bullet.clone();
-            clone.x = obj.x;
-            clone.y = obj.y;
-            clone.rotation = obj.rotation;
-            clone.regX = clone.image.width/2;
-            clone.regY = clone.image.height/2;
-            var rotation = (clone.rotation - _angOffset)*Math.PI/180;
+            var rotation = (obj.rotation - _angOffset)*Math.PI/180;
 
-            var nb = {
-                "obj": clone, 
-                "pos": _origin.rotate(clone.rotation).add(new cutie.Vector(obj.x, obj.y)), 
-                "dir": new cutie.Vector(_speed*Math.cos(rotation), _speed*Math.sin(rotation))
-            };
+            var nb;
+            if(_bulletPool.length > 0) {
+                nb = _bulletPool[0]; //first bullet to recycle
+                _bulletPool.splice(0, 1); //remove first
+                nb.obj.x = obj.x;
+                nb.obj.y = obj.y;
+                nb.obj.rotation = obj.rotation;
+                nb.pos = _origin.rotate(obj.rotation).add(new cutie.Vector(obj.x, obj.y));
+                nb.dir = new cutie.Vector(_speed*Math.cos(rotation), _speed*Math.sin(rotation));
+            }
+            else {
+                var clone = _bullet.clone();
+                clone.x = obj.x;
+                clone.y = obj.y;
+                clone.rotation = obj.rotation;
+                clone.regX = clone.image.width/2;
+                nb = {
+                    "obj": clone, 
+                    "pos": _origin.rotate(obj.rotation).add(new cutie.Vector(obj.x, obj.y)), 
+                    "dir": new cutie.Vector(_speed*Math.cos(rotation), _speed*Math.sin(rotation))
+                };
+                clone.regY = clone.image.height/2;
+            }
             _bullets.push(nb);
             _scene.addChild(nb.obj);
         }
 
         function updateBullets(time) {
-            for(var i = 0, len = _bullets.length; i < len; i++) {
+            var _stageWidth = _stage.canvas.width;
+            var _stageHeight = _stage.canvas.height;
+            var i = _bullets.length;
+            while(--i >= 0) {
                 var b = _bullets[i];
                 b.pos = b.pos.add(b.dir.scale(time));
+
+                if(b.pos.x < 0 || b.pos.x > _stageWidth || b.pos.y < 0 || b.pos.y > _stageHeight) {
+                    removeBullet(_bullets[i]);
+                    _bullets.splice(i, 1);
+                    cutie.Log.v("out of bounds");
+                }
+
                 b.obj.x = b.pos.x;
                 b.obj.y = b.pos.y;
             }
         }
 
         function removeBullet(bullet) {
+            _bulletPool.push(bullet);
             _scene.removeChild(bullet.obj);
         }
 
