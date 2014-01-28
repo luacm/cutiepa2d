@@ -21,6 +21,7 @@
             "origin": {"x": 50, "y": -50}
         };
         spidey.addBehavior(new cutie.Behavior.Shoot(shootProps));
+
     }
 
     cutie.registerScene(scene, "title");

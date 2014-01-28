@@ -7,7 +7,6 @@ window.onload = function() {
 
     // Kick-off the game
     cutie.start("title", {
-        "preloadScenes": ["game"],
         "debugFPS": {
             "visible": true,
         }

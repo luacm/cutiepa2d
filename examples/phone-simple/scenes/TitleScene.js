@@ -13,7 +13,7 @@
             spidey.x = Math.random() * 550 + 10;
             spidey.y = Math.random() * 850 + 10;
             this.addChild(spidey);     
-            spidey.addBehavior(new cutie.DragAndDrop());
+            spidey.addBehavior(new cutie.Behavior.DragAndDrop());
         }
     }
 
