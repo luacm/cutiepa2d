@@ -1,28 +1,27 @@
 this.cutie = this.cutie || {};
 this.cutie.Behavior = this.cutie.Behavior || {};
 
+
 (function(module){
    
    /**
-    * Gives an object movement via an on-screen joystick.
+    * Gives an object analog movement via an on-screen joystick.
+    * @memberof cutie.Behavior
     * @constructor
-    * @param {Object} props 
-    *        speed:
-    *        faceDirection:
-    *        position: {
-    *            x:
-    *            y:
-    *        }
-    *        baseDisk: {
-    *            color: 
-    *            radius:
-    *            alpha:
-    *        }
-    *        pointerDisk: {
-    *            color: 
-    *            radius:
-    *            alpha:
-    *        }
+    * @param {Object} [props] The properties being passed in.
+    * @param {Number} [props.speed=5] The maximum speed the object can travel.
+    * @param {Boolean} [props.faceDirection=false] Whether or not you want the object to face in the direction it's moving/
+    * @param {Number} [props.position] The position of the center of the joystick.
+    * @param {Number} [props.position.x] The x-coordinate of the center of the joystick.
+    * @param {Number} [props.position.y] The y-coordinate of the center of the joystick.
+    * @param {Number} [props.baseDisk] Properties of the lower base disk of the joystick - the part that doens't move.
+    * @param {String} [props.baseDisk.color="#ccc"] What color the base disk should be.
+    * @param {Number} [props.baseDisk.radius=60] The radius of the base disk.
+    * @param {Number} [props.baseDisk.alpha=0.3] The level of transparency of the base disk.
+    * @param {Number} [props.pointerDisk] Properties of the upper pointer disk of the joystick - the part that moves.
+    * @param {String} [props.pointerDisk.color="#aaa"] What color the pointer disk should be.
+    * @param {Number} [props.pointerDisk.radius=30] The radius of the pointer disk.
+    * @param {Number} [props.pointerDisk.alpha=0.3] The level of transparency of the pointer disk.
     */
     var JoystickMovement = function(props) {
         if (!props.baseDisk) props.baseDisk = {};
