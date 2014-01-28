@@ -98,6 +98,14 @@ this.cutie = createjs;
         return _stage;
     }
 
+    /**
+     * Gets a references to the active scene being managed by cutie.
+     * @memberof cutie
+     * @function getActiveScene
+     * @public
+     * @static
+     * @return {cutie.Scene} A reference to the active scene being managed by cutie.
+     */
     module.getActiveScene = function() {
         return _activeScene;
     }
@@ -140,6 +148,7 @@ this.cutie = createjs;
             scenes[0].init();
         }
     }
+
 
     function getScenes(sceneNames) {
         var scenes = [];
