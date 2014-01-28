@@ -51,23 +51,62 @@ this.cutie = this.cutie || {};
      */
     Log.level = Log.DEBUG;
 
-
+    /**
+     * Logs a message with level cutie.Log.VERBOSE.
+     * @memberof cutie.Log
+     * @function v
+     * @public
+     * @static
+     * @param  {String} message The message you want to log.
+     */
     Log.v = function(message) {
         log(message, Log.VERBOSE);
     }
 
+    /**
+     * Logs a message with level cutie.Log.DEBUG.
+     * @memberof cutie.Log
+     * @function d
+     * @public
+     * @static
+     * @param  {String} message The message you want to log.
+     */
     Log.d = function(message) {
         log(message, Log.DEBUG);
     }
 
+    /**
+     * Logs a message with level cutie.Log.INFO.
+     * @memberof cutie.Log
+     * @function i
+     * @public
+     * @static
+     * @param  {String} message The message you want to log.
+     */
     Log.i = function(message) {
         log(message, Log.INFO);
     }
 
+    /**
+     * Logs a message with level cutie.Log.WARN.
+     * @memberof cutie.Log
+     * @function w
+     * @public
+     * @static
+     * @param  {String} message The message you want to log.
+     */
     Log.w = function(message) {
         log(message, Log.WARN);
     }
 
+    /**
+     * Logs a message with level cutie.Log.ERROR.
+     * @memberof cutie.Log
+     * @function e
+     * @public
+     * @static
+     * @param  {String} message The message you want to log.
+     */
     Log.e = function(message) {
         log(message, Log.ERRO);
     }
