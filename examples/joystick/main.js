@@ -7,8 +7,9 @@ window.onload = function() {
 
     // Kick-off the game
     cutie.start("title", {
+        "scaleType": cutie.ScaleType.LETTERBOX,
         "debugFPS": {
-            "visible": true,
+            "visible": true
         }
     });
 }

@@ -16,6 +16,19 @@ this.cutie = createjs;
     module.WIDTH = 0;
     module.HEIGHT = 0;
 
+    /**
+     * A list of constants for declaring how you want to scale your game.
+     * @namespace cutie.ScaleType
+     * @property {Number} NONE Do not scale.
+     * @property {Number} STRETCH Make it take up the full screen, even if it ruins the aspect ratio.
+     * @property {Number} LETTERBOX Make it take up the full screen, but preserve aspect ratio by using black bars.
+     */
+    module.ScaleType = {
+        "NONE": 0,
+        "STRETCH": 1,
+        "LETTERBOX": 2
+    }
+
     // ======================================================
     // PUBLIC
     // ======================================================
@@ -27,14 +40,18 @@ this.cutie = createjs;
      * @static
      * @param  {cutie.Scene} scene 
      *         The scene to start the game with.
-     * @param  {Object} props
-     *         A series of properties that affects how the scene is set.
-     *         "canvasId": The id of the canvas element you want to display
-     *                     your game in.
-     *         "preloadScenes": Which additional scenes to preload when you 
-     *                          load this scene. The progress bar for this 
-     *                          scene will be representative of this list's
-     *                          preload progress.
+     * @param  {Object} [props={}] A series of properties that affects the overall game and how the scene is set.
+     * @param  {String} [props.canvasId="js-canvas"] The id of the canvas element you want to display your game in.
+     * @param  {cutie.Scene[]} [props.preloadScenes=[]] Which additional scenes to preload when you load this scene. 
+     *                                               The progress bar for this scene will be representative of this 
+     *                                               list's preload progress.
+     * @param  {Object} [props.debugFPS={}] A set of options related to showing the frames per second (FPS) on-screen
+     *                                      for debug purposes.
+     * @param  {String} [props.debugFPS.size="20px"] The size of the FPS text. You must include units.
+     * @param  {String} [props.debugFPS.color="#000000"] The color of the FPS text. Any valid CSS color should work.
+     * @param  {Number} [props.debugFPS.updateInterval=500] How often the FPS should update. Making the update interval too
+     *                                                      short will just make the number unreadable (it'll change too fast).
+     * @param  {Number} [props.scaleType=cutie.ScaleType.NONE] How you want the canvas to scale in the window. Does not impact the in-game with and height.
      */
     module.start = function(scene, props) {
         cutie.Log.v("cutie.start()");
@@ -48,6 +65,7 @@ this.cutie = createjs;
         createjs.Touch.enable(_stage);
         createjs.Ticker.timingMode = createjs.Ticker.RAF_SYNCHED;
         _hud = new createjs.Container();
+        if (props.scaleType != 0) initScaleCanvas(props.scaleType);
 
         // Fill in stuff using the properties the user gave
         createjs.Ticker.setFPS(props.fps || 60);
@@ -249,6 +267,49 @@ this.cutie = createjs;
         _fps.textView.text = fps + " fps";
 
         _fps.sum = _fps.numTicks = 0;
+    }
+
+    function initScaleCanvas(scaleType) {
+        window.onresize = scaleCanvas.bind(this, scaleType);
+        scaleCanvas(scaleType);
+    }
+
+    function scaleCanvas(scaleType, e) {
+        var body = document.getElementsByTagName("body")[0];
+
+        if (scaleType == cutie.ScaleType.STRETCH || scaleType === cutie.ScaleType.LETTERBOX) {
+            body.style.padding = "0";
+            body.style.margin = "0";
+        }
+
+        if (scaleType == cutie.ScaleType.STRETCH) {
+            _canvas.style.width = "100%";
+            _canvas.style.height = "100%";
+        }
+        else if (scaleType == cutie.ScaleType.LETTERBOX) {
+            // Give us a black background for the letterbox
+            body.style.background = "#000000";
+
+            // Calculate the percentage difference between canvas width and window width
+            var diff = cutie.WIDTH / window.innerWidth;
+
+            // Scale by height
+            if ((cutie.HEIGHT / diff) > window.innerHeight) {
+                var newWidth = cutie.WIDTH * window.innerHeight/cutie.HEIGHT;
+                _canvas.style.width = newWidth;
+                _canvas.style.height = "100%";
+                _canvas.style.marginLeft = (window.innerWidth - newWidth)/2;
+                _canvas.style.marginTop = 0;
+            }
+            // Scale by width
+            else {
+                var newHeight = cutie.HEIGHT * window.innerWidth/cutie.WIDTH;
+                _canvas.style.width = "100%";
+                _canvas.style.height = newHeight;
+                _canvas.style.marginTop = (window.innerHeight - newHeight)/2;
+                _canvas.style.marginLeft = 0;
+            }
+        }
     }
 
 })(this.cutie);
