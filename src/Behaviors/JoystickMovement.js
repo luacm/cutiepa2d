@@ -11,6 +11,8 @@ this.cutie.Behavior = this.cutie.Behavior || {};
     * @param {Object} [props] The properties being passed in.
     * @param {Number} [props.speed=5] The maximum speed the object can travel.
     * @param {Boolean} [props.faceDirection=false] Whether or not you want the object to face in the direction it's moving/
+    * @param {Number} [props.angleOffset=90] This is the following orientation where 90 is straight up, 
+    *     the zero point is the cartesian positive x axis and degrees rotate counter-clockwise up from this x axis. 
     * @param {Number} [props.position] The position of the center of the joystick.
     * @param {Number} [props.position.x] The x-coordinate of the center of the joystick.
     * @param {Number} [props.position.y] The y-coordinate of the center of the joystick.
@@ -35,7 +37,7 @@ this.cutie.Behavior = this.cutie.Behavior || {};
         var _isDragging = false;
         var _speed = props.speed || 5;
         var _faceDirection = props.faceDirection || false;
-
+        var _angleOffset = ('angleOffset' in props)?props.angleOffset:90;
 
         // ================================================
         // PUBLIC METHODS
@@ -81,7 +83,7 @@ this.cutie.Behavior = this.cutie.Behavior || {};
                 _pointerDisk.y = stage.mouseY - _pointerDisk.clickOffsetY;
 
                 var angle = cutie.Util.angle(_pointerDisk, _baseDisk);
-                if (_faceDirection) obj.rotation = angle * 180/Math.PI;
+                if (_faceDirection) obj.rotation = angle * 180/Math.PI + _angleOffset;
 
                 // Ensure it stays in bounds of the _baseDisk
                 if (cutie.Util.distance(_pointerDisk, _baseDisk) > _baseDisk.radius) {
