@@ -106,6 +106,9 @@
             <dt><a href="namespaces.html#cutie.Log"><a href="cutie.Log.html">Log</a></a></dt>
             <dd></dd>
         
+            <dt><a href="namespaces.html#cutie.ScaleType"><a href="cutie.ScaleType.html">ScaleType</a></a></dt>
+            <dd></dd>
+        
             <dt><a href="namespaces.html#cutie.Util"><a href="cutie.Util.html">Util</a></a></dt>
             <dd></dd>
         </dl>
@@ -160,7 +163,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="cutie.js.html">cutie.js</a>, <a href="cutie.js.html#line135">line 135</a>
+        <a href="cutie.js.html">cutie.js</a>, <a href="cutie.js.html#line153">line 153</a>
     </li></ul></dd>
     
     
@@ -251,7 +254,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="cutie.js.html">cutie.js</a>, <a href="cutie.js.html#line123">line 123</a>
+        <a href="cutie.js.html">cutie.js</a>, <a href="cutie.js.html#line141">line 141</a>
     </li></ul></dd>
     
     
@@ -414,7 +417,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="cutie.js.html">cutie.js</a>, <a href="cutie.js.html#line104">line 104</a>
+        <a href="cutie.js.html">cutie.js</a>, <a href="cutie.js.html#line122">line 122</a>
     </li></ul></dd>
     
     
@@ -560,7 +563,7 @@ not already preloaded, it will be preloaded
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="cutie.js.html">cutie.js</a>, <a href="cutie.js.html#line65">line 65</a>
+        <a href="cutie.js.html">cutie.js</a>, <a href="cutie.js.html#line83">line 83</a>
     </li></ul></dd>
     
     
@@ -588,7 +591,7 @@ not already preloaded, it will be preloaded
         
             
 <dt>
-    <h4 class="name" id="start"><span class="type-signature">&lt;static> </span>start<span class="signature">(scene, props)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="start"><span class="type-signature">&lt;static> </span>start<span class="signature">(scene, <span class="optional">props</span>)</span><span class="type-signature"></span></h4>
     
     
 </dt>
@@ -618,7 +621,11 @@ not already preloaded, it will be preloaded
 		<th>Type</th>
 		
 		
+		<th>Argument</th>
 		
+		
+		
+		<th>Default</th>
 		
 		
 		<th class="last">Description</th>
@@ -643,7 +650,19 @@ not already preloaded, it will be preloaded
             </td>
             
             
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
             
+            
+            
+                <td class="default">
+                
+                </td>
             
             
             <td class="description last">The scene to start the game with.</td>
@@ -666,16 +685,361 @@ not already preloaded, it will be preloaded
             </td>
             
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
             
             
             
-            <td class="description last">A series of properties that affects how the scene is set.
-        "canvasId": The id of the canvas element you want to display
-                    your game in.
-        "preloadScenes": Which additional scenes to preload when you 
-                         load this scene. The progress bar for this 
-                         scene will be representative of this list's
-                         preload progress.</td>
+                <td class="default">
+                
+                    {}
+                
+                </td>
+            
+            
+            <td class="description last">A series of properties that affects the overall game and how the scene is set.
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		<th>Default</th>
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>canvasId</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    "js-canvas"
+                
+                </td>
+            
+            
+            <td class="description last">The id of the canvas element you want to display your game in.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>preloadScenes</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">cutie.Scene[]</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    []
+                
+                </td>
+            
+            
+            <td class="description last">Which additional scenes to preload when you load this scene. 
+                                              The progress bar for this scene will be representative of this 
+                                              list's preload progress.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>debugFPS</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    {}
+                
+                </td>
+            
+            
+            <td class="description last">A set of options related to showing the frames per second (FPS) on-screen
+                                     for debug purposes.
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		<th>Default</th>
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>size</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    "20px"
+                
+                </td>
+            
+            
+            <td class="description last">The size of the FPS text. You must include units.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>color</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    "#000000"
+                
+                </td>
+            
+            
+            <td class="description last">The color of the FPS text. Any valid CSS color should work.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>updateInterval</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    500
+                
+                </td>
+            
+            
+            <td class="description last">How often the FPS should update. Making the update interval too
+                                                     short will just make the number unreadable (it'll change too fast).</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+            </td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>scaleType</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    cutie.ScaleType.NONE
+                
+                </td>
+            
+            
+            <td class="description last">How you want the canvas to scale in the window. Does not impact the in-game with and height.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+            </td>
         </tr>
 	
 	
@@ -706,7 +1070,7 @@ not already preloaded, it will be preloaded
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="cutie.js.html">cutie.js</a>, <a href="cutie.js.html#line22">line 22</a>
+        <a href="cutie.js.html">cutie.js</a>, <a href="cutie.js.html#line35">line 35</a>
     </li></ul></dd>
     
     
@@ -747,13 +1111,13 @@ not already preloaded, it will be preloaded
 </div>
 
 <nav>
-    <h2><a href="index.html">Index</a></h2><h3>Classes</h3><ul><li><a href="cutie.Behavior.AsteroidMovement.html">AsteroidMovement</a></li><li><a href="cutie.Behavior.DPadMovement.html">DPadMovement</a></li><li><a href="cutie.Behavior.DragAndDrop.html">DragAndDrop</a></li><li><a href="cutie.Behavior.EightDirectionalMovement.html">EightDirectionalMovement</a></li><li><a href="cutie.Behavior.Follow.html">Follow</a></li><li><a href="cutie.Behavior.JoystickMovement.html">JoystickMovement</a></li><li><a href="cutie.Behavior.Route.html">Route</a></li><li><a href="cutie.Behavior.Shoot.html">Shoot</a></li><li><a href="cutie.Scene.html">Scene</a></li></ul><h3>Namespaces</h3><ul><li><a href="cutie.html">cutie</a></li><li><a href="cutie.Behavior.html">Behavior</a></li><li><a href="cutie.KeyCodes.html">KeyCodes</a></li><li><a href="cutie.Log.html">Log</a></li><li><a href="cutie.Util.html">Util</a></li></ul>
+    <h2><a href="index.html">Index</a></h2><h3>Classes</h3><ul><li><a href="cutie.Behavior.AsteroidMovement.html">AsteroidMovement</a></li><li><a href="cutie.Behavior.DPadMovement.html">DPadMovement</a></li><li><a href="cutie.Behavior.DragAndDrop.html">DragAndDrop</a></li><li><a href="cutie.Behavior.EightDirectionalMovement.html">EightDirectionalMovement</a></li><li><a href="cutie.Behavior.Follow.html">Follow</a></li><li><a href="cutie.Behavior.JoystickMovement.html">JoystickMovement</a></li><li><a href="cutie.Behavior.Route.html">Route</a></li><li><a href="cutie.Behavior.Shoot.html">Shoot</a></li><li><a href="cutie.Scene.html">Scene</a></li></ul><h3>Namespaces</h3><ul><li><a href="cutie.html">cutie</a></li><li><a href="cutie.Behavior.html">Behavior</a></li><li><a href="cutie.KeyCodes.html">KeyCodes</a></li><li><a href="cutie.Log.html">Log</a></li><li><a href="cutie.ScaleType.html">ScaleType</a></li><li><a href="cutie.Util.html">Util</a></li></ul>
 </nav>
 
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.2</a> on Wed Jan 29 2014 10:54:54 GMT-0500 (EST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.2</a> on Wed Jan 29 2014 16:32:13 GMT-0500 (EST)
 </footer>
 
 <script> prettyPrint(); </script>
