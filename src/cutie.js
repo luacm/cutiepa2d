@@ -192,16 +192,12 @@ this.cutie = createjs;
         }
     }
 
-<<<<<<< HEAD
-
-=======
     /**
      * Description
      * @private
      * @param  {String[]} sceneNames description
      * @return {cutie.Scene[]}       description
      */
->>>>>>> master
     function getScenes(sceneNames) {
         var scenes = [];
         for (var i = 0; i < sceneNames.length; i++) {
