@@ -11,11 +11,9 @@ this.cutie.Behavior = this.cutie.Behavior || {};
      * @memberof cutie.Behavior
      * @constructor
      * @param {Object} [props] The properties being passed in.
-     * @param {Object} props
-     * @param {Object} [props.keys={'UpArrow','RightArrow','LeftArrow'}] The keycodes for directional movement. {forward, turnRight, turnLeft}
-
-     *        keys: {up, down, left, right}. Keycodes for directional movement
-     *        speed: Number. Speed in px/s.
+     * @param {Number Array} [props.keys={'UpArrow','RightArrow','LeftArrow'}] The keycodes for directional movement. {forward, turnRight, turnLeft}
+     * @param {Number} [props.speed=100] Speed in px/s.
+     *        
      */
   
     var EightDirectionalMovement = function(props) {

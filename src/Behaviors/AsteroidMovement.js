@@ -10,7 +10,7 @@ this.cutie.Behavior = this.cutie.Behavior || {};
      * @memberof cutie.Behavior
      * @constructor
      * @param {Object} [props] The properties being passed in.
-     * @param {Object} [props.keys={'W','D','A'}] The keycodes for directional movement. {forward, turnRight, turnLeft}
+     * @param {Number Array} [props.keys={'UpArrow','RightArrow','LeftArrow'}] The keycodes for directional movement. {forward, turnRight, turnLeft}
      * @param {Number} [props.acceleration = 5] Speed gained in pixels/s^2.
      * @param {Number} [props.deceleration=1] Speed lost in pixels/s^2 (when no key is pressed).
      * @param {Number} [props.rotation=90] Rotation speed in deg/s.
@@ -26,9 +26,9 @@ this.cutie.Behavior = this.cutie.Behavior || {};
         
         var props = props || {};
         var keys = props.keys || {};
-        var _forwardKey = keys.forward || cutie.KeyCodes.W;
-        var _rightKey = keys.turnRight || cutie.KeyCodes.D;
-        var _leftKey = keys.turnLeft || cutie.KeyCodes.A;
+        var _forwardKey = keys.forward || cutie.KeyCodes.UP;
+        var _rightKey = keys.turnRight || cutie.KeyCodes.RIGHT;
+        var _leftKey = keys.turnLeft || cutie.KeyCodes.LEFT;
 
         var _setCenter = props.setCenter || true;
 
