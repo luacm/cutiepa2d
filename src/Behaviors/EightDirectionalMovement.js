@@ -6,9 +6,14 @@ this.cutie.Behavior = this.cutie.Behavior || {};
      * This behavior makes the object able to be move in eight
      * directions. Movement is equally fast in all directions
      * including diagonals
-     * @param {Object} props
-     *        keys: {up, down, left, right}. Keycodes for directional movement
-     *        speed: Number. Speed in px/s.
+     *
+     *
+     * @memberof cutie.Behavior
+     * @constructor
+     * @param {Object} [props] The properties being passed in.
+     * @param {Number Array} [props.keys={'UpArrow','RightArrow','LeftArrow'}] The keycodes for directional movement. {forward, turnRight, turnLeft}
+     * @param {Number} [props.speed=100] Speed in px/s.
+     *        
      */
   
     var EightDirectionalMovement = function(props) {
@@ -21,10 +26,11 @@ this.cutie.Behavior = this.cutie.Behavior || {};
         var _rightPressed = false;
 
         var props = props || {};
-        var _upKey = props.keys.up || cutie.KeyCodes.UP;
-        var _rightKey = props.keys.right || cutie.KeyCodes.RIGHT;
-        var _downKey = props.keys.down || cutie.KeyCodes.DOWN;
-        var _leftKey = props.keys.left || cutie.KeyCodes.LEFT;
+        var keys = props.keys || {};
+        var _upKey = keys.up || cutie.KeyCodes.UP;
+        var _rightKey = keys.right || cutie.KeyCodes.RIGHT;
+        var _downKey = keys.down || cutie.KeyCodes.DOWN;
+        var _leftKey = keys.left || cutie.KeyCodes.LEFT;
         
 
         var _speed = props.speed || 100;
@@ -63,7 +69,6 @@ this.cutie.Behavior = this.cutie.Behavior || {};
             if(evt.which == _downKey) _downPressed = true;
             if(evt.which == _leftKey) _leftPressed = true;
             if(evt.which == _rightKey) _rightPressed = true;
-            module.Log.v("keypress");
         }
 
         function keyrelease(evt) {
