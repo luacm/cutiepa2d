@@ -18,6 +18,9 @@ this.cutie.Behavior = this.cutie.Behavior || {};
      *
      */
 
+
+     //NEED TO ALLOW USERS TO ADD X Y COORDINATES TO GO TO A SPOT ON THE TARGET OBJECT
+
     var Follow = function(props) {
     	// ================================================
         // VARIABLE DECLARATIONS
@@ -73,9 +76,10 @@ this.cutie.Behavior = this.cutie.Behavior || {};
                 _targetCoord.y = stage.mouseY;
             }
             else{
-                _targetCoord.x = _targetObj.x;
-                _targetCoord.y = _targetObj.y;
+                _targetCoord.x = _targetObj.x + _targetObj.image.width/2;
+                _targetCoord.y = _targetObj.y + _targetObj.image.height/2;
             }
+            console.log(_targetObj.image.width);
         }
 
     }

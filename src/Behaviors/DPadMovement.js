@@ -28,12 +28,12 @@ this.cutie.Behavior = this.cutie.Behavior || {};
         // VARIABLE DECLARATIONS
         // ================================================
 
-        var _speed = if('speed' in props)?props.speed:100;
-        var _faceDirection = if('faceDirection' in props)?props.faceDirection:true;
-        var _buttonSize = if('buttonSize' in props)?props.buttonSize:40;
-        var _buttonColor = if('buttonColor' in props)?props.buttonColor:'#ccc';
-        var _normalAlpha = if('normalAlpha' in props)?props.normalAlpha:1;
-        var _pressedAlpha = if('pressedAlpha' in props)?props.pressedAlpha:0.5;
+        var _speed = ('speed' in props)?props.speed:100;
+        var _faceDirection = ('faceDirection' in props)?props.faceDirection:true;
+        var _buttonSize = ('buttonSize' in props)?props.buttonSize:40;
+        var _buttonColor = ('buttonColor' in props)?props.buttonColor:'#ccc';
+        var _normalAlpha = ('normalAlpha' in props)?props.normalAlpha:1;
+        var _pressedAlpha = ('pressedAlpha' in props)?props.pressedAlpha:0.5;
 
         var _downButton ={};
         var _leftButton ={};
@@ -120,7 +120,7 @@ this.cutie.Behavior = this.cutie.Behavior || {};
         // PRIVATE METHODS
         // ================================================
         function pointerMouseDown(obj, e) {
-            obj.alpha = _pressAlpha;
+            obj.alpha = _pressedAlpha;
             obj.pressed = true;
         }
 
