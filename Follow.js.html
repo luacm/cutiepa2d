@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Behaviors/Follow.js</title>
+    
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+    
+    <h1 class="page-title">Source: Behaviors/Follow.js</h1>
+    
+    
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source"><code>this.cutie = this.cutie || {};
+this.cutie.Behavior = this.cutie.Behavior || {};
+
+(function(module){
+    /**
+     * Gives an object the ability to follow another object or the mouse.
+     * 
+     * @memberof cutie.Behavior
+     * @constructor
+     * @param {Object} [props] The properties being passed in.
+     * @param {Boolean} [props.targetObj=false] This is the object that is going to be followed. 
+     *      If no object is passed in, it will follow the mouse. 
+     * @param {Number} [props.speed=100] This is an integer value giving the speed in px/s
+     * @param {Number} [props.distance=0] This is the follow distance in px. 
+     * @param {Boolean} [props.setCenter=true] This is signifies if the object doing the following should rotate around its center
+     * @param {Number} [props.angleOffset=90] This is the following orientation where 90 is straight up, 
+     *     the zero point is the cartesian positive x axis and degrees rotate counter-clockwise up from this x axis. 
+     *
+     */
+
+
+     //NEED TO ALLOW USERS TO ADD X Y COORDINATES TO GO TO A SPOT ON THE TARGET OBJECT
+
+    var Follow = function(props) {
+    	// ================================================
+        // VARIABLE DECLARATIONS
+        // ================================================
+        
+        var props = props || {};
+        var _targetCoord = {};
+
+        var _setCenter = ('setCenter' in props)?props.setCenter:true;
+        var _targetObj = ('targetObj' in props)?props.targetObj:false;
+        var _speed = ('speed' in props)?props.speed:100;
+        var _followDistance = ('distance' in props)?props.distance:0;
+        var _angOffset = ('angleOffset' in props)?props.angleOffset:90;
+
+        // ================================================
+        // PUBLIC METHODS
+        // ================================================
+        this.init = function(obj) {
+        	//If the mouse is the object
+            setCoords();
+            if(_setCenter) {
+                obj.regX = obj.image.width/2;
+                obj.regY = obj.image.height/2;
+            }
+        };
+
+        this.tick = function(obj, e) {
+            var dist = _speed*e.delta/1000;
+            setCoords();
+            var xDist = _targetCoord.x - obj.x;
+            var yDist = _targetCoord.y - obj.y;
+
+
+            var distanceFrom = Math.sqrt(xDist*xDist + yDist*yDist);
+            //Will keep correct orientation even if within the distance
+            var theta = Math.atan2(yDist,xDist);
+            obj.rotation = (theta * 180 / Math.PI) + _angOffset;
+            if(distanceFrom > _followDistance && dist &lt; distanceFrom) {
+            	obj.x += dist*Math.cos(theta);
+            	obj.y += dist*Math.sin(theta);
+            }
+
+        };
+
+        // ================================================
+        // PRIVATE METHODS
+        // ================================================
+        
+        function setCoords(){
+            if(!_targetObj) {
+                var stage = cutie.getStage();
+                _targetCoord.x = stage.mouseX;
+                _targetCoord.y = stage.mouseY;
+            }
+            else{
+                _targetCoord.x = _targetObj.x + _targetObj.image.width/2;
+                _targetCoord.y = _targetObj.y + _targetObj.image.height/2;
+            }
+            console.log(_targetObj.image.width);
+        }
+
+    }
+
+    module.Follow = Follow;
+})(this.cutie.Behavior);</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Index</a></h2><h3>Classes</h3><ul><li><a href="cutie.Behavior.AsteroidMovement.html">AsteroidMovement</a></li><li><a href="cutie.Behavior.DPadMovement.html">DPadMovement</a></li><li><a href="cutie.Behavior.DragAndDrop.html">DragAndDrop</a></li><li><a href="cutie.Behavior.EightDirectionalMovement.html">EightDirectionalMovement</a></li><li><a href="cutie.Behavior.Follow.html">Follow</a></li><li><a href="cutie.Behavior.JoystickMovement.html">JoystickMovement</a></li><li><a href="cutie.Behavior.Route.html">Route</a></li><li><a href="cutie.Behavior.Shoot.html">Shoot</a></li><li><a href="cutie.Scene.html">Scene</a></li></ul><h3>Namespaces</h3><ul><li><a href="cutie.html">cutie</a></li><li><a href="cutie.Behavior.html">Behavior</a></li><li><a href="cutie.KeyCodes.html">KeyCodes</a></li><li><a href="cutie.Log.html">Log</a></li><li><a href="cutie.Util.html">Util</a></li></ul>
+</nav>
+
+<br clear="both">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.2</a> on Wed Jan 29 2014 10:54:53 GMT-0500 (EST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Behaviors/EightDirectionalMovement.js</title>
+    
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+    
+    <h1 class="page-title">Source: Behaviors/EightDirectionalMovement.js</h1>
+    
+    
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source"><code>this.cutie = this.cutie || {};
+this.cutie.Behavior = this.cutie.Behavior || {};
+
+(function(module){
+    /**
+     * This behavior makes the object able to be move in eight
+     * directions. Movement is equally fast in all directions
+     * including diagonals
+     *
+     *
+     * @memberof cutie.Behavior
+     * @constructor
+     * @param {Object} [props] The properties being passed in.
+     * @param {Number[]} [props.keys=['UpArrow','RightArrow','LeftArrow']] The keycodes for directional movement. {forward, turnRight, turnLeft}
+     * @param {Number} [props.speed=100] Speed in px/s.
+     *        
+     */
+  
+    var EightDirectionalMovement = function(props) {
+        // ================================================
+        // VARIABLE DECLARATIONS
+        // ================================================
+        var _upPressed = false;
+        var _downPressed = false;
+        var _leftPressed = false;
+        var _rightPressed = false;
+
+        var props = props || {};
+        var keys = props.keys || {};
+        var _upKey = keys.up || cutie.KeyCodes.UP;
+        var _rightKey = keys.right || cutie.KeyCodes.RIGHT;
+        var _downKey = keys.down || cutie.KeyCodes.DOWN;
+        var _leftKey = keys.left || cutie.KeyCodes.LEFT;
+        
+
+        var _speed = props.speed || 100;
+        var _move = {};
+        // ================================================
+        // PUBLIC METHODS
+        // ================================================
+        this.init = function(obj) {
+            document.addEventListener("keydown", keypress, false);
+            document.addEventListener("keyup", keyrelease, false);
+        };
+
+        this.tick = function(obj, e) {
+            _move.x = 0;
+            _move.y = 0;
+            var time = e.delta/1000;
+            if(_upPressed) _move.y -= _speed*time;
+            if(_downPressed) _move.y += _speed*time;
+            if(_leftPressed) _move.x -= _speed*time;
+            if(_rightPressed) _move.x += _speed*time;
+
+            if(Math.abs(_move.x) + Math.abs(_move.y)==2*_speed*time) {
+                _move.x /= Math.sqrt(2);
+                _move.y /= Math.sqrt(2);
+            }
+
+            obj.x += _move.x;
+            obj.y += _move.y;
+        };
+
+        // ================================================
+        // PRIVATE METHODS
+        // ================================================
+        function keypress(evt) {
+            if(evt.which == _upKey) _upPressed = true;
+            if(evt.which == _downKey) _downPressed = true;
+            if(evt.which == _leftKey) _leftPressed = true;
+            if(evt.which == _rightKey) _rightPressed = true;
+        }
+
+        function keyrelease(evt) {
+            if(evt.which == _upKey) _upPressed = false;
+            if(evt.which == _downKey) _downPressed = false;
+            if(evt.which == _leftKey) _leftPressed = false;
+            if(evt.which == _rightKey) _rightPressed = false;
+        }
+
+    };
+
+    // Copy our behavior into the module
+    module.EightDirectionalMovement = EightDirectionalMovement;
+})(this.cutie.Behavior);</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Index</a></h2><h3>Classes</h3><ul><li><a href="cutie.Behavior.AsteroidMovement.html">AsteroidMovement</a></li><li><a href="cutie.Behavior.DPadMovement.html">DPadMovement</a></li><li><a href="cutie.Behavior.DragAndDrop.html">DragAndDrop</a></li><li><a href="cutie.Behavior.EightDirectionalMovement.html">EightDirectionalMovement</a></li><li><a href="cutie.Behavior.Follow.html">Follow</a></li><li><a href="cutie.Behavior.JoystickMovement.html">JoystickMovement</a></li><li><a href="cutie.Behavior.Route.html">Route</a></li><li><a href="cutie.Behavior.Shoot.html">Shoot</a></li><li><a href="cutie.Scene.html">Scene</a></li></ul><h3>Namespaces</h3><ul><li><a href="cutie.html">cutie</a></li><li><a href="cutie.Behavior.html">Behavior</a></li><li><a href="cutie.KeyCodes.html">KeyCodes</a></li><li><a href="cutie.Log.html">Log</a></li><li><a href="cutie.Util.html">Util</a></li></ul>
+</nav>
+
+<br clear="both">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.2</a> on Wed Jan 29 2014 10:54:53 GMT-0500 (EST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

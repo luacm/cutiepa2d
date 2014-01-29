@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Behaviors/AsteroidMovement.js</title>
+    
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+    
+    <h1 class="page-title">Source: Behaviors/AsteroidMovement.js</h1>
+    
+    
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source"><code>this.cutie = this.cutie || {};
+this.cutie.Behavior = this.cutie.Behavior || {};
+
+(function(module){
+    /**
+     * This behavior give the object controls like the classic asteroid game;
+     * thrust forward, turn left, and turn right. The center of rotation of the
+     * object must be set seperately.
+     * 
+     * @memberof cutie.Behavior
+     * @constructor
+     * @param {Object} [props] The properties being passed in.
+     * @param {Number[]} [props.keys=['UpArrow','RightArrow','LeftArrow']] The keycodes for directional movement. {forward, turnRight, turnLeft}
+     * @param {Number} [props.acceleration = 5] Speed gained in pixels/s^2.
+     * @param {Number} [props.deceleration=1] Speed lost in pixels/s^2 (when no key is pressed).
+     * @param {Number} [props.rotation=90] Rotation speed in deg/s.
+     * @param {Boolean} [props.setCenter=true] Automatically register the image center.
+     * @param {Number} [props.angleOffset=90] This is the orientation where 90 is straight up, 
+     *     the zero point is the cartesian positive x axis and degrees rotate counter-clockwise up from this x axis.
+     */
+
+    var AsteroidMovement = function(props) {
+    	// ================================================
+        // VARIABLE DECLARATIONS
+        // ================================================
+        
+        var props = props || {};
+        var keys = props.keys || {};
+        var _forwardKey = keys.forward || cutie.KeyCodes.UP;
+        var _rightKey = keys.turnRight || cutie.KeyCodes.RIGHT;
+        var _leftKey = keys.turnLeft || cutie.KeyCodes.LEFT;
+
+        var _setCenter = props.setCenter || true;
+
+        var _forwardDown = false;
+        var _rightDown = false;
+        var _leftDown = false;
+
+        var _rotation = props.rotation || 90;
+        var _accel = props.acceleration || 100;
+        var _decel = props.deceleration || 40;
+
+        var _angOffset;
+        if('angleOffset' in props)
+            _angOffset = props.angularOffset;
+        else
+            _angOffset = 90;
+
+        var _velocity = {"x":0, "y":0};//speed, orientation
+
+        // ================================================
+        // PUBLIC METHODS
+        // ================================================
+        this.init = function(obj) {
+            if(_setCenter) {
+                obj.regX = obj.image.width/2;
+                obj.regY = obj.image.height/2;
+            }
+            document.addEventListener("keydown", keydown, false);
+            document.addEventListener("keyup", keyup, false);
+        };
+
+        this.tick = function(obj, e) {
+            var time = e.delta/1000;
+            if(_rightDown) obj.rotation += time*_rotation;
+            if(_leftDown) obj.rotation -= time*_rotation;
+
+            var theta = (obj.rotation - _angOffset)*Math.PI/180;
+            if(_forwardDown) {
+                _velocity.x += _accel*time*Math.cos(theta);
+                _velocity.y += _accel*time*Math.sin(theta);
+            }
+            else {
+                theta = Math.atan2(_velocity.y, _velocity.x);
+                _velocity.x -= _decel*time*Math.cos(theta);
+                _velocity.y -= _decel*time*Math.sin(theta);
+
+                _velocity.x = (Math.abs(_velocity.x) &lt; 1)?0:_velocity.x;
+                _velocity.y = (Math.abs(_velocity.y) &lt; 1)?0:_velocity.y;
+            }
+
+            obj.x += _velocity.x*time;
+            obj.y += _velocity.y*time;
+        };
+
+        // ================================================
+        // PRIVATE METHODS
+        // ================================================
+        function keydown(e) {
+            if(e.which == _forwardKey) _forwardDown = true;
+            if(e.which == _rightKey) _rightDown = true;
+            if(e.which == _leftKey) _leftDown = true;
+        }
+
+        function keyup(e) {
+            if(e.which == _forwardKey) _forwardDown = false;
+            if(e.which == _rightKey) _rightDown = false;
+            if(e.which == _leftKey) _leftDown = false;
+        }
+    }
+
+    module.AsteroidMovement = AsteroidMovement;
+})(this.cutie.Behavior);</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Index</a></h2><h3>Classes</h3><ul><li><a href="cutie.Behavior.AsteroidMovement.html">AsteroidMovement</a></li><li><a href="cutie.Behavior.DPadMovement.html">DPadMovement</a></li><li><a href="cutie.Behavior.DragAndDrop.html">DragAndDrop</a></li><li><a href="cutie.Behavior.EightDirectionalMovement.html">EightDirectionalMovement</a></li><li><a href="cutie.Behavior.Follow.html">Follow</a></li><li><a href="cutie.Behavior.JoystickMovement.html">JoystickMovement</a></li><li><a href="cutie.Behavior.Route.html">Route</a></li><li><a href="cutie.Behavior.Shoot.html">Shoot</a></li><li><a href="cutie.Scene.html">Scene</a></li></ul><h3>Namespaces</h3><ul><li><a href="cutie.html">cutie</a></li><li><a href="cutie.Behavior.html">Behavior</a></li><li><a href="cutie.KeyCodes.html">KeyCodes</a></li><li><a href="cutie.Log.html">Log</a></li><li><a href="cutie.Util.html">Util</a></li></ul>
+</nav>
+
+<br clear="both">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.2</a> on Wed Jan 29 2014 10:54:53 GMT-0500 (EST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

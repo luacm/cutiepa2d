@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Namespace: Util</title>
+    <title>JSDoc: Class: EightDirectionalMovement</title>
     
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">Namespace: Util</h1>
+    <h1 class="page-title">Class: EightDirectionalMovement</h1>
     
     
 
@@ -27,9 +27,9 @@
     
 <header>
     <h2>
-        <span class="ancestors"><a href="cutie.html">cutie</a>.</span>
+        <span class="ancestors"><a href="cutie.html">cutie</a><a href="cutie.Behavior.html">.Behavior</a>.</span>
     
-    Util
+    EightDirectionalMovement
     </h2>
     
 </header>  
@@ -40,65 +40,8 @@
     
     
         
-        
-        
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Util.js.html">Util.js</a>, <a href="Util.js.html#line3">line 3</a>
-    </li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-        
-        
-    
-    </div>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-        <h3 class="subsection-title">Methods</h3>
-        
-        <dl>
-            
 <dt>
-    <h4 class="name" id="angle"><span class="type-signature">&lt;static> </span>angle<span class="signature">(obj1, obj2)</span><span class="type-signature"> &rarr; {Number}</span></h4>
+    <h4 class="name" id="EightDirectionalMovement"><span class="type-signature"></span>new EightDirectionalMovement<span class="signature">(<span class="optional">props</span>)</span><span class="type-signature"></span></h4>
     
     
 </dt>
@@ -106,7 +49,9 @@
     
     
     <div class="description">
-        Finds the angle between two points.
+        This behavior makes the object able to be move in eight
+directions. Movement is equally fast in all directions
+including diagonals
     </div>
     
 
@@ -128,6 +73,8 @@
 		<th>Type</th>
 		
 		
+		<th>Argument</th>
+		
 		
 		
 		
@@ -140,7 +87,7 @@
 	
         <tr>
             
-                <td class="name"><code>obj1</code></td>
+                <td class="name"><code>props</code></td>
             
             
             <td class="type">
@@ -153,33 +100,127 @@
             </td>
             
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
             
             
             
-            <td class="description last">An object with properties x and y. This includes DisplayObjects.</td>
+            
+            <td class="description last">The properties being passed in.
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		<th>Default</th>
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>keys</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number[]</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    ['UpArrow','RightArrow','LeftArrow']
+                
+                </td>
+            
+            
+            <td class="description last">The keycodes for directional movement. {forward, turnRight, turnLeft}</td>
         </tr>
 	
 	
 	
         <tr>
             
-                <td class="name"><code>obj2</code></td>
+                <td class="name"><code>speed</code></td>
             
             
             <td class="type">
             
                 
-<span class="param-type">Object</span>
+<span class="param-type">Number</span>
 
 
             
             </td>
             
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
             
             
             
-            <td class="description last">An object with properties x and y. This includes DisplayObjects.</td>
+                <td class="default">
+                
+                    100
+                
+                </td>
+            
+            
+            <td class="description last">Speed in px/s.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+            </td>
         </tr>
 	
 	
@@ -210,7 +251,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Util.js.html">Util.js</a>, <a href="Util.js.html#line25">line 25</a>
+        <a href="EightDirectionalMovement.js.html">Behaviors/EightDirectionalMovement.js</a>, <a href="EightDirectionalMovement.js.html#line19">line 19</a>
     </li></ul></dd>
     
     
@@ -231,132 +272,13 @@
     
     
     
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    The angle made between the two points.
-</div>
-
-
-
-<dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
-<span class="param-type">Number</span>
-
-
-	</dd>
-</dl>
-
-        
     
     
 </dd>
 
-        
-            
-<dt>
-    <h4 class="name" id="distance"><span class="type-signature">&lt;static> </span>distance<span class="signature">(obj1, obj2)</span><span class="type-signature"> &rarr; {Number}</span></h4>
     
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Finds the distance between two points.
     </div>
     
-
-    
-    
-    
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>obj1</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-            
-            
-            
-            
-            
-            <td class="description last">An object with properties x and y. This includes DisplayObjects.</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>obj2</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-            
-            
-            
-            
-            
-            <td class="description last">An object with properties x and y. This includes DisplayObjects.</td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
     
     
     
@@ -369,57 +291,6 @@
     
     
     
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Util.js.html">Util.js</a>, <a href="Util.js.html#line9">line 9</a>
-    </li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    The distance between the two points.
-</div>
-
-
-
-<dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
-<span class="param-type">Number</span>
-
-
-	</dd>
-</dl>
-
-        
-    
-    
-</dd>
-
-        </dl>
     
     
     

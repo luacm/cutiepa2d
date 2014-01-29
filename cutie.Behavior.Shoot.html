@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: JoystickMovement</title>
+    <title>JSDoc: Class: Shoot</title>
     
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">Class: JoystickMovement</h1>
+    <h1 class="page-title">Class: Shoot</h1>
     
     
 
@@ -29,7 +29,7 @@
     <h2>
         <span class="ancestors"><a href="cutie.html">cutie</a><a href="cutie.Behavior.html">.Behavior</a>.</span>
     
-    JoystickMovement
+    Shoot
     </h2>
     
 </header>  
@@ -41,7 +41,7 @@
     
         
 <dt>
-    <h4 class="name" id="JoystickMovement"><span class="type-signature"></span>new JoystickMovement<span class="signature">(<span class="optional">props</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="Shoot"><span class="type-signature"></span>new Shoot<span class="signature">(<span class="optional">props</span>)</span><span class="type-signature"></span></h4>
     
     
 </dt>
@@ -49,7 +49,7 @@
     
     
     <div class="description">
-        Gives an object analog movement via an on-screen joystick.
+        This behavior allows an object
     </div>
     
 
@@ -74,6 +74,8 @@
 		<th>Argument</th>
 		
 		
+		
+		<th>Default</th>
 		
 		
 		<th class="last">Description</th>
@@ -110,6 +112,10 @@
             
             
             
+                <td class="default">
+                
+                </td>
+            
             
             <td class="description last">The properties being passed in.
                 <h6>Properties</h6>
@@ -141,6 +147,43 @@
 	
         <tr>
             
+                <td class="name"><code>bullet</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">The obejct to render on a fire.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
                 <td class="name"><code>speed</code></td>
             
             
@@ -168,25 +211,25 @@
             
                 <td class="default">
                 
-                    5
+                    300
                 
                 </td>
             
             
-            <td class="description last">The maximum speed the object can travel.</td>
+            <td class="description last">The speed of fired bullets in px/s.</td>
         </tr>
 	
 	
 	
         <tr>
             
-                <td class="name"><code>faceDirection</code></td>
+                <td class="name"><code>max</code></td>
             
             
             <td class="type">
             
                 
-<span class="param-type">Boolean</span>
+<span class="param-type">Number</span>
 
 
             
@@ -207,12 +250,91 @@
             
                 <td class="default">
                 
-                    false
+                    100
                 
                 </td>
             
             
-            <td class="description last">Whether or not you want the object to face in the direction it's moving/</td>
+            <td class="description last">The maximum number of bullets before they are recycled.
+     (0) indicates no recycling (bullets last forever).</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>duration</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+            
+            <td class="description last">he maximum bullet's lifetime before it get's removed.
+     (0) indicates infinite.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>origin</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object[]</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">The x and y position from which to fire the bullet, relative
+     to an unrotated object object's x and y position.</td>
         </tr>
 	
 	
@@ -251,7 +373,7 @@
                 </td>
             
             
-            <td class="description last">This is the following orientation where 90 is straight up, 
+            <td class="description last">This is the orientation where 90 is straight up, 
     the zero point is the cartesian positive x axis and degrees rotate counter-clockwise up from this x axis.</td>
         </tr>
 	
@@ -259,7 +381,7 @@
 	
         <tr>
             
-                <td class="name"><code>position</code></td>
+                <td class="name"><code>fireKey</code></td>
             
             
             <td class="type">
@@ -286,71 +408,19 @@
             
                 <td class="default">
                 
-                </td>
-            
-            
-            <td class="description last">The position of the center of the joystick.
-                <h6>Properties</h6>
-                
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		<th>Argument</th>
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>x</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">Number</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                    
+                    SPACE
                 
                 </td>
             
             
-            
-            
-            <td class="description last">The x-coordinate of the center of the joystick.</td>
+            <td class="description last">The keycode to be used for firing.</td>
         </tr>
 	
 	
 	
         <tr>
             
-                <td class="name"><code>y</code></td>
+                <td class="name"><code>delay</code></td>
             
             
             <td class="type">
@@ -375,8 +445,54 @@
             
             
             
+                <td class="default">
+                
+                    0
+                
+                </td>
             
-            <td class="description last">The y-coordinate of the center of the joystick.</td>
+            
+            <td class="description last">The delay in seconds between shots.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>useMouse</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+            
+            <td class="description last">If set to true, use a mouse click to fire. If false
+    the key will be set to fireKey.</td>
         </tr>
 	
 	
@@ -389,7 +505,43 @@
 	
         <tr>
             
-                <td class="name"><code>baseDisk</code></td>
+                <td class="name"><code>[props.fireContinuous=false}If</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">set, firing will be continuous while key/mouse
+    is pressed.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>props.fireRate</code></td>
             
             
             <td class="type">
@@ -416,345 +568,13 @@
             
                 <td class="default">
                 
-                </td>
-            
-            
-            <td class="description last">Properties of the lower base disk of the joystick - the part that doens't move.
-                <h6>Properties</h6>
-                
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		<th>Argument</th>
-		
-		
-		
-		<th>Default</th>
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>color</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                    
+                    5
                 
                 </td>
             
             
-            
-                <td class="default">
-                
-                    "#ccc"
-                
-                </td>
-            
-            
-            <td class="description last">What color the base disk should be.</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>radius</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">Number</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    60
-                
-                </td>
-            
-            
-            <td class="description last">The radius of the base disk.</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>alpha</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">Number</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    0.3
-                
-                </td>
-            
-            
-            <td class="description last">The level of transparency of the base disk.</td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-            </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>pointerDisk</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">Number</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                </td>
-            
-            
-            <td class="description last">Properties of the upper pointer disk of the joystick - the part that moves.
-                <h6>Properties</h6>
-                
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		<th>Argument</th>
-		
-		
-		
-		<th>Default</th>
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>color</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    "#aaa"
-                
-                </td>
-            
-            
-            <td class="description last">What color the pointer disk should be.</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>radius</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">Number</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    30
-                
-                </td>
-            
-            
-            <td class="description last">The radius of the pointer disk.</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>alpha</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">Number</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    0.3
-                
-                </td>
-            
-            
-            <td class="description last">The level of transparency of the pointer disk.</td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-            </td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-            </td>
+            <td class="description last">Number of bullets to fire per second. Used only if
+    fireContinuous is set to true. Default is 5.</td>
         </tr>
 	
 	
@@ -785,7 +605,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="JoystickMovement.js.html">Behaviors/JoystickMovement.js</a>, <a href="JoystickMovement.js.html#line28">line 28</a>
+        <a href="Shoot.js.html">Behaviors/Shoot.js</a>, <a href="Shoot.js.html#line32">line 32</a>
     </li></ul></dd>
     
     

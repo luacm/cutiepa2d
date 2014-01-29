@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: JoystickMovement</title>
+    <title>JSDoc: Class: DPadMovement</title>
     
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">Class: JoystickMovement</h1>
+    <h1 class="page-title">Class: DPadMovement</h1>
     
     
 
@@ -29,7 +29,7 @@
     <h2>
         <span class="ancestors"><a href="cutie.html">cutie</a><a href="cutie.Behavior.html">.Behavior</a>.</span>
     
-    JoystickMovement
+    DPadMovement
     </h2>
     
 </header>  
@@ -41,7 +41,7 @@
     
         
 <dt>
-    <h4 class="name" id="JoystickMovement"><span class="type-signature"></span>new JoystickMovement<span class="signature">(<span class="optional">props</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="DPadMovement"><span class="type-signature"></span>new DPadMovement<span class="signature">(<span class="optional">props</span>)</span><span class="type-signature"></span></h4>
     
     
 </dt>
@@ -168,7 +168,7 @@
             
                 <td class="default">
                 
-                    5
+                    100
                 
                 </td>
             
@@ -207,52 +207,12 @@
             
                 <td class="default">
                 
-                    false
+                    true
                 
                 </td>
             
             
-            <td class="description last">Whether or not you want the object to face in the direction it's moving/</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>angleOffset</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">Number</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    90
-                
-                </td>
-            
-            
-            <td class="description last">This is the following orientation where 90 is straight up, 
-    the zero point is the cartesian positive x axis and degrees rotate counter-clockwise up from this x axis.</td>
+            <td class="description last">Whether or not you want the object to face in the direction it's moving.</td>
         </tr>
 	
 	
@@ -289,7 +249,7 @@
                 </td>
             
             
-            <td class="description last">The position of the center of the joystick.
+            <td class="description last">The position of the center of the DPad.
                 <h6>Properties</h6>
                 
 
@@ -343,7 +303,8 @@
             
             
             
-            <td class="description last">The x-coordinate of the center of the joystick.</td>
+            <td class="description last">The x-coordinate of the center of the Dpad. By Default
+  it is placed in the bottom left corner.</td>
         </tr>
 	
 	
@@ -376,7 +337,8 @@
             
             
             
-            <td class="description last">The y-coordinate of the center of the joystick.</td>
+            <td class="description last">The y-coordinate of the center of the DPad. By default
+  it is placed in the bottom left corner.</td>
         </tr>
 	
 	
@@ -389,67 +351,7 @@
 	
         <tr>
             
-                <td class="name"><code>baseDisk</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">Number</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                </td>
-            
-            
-            <td class="description last">Properties of the lower base disk of the joystick - the part that doens't move.
-                <h6>Properties</h6>
-                
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		<th>Argument</th>
-		
-		
-		
-		<th>Default</th>
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>color</code></td>
+                <td class="name"><code>buttonColor</code></td>
             
             
             <td class="type">
@@ -476,19 +378,19 @@
             
                 <td class="default">
                 
-                    "#ccc"
+                    '#ccc'
                 
                 </td>
             
             
-            <td class="description last">What color the base disk should be.</td>
+            <td class="description last">The hex RBG value of the color of the button.</td>
         </tr>
 	
 	
 	
         <tr>
             
-                <td class="name"><code>radius</code></td>
+                <td class="name"><code>normalAlpha</code></td>
             
             
             <td class="type">
@@ -515,19 +417,19 @@
             
                 <td class="default">
                 
-                    60
+                    1
                 
                 </td>
             
             
-            <td class="description last">The radius of the base disk.</td>
+            <td class="description last">The unpressed transparency of the buttons.</td>
         </tr>
 	
 	
 	
         <tr>
             
-                <td class="name"><code>alpha</code></td>
+                <td class="name"><code>pressedAlpha</code></td>
             
             
             <td class="type">
@@ -554,201 +456,12 @@
             
                 <td class="default">
                 
-                    0.3
+                    0.5
                 
                 </td>
             
             
-            <td class="description last">The level of transparency of the base disk.</td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-            </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>pointerDisk</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">Number</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                </td>
-            
-            
-            <td class="description last">Properties of the upper pointer disk of the joystick - the part that moves.
-                <h6>Properties</h6>
-                
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		<th>Argument</th>
-		
-		
-		
-		<th>Default</th>
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>color</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    "#aaa"
-                
-                </td>
-            
-            
-            <td class="description last">What color the pointer disk should be.</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>radius</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">Number</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    30
-                
-                </td>
-            
-            
-            <td class="description last">The radius of the pointer disk.</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>alpha</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">Number</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    0.3
-                
-                </td>
-            
-            
-            <td class="description last">The level of transparency of the pointer disk.</td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-            </td>
+            <td class="description last">The pressed transparency of the buttons.</td>
         </tr>
 	
 	
@@ -785,7 +498,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="JoystickMovement.js.html">Behaviors/JoystickMovement.js</a>, <a href="JoystickMovement.js.html#line28">line 28</a>
+        <a href="DPadMovement.js.html">Behaviors/DPadMovement.js</a>, <a href="DPadMovement.js.html#line25">line 25</a>
     </li></ul></dd>
     
     
