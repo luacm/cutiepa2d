@@ -7,13 +7,16 @@ this.cutie.Behavior = this.cutie.Behavior || {};
      * thrust forward, turn left, and turn right. The center of rotation of the
      * object must be set seperately.
      * 
-     * @param {Object} props
-     *        keys: {forward, turnRight, turnLeft}. Keycodes for directional movement. Default is {W, D, S}.
-     *        acceleration: Number. Speed gained in pixels/s^2. Default is 5 px/s^2.
-     *        deceleration: Number. Speed lost in pixels/s^2 (when no key is pressed). Default is 1 px/s^2.
-     *        rotation: Number. Rotation speed in deg/s. Default is 90 deg/s.
-     *        setCenter: bool. Automatically register the image center. Default is true.
-     *        angleOffset: Number. Degrees to shift the heading of the object. Default 90 (straight up).
+     * @memberof cutie.Behavior
+     * @constructor
+     * @param {Object} [props] The properties being passed in.
+     * @param {Object} [props.keys={'W','D','A'}] The keycodes for directional movement. {forward, turnRight, turnLeft}
+     * @param {Number} [props.acceleration = 5] Speed gained in pixels/s^2.
+     * @param {Number} [props.deceleration=1] Speed lost in pixels/s^2 (when no key is pressed).
+     * @param {Number} [props.rotation=90] Rotation speed in deg/s.
+     * @param {Boolean} [props.setCenter=true] Automatically register the image center.
+     * @param {Number} [props.angleOffset=90] This is the orientation where 90 is straight up, 
+     *     the zero point is the cartesian positive x axis and degrees rotate counter-clockwise up from this x axis.
      */
 
     var AsteroidMovement = function(props) {

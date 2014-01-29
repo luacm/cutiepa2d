@@ -5,8 +5,10 @@ this.cutie.Behavior = this.cutie.Behavior || {};
     /**
      * This behavior makes the object able to be dragged and
      * dropped with the mouse/touch.
-     * @param {Object} props
-     *        <Description of properties.>
+     * @memberof cutie.Behavior
+     * @constructor
+     * @param {Object} [props] The properties being passed in. For DragAndDrop there are no behaviors
+     *        
      */
     var DragAndDrop = function(props) {
         // ================================================

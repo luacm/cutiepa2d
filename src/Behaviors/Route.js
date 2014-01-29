@@ -5,12 +5,13 @@ this.cutie.Behavior = this.cutie.Behavior || {};
     /**
      * This behavior makes the object move along a specified route.
      * 
-     * @param {Object} props
-     *        path: [{coord}]. Array of coorinates to follow, ordered from first to last.
-     *               coord: {x, y}
-     *        speed: Number. The speed in px/s. Default is 100 px/s.
-     *        repeat: Number. Number of times to repeat. (-1) for continuous. Default is 1.
-     *        setCenter: bool. Automatically register the image center. Default is true.
+     * @memberof cutie.Behavior
+     * @constructor
+     * @param {Object} [props] The properties being passed in.
+     * @param {Array} [props.path[]] Array of coorinates {x,y} to follow, ordered from first to last.
+     * @param {Number} [props.speed=100] Speed in px/s.
+     * @param {Number} [props.repeat=1] Number of times to repeat the path. -1 for continuous.
+     * @param {Boolean} [props.setCenter=true] Automatically register the image center.
      */
 
     var Route = function(props) {

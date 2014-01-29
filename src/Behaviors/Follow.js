@@ -14,7 +14,7 @@ this.cutie.Behavior = this.cutie.Behavior || {};
      * @param {Number} [props.distance=0] This is the follow distance in px. 
      * @param {Boolean} [props.setCenter=true] This is signifies if the object doing the following should rotate around its center
      * @param {Number} [props.angleOffset=90] This is the following orientation where 90 is straight up, 
-     *     the origin is the cartesian positive x axis and degrees rotate counter-clockwise up from this x axis. 
+     *     the zero point is the cartesian positive x axis and degrees rotate counter-clockwise up from this x axis. 
      *
      */
 

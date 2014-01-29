@@ -5,26 +5,27 @@ this.cutie.Behavior = this.cutie.Behavior || {};
     /**
      * This behavior allows an object
      * 
-     * @param {Object} props
-     *        bullet: DisplayObject. The object to render on a fire.
-     *        speed: Number. The speed of fired bullets. Default is 300 px/s.
-     *        max: Integer. The maximum number of bullets before they are recycled.
-     *                      (0) indicates no recycling (bullets last forever). Default 100.
-     *        duration: Interger. The maximum bullet's lifetime before it get's removed.
-     *                            (0) indicates infinite. Default is 0.
-     *        origin: {x, y}. The x and y position from which to fire the bullet, relative
-     *                        to an unrotated object object's x and y position.
-     *        angleOffset: Number. The angle in degrees the bullet should travel away from the
-     *                       origin. Default 90 (straight up).
-     *        fireKey: Key. The keycode to be used for firing. Default is SPACE.
-     *        TODO -> delay: Number. The delay in seconds between shots. Default is 0.
-     *        useMouse: bool. If set to true, use a mouse click to fire. Default is false.
-     *        fireContinuous: bool. If set, firing will be continuous while key/mouse
-     *                              is pressed. Default is false.
-     *        fireRate: Number. Number of bullets to fire per second. Used only if
-     *                          fireContinuous is set to true. Default is 5.
-     *        
-     *
+     * @memberof cutie.Behavior
+     * @constructor
+     * @param {Object} [props] The properties being passed in.
+     * @param {Object} [props.bullet] The obejct to render on a fire.
+     * @param {Number} [props.speed=300] The speed of fired bullets in px/s.
+     * @param {Number} [props.max=100] The maximum number of bullets before they are recycled.
+     *      (0) indicates no recycling (bullets last forever).
+     * @param {Number} [props.duration=0] he maximum bullet's lifetime before it get's removed.
+     *      (0) indicates infinite.
+     * @param {Object Array} [props.origin] The x and y position from which to fire the bullet, relative
+     *      to an unrotated object object's x and y position.
+     * @param {Number} [props.angleOffset=90] This is the orientation where 90 is straight up, 
+     *     the zero point is the cartesian positive x axis and degrees rotate counter-clockwise up from this x axis.
+     * @param {Number} [props.fireKey=SPACE] The keycode to be used for firing.
+     * @param {Number} [props.delay=0] The delay in seconds between shots.
+     * @param {Boolean} [props.useMouse=false] If set to true, use a mouse click to fire. If false
+     *     the key will be set to fireKey.
+     * @param {Boolean} [props.fireContinuous=false}If set, firing will be continuous while key/mouse
+     *     is pressed.
+     * @param {Number} [props.fireRate=5] Number of bullets to fire per second. Used only if
+     *     fireContinuous is set to true. Default is 5.
      *
      */
 
