@@ -14,7 +14,7 @@ this.cutie.Behavior = this.cutie.Behavior || {};
      *      (0) indicates no recycling (bullets last forever).
      * @param {Number} [props.duration=0] he maximum bullet's lifetime before it get's removed.
      *      (0) indicates infinite.
-     * @param {Object Array} [props.origin] The x and y position from which to fire the bullet, relative
+     * @param {Object[]} [props.origin] The x and y position from which to fire the bullet, relative
      *      to an unrotated object object's x and y position.
      * @param {Number} [props.angleOffset=90] This is the orientation where 90 is straight up, 
      *     the zero point is the cartesian positive x axis and degrees rotate counter-clockwise up from this x axis.
