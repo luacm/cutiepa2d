@@ -3,17 +3,18 @@ this.cutie.Behavior = this.cutie.Behavior || {};
 
 (function(module){
     /**
-     * This behavior makes the object follow another object or the mouse.
+     * Gives an object the ability to follow another object or the mouse.
      * 
-     * @param {Object} props
-     *        targetObj: Object. The object to be followed. Default is the 
-     *          mouse
-     *        speed: Number. The speed in px/s. Default is 100 px/s.
-     *        distance: Number. The goal distance from the target in px. 
-     *          Default is 0px. This will try to catch the given object
-     *        setCenter: bool. Automatically register the image center. Default is true.
-     *        angleOffset: Number. Degrees to shift the heading of the object. Default 90 (straight up).
-     *
+     * @memberof cutie.Behavior
+     * @constructor
+     * @param {Object} [props] The properties being passed in.
+     * @param {Boolean} [props.targetObj=false] This is the object that is going to be followed. 
+     *      If no object is passed in, it will follow the mouse. 
+     * @param {Number} [props.speed=100] This is an integer value giving the speed in px/s
+     * @param {Number} [props.distance=0] This is the follow distance in px. 
+     * @param {Boolean} [props.setCenter=true] This is signifies if the object doing the following should rotate around its center
+     * @param {Number} [props.angleOffset=90] This is the following orientation where 90 is straight up, 
+     *     the origin is the cartesian positive x axis and degrees rotate counter-clockwise up from this x axis. 
      *
      */
 
@@ -25,15 +26,11 @@ this.cutie.Behavior = this.cutie.Behavior || {};
         var props = props || {};
         var _targetCoord = {};
 
-        var _setCenter = props.setCenter || true;
-        var _targetObj = props.targetObj || false;
-        var _speed;
-        if("speed" in props)
-            _speed = props.speed;
-        else
-            _speed = 100;
-        var _followDistance = props.distance || 0;
-        var _angOffset = props.angleOffset || 90;
+        var _setCenter = ('setCenter' in props)?props.setCenter:true;
+        var _targetObj = ('targetObj' in props)?props.targetObj:false;
+        var _speed = ('speed' in props)?props.speed:100;
+        var _followDistance = ('distance' in props)?props.distance:0;
+        var _angOffset = ('angleOffset' in props)?props.angleOffset:90;
 
         // ================================================
         // PUBLIC METHODS
