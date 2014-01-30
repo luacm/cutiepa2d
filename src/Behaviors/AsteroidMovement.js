@@ -10,7 +10,7 @@ this.cutie.Behavior = this.cutie.Behavior || {};
      * @memberof cutie.Behavior
      * @constructor
      * @param {Object} [props] The properties being passed in.
-     * @param {Number Array} [props.keys={'UpArrow','RightArrow','LeftArrow'}] The keycodes for directional movement. {forward, turnRight, turnLeft}
+     * @param {Number[]} [props.keys=['UpArrow','RightArrow','LeftArrow']] The keycodes for directional movement. {forward, turnRight, turnLeft}
      * @param {Number} [props.acceleration = 5] Speed gained in pixels/s^2.
      * @param {Number} [props.deceleration=1] Speed lost in pixels/s^2 (when no key is pressed).
      * @param {Number} [props.rotation=90] Rotation speed in deg/s.
