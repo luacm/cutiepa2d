@@ -15,7 +15,9 @@ this.cutie.Behavior = this.cutie.Behavior || {};
      * @param {Boolean} [props.setCenter=true] This is signifies if the object doing the following should rotate around its center
      * @param {Number} [props.angleOffset=90] This is the following orientation where 90 is straight up, 
      *     the zero point is the cartesian positive x axis and degrees rotate counter-clockwise up from this x axis. 
-     *
+     * @param {Number} [props.followCord] The position of the center of the joystick.
+     * @param {Number} [props.followCord.x] The x-coordinate on the image to be pursued (using local image coordinates).
+     * @param {Number} [props.followCord.y] The y-coordinate on the image to be pursued (using local image coordinates). 
      */
 
 
@@ -27,6 +29,8 @@ this.cutie.Behavior = this.cutie.Behavior || {};
         // ================================================
         
         var props = props || {};
+        if (!props.followCord) props.followCord = {};
+
         var _targetCoord = {};
 
         var _setCenter = ('setCenter' in props)?props.setCenter:true;
@@ -76,10 +80,10 @@ this.cutie.Behavior = this.cutie.Behavior || {};
                 _targetCoord.y = stage.mouseY;
             }
             else{
-                _targetCoord.x = _targetObj.x + _targetObj.image.width/2;
-                _targetCoord.y = _targetObj.y + _targetObj.image.height/2;
+                //Need to decide how this is handled, becuase in DPad it centers
+                _targetCoord.x = _targetObj.x;
+                _targetCoord.y = _targetObj.y;
             }
-            console.log(_targetObj.image.width);
         }
 
     }
