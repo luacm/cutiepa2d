@@ -1,6 +1,7 @@
 this.cutie = this.cutie || {};
 
 (function(module) {
+
     // ======================================================
     // CONSTRUCTOR
     // ======================================================
@@ -20,7 +21,11 @@ this.cutie = this.cutie || {};
     Scene.prototype.initialize = function() {
         // Call super constructor
         this.Container_initialize();
-        
+
+        //collection of collision group objects
+        this._collisionGroups = [];
+        //map of all collidables of a given type
+        this._collidables = {};
         // ==================================================
         // DEFINITIONS
         // ==================================================
@@ -67,9 +72,8 @@ this.cutie = this.cutie || {};
         // Mark all scenes as having been preloaded
         for (var i = 0; i < scenes.length; i++)
             scenes[i].isPreloaded = true;
+ls
 
-        // Kick-off the scene
-        console.log(loader);
         this.init(loader);
     }
 
@@ -87,7 +91,7 @@ this.cutie = this.cutie || {};
      * words, this method is called every 1/framerate seconds.
      * @memberof cutie.Scene#
      * @function tick
-     * @public
+     * @publicgru
      * @param  {createjs.Event} e The event.
      */
     Scene.prototype.tick = function(e) {
@@ -110,9 +114,126 @@ this.cutie = this.cutie || {};
         }
     }
 
+
+    /** A method which is called on a collision between two objects.
+     *      @name CollisionHandler
+     *      @function
+     *      @param {Object} obj1 The first object involved in the collision.
+     *      @param {Object} obj2 The second object involved in the collision.
+     *      @param {Object} rect A rectangular area representing the intersection between the objects.
+     *      
+     */
+    /**
+     * Use this function to register a new Collision Group with the current scene.
+     * @memberof cutie.Scene#
+     * @function registerCollisionGroup
+     * @public
+     * @param  {String} name A unique name identifying a collision group for this scene.
+     * @param  {Object} [props] The properties being passed in.
+     * @param  {CollisionHandler} [props.internalCollisions] A collision handler to be called when two objects of the same group collide.
+     * @param  {Object[]} [props.collidesWith] An object defining this collision group's interactions with other collision groups.
+     * @param  {String[]} [props.collidesWith.name="*"] An array of the names of groups which interact with this collision group. "*" indicates all registered groups.
+     * @param  {CollisionHandler} [props.collidesWith.handler] A collision handler to be called when an object of this group collides with an object in the group specified in the name array.
+     */
+    Scene.prototype.registerCollisionGroup = function(name, props) {
+        if(name == "") module.Log.w("Adding collision group with no name.");
+
+        var props = props || {};
+        if((this._collisionGroups.filter(function(e){return e.name == name})).length == 0) {
+            var nGroup = {
+                "name": name,
+                "collidesWith": []
+            };
+            if("internalCollisions" in props) nGroup.internalCollisions = props.internalCollisions;
+
+            var _collidesWith = ("collidesWith" in props)?props.collidesWith:[];
+            _collidesWith.forEach(function(e) {
+                //each element may have multiple names. Register one with each.
+                if(!("name" in e)) module.Log.w("collidesWith object must specify a collision group name.");
+                else if(!("handle" in e)) module.Log.w("collidesWith object must specify a collision handler.");
+                else{
+
+                    if(typeof e.name === 'string') e.name = [e];
+                    nGroup.collidesWith.push({
+                        "name": e.name,
+                        "handle": e.handle
+                    });
+                }
+            });
+
+            this._collisionGroups.push(nGroup);
+            if(!(nGroup.name in this._collidables)) this._collidables[nGroup.name] = [];
+        }
+        else module.Log.w("Collision group \"" + name + "\" already exists.");
+        
+
+    }
+
+
+    /**
+     * Use this function to add a DisplayObject to a collision group.
+     * @memberof cutie.Scene#
+     * @function addCollidable
+     * @public
+     * @param  {Object} obj The display object to be added to a Collision Group.
+     * @param  {Object} props The properties being passed in.
+     * @param  {String} props.groupName The name of the group to which the object will be added.
+     * @param  {String} [props.collisionType] The type if collision detection to apply to object.
+     */
+    Scene.prototype.addCollidable = function(obj, props) {
+        if(!props) module.Log.w("No property specified. Object not added to any group.");
+        else if(!(props.groupName)) module.Log.w("No group name specified. Object not added to any group.");
+        else if((this._collisionGroups.filter(function(e){return e.name === props.groupName})).length == 0) module.Log.w("Group " + props.groupName + " does not exist.");
+        else{
+            var collisionType = props.collisionType || "rectangle";
+
+            var nCol = {
+                "obj": obj,
+                "collisionType": collisionType
+            };
+
+            this._collidables[props.groupName].push(nCol);
+        }
+    }
+
+    /**
+     * Use this function to remove a DisplayObject from a collision group.
+     * @memberof cutie.Scene#
+     * @function removeCollidable
+     * @public
+     * @param  {Object} obj The display object to be removed from the collision group.
+     * @param  {String} [groupName="*"] The name of the group holding the object. Removes all references by default. 
+     */
+    Scene.prototype.removeCollidable = function(obj, groupName) {
+        var groupName = groupName || "*";
+
+        if(groupName === "*") {
+            var len = this._collisionGroups.length;
+            for(var i = 0; i < len; i++) {
+                var group = this._collisionGroups[i].name;
+                var collidables = this._collidables[group];
+                var size = collidables.length;
+                while(size > 0) {
+                    if(collidables[--size].obj === obj) collidables.splice(size, 1);
+                }
+            }
+        }
+        else {
+            var collidables = this._collidables[groupName];
+            var size = collidables.length;
+            while(size > 0) {
+                if(collidables[--size].obj === obj) collidables.splice(size, 1);
+            }
+        }
+    }
+
     // ======================================================
     // PRIVATE FUNCTIONS
     // ======================================================
+
+    function checkCollisions() {
+        
+    }
     
      
     module.Scene = Scene;

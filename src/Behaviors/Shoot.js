@@ -8,7 +8,7 @@ this.cutie.Behavior = this.cutie.Behavior || {};
      * @memberof cutie.Behavior
      * @constructor
      * @param {Object} [props] The properties being passed in.
-     * @param {Object} [props.bullet] The obejct to render on a fire.
+     * @param {Object} [props.bullet] The object to render on a fire.
      * @param {Number} [props.speed=300] The speed of fired bullets in px/s.
      * @param {Number} [props.max=100] The maximum number of bullets before they are recycled.
      *      (0) indicates no recycling (bullets last forever).
