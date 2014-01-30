@@ -61,7 +61,7 @@ this.cutie = this.cutie || {};
      * @param  {createjs.Event} e 
      *         The event info.
      */
-    Scene.prototype.onPreloadComplete = function(scenes, e) {
+    Scene.prototype.onPreloadComplete = function(scenes, loader, e) {
         cutie.Log.v("cutie.Scene.onPreloadComplete()");
 
         // Mark all scenes as having been preloaded
@@ -69,7 +69,8 @@ this.cutie = this.cutie || {};
             scenes[i].isPreloaded = true;
 
         // Kick-off the scene
-        this.init();
+        console.log(loader);
+        this.init(loader);
     }
 
     /**

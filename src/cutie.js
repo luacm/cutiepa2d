@@ -199,14 +199,14 @@ this.cutie = createjs;
         }
 
         if (needsPreload) {
-            loader.on("complete", scenes[0].onPreloadComplete.bind(scenes[0], scenes), scenes[0]);
+            loader.on("complete", scenes[0].onPreloadComplete.bind(scenes[0], scenes, loader), scenes[0]);
             loader.on("progress", scenes[0].onPreloadProgress, scenes[0]);
 
             // Kick-off the loading (just in case any files were added to the queue and set to not immmediately load)
             loader.load();
         }
         else {
-            scenes[0].init();
+            scenes[0].init(loader);
         }
     }
 
