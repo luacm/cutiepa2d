@@ -29,6 +29,7 @@
 **/
 
 this.cutie = this.cutie || {};
+this.cutie.Collisions = this.cutie.Collisions || {};
 
 (function(module) {
 
@@ -43,19 +44,27 @@ this.cutie = this.cutie || {};
 
   var cachedBAFrames = [];
 
+  var checkCircleCollision = function(bitmap1, bitmap2) {
+
+  }
+
+  var checkCircleRectCollision = function(bitmap1, bitmap2) {
+
+  }
+
   var checkRectCollision = function(bitmap1,bitmap2) {
     var b1, b2;
     b1 = getBounds(bitmap1);
     b2 = getBounds(bitmap2);
     return calculateIntersection(b1,b2);
   }
-  module.checkRectCollision = checkRectCollision;
+  module.Collisions.checkRectCollision = checkRectCollision;
 
   var checkPixelCollision = function(bitmap1, bitmap2, alphaThreshold, getRect) {
     //display the intersecting canvases for debugging
     if ( module.Log.level <= module.Log.VERBOSE) { 
-      document.body.appendChild(collisionCanvas);
-      document.body.appendChild(collisionCanvas2);
+      //document.body.appendChild(collisionCanvas);
+      //document.body.appendChild(collisionCanvas2);
     }
     
     getRect = getRect || false;
@@ -102,7 +111,7 @@ this.cutie = this.cutie || {};
 
     return pixelIntersection;
   }
-  module.checkPixelCollision = checkPixelCollision;
+  module.Collisions.checkPixelCollision = checkPixelCollision;
 
   var _collisionDistancePrecheck = function(bitmap1,bitmap2) {
     var ir1,ir2,b1,b2;
@@ -233,7 +242,7 @@ this.cutie = this.cutie || {};
       return null;
     }
   }
-  module.calculateIntersection = calculateIntersection;
+  module.Collisions.calculateIntersection = calculateIntersection;
 
   var getBounds = function(obj) {
     var bounds={x:Infinity,y:Infinity,width:0,height:0};
@@ -299,5 +308,5 @@ this.cutie = this.cutie || {};
     }
     return bounds;
   }
-  module.getBounds = getBounds;
+  module.Collisions.getBounds = getBounds;
 }(this.cutie));

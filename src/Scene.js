@@ -16,15 +16,16 @@ this.cutie = this.cutie || {};
       this.initialize();
     }
 
+    Scene.prototype._collisionGroups;
+    Scene.prototype._collidables;
+
     Scene.prototype = new createjs.Container();
     Scene.prototype.Container_initialize = Scene.prototype.initialize;
     Scene.prototype.initialize = function() {
         // Call super constructor
         this.Container_initialize();
 
-        //collection of collision group objects
         this._collisionGroups = [];
-        //map of all collidables of a given type
         this._collidables = {};
         // ==================================================
         // DEFINITIONS
@@ -72,7 +73,6 @@ this.cutie = this.cutie || {};
         // Mark all scenes as having been preloaded
         for (var i = 0; i < scenes.length; i++)
             scenes[i].isPreloaded = true;
-ls
 
         this.init(loader);
     }
@@ -112,6 +112,7 @@ ls
         for(var i = 0; i < this.children.length; i++) {
             this.children[i]._tickInternal(e);
         }
+        this._checkCollisions();
     }
 
 
@@ -136,10 +137,10 @@ ls
      * @param  {CollisionHandler} [props.collidesWith.handler] A collision handler to be called when an object of this group collides with an object in the group specified in the name array.
      */
     Scene.prototype.registerCollisionGroup = function(name, props) {
-        if(name == "") module.Log.w("Adding collision group with no name.");
+        if(name === "") cutie.Log.w("Adding collision group with no name.");
 
         var props = props || {};
-        if((this._collisionGroups.filter(function(e){return e.name == name})).length == 0) {
+        if((this._collisionGroups.filter(function(e){return e.name === name})).length === 0) {
             var nGroup = {
                 "name": name,
                 "collidesWith": []
@@ -147,13 +148,15 @@ ls
             if("internalCollisions" in props) nGroup.internalCollisions = props.internalCollisions;
 
             var _collidesWith = ("collidesWith" in props)?props.collidesWith:[];
+            if(Object.prototype.toString.call(_collidesWith) !== "[object Array]") _collidesWith = [_collidesWith];
+            
             _collidesWith.forEach(function(e) {
                 //each element may have multiple names. Register one with each.
-                if(!("name" in e)) module.Log.w("collidesWith object must specify a collision group name.");
-                else if(!("handle" in e)) module.Log.w("collidesWith object must specify a collision handler.");
+                if(!("name" in e)) cutie.Log.w("collidesWith object must specify a collision group name.");
+                else if(!("handle" in e)) cutie.Log.w("collidesWith object must specify a collision handler.");
                 else{
 
-                    if(typeof e.name === 'string') e.name = [e];
+                    if(typeof e.name === 'string') e.name = [e.name];
                     nGroup.collidesWith.push({
                         "name": e.name,
                         "handle": e.handle
@@ -164,7 +167,7 @@ ls
             this._collisionGroups.push(nGroup);
             if(!(nGroup.name in this._collidables)) this._collidables[nGroup.name] = [];
         }
-        else module.Log.w("Collision group \"" + name + "\" already exists.");
+        else cutie.Log.w("Collision group \"" + name + "\" already exists.");
         
 
     }
@@ -181,9 +184,9 @@ ls
      * @param  {String} [props.collisionType] The type if collision detection to apply to object.
      */
     Scene.prototype.addCollidable = function(obj, props) {
-        if(!props) module.Log.w("No property specified. Object not added to any group.");
-        else if(!(props.groupName)) module.Log.w("No group name specified. Object not added to any group.");
-        else if((this._collisionGroups.filter(function(e){return e.name === props.groupName})).length == 0) module.Log.w("Group " + props.groupName + " does not exist.");
+        if(!props) cutie.Log.w("No property specified. Object not added to any group.");
+        else if(!(props.groupName)) cutie.Log.w("No group name specified. Object not added to any group.");
+        else if((this._collisionGroups.filter(function(e){return e.name === props.groupName})).length == 0) cutie.Log.w("Group " + props.groupName + " does not exist.");
         else{
             var collisionType = props.collisionType || "rectangle";
 
@@ -231,8 +234,47 @@ ls
     // PRIVATE FUNCTIONS
     // ======================================================
 
-    function checkCollisions() {
-        
+    Scene.prototype._checkCollisions = function() {
+        //start with all rectangular collisions
+        var scene = this;
+        if(this._collisionGroups) {
+            var groups = this._collisionGroups.length;
+            for(var i = 0; i < groups; i++) {
+                //check group collisions
+                var collidesWith = this._collisionGroups[i].collidesWith;
+                var groupName = this._collisionGroups[i].name;
+                var len = collidesWith.length;
+                for(var j = 0; j < len; j++) {
+                    this._collidables[groupName].forEach(function(e){
+                        for(var k = 0, numNames = collidesWith[j].name.length; k < numNames; k++) {
+                            scene._checkGroupCollision(e, groupName, collidesWith[j].name[k], collidesWith[j].handle);
+                        }
+                    });
+                }
+            }
+        }
+    }
+
+    Scene.prototype._checkGroupCollision = function(collidable, collidableGroup, groupName, callback) {
+        var obj = collidable.obj;
+        var collisionType = collidable.collisionType;
+        if(groupName === "*") { 
+            for(var i = 0, len = this._collisionGroups.length; i < len; i++) {
+                if(collidableGroup !== this._collisionGroups[i].name) this._checkGroupCollision(collidable, collidableGroup, this._collisionGroups[i].name, callback);
+            }
+        }
+        else {
+            var groupObjs = this._collidables[groupName];
+            for(var i = 0, len = groupObjs.length; i < len; i++) {
+                var check = groupObjs[i].obj;
+                if(check !== obj) {
+                    var intersection = cutie.Collisions.checkRectCollision(obj, check);
+                    if(intersection) {
+                        callback(obj, check, intersection);
+                    }
+                }
+            }
+        }
     }
     
      
