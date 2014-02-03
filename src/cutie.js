@@ -11,6 +11,7 @@ this.cutie = createjs;
     var _activeScene = {};
     var _canvas = {};
     var _stage = {};
+    var _loaders = {};
     var _hud = {};
     var _fps = { "sum": 0, "numTicks": 0, "textView": {} };
     module.WIDTH = 0;
@@ -107,16 +108,20 @@ this.cutie = createjs;
 
         // Set it as the active scene
         _activeScene = getScene(sceneName);
+        if (_activeScene) {
+            // Build the list of scenes to preload and then preload them
+            var preloadList = props.preloadScenes || [];
+            preloadList.unshift(sceneName);
+            preloadList = getScenes(preloadList);
+            preloadScenes(preloadList);
 
-        // Build the list of scenes to preload and then preload them
-        var preloadList = props.preloadScenes || [];
-        preloadList.unshift(sceneName);
-        preloadList = getScenes(preloadList);
-        preloadScenes(preloadList);
 
-
-        // Add it to the stage
-        _stage.addChild(_activeScene);
+            // Add it to the stage
+            _stage.addChild(_activeScene);
+        }
+        else {
+            cutie.Log.e("The active scene has been set to null or undefined. This most likely happens when you supply the name of a scene that doesn't exist.");
+        }
     }
 
     /**
@@ -161,6 +166,11 @@ this.cutie = createjs;
     module.getActiveScene = function() {
         return _activeScene;
     }
+
+    module.storeLoader = function(sceneName, loader) {
+        _loaders[sceneName] = loader;
+    }
+
     // ======================================================
     // PRIVATE
     // ======================================================
@@ -191,8 +201,9 @@ this.cutie = createjs;
         // Have all of the scene add onto the the same LoadQueue
         var needsPreload = false;
         for (var i = 0; i < scenes.length; i++) {
-            if (!scenes[i].isPreloaded) {
-                // Create a new LoadQueue and give it to the scene to preload
+            // If we don't have a stored loader for this scene
+            if (!_loaders[scenes[i]]) {
+                // Create a new LoadQueue and give it to the scene to preload and store the loader
                 scenes[i].preload(loader);
                 needsPreload = true;
             }
@@ -206,8 +217,9 @@ this.cutie = createjs;
             loader.load();
         }
         else {
-            scenes[0].init(loader);
+            scenes[0].init(_loaders[scenes[0]]);
         }
+        console.log(loader);
     }
 
     /**

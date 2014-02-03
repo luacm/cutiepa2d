@@ -24,7 +24,6 @@ this.cutie = this.cutie || {};
         // ==================================================
         // DEFINITIONS
         // ==================================================
-        this.isPreloaded = false;
     }
 
     // ======================================================
@@ -64,12 +63,11 @@ this.cutie = this.cutie || {};
     Scene.prototype.onPreloadComplete = function(scenes, loader, e) {
         cutie.Log.v("cutie.Scene.onPreloadComplete()");
 
-        // Mark all scenes as having been preloaded
+        // Store this loader as the loader for all for all of the scenes in this preload batch
         for (var i = 0; i < scenes.length; i++)
-            scenes[i].isPreloaded = true;
+            cutie.storeLoader(scenes[i], loader);
 
         // Kick-off the scene
-        console.log(loader);
         this.init(loader);
     }
 

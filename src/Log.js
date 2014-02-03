@@ -108,7 +108,7 @@ this.cutie = this.cutie || {};
      * @param  {String} message The message you want to log.
      */
     Log.e = function(message) {
-        log(message, Log.ERRO);
+        log(message, Log.ERROR);
     }
 
     function log(message, level) {
@@ -128,8 +128,10 @@ this.cutie = this.cutie || {};
                     break;
                 case Log.ERROR: 
                     console.error(message);
+                    break;
                 default:
                     console.log(message);
+                    break;
             }
         }
     }
