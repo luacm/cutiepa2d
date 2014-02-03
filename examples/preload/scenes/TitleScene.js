@@ -3,6 +3,7 @@
 
     scene.preload = function(loader) {
         loader.loadFile({"id": "nyc", "src": "assets/nyc.jpg"});
+        this.setPreloader(new cutie.Preloader.TextOnly());
     }
 
     scene.init = function(preloaded) {

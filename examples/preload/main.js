@@ -10,7 +10,6 @@ window.onload = function() {
         "scaleType": cutie.ScaleType.LETTERBOX,
         "debugFPS": {
             "visible": true
-        },
-        "preloadScenes": ["game"]
+        }
     });
 }

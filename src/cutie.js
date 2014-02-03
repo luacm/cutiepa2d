@@ -141,6 +141,7 @@ this.cutie = createjs;
             cutie.Log.w("You registered a scene called '" + name + "', but there was already a scene registered with that name. It was overwritten.");
         }
         _scenes[name] = scene;
+        scene.name = name;
     }
 
     /**
@@ -197,18 +198,19 @@ this.cutie = createjs;
     function preloadScenes(scenes) {
         var loader = new createjs.LoadQueue();
         loader.installPlugin(createjs.Sound);
-        
+
         // Have all of the scene add onto the the same LoadQueue
         var needsPreload = false;
         for (var i = 0; i < scenes.length; i++) {
             // If we don't have a stored loader for this scene
-            if (!_loaders[scenes[i]]) {
+            if (!_loaders[scenes[i].name]) {
                 // Create a new LoadQueue and give it to the scene to preload and store the loader
                 scenes[i].preload(loader);
                 needsPreload = true;
             }
         }
-
+        // If we need to preload, attach the appropriate events to the first scene in the list (which is our main scene - 
+        // the rest are just being loaded ahead of time).
         if (needsPreload) {
             loader.on("complete", scenes[0].onPreloadComplete.bind(scenes[0], scenes, loader), scenes[0]);
             loader.on("progress", scenes[0].onPreloadProgress, scenes[0]);
@@ -216,10 +218,10 @@ this.cutie = createjs;
             // Kick-off the loading (just in case any files were added to the queue and set to not immmediately load)
             loader.load();
         }
+        // If you don't need to preload anything, just kick off the init
         else {
-            scenes[0].init(_loaders[scenes[0]]);
+            scenes[0]._init(_loaders[scenes[0].name]);
         }
-        console.log(loader);
     }
 
     /**

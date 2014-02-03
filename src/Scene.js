@@ -24,6 +24,7 @@ this.cutie = this.cutie || {};
         // ==================================================
         // DEFINITIONS
         // ==================================================
+        this._preloader = {};
     }
 
     // ======================================================
@@ -48,6 +49,9 @@ this.cutie = this.cutie || {};
      */
     Scene.prototype.onPreloadProgress = function(e) {
         // e.loaded e.total e.progress(0-1)
+        if (this._preloader && this._preloader.onPreloadProgress) {
+            this._preloader.onPreloadProgress(e);
+        }
     }
 
     /**
@@ -65,9 +69,33 @@ this.cutie = this.cutie || {};
 
         // Store this loader as the loader for all for all of the scenes in this preload batch
         for (var i = 0; i < scenes.length; i++)
-            cutie.storeLoader(scenes[i], loader);
+            cutie.storeLoader(scenes[i].name, loader);
 
         // Kick-off the scene
+        this._init(loader);
+    }
+
+    /**
+     * Sets the preloader to the one specified.
+     * @param {createjs.DisplayObject} preloader The preloader you'd like to use for this scene.
+     */
+    Scene.prototype.setPreloader = function(preloader) {
+        this._preloader = preloader;
+        this.addChild(preloader);
+        console.log("SET PRELOADER");
+    }
+
+    /**
+     * The private wrapper for the init function. Handles some preloader stuff.
+     * @memberof cutie.Scene#
+     * @function init
+     * @private
+     * @param {createjs.DisplayObject} preloader The preloader you'd like to use for this scene.
+     */
+    Scene.prototype._init = function(loader) {
+        if (this._preloader) {
+            this.removeChild(this._preloader);
+        }
         this.init(loader);
     }
 
