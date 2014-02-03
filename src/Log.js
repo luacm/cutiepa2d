@@ -1,6 +1,19 @@
+/** 
+ * CutiePa2d - Game Framework built on createjs and easeljs
+ * 
+ * Contributors:
+ *      - Greyson Parrelli @greysonp
+ *      - Adam Schaub   @maybenot
+ *      - Stephen Louie @stephenrlouie
+ * 
+ * Developed Jan - Feb 2014 to aid Lehigh studens for the mobiLEhigh competition
+ *
+ */
+
 this.cutie = this.cutie || {};
 
 /** 
+ * Log 
  * @namespace cutie.Log
  */
 (function(module) {
