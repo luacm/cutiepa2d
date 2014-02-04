@@ -28,21 +28,14 @@ module.exports = function(grunt) {
         description: "<%= pkg.description %>",
         version: "<%= pkg.version %>",
         url: "<%= pkg.homepage %>",
+        logo: "../assets/logo.png",
         options: {
           paths: ["src/"],
-          themedir: "themes/bootstrap/",
+          themedir: "doc-themes/createjs-modified/",
           outdir: "docs/",
-          helpers: ["themes/bootstrap/helpers/helpers.js"]
+          helpers: ["doc-themes/createjs-modified/path.js"]
         }
       }
-    },
-    jsdoc : {
-        dist : {
-            src: ["src/*.js", "src/Behaviors/*.js", "src/Preloaders/*.js"], 
-            options: {
-                destination: "doc"
-            }
-        }
     },
     watch: {
       default: {
