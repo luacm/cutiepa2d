@@ -9,6 +9,7 @@ this.cutie.Behavior = this.cutie.Behavior || {};
      * This behavior makes the object able to be dragged and
      * dropped with the mouse/touch.
      * @class DragAndDrop
+     * @extends Behavior
      * @constructor
      * @param {Object} [props] The properties being passed in. For DragAndDrop there are no behaviors
      */
