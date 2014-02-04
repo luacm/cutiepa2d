@@ -4,9 +4,34 @@
 this.cutie = createjs;
 
 /**
+ * <h1>Cutiepa2D.js</h1>
+ * <p>Cutiepa2D (pronounced cutie-patootie) is a wrapper for CreateJS. Its purpose is to make developing 2D games in javascript dead simple. It extends CreateJS with additional functionality and structure while still allowing you to access all of CreateJS's existing utilities.</p>
+ * <p>We think it's quite cute, and we hope you do too.</p>
+ * <h2>Download</h2>
+ * <p>Grab it here! <strong><a href="build/cutiepa2d.js">Download</a></strong></p>
+ * <h2>Getting Started</h2>
+ * <p>After downloading cutie, include it in your <code>index.html</code>.</p>
+ * <p><code>&lt;script type="text/javascript" src="cutiepa2d.js"&gt;&lt;/script&gt;</code></p>
+ * <p>You'll also have to run a local server in order to get image loading to work. I recommend <a href="http://www.apachefriends.org/index.html">XAMMP</a> to get started.</p>
+ * <p>After that, you should be good to go! We have some examples in the <a href="https://github.com/greysonp/cutiepa2d">repo</a>, but we'll be writing proper tutorials (as well as expanding functionality) in the coming days.</p>
+ * <h2>Getting it on Your Phone</h2>
+ * <p>Testing in the browser is cool, but testing on your phone/tablet is even cooler. Thankfully, there's an awesome framework out there called <a href="https://www.ludei.com/">CocoonJS</a> that makes this dead-simple. First, they're framework converts your javascript canvas code to fast-performing WebGL code. But one of the coolest parts is that they have an app that you install on your iPhone/Android device that will allow you to literally copy your game files to your phone and play them. You don't even need a developer license on iOS! Very cool stuff. For a tutorial on using the app, check out <a href="http://support.ludei.com/hc/en-us/articles/201048463-How-to-use">this page</a>. </p>
+ * <h2>Brought to You By</h2>
+ * <ul>
+ *     <li><a href="https://github.com/greysonp">greysonp</a></li>
+ *     <li><a href="https://github.com/MaybeNot">MaybeNot</a></li>
+ *     <li><a href="https://github.com/stephenrlouie">stephenrlouie</a></li>
+ * </ul>
+ * 
  * @module cutie
+ * @main cutie
  */
 (function(module) {
+    /**
+     * @class cutie
+     * @static
+     */
+
     var _scenes = {};
     var _activeScene = {};
     var _canvas = {};
@@ -16,33 +41,19 @@ this.cutie = createjs;
     module.WIDTH = 0;
     module.HEIGHT = 0;
 
-    /**
-     * A list of constants for declaring how you want to scale your game.
-     * @namespace cutie.ScaleType
-     * @property {Number} NONE Do not scale.
-     * @property {Number} STRETCH Make it take up the full screen, even if it ruins the aspect ratio.
-     * @property {Number} LETTERBOX Make it take up the full screen, but preserve aspect ratio by using black bars.
-     */
-    module.ScaleType = {
-        "NONE": 0,
-        "STRETCH": 1,
-        "LETTERBOX": 2
-    }
-
     // ======================================================
     // PUBLIC
     // ======================================================
     /**
      * Starts the game.
-     * @memberof cutie
      * @method start
      * @public
      * @static
-     * @param  {cutie.Scene} scene 
+     * @param  {Scene} scene 
      *         The scene to start the game with.
      * @param  {Object} [props={}] A series of properties that affects the overall game and how the scene is set.
      * @param  {String} [props.canvasId="js-canvas"] The id of the canvas element you want to display your game in.
-     * @param  {cutie.Scene[]} [props.preloadScenes=[]] Which additional scenes to preload when you load this scene. 
+     * @param  {Scene[]} [props.preloadScenes=[]] Which additional scenes to preload when you load this scene. 
      *                                               The progress bar for this scene will be representative of this 
      *                                               list's preload progress.
      * @param  {Object} [props.debugFPS={}] A set of options related to showing the frames per second (FPS) on-screen
@@ -84,11 +95,10 @@ this.cutie = createjs;
      * Takes the specified scene and sets it as the active scene. This will
      * now be the scene that receives calls to its tick() function. If it is 
      * not already preloaded, it will be preloaded
-     * @memberof cutie
      * @method setScene
      * @public
      * @static
-     * @param {cutie.Scene} scene 
+     * @param {Scene} scene 
      *        The scene to be made active.
      * @param {Object} props 
      *        A series of properties that affects how the scene is set.
@@ -121,15 +131,12 @@ this.cutie = createjs;
 
     /**
      * Adds the scene to the list of registered scenes.
-     * @memberof cutie
      * @method registerScene
      * @public
      * @static
-     * @param  {cutie.Scene} scene 
-     *         The scene you want to register.
-     * @param  {String} name
-     *         The name you want to associate with the scene. This is the
-     *         name you will use when setting and preloading scenes.
+     * @param  {Scene} scene The scene you want to register.
+     * @param  {String} name The name you want to associate with the scene. This is the
+     *                       name you will use when setting and preloading scenes.
      */
     module.registerScene = function(scene, name) {
         if (_scenes[name]) {
@@ -140,7 +147,6 @@ this.cutie = createjs;
 
     /**
      * Gets a references to the stage being managed by cutie.
-     * @memberof cutie
      * @method getStage
      * @public
      * @static
@@ -152,11 +158,10 @@ this.cutie = createjs;
 
     /**
      * Gets a references to the active scene being managed by cutie.
-     * @memberof cutie
      * @method getActiveScene
      * @public
      * @static
-     * @return {cutie.Scene} A reference to the active scene being managed by cutie.
+     * @return {Scene} A reference to the active scene being managed by cutie.
      */
     module.getActiveScene = function() {
         return _activeScene;
@@ -181,7 +186,7 @@ this.cutie = createjs;
      * Preloads a list of scenes, and adds the preload event listeners
      * to the first scene in the list
      * @private
-     * @param  {cutie.Scene} scenes 
+     * @param  {Scene} scenes 
      *         List of scenes to be preloaded.
      */
     function preloadScenes(scenes) {
@@ -214,7 +219,7 @@ this.cutie = createjs;
      * Description
      * @private
      * @param  {String[]} sceneNames description
-     * @return {cutie.Scene[]}       description
+     * @return {Scene[]}       description
      */
     function getScenes(sceneNames) {
         var scenes = [];
@@ -228,7 +233,7 @@ this.cutie = createjs;
      * Description
      * @private
      * @param  {String} sceneNames  description
-     * @return {cutie.Scene}        description
+     * @return {Scene}        description
      */
     function getScene(sceneName) {
         var scene = _scenes[sceneName];
