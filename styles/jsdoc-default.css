@@ -1,7 +1,7 @@
 html
 {
     overflow: auto;
-    background-color: #34C6CD;
+    background-color: #1D3DA8;
 }
 
 body
@@ -9,19 +9,19 @@ body
 	font: 14px "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans serif;
 	line-height: 130%;
 	color: #000;
-	background-color: #34C6CD;
+	background-color: #1D3DA8;
 }
 
 a {
-    color: #FF9840;
+    color: #F9B110;
 }
 
 a:visited {
-    color: #FF9840;
+    color: #F9B110;
 }
 
 a:active {
-    color: #FF9840;
+    color: #F9B110;
 }
 
 header
@@ -48,7 +48,7 @@ section
 {
 	display: block;
 	
-	background-color: #34C6CD;
+	background-color: #1D3DA8;
 	padding: 12px 24px;
     	border-bottom: 1px solid #ccc;
     	margin-right: 240px;
@@ -100,15 +100,15 @@ nav li {
 }
 
 nav a {
-    color: #FF7600;
+    color: #7B11A5;
 }
 
 nav a:visited {
-    color: #FF7600;
+    color: #7B11A5;
 }
 
 nav a:active {
-    color: #FF7600;
+    color: #7B11A5;
 }
 
 footer {
