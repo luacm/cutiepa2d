@@ -2,14 +2,12 @@ html
 {
     overflow: auto;
     background-color: #506FD4;
-    color: #111;
 }
 
 body
 {
 	font: 14px "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans serif;
 	line-height: 130%;
-	color: #111;
 	background-color: #506FD4;
 }
 
