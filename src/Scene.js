@@ -1,19 +1,18 @@
 this.cutie = this.cutie || {};
 
+/**
+ * @module cutie
+ */
 (function(module) {
 
     // ======================================================
     // CONSTRUCTOR
     // ======================================================
     /**
-     * Description:
-     *      A container that manages a scene in your game. Automatically
-     *      manages things like preloading and collision detection.
-     *
-     *      @memberof cutie
-     *      @class Scene
-     *      @constructor
-     * 
+     * A container that manages a scene in your game. Automatically
+     * manages things like preloading and collision detection.
+     * @class Scene
+     * @constructor
      */
     var Scene = function() {
       this.initialize();
@@ -41,7 +40,6 @@ this.cutie = this.cutie || {};
     // ======================================================
     /**
      * Override this method and load all of your assets you want preloaded for this scene.
-     * @memberof cutie.Scene#
      * @method preload
      * @public
      * @param  {createjs.Loader} loader The loader to load all of your assets into.
@@ -51,7 +49,6 @@ this.cutie = this.cutie || {};
 
     /**
      * Override this method and do anything you want when preload progress is updated.
-     * @memberof cutie.Scene#
      * @method onPreloadProgress
      * @public
      * @param  {createjs.Event} e The event.
@@ -65,13 +62,10 @@ this.cutie = this.cutie || {};
 
     /**
      * Called when this scene (or list of scenes) is done preloading.
-     * @memberof cutie.Scene#
      * @method onPreloadComplete
      * @public
-     * @param  {cutie.Scene[]} scenes 
-     *         A list of scenes that were in this preload queue.
-     * @param  {createjs.Event} e 
-     *         The event info.
+     * @param  {cutie.Scene[]} scenes A list of scenes that were in this preload queue.
+     * @param  {createjs.Event} e The event info.
      */
     Scene.prototype.onPreloadComplete = function(scenes, loader, e) {
         cutie.Log.v("cutie.Scene.onPreloadComplete()");
@@ -96,8 +90,6 @@ this.cutie = this.cutie || {};
 
     /**
      * The private wrapper for the init function. Handles some preloader stuff.
-     * @memberof cutie.Scene#
-<<<<<<< HEAD
      * @function init
      * @private
      * @param {createjs.DisplayObject} preloader The preloader you'd like to use for this scene.
@@ -134,7 +126,7 @@ this.cutie = this.cutie || {};
      * the user-defined tick().
      * @method _tickInternal
      * @private
-     * @param  {createjs.Event} e Theh event.
+     * @param  {createjs.Event} e The event.
      */
     Scene.prototype._tickInternal = function(e) {
         this.tick(e);
