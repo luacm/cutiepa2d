@@ -1,7 +1,9 @@
 this.cutie = this.cutie || {};
 
 /**
- * @namespace cutie.Util
+ * @module cutie
+ * @class Util
+ * @static
  */
 (function(module) {
     var Util = {};
@@ -9,7 +11,7 @@ this.cutie = this.cutie || {};
     /**
      * Finds the distance between two points.
      * @memberof cutie.Util
-     * @function distance
+     * @method distance
      * @public
      * @static
      * @param  {Object} obj1 An object with properties x and y. This includes DisplayObjects.
@@ -25,7 +27,7 @@ this.cutie = this.cutie || {};
     /**
      * Finds the angle between two points.
      * @memberof cutie.Util
-     * @function angle
+     * @method angle
      * @public
      * @static
      * @param  {Object} obj1 An object with properties x and y. This includes DisplayObjects.

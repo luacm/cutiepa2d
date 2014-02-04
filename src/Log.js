@@ -1,60 +1,66 @@
 this.cutie = this.cutie || {};
 
 /** 
- * @namespace cutie.Log
+ * @module cutie
  */
 (function(module) {
 
+    /**
+     * @class Log
+     * @static
+     */
     var Log = {};
 
     /**
-     * @constant {Number} VERBOSE
-     * @memberof cutie.Log
+     * @property VERBOSE
+     * @type Number
+     * @final
      * @public
+     * @static
      */
     Log.VERBOSE = 2;
 
     /**
-     * @constant {Number} DEBUG
-     * @memberof cutie.Log
+     * @property DEBUG
+     * @type Number
+     * @final
      * @public
+     * @static
      */
     Log.DEBUG = 3;
 
     /**
-     * @constant {Number} INFO
-     * @memberof cutie.Log
+     * @property INFO
+     * @type Number
+     * @final
      * @public
+     * @static
      */
     Log.INFO = 4;
 
     /**
-     * @constant {Number} WARN
-     * @memberof cutie.Log
+     * @property WARN
+     * @type Number
+     * @final
      * @public
+     * @static
      */
     Log.WARN = 5;
 
     /**
-     * @constant {Number} ERROR
-     * @memberof cutie.Log
+     * @property ERROR
+     * @type Number
+     * @final
      * @public
+     * @static
      */
     Log.ERROR = 6;
 
-    /**
-     * Determines what level of messages are printed
-     * @member {Number} level
-     * @memberof cutie.Log
-     * @static
-     * @default cutie.Log.DEBUG
-     */
-    Log.level = Log.DEBUG;
+    var _level = Log.DEBUG;
 
     /**
      * Logs a message with level cutie.Log.VERBOSE.
-     * @memberof cutie.Log
-     * @function v
+     * @method v
      * @public
      * @static
      * @param  {String} message The message you want to log.
@@ -65,8 +71,7 @@ this.cutie = this.cutie || {};
 
     /**
      * Logs a message with level cutie.Log.DEBUG.
-     * @memberof cutie.Log
-     * @function d
+     * @method d
      * @public
      * @static
      * @param  {String} message The message you want to log.
@@ -77,8 +82,7 @@ this.cutie = this.cutie || {};
 
     /**
      * Logs a message with level cutie.Log.INFO.
-     * @memberof cutie.Log
-     * @function i
+     * @method i
      * @public
      * @static
      * @param  {String} message The message you want to log.
@@ -89,8 +93,7 @@ this.cutie = this.cutie || {};
 
     /**
      * Logs a message with level cutie.Log.WARN.
-     * @memberof cutie.Log
-     * @function w
+     * @method w
      * @public
      * @static
      * @param  {String} message The message you want to log.
@@ -101,18 +104,29 @@ this.cutie = this.cutie || {};
 
     /**
      * Logs a message with level cutie.Log.ERROR.
-     * @memberof cutie.Log
-     * @function e
+     * @method e
      * @public
      * @static
      * @param  {String} message The message you want to log.
      */
     Log.e = function(message) {
-        log(message, Log.ERRO);
+        log(message, Log.ERROR);
+    }
+
+    /**
+     * Sets the log level for the game. No log statements with a level
+     * lower than the one specified will appear in the console.
+     * @method setLogLevel
+     * @public
+     * @static
+     * @param {Number} level The level you wish to set the logger to.
+     */
+    Log.setLogLevel = function(level) {
+        _level = level;
     }
 
     function log(message, level) {
-        if (level >= Log.level) {
+        if (level >= _level) {
             switch(level) {
                 case Log.VERBOSE: 
                     console.log(message);

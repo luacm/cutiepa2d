@@ -4,7 +4,7 @@
 this.cutie = createjs;
 
 /**
- * @namespace cutie
+ * @module cutie
  */
 (function(module) {
     var _scenes = {};
@@ -35,7 +35,7 @@ this.cutie = createjs;
     /**
      * Starts the game.
      * @memberof cutie
-     * @function start
+     * @method start
      * @public
      * @static
      * @param  {cutie.Scene} scene 
@@ -85,7 +85,7 @@ this.cutie = createjs;
      * now be the scene that receives calls to its tick() function. If it is 
      * not already preloaded, it will be preloaded
      * @memberof cutie
-     * @function setScene
+     * @method setScene
      * @public
      * @static
      * @param {cutie.Scene} scene 
@@ -122,7 +122,7 @@ this.cutie = createjs;
     /**
      * Adds the scene to the list of registered scenes.
      * @memberof cutie
-     * @function registerScene
+     * @method registerScene
      * @public
      * @static
      * @param  {cutie.Scene} scene 
@@ -141,7 +141,7 @@ this.cutie = createjs;
     /**
      * Gets a references to the stage being managed by cutie.
      * @memberof cutie
-     * @function getStage
+     * @method getStage
      * @public
      * @static
      * @return {createjs.Stage} A reference to the stage being managed by cutie.
@@ -153,7 +153,7 @@ this.cutie = createjs;
     /**
      * Gets a references to the active scene being managed by cutie.
      * @memberof cutie
-     * @function getActiveScene
+     * @method getActiveScene
      * @public
      * @static
      * @return {cutie.Scene} A reference to the active scene being managed by cutie.

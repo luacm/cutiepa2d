@@ -1,11 +1,13 @@
 this.cutie = this.cutie || {};
 this.cutie.Behavior = this.cutie.Behavior || {};
 
+/**
+ * @submodule Behavior
+ */
 (function(module){
     /**
      * This behavior makes the object move along a specified route.
-     * 
-     * @memberof cutie.Behavior
+     * @class Route
      * @constructor
      * @param {Object} [props] The properties being passed in.
      * @param {Array} [props.path[]] Array of coorinates {x,y} to follow, ordered from first to last.

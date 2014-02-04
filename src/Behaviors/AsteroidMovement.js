@@ -1,24 +1,25 @@
 this.cutie = this.cutie || {};
 this.cutie.Behavior = this.cutie.Behavior || {};
 
+/**
+ * @submodule Behavior
+ */
 (function(module){
     /**
      * This behavior give the object controls like the classic asteroid game;
      * thrust forward, turn left, and turn right. The center of rotation of the
      * object must be set seperately.
-     * 
-     * @memberof cutie.Behavior
+     * @class AsteroidMovement
      * @constructor
      * @param {Object} [props] The properties being passed in.
      * @param {Number[]} [props.keys=['UpArrow','RightArrow','LeftArrow']] The keycodes for directional movement. {forward, turnRight, turnLeft}
-     * @param {Number} [props.acceleration = 5] Speed gained in pixels/s^2.
+     * @param {Number} [props.acceleration=5] Speed gained in pixels/s^2.
      * @param {Number} [props.deceleration=1] Speed lost in pixels/s^2 (when no key is pressed).
      * @param {Number} [props.rotation=90] Rotation speed in deg/s.
      * @param {Boolean} [props.setCenter=true] Automatically register the image center.
      * @param {Number} [props.angleOffset=90] This is the orientation where 90 is straight up, 
      *     the zero point is the cartesian positive x axis and degrees rotate counter-clockwise up from this x axis.
      */
-
     var AsteroidMovement = function(props) {
     	// ================================================
         // VARIABLE DECLARATIONS

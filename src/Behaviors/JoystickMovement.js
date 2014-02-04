@@ -1,12 +1,14 @@
 this.cutie = this.cutie || {};
 this.cutie.Behavior = this.cutie.Behavior || {};
 
-
+/**
+ * @submodule Behavior
+ */
 (function(module){
    
    /**
     * Gives an object analog movement via an on-screen joystick.
-    * @memberof cutie.Behavior
+    * @class JoystickMovement
     * @constructor
     * @param {Object} [props] The properties being passed in.
     * @param {Number} [props.speed=5] The maximum speed the object can travel.

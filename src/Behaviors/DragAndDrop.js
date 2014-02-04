@@ -1,14 +1,16 @@
 this.cutie = this.cutie || {};
 this.cutie.Behavior = this.cutie.Behavior || {};
 
+/**
+ * @submodule Behavior
+ */
 (function(module){
     /**
      * This behavior makes the object able to be dragged and
      * dropped with the mouse/touch.
-     * @memberof cutie.Behavior
+     * @class DragAndDrop
      * @constructor
      * @param {Object} [props] The properties being passed in. For DragAndDrop there are no behaviors
-     *        
      */
     var DragAndDrop = function(props) {
         // ================================================

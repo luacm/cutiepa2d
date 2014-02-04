@@ -33,7 +33,7 @@ this.cutie = this.cutie || {};
     /**
      * Override this method and load all of your assets you want preloaded for this scene.
      * @memberof cutie.Scene#
-     * @function preload
+     * @method preload
      * @public
      * @param  {createjs.Loader} loader The loader to load all of your assets into.
      */
@@ -43,7 +43,7 @@ this.cutie = this.cutie || {};
     /**
      * Override this method and do anything you want when preload progress is updated.
      * @memberof cutie.Scene#
-     * @function onPreloadProgress
+     * @method onPreloadProgress
      * @public
      * @param  {createjs.Event} e The event.
      */
@@ -54,7 +54,7 @@ this.cutie = this.cutie || {};
     /**
      * Called when this scene (or list of scenes) is done preloading.
      * @memberof cutie.Scene#
-     * @function onPreloadComplete
+     * @method onPreloadComplete
      * @public
      * @param  {cutie.Scene[]} scenes 
      *         A list of scenes that were in this preload queue.
@@ -75,7 +75,7 @@ this.cutie = this.cutie || {};
     /**
      * Overwrite this function to declare what happens when the scene starts.
      * @memberof cutie.Scene#
-     * @function init
+     * @method init
      * @public
      */
     Scene.prototype.init = function() {
@@ -85,7 +85,7 @@ this.cutie = this.cutie || {};
      * Overwrite this function to declare what happens upon updating the scene. In other
      * words, this method is called every 1/framerate seconds.
      * @memberof cutie.Scene#
-     * @function tick
+     * @method tick
      * @public
      * @param  {createjs.Event} e The event.
      */
@@ -98,7 +98,7 @@ this.cutie = this.cutie || {};
      * some housekeeping (like calling children's ticks) in addition to calling
      * the user-defined tick().
      * @memberof cutie.Scene#
-     * @function _tickInternal
+     * @method _tickInternal
      * @private
      * @param  {createjs.Event} e Theh event.
      */

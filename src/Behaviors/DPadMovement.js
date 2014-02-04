@@ -1,12 +1,14 @@
 this.cutie = this.cutie || {};
 this.cutie.Behavior = this.cutie.Behavior || {};
 
-
+/**
+ * @submodule Behavior
+ */
 (function(module){
    
    /**
     * Gives an object analog movement via an on-screen joystick.
-    * @memberof cutie.Behavior
+    * @class DPadMovement
     * @constructor
     * @param {Object} [props] The properties being passed in.
     * @param {Number} [props.speed=100] The maximum speed the object can travel.
@@ -19,8 +21,6 @@ this.cutie.Behavior = this.cutie.Behavior || {};
     * @param {String} [props.buttonColor='#ccc'] The hex RBG value of the color of the button.
     * @param {Number} [props.normalAlpha = 1] The unpressed transparency of the buttons.
     * @param {Number} [props.pressedAlpha = 0.5] The pressed transparency of the buttons.
-    *
-    *
     */
     var DPadMovement = function(props) {
         if (!props.position) props.position = {};
