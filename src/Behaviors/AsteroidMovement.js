@@ -10,6 +10,7 @@ this.cutie.Behavior = this.cutie.Behavior || {};
      * thrust forward, turn left, and turn right. The center of rotation of the
      * object must be set seperately.
      * @class AsteroidMovement
+     * @extends Behavior
      * @constructor
      * @param {Object} [props] The properties being passed in.
      * @param {Number[]} [props.keys=['UpArrow','RightArrow','LeftArrow']] The keycodes for directional movement. {forward, turnRight, turnLeft}

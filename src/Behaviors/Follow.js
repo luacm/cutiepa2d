@@ -9,6 +9,7 @@ this.cutie.Behavior = this.cutie.Behavior || {};
      * Gives an object the ability to follow another object or the mouse.
      * @constructor
      * @class Follow
+     * @extends Behavior
      * @param {Object} [props] The properties being passed in.
      * @param {Boolean} [props.targetObj=false] This is the object that is going to be followed.
      *      If no object is passed in, it will follow the mouse.

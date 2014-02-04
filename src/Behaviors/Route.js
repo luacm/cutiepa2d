@@ -8,6 +8,7 @@ this.cutie.Behavior = this.cutie.Behavior || {};
     /**
      * This behavior makes the object move along a specified route.
      * @class Route
+     * @extends Behavior
      * @constructor
      * @param {Object} [props] The properties being passed in.
      * @param {Array} [props.path[]] Array of coorinates {x,y} to follow, ordered from first to last.

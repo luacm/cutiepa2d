@@ -9,6 +9,7 @@ this.cutie.Behavior = this.cutie.Behavior || {};
    /**
     * Gives an object analog movement via an on-screen joystick.
     * @class JoystickMovement
+    * @extends Behavior
     * @constructor
     * @param {Object} [props] The properties being passed in.
     * @param {Number} [props.speed=5] The maximum speed the object can travel.

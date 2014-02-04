@@ -8,6 +8,7 @@ this.cutie.Behavior = this.cutie.Behavior || {};
     /**
      * This behavior allows an object
      * @class Shoot
+     * @extends Behavior
      * @constructor
      * @param {Object} [props] The properties being passed in.
      * @param {Object} [props.bullet] The object to render on a fire.
