@@ -1,7 +1,8 @@
 html
 {
     overflow: auto;
-    background-color: #502d0e;
+    background-color: #39E9E9;
+    color: #000;
 }
 
 body
@@ -9,7 +10,7 @@ body
 	font: 14px "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans serif;
 	line-height: 130%;
 	color: #000;
-	background-color: #502d0e;
+	background-color: #39E9E9;
 }
 
 a {
@@ -48,7 +49,7 @@ section
 {
 	display: block;
 	
-	background-color: #502d0e;
+	background-color: #39E9E9;
 	padding: 12px 24px;
     border-bottom: 1px solid #ccc;
     margin-right: 240px;
