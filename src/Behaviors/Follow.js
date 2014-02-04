@@ -4,20 +4,21 @@ this.cutie.Behavior = this.cutie.Behavior || {};
 (function(module){
     /**
      * Gives an object the ability to follow another object or the mouse.
-     * 
+     *  Testing
+     *
      * @memberof cutie.Behavior
      * @constructor
      * @param {Object} [props] The properties being passed in.
-     * @param {Boolean} [props.targetObj=false] This is the object that is going to be followed. 
-     *      If no object is passed in, it will follow the mouse. 
+     * @param {Boolean} [props.targetObj=false] This is the object that is going to be followed.
+     *      If no object is passed in, it will follow the mouse.
      * @param {Number} [props.speed=100] This is an integer value giving the speed in px/s
-     * @param {Number} [props.distance=0] This is the follow distance in px. 
+     * @param {Number} [props.distance=0] This is the follow distance in px.
      * @param {Boolean} [props.setCenter=true] This is signifies if the object doing the following should rotate around its center
-     * @param {Number} [props.angleOffset=90] This is the following orientation where 90 is straight up, 
-     *     the zero point is the cartesian positive x axis and degrees rotate counter-clockwise up from this x axis. 
+     * @param {Number} [props.angleOffset=90] This is the following orientation where 90 is straight up,
+     *     the zero point is the cartesian positive x axis and degrees rotate counter-clockwise up from this x axis.
      * @param {Number} [props.followCord] The position of the center of the joystick.
      * @param {Number} [props.followCord.x] The x-coordinate on the image to be pursued (using local image coordinates).
-     * @param {Number} [props.followCord.y] The y-coordinate on the image to be pursued (using local image coordinates). 
+     * @param {Number} [props.followCord.y] The y-coordinate on the image to be pursued (using local image coordinates).
      */
 
 
@@ -27,7 +28,7 @@ this.cutie.Behavior = this.cutie.Behavior || {};
     	// ================================================
         // VARIABLE DECLARATIONS
         // ================================================
-        
+
         var props = props || {};
         if (!props.followCord) props.followCord = {};
 
@@ -72,7 +73,7 @@ this.cutie.Behavior = this.cutie.Behavior || {};
         // ================================================
         // PRIVATE METHODS
         // ================================================
-        
+
         function setCoords(){
             if(!_targetObj) {
                 var stage = cutie.getStage();
