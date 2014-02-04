@@ -131,7 +131,6 @@ this.cutie = this.cutie || {};
      * @public
      * @param  {String} name A unique name identifying a collision group for this scene.
      * @param  {Object} [props] The properties being passed in.
-     * @param  {CollisionHandler} [props.internalCollisions] A collision handler to be called when two objects of the same group collide.
      * @param  {Object[]} [props.collidesWith] An object defining this collision group's interactions with other collision groups.
      * @param  {String[]} [props.collidesWith.name="*"] An array of the names of groups which interact with this collision group. "*" indicates all registered groups.
      * @param  {CollisionHandler} [props.collidesWith.handler] A collision handler to be called when an object of this group collides with an object in the group specified in the name array.
@@ -192,7 +191,7 @@ this.cutie = this.cutie || {};
 
             var nCol = {
                 "obj": obj,
-                "collisionType": collisionType
+                "collisionType": props.collisionType
             };
 
             this._collidables[props.groupName].push(nCol);
@@ -247,7 +246,10 @@ this.cutie = this.cutie || {};
                 for(var j = 0; j < len; j++) {
                     this._collidables[groupName].forEach(function(e){
                         for(var k = 0, numNames = collidesWith[j].name.length; k < numNames; k++) {
-                            scene._checkGroupCollision(e, groupName, collidesWith[j].name[k], collidesWith[j].handle);
+                            if(collidesWith[j].name[k] !== groupName)
+                                scene._checkGroupCollision(e, groupName, collidesWith[j].name[k], collidesWith[j].handle);
+                            else
+                                scene._checkIntraGroupCollision(e, groupName, collidesWith[j].handle);
                         }
                     });
                 }
@@ -266,12 +268,50 @@ this.cutie = this.cutie || {};
         else {
             var groupObjs = this._collidables[groupName];
             for(var i = 0, len = groupObjs.length; i < len; i++) {
-                var check = groupObjs[i].obj;
+                var checkCollidable = groupObjs[i];
+                var check = checkCollidable.obj;
                 if(check !== obj) {
-                    var intersection = cutie.Collisions.checkRectCollision(obj, check);
+                    var intersection;
+                    if(collidable.collisionType === "rectangle" && checkCollidable.collisionType === "rectangle")
+                        intersection = cutie.Collisions.checkRectCollision(obj, check);
+                    else if(collidable.collisionType === "circle" && checkCollidable.collisionType === "circle")
+                        intersection = cutie.Collisions.checkCircleCollision(obj, check);
+                    else if(collidable.collisionType === "circle" && checkCollidable.collisionType === "rectangle")
+                        intersection  = cutie.Collisions.checkCircleRectCollision(obj, check);
+                    else if(collidable.collisionType === "rectangle" && checkCollidable.collisionType === "circle")
+                        intersection = cutie.Collisions.checkCircleRectCollision(check, obj);
+                    else
+                        cutie.Log.w("No collision matching available for types " + collidable.collisionType + " and " + checkCollidable.collisionType)
                     if(intersection) {
                         callback(obj, check, intersection);
                     }
+                }
+            }
+        }
+    }
+
+    Scene.prototype._checkIntraGroupCollision = function(collidable, collidableGroup, callback) {
+        var obj = collidable.obj;
+        var collisionType = collidable.collisionType;
+        var mark = false;
+        var groupObjs = this._collidables[collidableGroup];
+
+        for(var i = 0, len = groupObjs.length; i < len; i++) {
+            if(obj === groupObjs[i].obj) mark = true;
+            else if(mark) {
+                var intersection;
+                if(collidable.collisionType === "rectangle" && groupObjs[i].collisionType === "rectangle")
+                    intersection = cutie.Collisions.checkRectCollision(obj, groupObjs[i].obj);
+                else if(collidable.collisionType === "circle" && groupObjs[i].collisionType === "circle")
+                    intersection = cutie.Collisions.checkCircleCollision(obj, groupObjs[i].obj);
+                else if(collidable.collisionType === "circle" && groupObjs[i].collisionType === "rectangle")
+                    intersection  = cutie.Collisions.checkCircleRectCollision(obj, groupObjs[i].obj);
+                else if(collidable.collisionType === "rectangle" && groupObjs[i].collisionType === "circle")
+                    intersection = cutie.Collisions.checkCircleRectCollision(groupObjs[i].obj, obj);
+                else
+                    cutie.Log.w("No collision matching available for types " + collidable.collisionType + " and " + groupObjs[i].collisionType)
+                if(intersection) {
+                    callback(obj, groupObjs[i].obj, intersection);
                 }
             }
         }

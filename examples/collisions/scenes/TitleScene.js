@@ -10,35 +10,34 @@
 
         var spidey = new cutie.Bitmap(preloaded.getResult("spidey"));
         var spidey2 = new cutie.Bitmap(preloaded.getResult("spidey"));
+        this.addChild(spidey);
         spidey2.x = 200;
         spidey2.y = 200;
-        this.addChild(spidey);
         this.addChild(spidey2);
+
+
         this.registerCollisionGroup("block");
 
         this.registerCollisionGroup("player", {
-            "internalCollisions": function(obj1, obj2, rect) {
-                var scene = cutie.getActiveScene();
-                scene.removeChild(obj2);
-            },
-            "collidesWith": {
+            "collidesWith": [{
                 "name": "block",
-                "handle": function(obj1, obj2, rect){
-                    modX = Math.abs(obj1.x-obj2.x)/(obj1.x-obj2.x);
-                    modY = Math.abs(obj1.y-obj2.y)/(obj1.y-obj2.y);
-                    if(rect.height < rect.width) {
-                        obj2.y -= 2*modY;
-                    }
-                    else {
-                        obj2.x -= 2*modX;
-                    }
+                "handle": function(obj1, obj2, pt){
+                    cutie.Log.v("Player->Block Collision")
+                }
+            },
+            {
+                "name": "player",
+                "handle": function(obj1, obj2, pt) {
+                    cutie.Log.v("Player->Player Collision")
                 }
             }
+            ]
         });
-        this.addCollidable(spidey, {"groupName": "player"});
-        this.addCollidable(spidey2, {"groupName": "block"});
+        this.addCollidable(spidey, {"groupName": "player", "collisionType": "circle"});
+        this.addCollidable(spidey2, {"groupName": "block", "collisionType": "rectangle"});
 
-        spidey.addBehavior(new cutie.Behavior.EightDirectionalMovement());
+
+        spidey.addBehavior(new cutie.Behavior.JoystickMovement({}));
 
     }
 

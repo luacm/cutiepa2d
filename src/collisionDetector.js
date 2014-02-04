@@ -45,17 +45,25 @@ this.cutie.Collisions = this.cutie.Collisions || {};
   var cachedBAFrames = [];
 
   var checkCircleCollision = function(bitmap1, bitmap2) {
-
+    var c1, c2;
+    c1 = getCircle(bitmap1);
+    c2 = getCircle(bitmap2);
+    return  calculateCircleIntersection(c1, c2);
   }
+  module.Collisions.checkCircleCollision = checkCircleCollision;
 
   var checkCircleRectCollision = function(bitmap1, bitmap2) {
-
+    var b, c;
+    c = getCircle(bitmap1);
+    b = getBounds(bitmap2);
+    return calculateCircleRectIntersection(c, b);
   }
+  module.Collisions.checkCircleRectCollision = checkCircleRectCollision;
 
   var checkRectCollision = function(bitmap1,bitmap2) {
     var b1, b2;
     b1 = getBounds(bitmap1);
-    b2 = getBounds(bitmap2);
+    b2 = getBounds(bitmap2)
     return calculateIntersection(b1,b2);
   }
   module.Collisions.checkRectCollision = checkRectCollision;
@@ -214,6 +222,98 @@ this.cutie.Collisions = this.cutie.Collisions || {};
 
     return child[propName];
   }
+
+  var calculateCircleRectIntersection = function(circ, rect) {
+    var dist;
+    var cY = circ.center.y, cX = circ.center.x;
+    var rY = rect.y + rect.height/2, rX = rect.x + rect.width/2;
+    var rD = Math.sqrt(rect.width/2*rect.width/2+rect.height/2*rect.height/2);
+    var min = rD + circ.radius;
+    dist = Math.sqrt((cX-rX)*(cX-rX)+(cY-rY)*(cY-rY));
+
+    if(dist > (rD+circ.radius)) return null;
+    else {
+      var dist1, dist2, dist3, dist4;
+      dist1 = Math.sqrt((cX-rect.x)*(cX-rect.x)+(cY-rect.y)*(cY-rect.y));
+      dist2 = Math.sqrt((cX-rect.x-rect.width)*(cX-rect.x-rect.width)+(cY-rect.y)*(cY-rect.y));
+      dist3 = Math.sqrt((cX-rect.x)*(cX-rect.x)+(cY-rect.y-rect.height)*(cY-rect.y-rect.height));
+      dist4 = Math.sqrt((cX-rect.x-rect.width)*(cX-rect.x-rect.width)+(cY-rect.y-rect.height)*(cY-rect.y-rect.height));
+
+      //circlue is touching a corner
+      if(dist1 < circ.radius|| dist2 < circ.radius|| dist3 < circ.radius|| dist4 < circ.radius) {
+        return {hit: true};
+      }
+      else if(cX >= rect.x && cX <= (rect.x + rect.width) && Math.abs(rY - cY) < (circ.radius + rect.height/2)) {
+        return {hit: true};
+      }
+      else if(cY >= rect.y && cY <= (rect.y + rect.height) && Math.abs(rX - cX) < (circ.radius + rect.width/2)) {
+        return {hit: true};
+      }
+      else {
+        return null;
+      }
+    }
+
+    //dist2 = Math.sqrt((cX-rect.x-rect.width)*(cX-rect.x-rect.width)+(cY-rect.y)*(cY-rect.y));
+    //dist3 = Math.sqrt((cX-rect.x)*(cX-rect.x)+(cY-rect.y-rect.height)*(cY-rect.y-rect.height));
+    //dist4 = Math.sqrt((cX-rect.x-rect.width)*(cX-rect.x-rect.width)+(cY-rect.y-rect.height)*(cY-rect.y-rect.height));
+  }
+  module.Collisions.calculateCircleRectIntersection = calculateCircleRectIntersection;
+
+  var calculateCircleIntersection = function(circ1, circ2) {
+    var dist = Math.sqrt((circ1.center.x-circ2.center.x)*(circ1.center.x-circ2.center.x) + (circ1.center.y-circ2.center.y)*(circ1.center.y-circ2.center.y));
+    if(dist < (circ1.radius + circ2.radius)) {
+      var centerX = (circ1.center.x + circ2.center.x)/2
+      var centerY = (circ1.center.y + circ2.center.y)/2
+
+      return {
+        x:centerX, 
+        y:centerY
+      }
+    }
+
+    return null;
+  }
+  module.Collisions.calculateCircleIntersection = calculateCircleIntersection;
+
+  var getCircle = function(obj) {
+    var circle = {center: {x:0, y:0}, radius: 0};
+    if(obj instanceof module.Container) {
+      //calculate center and maximum radius of all children
+      var children = obj.children, len = children.length;
+    }
+    else {
+      var gp, img = {};
+      if(obj instanceof module.Sprite) {
+        if(obj.spriteSheet._frames && obj.spriteSheet._frames[obj.currentFrame] && obj.spriteSheet._frames[obj.currentFrame].image) {
+          var frame = obj.spriteSheet.getFrame(obj.currentFrame);
+          img.width = frame.rect.width;
+          img.height = frame.rect.height;
+          img.regX = frame.regX;
+          img.regY = frame.regY;
+          img.x = frame.x;
+
+        }
+      }
+      else if(obj instanceof module.Bitmap) {
+        var sr = obj.sourceRect || obj.image;
+        img.width = sr.width;
+        img.height = sr.height;
+        img.regX = sr.regX;
+        img.regY = sr.regY;
+      }
+      circle.radius = (img.width > img.height)? sr.width/2:sr.height/2;
+      img.regX = img.regX || 0;
+      img.regY = img.regY || 0;
+
+      gp = obj.localToGlobal(img.width/2 - img.regX, img.height/2 - img.regY);
+      circle.center.x = gp.x;
+      circle.center.y = gp.y;
+      }
+
+    return circle;
+  }
+  module.Collisions.getCircle = getCircle;
 
   var calculateIntersection = function(rect1, rect2)
   {
