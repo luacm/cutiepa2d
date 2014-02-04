@@ -4,7 +4,6 @@ this.cutie.Behavior = this.cutie.Behavior || {};
 (function(module){
     /**
      * Gives an object the ability to follow another object or the mouse.
-     *  Testing
      *
      * @memberof cutie.Behavior
      * @constructor
