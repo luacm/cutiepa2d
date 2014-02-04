@@ -13,15 +13,15 @@ body
 }
 
 a {
-    color: #444;
+    color: #FFDF40;
 }
 
 a:visited {
-    color: #444;
+    color: #FFDF40;
 }
 
 a:active {
-    color: #444;
+    color: #FFDF40;
 }
 
 header
@@ -87,7 +87,7 @@ nav ul {
 }
 
 nav h2 a, nav h2 a:visited {
-    color: #A35A00;
+    color: #FFD500;
     text-decoration: none;
 }
 
@@ -100,15 +100,15 @@ nav li {
 }
 
 nav a {
-    color: #5C5954;
+    color: #CE0071;
 }
 
 nav a:visited {
-    color: #5C5954;
+    color: #CE0071;
 }
 
 nav a:active {
-    color: #5C5954;
+    color: #CE0071;
 }
 
 footer {
