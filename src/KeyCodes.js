@@ -1,19 +1,29 @@
+/** 
+ * CutiePa2d - Game Framework built on createjs and easeljs
+ * 
+ * Contributors:
+ *      - Greyson Parrelli @greysonp
+ *      - Adam Schaub   @maybenot
+ *      - Stephen Louie @stephenrlouie
+ * 
+ * Developed Jan - Feb 2014 to aid Lehigh studens for the mobiLEhigh competition
+ *
+ */
+
 this.cutie = this.cutie || {};
 
 (function(module){
     /**
-     * Description: 
+     * Description. 
      *      Holds a list of ASCII values for commently-accessed keybard key.s.
      *      @namespace cutie.KeyCodes
      *      @type {Object}
      *
-     * Property: 
-     *    Directional Pad: 
      *      @property {Number} UP The up arrow key on the keyboard.
      *      @property {Number} DOWN The down arrow key on the keyboard.
      *      @property {Number} LEFT The left arrow key on the keyboard.
      *      @property {Number} RIGHT The right arrow key on the keyboard.
-     *    ASWD:
+     *    
      *      @property {Number} W The 'w' key on the keyboard.
      *      @property {Number} A The 'a' key on the keyboard.
      *      @property {Number} S The 's' key on the keyboard.
@@ -31,7 +41,6 @@ this.cutie = this.cutie || {};
      *      @property {Number} V The 'v' key on the keyboard.
      *      @property {Number} F The 'f' key on the keyboard.
      *
-     *   Numbers
      *      @property {Number} ZERO The '0' key on the keyboard.
      *      @property {Number} ONE The '1' key on the keyboard.
      *      @property {Number} TWO The '2' key on the keyboard.

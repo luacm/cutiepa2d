@@ -1,20 +1,7 @@
-/** 
- * CutiePa2d - Game Framework built on createjs and easeljs
- * 
- * Contributors:
- *      - Greyson Parrelli @greysonp
- *      - Adam Schaub   @maybenot
- *      - Stephen Louie @stephenrlouie
- * 
- * Developed Jan - Feb 2014 to aid Lehigh studens for the mobiLEhigh competition
- *
- */
-
 this.cutie = createjs;
 
 /**
- * Namespace
- *      @namespace cutie
+ * @namespace cutie
  */
 (function(module) {
     var _scenes = {};
@@ -27,13 +14,9 @@ this.cutie = createjs;
     module.HEIGHT = 0;
 
     /**
-     * Description:
      *      A list of constants for declaring how you want to scale your game.
      * 
-     * Namespace
      *      @namespace cutie.ScaleType
-     *
-     * Properties:
      *      @property {Number} NONE Do not scale.
      *      @property {Number} STRETCH Make it take up the full screen, even if it ruins the aspect ratio.
      *      @property {Number} LETTERBOX Make it take up the full screen, but preserve aspect ratio by using black bars.
@@ -48,16 +31,14 @@ this.cutie = createjs;
     // PUBLIC
     // ======================================================
     /**     
-     * Public Static Function - start
+     * Description
+     *   Starts the game.
+     *
      *      @function start
      *      @public
      *      @static
      *      @memberof cutie
-     *
-     * Description
-     *      Starts the game.
      * 
-     * Parameters:
      *      @param  {cutie.Scene} scene 
      *          The scene to start the game with.
      *      @param  {Object} [props={}] A series of properties that affects the overall game and how the scene is set.
@@ -101,18 +82,16 @@ this.cutie = createjs;
     }
 
     /**
-     * Public Static Function setScene
+    * Description:
+     *      Takes the specified scene and sets it as the active scene. This will
+     *      now be the scene that receives calls to its tick() function. If it is 
+     *      not already preloaded, it will be preloaded
+     *      
      *      @memberof cutie
      *      @function setScene
      *      @public
      *      @static
-     * 
-     * Description:
-     *      Takes the specified scene and sets it as the active scene. This will
-     *      now be the scene that receives calls to its tick() function. If it is 
-     *      not already preloaded, it will be preloaded
      *
-     * Parameters:
      *      @param {cutie.Scene} scene 
      *          The scene to be made active.
      *      @param {Object} props 
@@ -145,16 +124,14 @@ this.cutie = createjs;
     }
 
     /**
-     * Public Static Function registerScene
+     * Description:
+     *      Adds the scene to the list of registered scenes.
+     *
      *      @memberof cutie
      *      @function registerScene
      *      @public
      *      @static
      * 
-     * Description:
-     *      Adds the scene to the list of registered scenes.
-     *
-     * Parameters:
      *      @param  {cutie.Scene} scene 
      *          The scene you want to register.
      *      @param  {String} name
@@ -169,16 +146,14 @@ this.cutie = createjs;
     }
 
     /**
-     * Public Static Function getStage
+     * Description:
+     *      Gets a references to the stage being managed by cutie.
+     *
      *      @memberof cutie
      *      @function getStage
      *      @public
      *      @static
      *
-     * Description:
-     *      Gets a references to the stage being managed by cutie.
-     *
-     * Return:
      *      @return {createjs.Stage} A reference to the stage being managed by cutie.
      */
     module.getStage = function() {
@@ -186,16 +161,14 @@ this.cutie = createjs;
     }
 
     /**
-     * Public Static Function getActiveScene
+     * Description: 
+     *      Gets a references to the active scene being managed by cutie.
+     *
      *      @memberof cutie
      *      @function getActiveScene
      *      @public
      *      @static
      *
-     * Description: 
-     *      Gets a references to the active scene being managed by cutie.
-     *
-     * Return
      *      @return {cutie.Scene} A reference to the active scene being managed by cutie.
      */
     module.getActiveScene = function() {
@@ -207,13 +180,10 @@ this.cutie = createjs;
     // PRIVATE
     // ======================================================
     /**
-     * Private Function tick
-     *      @private
-     *
      * Description:
      *      Calls the internel Ticks on all scene objects
+     *      @private
      *
-     * Parameter:
      *      @param  {createjs.Event} e description
      */
     function tick(e) {
@@ -225,14 +195,12 @@ this.cutie = createjs;
     }
 
     /**
-     * Private Function preloadScenes
-     *      @private
-     *
      * Description:
      *      Preloads a list of scenes, and adds the preload event listeners
      *      to the first scene in the list
-     * 
-     * Parameters:
+     *
+     *      @private
+     *
      *      @param  {cutie.Scene} scenes 
      *          List of scenes to be preloaded.
      */
@@ -263,13 +231,10 @@ this.cutie = createjs;
     }
 
     /**
-     * Private Function getScenes
      *      @private
      * 
-     * Parameters: 
      *      @param  {String[]} sceneNames description
      *
-     * Return:
      *      @return {cutie.Scene[]}       description
      */
     function getScenes(sceneNames) {
@@ -281,13 +246,10 @@ this.cutie = createjs;
     }
 
     /**
-     * Private Function getScene
      *      @private
      * 
-     * Parameters:
      *      @param  {String} sceneNames description
      *
-     * Return:
      *      @return {cutie.Scene} description
      */
     function getScene(sceneName) {
@@ -300,10 +262,8 @@ this.cutie = createjs;
     }
 
     /**
-     * Private Function showFPS
      *      @private
      *
-     * Parameter:
      *      @param  {Object} props description
      */
     function showFPS(props) {
@@ -319,7 +279,6 @@ this.cutie = createjs;
     }
 
     /**
-     * Private Function updateFPS
      *      @private
      *
      */
@@ -386,7 +345,6 @@ this.cutie = createjs;
    *    @method _updatePointerPosition
    *    @protected
    *
-   * Parameters:
    *    @param {Number} id
    *    @param {Number} pageX
    *    @param {Number} pageY

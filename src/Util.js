@@ -19,20 +19,17 @@ this.cutie = this.cutie || {};
     var Util = {};
 
     /**
-     * Public Static Function distance
+     * Description: 
+     *      Finds the distance between two points.
+     *
      *      @memberof cutie.Util
      *      @function distance
      *      @public
      *      @static
      *
-     * Description: 
-     *      Finds the distance between two points.
-     *
-     * Parameters: 
      *      @param  {Object} obj1 An object with properties x and y. This includes DisplayObjects.
      *      @param  {Object} obj2 An object with properties x and y. This includes DisplayObjects.
      * 
-     * Return
      *      @return {Number}      The distance between the two points.
      */
     Util.distance = function(obj1, obj2) {
@@ -42,20 +39,17 @@ this.cutie = this.cutie || {};
     }
 
     /**
-     * Public Static function angle
+     * Description:
+     *      Finds the angle between two points.
+     *
      *      @memberof cutie.Util
      *      @function angle
      *      @public
      *      @static
      *
-     * Description:
-     *      Finds the angle between two points.
-     *
-     * Parameters:
      *      @param  {Object} obj1 An object with properties x and y. This includes DisplayObjects.
      *      @param  {Object} obj2 An object with properties x and y. This includes DisplayObjects.
      * 
-     * ReturnL
      *      @return {Number}      The angle made between the two points.
      */
     Util.angle = function(obj1, obj2) {
