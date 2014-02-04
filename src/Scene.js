@@ -1,5 +1,8 @@
 this.cutie = this.cutie || {};
 
+/**
+ * @module cutie
+ */
 (function(module) {
     // ======================================================
     // CONSTRUCTOR
@@ -7,7 +10,6 @@ this.cutie = this.cutie || {};
     /**
      * A container that manages a scene in your game. Automatically
      * manages things like preloading and collision detection.
-     * @memberof cutie
      * @class Scene
      * @constructor
      */
@@ -32,7 +34,6 @@ this.cutie = this.cutie || {};
     // ======================================================
     /**
      * Override this method and load all of your assets you want preloaded for this scene.
-     * @memberof cutie.Scene#
      * @method preload
      * @public
      * @param  {createjs.Loader} loader The loader to load all of your assets into.
@@ -42,7 +43,6 @@ this.cutie = this.cutie || {};
 
     /**
      * Override this method and do anything you want when preload progress is updated.
-     * @memberof cutie.Scene#
      * @method onPreloadProgress
      * @public
      * @param  {createjs.Event} e The event.
@@ -53,13 +53,10 @@ this.cutie = this.cutie || {};
 
     /**
      * Called when this scene (or list of scenes) is done preloading.
-     * @memberof cutie.Scene#
      * @method onPreloadComplete
      * @public
-     * @param  {cutie.Scene[]} scenes 
-     *         A list of scenes that were in this preload queue.
-     * @param  {createjs.Event} e 
-     *         The event info.
+     * @param  {cutie.Scene[]} scenes A list of scenes that were in this preload queue.
+     * @param  {createjs.Event} e The event info.
      */
     Scene.prototype.onPreloadComplete = function(scenes, e) {
         cutie.Log.v("cutie.Scene.onPreloadComplete()");
@@ -74,7 +71,6 @@ this.cutie = this.cutie || {};
 
     /**
      * Overwrite this function to declare what happens when the scene starts.
-     * @memberof cutie.Scene#
      * @method init
      * @public
      */
@@ -84,7 +80,6 @@ this.cutie = this.cutie || {};
     /**
      * Overwrite this function to declare what happens upon updating the scene. In other
      * words, this method is called every 1/framerate seconds.
-     * @memberof cutie.Scene#
      * @method tick
      * @public
      * @param  {createjs.Event} e The event.
@@ -97,10 +92,9 @@ this.cutie = this.cutie || {};
      * The 'super' method for the tick that is overwritten by the end user. Does
      * some housekeeping (like calling children's ticks) in addition to calling
      * the user-defined tick().
-     * @memberof cutie.Scene#
      * @method _tickInternal
      * @private
-     * @param  {createjs.Event} e Theh event.
+     * @param  {createjs.Event} e The event.
      */
     Scene.prototype._tickInternal = function(e) {
         this.tick(e);
