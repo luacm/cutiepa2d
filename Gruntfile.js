@@ -24,7 +24,7 @@ module.exports = function(grunt) {
     },
     jsdoc : {
         dist : {
-            src: ["src/*.js", "src/Behaviors/*.js"], 
+            src: ["src/*.js", "src/Behaviors/*.js", "src/Preloaders/*.js"], 
             options: {
                 destination: "doc"
             }
