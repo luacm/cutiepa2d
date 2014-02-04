@@ -1,11 +1,13 @@
 this.cutie = this.cutie || {};
 this.cutie.Behavior = this.cutie.Behavior || {};
 
+/**
+ * @submodule Behavior
+ */
 (function(module){
     /**
      * This behavior allows an object
-     * 
-     * @memberof cutie.Behavior
+     * @class Shoot
      * @constructor
      * @param {Object} [props] The properties being passed in.
      * @param {Object} [props.bullet] The object to render on a fire.
@@ -26,7 +28,6 @@ this.cutie.Behavior = this.cutie.Behavior || {};
      *     is pressed.
      * @param {Number} [props.fireRate=5] Number of bullets to fire per second. Used only if
      *     fireContinuous is set to true. Default is 5.
-     *
      */
 
     var Shoot = function(props) {

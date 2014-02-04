@@ -1,7 +1,7 @@
 this.cutie = createjs;
 
 /**
- * @namespace cutie
+ * @module cutie
  */
 (function(module) {
     var _scenes = {};
@@ -31,29 +31,26 @@ this.cutie = createjs;
     // ======================================================
     // PUBLIC
     // ======================================================
-    /**     
-     * Description
-     *   Starts the game.
-     *
-     *      @function start
-     *      @public
-     *      @static
-     *      @memberof cutie
-     * 
-     *      @param  {cutie.Scene} scene 
-     *          The scene to start the game with.
-     *      @param  {Object} [props={}] A series of properties that affects the overall game and how the scene is set.
-     *      @param  {String} [props.canvasId="js-canvas"] The id of the canvas element you want to display your game in.
-     *      @param  {cutie.Scene[]} [props.preloadScenes=[]] Which additional scenes to preload when you load this scene. 
-     *          The progress bar for this scene will be representative of this 
-     *          list's preload progress.
-     *      @param  {Object} [props.debugFPS={}] A set of options related to showing the frames per second (FPS) on-screen
-     *          for debug purposes.
-     *      @param  {String} [props.debugFPS.size="20px"] The size of the FPS text. You must include units.
-     *      @param  {String} [props.debugFPS.color="#000000"] The color of the FPS text. Any valid CSS color should work.
-     *      @param  {Number} [props.debugFPS.updateInterval=500] How often the FPS should update. Making the update interval too
-     *          short will just make the number unreadable (it'll change too fast).
-     *      @param  {Number} [props.scaleType=cutie.ScaleType.NONE] How you want the canvas to scale in the window. Does not impact the in-game with and height.
+    /**
+     * Starts the game.
+     * @memberof cutie
+     * @method start
+     * @public
+     * @static
+     * @param  {cutie.Scene} scene 
+     *         The scene to start the game with.
+     * @param  {Object} [props={}] A series of properties that affects the overall game and how the scene is set.
+     * @param  {String} [props.canvasId="js-canvas"] The id of the canvas element you want to display your game in.
+     * @param  {cutie.Scene[]} [props.preloadScenes=[]] Which additional scenes to preload when you load this scene. 
+     *                                               The progress bar for this scene will be representative of this 
+     *                                               list's preload progress.
+     * @param  {Object} [props.debugFPS={}] A set of options related to showing the frames per second (FPS) on-screen
+     *                                      for debug purposes.
+     * @param  {String} [props.debugFPS.size="20px"] The size of the FPS text. You must include units.
+     * @param  {String} [props.debugFPS.color="#000000"] The color of the FPS text. Any valid CSS color should work.
+     * @param  {Number} [props.debugFPS.updateInterval=500] How often the FPS should update. Making the update interval too
+     *                                                      short will just make the number unreadable (it'll change too fast).
+     * @param  {Number} [props.scaleType=cutie.ScaleType.NONE] How you want the canvas to scale in the window. Does not impact the in-game with and height.
      */
     module.start = function(scene, props) {
         cutie.Log.v("cutie.start()");
@@ -83,24 +80,21 @@ this.cutie = createjs;
     }
 
     /**
-    * Description:
-     *      Takes the specified scene and sets it as the active scene. This will
-     *      now be the scene that receives calls to its tick() function. If it is 
-     *      not already preloaded, it will be preloaded
-     *      
-     *      @memberof cutie
-     *      @function setScene
-     *      @public
-     *      @static
-     *
-     *      @param {cutie.Scene} scene 
-     *          The scene to be made active.
-     *      @param {Object} props 
-     *          A series of properties that affects how the scene is set.
-     *          "preloadScenes": Which additional scenes to preload when you 
-     *              load this scene. The progress bar for this 
-     *              scene will be representative of this list's
-     *              preload progress.
+     * Takes the specified scene and sets it as the active scene. This will
+     * now be the scene that receives calls to its tick() function. If it is 
+     * not already preloaded, it will be preloaded
+     * @memberof cutie
+     * @method setScene
+     * @public
+     * @static
+     * @param {cutie.Scene} scene 
+     *        The scene to be made active.
+     * @param {Object} props 
+     *        A series of properties that affects how the scene is set.
+     *        "preloadScenes": Which additional scenes to preload when you 
+     *                         load this scene. The progress bar for this 
+     *                         scene will be representative of this list's
+     *                         preload progress.
      */
     module.setScene = function(sceneName, props) {
         cutie.Log.v("cutie.setScene()");
@@ -129,19 +123,16 @@ this.cutie = createjs;
     }
 
     /**
-     * Description:
-     *      Adds the scene to the list of registered scenes.
-     *
-     *      @memberof cutie
-     *      @function registerScene
-     *      @public
-     *      @static
-     * 
-     *      @param  {cutie.Scene} scene 
-     *          The scene you want to register.
-     *      @param  {String} name
-     *          The name you want to associate with the scene. This is the
-     *          name you will use when setting and preloading scenes.
+     * Adds the scene to the list of registered scenes.
+     * @memberof cutie
+     * @method registerScene
+     * @public
+     * @static
+     * @param  {cutie.Scene} scene 
+     *         The scene you want to register.
+     * @param  {String} name
+     *         The name you want to associate with the scene. This is the
+     *         name you will use when setting and preloading scenes.
      */
     module.registerScene = function(scene, name) {
         if (_scenes[name]) {
@@ -152,30 +143,24 @@ this.cutie = createjs;
     }
 
     /**
-     * Description:
-     *      Gets a references to the stage being managed by cutie.
-     *
-     *      @memberof cutie
-     *      @function getStage
-     *      @public
-     *      @static
-     *
-     *      @return {createjs.Stage} A reference to the stage being managed by cutie.
+     * Gets a references to the stage being managed by cutie.
+     * @memberof cutie
+     * @method getStage
+     * @public
+     * @static
+     * @return {createjs.Stage} A reference to the stage being managed by cutie.
      */
     module.getStage = function() {
         return _stage;
     }
 
     /**
-     * Description: 
-     *      Gets a references to the active scene being managed by cutie.
-     *
-     *      @memberof cutie
-     *      @function getActiveScene
-     *      @public
-     *      @static
-     *
-     *      @return {cutie.Scene} A reference to the active scene being managed by cutie.
+     * Gets a references to the active scene being managed by cutie.
+     * @memberof cutie
+     * @method getActiveScene
+     * @public
+     * @static
+     * @return {cutie.Scene} A reference to the active scene being managed by cutie.
      */
     module.getActiveScene = function() {
         return _activeScene;

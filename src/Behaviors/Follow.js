@@ -1,12 +1,14 @@
 this.cutie = this.cutie || {};
 this.cutie.Behavior = this.cutie.Behavior || {};
 
+/**
+ * @submodule Behavior
+ */
 (function(module){
     /**
      * Gives an object the ability to follow another object or the mouse.
-     *
-     * @memberof cutie.Behavior
      * @constructor
+     * @class Follow
      * @param {Object} [props] The properties being passed in.
      * @param {Boolean} [props.targetObj=false] This is the object that is going to be followed.
      *      If no object is passed in, it will follow the mouse.
@@ -18,6 +20,8 @@ this.cutie.Behavior = this.cutie.Behavior || {};
      * @param {Number} [props.followCord] The position of the center of the joystick.
      * @param {Number} [props.followCord.x] The x-coordinate on the image to be pursued (using local image coordinates).
      * @param {Number} [props.followCord.y] The y-coordinate on the image to be pursued (using local image coordinates).
+     * @param {Number} [props.angleOffset=90] This is the following orientation where 90 is straight up, 
+     *     the zero point is the cartesian positive x axis and degrees rotate counter-clockwise up from this x axis. 
      */
 
 

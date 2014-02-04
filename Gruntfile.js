@@ -22,6 +22,20 @@ module.exports = function(grunt) {
         dest: "build/cutiepa2d.js"
       }
     },
+    yuidoc: {
+      compile: {
+        name: "<%= pkg.name %>",
+        description: "<%= pkg.description %>",
+        version: "<%= pkg.version %>",
+        url: "<%= pkg.homepage %>",
+        options: {
+          paths: ["src/"],
+          themedir: "themes/bootstrap/",
+          outdir: "docs/",
+          helpers: ["themes/bootstrap/helpers/helpers.js"]
+        }
+      }
+    },
     jsdoc : {
         dist : {
             src: ["src/*.js", "src/Behaviors/*.js", "src/Preloaders/*.js"], 
@@ -45,8 +59,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-contrib-uglify");
   grunt.loadNpmTasks("grunt-contrib-watch");
   grunt.loadNpmTasks("grunt-contrib-concat");
-  grunt.loadNpmTasks("grunt-jsdoc");
+  grunt.loadNpmTasks("grunt-contrib-yuidoc");
 
   grunt.registerTask("default", ["concat"]);
-  grunt.registerTask("production", ["concat", "uglify", "jsdoc"]);
+  grunt.registerTask("production", ["concat", "uglify", "yuidoc"]);
 }

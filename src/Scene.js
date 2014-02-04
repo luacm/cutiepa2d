@@ -1,15 +1,3 @@
-/** 
- * CutiePa2d - Game Framework built on createjs and easeljs
- * 
- * Contributors:
- *      - Greyson Parrelli @greysonp
- *      - Adam Schaub   @maybenot
- *      - Stephen Louie @stephenrlouie
- * 
- * Developed Jan - Feb 2014 to aid Lehigh studens for the mobiLEhigh competition
- *
- */
-
 this.cutie = this.cutie || {};
 
 (function(module) {
@@ -52,27 +40,21 @@ this.cutie = this.cutie || {};
     // PUBLIC FUNCTIONS
     // ======================================================
     /**
-     * Description: 
-     *      Override this method and load all of your assets you want preloaded for this scene.
-     *
-     *      @function preload
-     *      @public
-     *      @memberof cutie.Scene#
-     *
-     *      @param  {createjs.Loader} loader The loader to load all of your assets into.
+     * Override this method and load all of your assets you want preloaded for this scene.
+     * @memberof cutie.Scene#
+     * @method preload
+     * @public
+     * @param  {createjs.Loader} loader The loader to load all of your assets into.
      */
     Scene.prototype.preload = function(loader) {
     }
 
     /**
-     * Description
-     *      Override this method and do anything you want when preload progress is updated.
-     *
-     *      @memberof cutie.Scene#
-     *      @function onPreloadProgress
-     *      @public
-     *
-     *      @param  {createjs.Event} e The event.
+     * Override this method and do anything you want when preload progress is updated.
+     * @memberof cutie.Scene#
+     * @method onPreloadProgress
+     * @public
+     * @param  {createjs.Event} e The event.
      */
     Scene.prototype.onPreloadProgress = function(e) {
         // e.loaded e.total e.progress(0-1)
@@ -82,17 +64,14 @@ this.cutie = this.cutie || {};
     }
 
     /**
-     * Description:  
-     *      Called when this scene (or list of scenes) is done preloading.
-     *
-     *      @memberof cutie.Scene#
-     *      @function onPreloadComplete
-     *      @public
-     *
-     *      @param  {cutie.Scene[]} scenes 
-     *          A list of scenes that were in this preload queue.
-     *      @param  {createjs.Event} e 
-     *          The event info.
+     * Called when this scene (or list of scenes) is done preloading.
+     * @memberof cutie.Scene#
+     * @method onPreloadComplete
+     * @public
+     * @param  {cutie.Scene[]} scenes 
+     *         A list of scenes that were in this preload queue.
+     * @param  {createjs.Event} e 
+     *         The event info.
      */
     Scene.prototype.onPreloadComplete = function(scenes, loader, e) {
         cutie.Log.v("cutie.Scene.onPreloadComplete()");
@@ -118,6 +97,7 @@ this.cutie = this.cutie || {};
     /**
      * The private wrapper for the init function. Handles some preloader stuff.
      * @memberof cutie.Scene#
+<<<<<<< HEAD
      * @function init
      * @private
      * @param {createjs.DisplayObject} preloader The preloader you'd like to use for this scene.
@@ -130,43 +110,31 @@ this.cutie = this.cutie || {};
     }
 
     /**
-     * Description:
-     *      Overwrite this function to declare what happens when the scene starts.
-     *
-     *      @memberof cutie.Scene#
-     *      @function init
-     *      @public
-     *
+     * Overwrite this function to declare what happens when the scene starts.
+     * @method init
+     * @public
      */
     Scene.prototype.init = function() {
     }
 
     /**
-     * Description: 
-     *      Overwrite this function to declare what happens upon updating the scene. In other
-     *      words, this method is called every 1/framerate seconds.
-     *
-     *      @memberof cutie.Scene#
-     *      @function tick
-     *      @public
-     *
-     *      @param  {createjs.Event} e The event.
+     * Overwrite this function to declare what happens upon updating the scene. In other
+     * words, this method is called every 1/framerate seconds.
+     * @method tick
+     * @public
+     * @param  {createjs.Event} e The event.
      */
     Scene.prototype.tick = function(e) {
 
     }
 
     /**
-     * Descrption:
-     *      The 'super' method for the tick that is overwritten by the end user. Does
-     *      some housekeeping (like calling children's ticks) in addition to calling
-     *      the user-defined tick().
-     *
-     *      @memberof cutie.Scene#
-     *      @function _tickInternal
-     *      @private
-     *
-     *      @param  {createjs.Event} e Theh event.
+     * The 'super' method for the tick that is overwritten by the end user. Does
+     * some housekeeping (like calling children's ticks) in addition to calling
+     * the user-defined tick().
+     * @method _tickInternal
+     * @private
+     * @param  {createjs.Event} e Theh event.
      */
     Scene.prototype._tickInternal = function(e) {
         this.tick(e);
@@ -177,12 +145,13 @@ this.cutie = this.cutie || {};
     }
 
 
-    /** A method which is called on a collision between two objects.
-     *      @name CollisionHandler
-     *      @function
-     *      @param {Object} obj1 The first object involved in the collision.
-     *      @param {Object} obj2 The second object involved in the collision.
-     *      @param {Object} rect A rectangular area representing the intersection between the objects.
+    /** 
+     * A method which is called on a collision between two objects.
+     * @name CollisionHandler
+     * @function
+     * @param {Object} obj1 The first object involved in the collision.
+     * @param {Object} obj2 The second object involved in the collision.
+     * @param {Object} rect A rectangular area representing the intersection between the objects.
      *      
      */
     /**
