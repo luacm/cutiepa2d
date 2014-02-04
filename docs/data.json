@@ -1,0 +1,1904 @@
+{
+    "project": {
+        "name": "cutiepa2d",
+        "description": "A wrapper for CreateJS that makes creating games easy.",
+        "version": "0.0.0",
+        "url": "",
+        "logo": "../assets/logo.png"
+    },
+    "files": {
+        "src/Behaviors/AsteroidMovement.js": {
+            "name": "src/Behaviors/AsteroidMovement.js",
+            "modules": {
+                "Behavior": 1
+            },
+            "classes": {
+                "AsteroidMovement": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Behaviors/Behavior.js": {
+            "name": "src/Behaviors/Behavior.js",
+            "modules": {},
+            "classes": {
+                "Behavior": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Behaviors/DPadMovement.js": {
+            "name": "src/Behaviors/DPadMovement.js",
+            "modules": {},
+            "classes": {
+                "DPadMovement": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Behaviors/DragAndDrop.js": {
+            "name": "src/Behaviors/DragAndDrop.js",
+            "modules": {},
+            "classes": {
+                "DragAndDrop": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Behaviors/EightDirectionalMovement.js": {
+            "name": "src/Behaviors/EightDirectionalMovement.js",
+            "modules": {},
+            "classes": {
+                "EightDirectionalMovement": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Behaviors/Follow.js": {
+            "name": "src/Behaviors/Follow.js",
+            "modules": {},
+            "classes": {
+                "Follow": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Behaviors/JoystickMovement.js": {
+            "name": "src/Behaviors/JoystickMovement.js",
+            "modules": {},
+            "classes": {
+                "JoystickMovement": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Behaviors/Route.js": {
+            "name": "src/Behaviors/Route.js",
+            "modules": {},
+            "classes": {
+                "Route": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Behaviors/Shoot.js": {
+            "name": "src/Behaviors/Shoot.js",
+            "modules": {},
+            "classes": {
+                "Shoot": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/KeyCodes.js": {
+            "name": "src/KeyCodes.js",
+            "modules": {},
+            "classes": {
+                "KeyCodes": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Log.js": {
+            "name": "src/Log.js",
+            "modules": {},
+            "classes": {
+                "Log": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/ScaleType.js": {
+            "name": "src/ScaleType.js",
+            "modules": {},
+            "classes": {
+                "ScaleType": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Scene.js": {
+            "name": "src/Scene.js",
+            "modules": {},
+            "classes": {
+                "Scene": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Util.js": {
+            "name": "src/Util.js",
+            "modules": {},
+            "classes": {
+                "Util": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/cutie.js": {
+            "name": "src/cutie.js",
+            "modules": {
+                "cutie": 1
+            },
+            "classes": {
+                "cutie": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "Behavior": {
+            "name": "Behavior",
+            "submodules": {},
+            "classes": {
+                "AsteroidMovement": 1,
+                "Behavior": 1,
+                "DPadMovement": 1,
+                "DragAndDrop": 1,
+                "EightDirectionalMovement": 1,
+                "Follow": 1,
+                "JoystickMovement": 1,
+                "Route": 1,
+                "Shoot": 1
+            },
+            "fors": {},
+            "is_submodule": 1,
+            "namespaces": {},
+            "module": "cutie",
+            "file": "src/Behaviors/Shoot.js",
+            "line": 8,
+            "description": "A collection of behaviors that add common actions to DisplayObjects. Each member\nshould override the methods described here to make a new Behavior class."
+        },
+        "cutie": {
+            "name": "cutie",
+            "submodules": {
+                "Behavior": 1
+            },
+            "classes": {
+                "AsteroidMovement": 1,
+                "Behavior": 1,
+                "DPadMovement": 1,
+                "DragAndDrop": 1,
+                "EightDirectionalMovement": 1,
+                "Follow": 1,
+                "JoystickMovement": 1,
+                "Route": 1,
+                "Shoot": 1,
+                "KeyCodes": 1,
+                "Log": 1,
+                "ScaleType": 1,
+                "Scene": 1,
+                "Util": 1,
+                "cutie": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "main",
+            "file": "src/cutie.js",
+            "line": 14,
+            "description": "For more information on the cutie class, see it's documentation.",
+            "static": 1,
+            "itemtype": "main"
+        }
+    },
+    "classes": {
+        "AsteroidMovement": {
+            "name": "AsteroidMovement",
+            "shortname": "AsteroidMovement",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "cutie",
+            "submodule": "Behavior",
+            "file": "src/Behaviors/AsteroidMovement.js",
+            "line": 8,
+            "description": "This behavior give the object controls like the classic asteroid game;\nthrust forward, turn left, and turn right. The center of rotation of the\nobject must be set seperately.",
+            "extends": "Behavior",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "props",
+                    "description": "The properties being passed in.",
+                    "type": "Object",
+                    "optional": true,
+                    "props": [
+                        {
+                            "name": "keys",
+                            "description": "The keycodes for directional movement. {forward, turnRight, turnLeft}",
+                            "type": "Number[]",
+                            "optional": true,
+                            "optdefault": "['UpArrow','RightArrow','LeftArrow'"
+                        },
+                        {
+                            "name": "acceleration",
+                            "description": "Speed gained in pixels/s^2.",
+                            "type": "Number",
+                            "optional": true,
+                            "optdefault": "5"
+                        },
+                        {
+                            "name": "deceleration",
+                            "description": "Speed lost in pixels/s^2 (when no key is pressed).",
+                            "type": "Number",
+                            "optional": true,
+                            "optdefault": "1"
+                        },
+                        {
+                            "name": "rotation",
+                            "description": "Rotation speed in deg/s.",
+                            "type": "Number",
+                            "optional": true,
+                            "optdefault": "90"
+                        },
+                        {
+                            "name": "setCenter",
+                            "description": "Automatically register the image center.",
+                            "type": "Boolean",
+                            "optional": true,
+                            "optdefault": "true"
+                        },
+                        {
+                            "name": "angleOffset",
+                            "description": "This is the orientation where 90 is straight up, \n    the zero point is the cartesian positive x axis and degrees rotate counter-clockwise up from this x axis.",
+                            "type": "Number",
+                            "optional": true,
+                            "optdefault": "90"
+                        }
+                    ]
+                }
+            ]
+        },
+        "Behavior": {
+            "name": "Behavior",
+            "shortname": "Behavior",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "cutie",
+            "submodule": "Behavior",
+            "namespace": "",
+            "file": "src/Behaviors/Behavior.js",
+            "line": 11,
+            "description": "This is a template for a Behavior. A Behavior is a modular bit of code that invokes\na common pattern of actions on an object. Examples are giving an item eight-directional\nmovement, having an object follow another object, etc. Cutie already comes with a variety\nof Behaviors, but if you'd like to build one yourself, simply override the methods described\nhere. *Note: This is just a template. You should never actually create an instance of this\nclass - it won't do anything.*",
+            "is_constructor": 1,
+            "access": "public",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "props",
+                    "description": "The properties passed in to the Behavior.",
+                    "type": "Object",
+                    "optional": true
+                }
+            ]
+        },
+        "DPadMovement": {
+            "name": "DPadMovement",
+            "shortname": "DPadMovement",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "cutie",
+            "submodule": "Behavior",
+            "namespace": "",
+            "file": "src/Behaviors/DPadMovement.js",
+            "line": 9,
+            "description": "Gives an object analog movement via an on-screen joystick.",
+            "extends": "Behavior",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "props",
+                    "description": "The properties being passed in.",
+                    "type": "Object",
+                    "optional": true,
+                    "props": [
+                        {
+                            "name": "speed",
+                            "description": "The maximum speed the object can travel.",
+                            "type": "Number",
+                            "optional": true,
+                            "optdefault": "100"
+                        },
+                        {
+                            "name": "faceDirection",
+                            "description": "Whether or not you want the object to face in the direction it's moving.",
+                            "type": "Boolean",
+                            "optional": true,
+                            "optdefault": "true"
+                        },
+                        {
+                            "name": "position",
+                            "description": "The position of the center of the DPad.",
+                            "type": "Number",
+                            "optional": true,
+                            "props": [
+                                {
+                                    "name": "x",
+                                    "description": "The x-coordinate of the center of the Dpad. By Default\n  it is placed in the bottom left corner.",
+                                    "type": "Number",
+                                    "optional": true
+                                },
+                                {
+                                    "name": "y",
+                                    "description": "The y-coordinate of the center of the DPad. By default\n  it is placed in the bottom left corner.",
+                                    "type": "Number",
+                                    "optional": true
+                                }
+                            ]
+                        },
+                        {
+                            "name": "buttonColor",
+                            "description": "The hex RBG value of the color of the button.",
+                            "type": "String",
+                            "optional": true,
+                            "optdefault": "'#ccc'"
+                        }
+                    ]
+                },
+                {
+                    "name": "[props.normalAlpha",
+                    "description": "= 1] The unpressed transparency of the buttons.",
+                    "type": "Number"
+                },
+                {
+                    "name": "[props.pressedAlpha",
+                    "description": "= 0.5] The pressed transparency of the buttons.",
+                    "type": "Number"
+                }
+            ]
+        },
+        "DragAndDrop": {
+            "name": "DragAndDrop",
+            "shortname": "DragAndDrop",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "cutie",
+            "submodule": "Behavior",
+            "namespace": "",
+            "file": "src/Behaviors/DragAndDrop.js",
+            "line": 8,
+            "description": "This behavior makes the object able to be dragged and\ndropped with the mouse/touch.",
+            "extends": "Behavior",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "props",
+                    "description": "The properties being passed in. For DragAndDrop there are no behaviors",
+                    "type": "Object",
+                    "optional": true
+                }
+            ]
+        },
+        "EightDirectionalMovement": {
+            "name": "EightDirectionalMovement",
+            "shortname": "EightDirectionalMovement",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "cutie",
+            "submodule": "Behavior",
+            "namespace": "",
+            "file": "src/Behaviors/EightDirectionalMovement.js",
+            "line": 8,
+            "description": "This behavior makes the object able to be move in eight\ndirections. Movement is equally fast in all directions\nincluding diagonals.",
+            "extends": "Behavior",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "props",
+                    "description": "The properties being passed in.",
+                    "type": "Object",
+                    "optional": true,
+                    "props": [
+                        {
+                            "name": "keys",
+                            "description": "The keycodes for directional movement. {forward, turnRight, turnLeft}",
+                            "type": "Number[]",
+                            "optional": true,
+                            "optdefault": "['UpArrow','RightArrow','LeftArrow'"
+                        },
+                        {
+                            "name": "speed",
+                            "description": "Speed in px/s.",
+                            "type": "Number",
+                            "optional": true,
+                            "optdefault": "100"
+                        }
+                    ]
+                }
+            ]
+        },
+        "Follow": {
+            "name": "Follow",
+            "shortname": "Follow",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "cutie",
+            "submodule": "Behavior",
+            "namespace": "",
+            "file": "src/Behaviors/Follow.js",
+            "line": 8,
+            "description": "Gives an object the ability to follow another object or the mouse.",
+            "is_constructor": 1,
+            "extends": "Behavior",
+            "params": [
+                {
+                    "name": "props",
+                    "description": "The properties being passed in.",
+                    "type": "Object",
+                    "optional": true,
+                    "props": [
+                        {
+                            "name": "targetObj",
+                            "description": "This is the object that is going to be followed. \n     If no object is passed in, it will follow the mouse.",
+                            "type": "Boolean",
+                            "optional": true,
+                            "optdefault": "false"
+                        },
+                        {
+                            "name": "speed",
+                            "description": "This is an integer value giving the speed in px/s",
+                            "type": "Number",
+                            "optional": true,
+                            "optdefault": "100"
+                        },
+                        {
+                            "name": "distance",
+                            "description": "This is the follow distance in px.",
+                            "type": "Number",
+                            "optional": true,
+                            "optdefault": "0"
+                        },
+                        {
+                            "name": "setCenter",
+                            "description": "This is signifies if the object doing the following should rotate around its center",
+                            "type": "Boolean",
+                            "optional": true,
+                            "optdefault": "true"
+                        },
+                        {
+                            "name": "angleOffset",
+                            "description": "This is the following orientation where 90 is straight up, \n    the zero point is the cartesian positive x axis and degrees rotate counter-clockwise up from this x axis.",
+                            "type": "Number",
+                            "optional": true,
+                            "optdefault": "90"
+                        }
+                    ]
+                }
+            ]
+        },
+        "JoystickMovement": {
+            "name": "JoystickMovement",
+            "shortname": "JoystickMovement",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "cutie",
+            "submodule": "Behavior",
+            "namespace": "",
+            "file": "src/Behaviors/JoystickMovement.js",
+            "line": 9,
+            "description": "Gives an object analog movement via an on-screen joystick.",
+            "extends": "Behavior",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "props",
+                    "description": "The properties being passed in.",
+                    "type": "Object",
+                    "optional": true,
+                    "props": [
+                        {
+                            "name": "speed",
+                            "description": "The maximum speed the object can travel.",
+                            "type": "Number",
+                            "optional": true,
+                            "optdefault": "5"
+                        },
+                        {
+                            "name": "faceDirection",
+                            "description": "Whether or not you want the object to face in the direction it's moving/",
+                            "type": "Boolean",
+                            "optional": true,
+                            "optdefault": "false"
+                        },
+                        {
+                            "name": "angleOffset",
+                            "description": "This is the following orientation where 90 is straight up, \n    the zero point is the cartesian positive x axis and degrees rotate counter-clockwise up from this x axis.",
+                            "type": "Number",
+                            "optional": true,
+                            "optdefault": "90"
+                        },
+                        {
+                            "name": "position",
+                            "description": "The position of the center of the joystick.",
+                            "type": "Number",
+                            "optional": true,
+                            "props": [
+                                {
+                                    "name": "x",
+                                    "description": "The x-coordinate of the center of the joystick.",
+                                    "type": "Number",
+                                    "optional": true
+                                },
+                                {
+                                    "name": "y",
+                                    "description": "The y-coordinate of the center of the joystick.",
+                                    "type": "Number",
+                                    "optional": true
+                                }
+                            ]
+                        },
+                        {
+                            "name": "baseDisk",
+                            "description": "Properties of the lower base disk of the joystick - the part that doens't move.",
+                            "type": "Number",
+                            "optional": true,
+                            "props": [
+                                {
+                                    "name": "color",
+                                    "description": "What color the base disk should be.",
+                                    "type": "String",
+                                    "optional": true,
+                                    "optdefault": "\"#ccc\""
+                                },
+                                {
+                                    "name": "radius",
+                                    "description": "The radius of the base disk.",
+                                    "type": "Number",
+                                    "optional": true,
+                                    "optdefault": "60"
+                                },
+                                {
+                                    "name": "alpha",
+                                    "description": "The level of transparency of the base disk.",
+                                    "type": "Number",
+                                    "optional": true,
+                                    "optdefault": "0.3"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "pointerDisk",
+                            "description": "Properties of the upper pointer disk of the joystick - the part that moves.",
+                            "type": "Number",
+                            "optional": true,
+                            "props": [
+                                {
+                                    "name": "color",
+                                    "description": "What color the pointer disk should be.",
+                                    "type": "String",
+                                    "optional": true,
+                                    "optdefault": "\"#aaa\""
+                                },
+                                {
+                                    "name": "radius",
+                                    "description": "The radius of the pointer disk.",
+                                    "type": "Number",
+                                    "optional": true,
+                                    "optdefault": "30"
+                                },
+                                {
+                                    "name": "alpha",
+                                    "description": "The level of transparency of the pointer disk.",
+                                    "type": "Number",
+                                    "optional": true,
+                                    "optdefault": "0.3"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        "Route": {
+            "name": "Route",
+            "shortname": "Route",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "cutie",
+            "submodule": "Behavior",
+            "namespace": "",
+            "file": "src/Behaviors/Route.js",
+            "line": 8,
+            "description": "This behavior makes the object move along a specified route.",
+            "extends": "Behavior",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "props",
+                    "description": "The properties being passed in.",
+                    "type": "Object",
+                    "optional": true,
+                    "props": [
+                        {
+                            "name": "path[",
+                            "description": "Array of coorinates {x,y} to follow, ordered from first to last.",
+                            "type": "Array",
+                            "optional": true
+                        },
+                        {
+                            "name": "speed",
+                            "description": "Speed in px/s.",
+                            "type": "Number",
+                            "optional": true,
+                            "optdefault": "100"
+                        },
+                        {
+                            "name": "repeat",
+                            "description": "Number of times to repeat the path. -1 for continuous.",
+                            "type": "Number",
+                            "optional": true,
+                            "optdefault": "1"
+                        },
+                        {
+                            "name": "setCenter",
+                            "description": "Automatically register the image center.",
+                            "type": "Boolean",
+                            "optional": true,
+                            "optdefault": "true"
+                        }
+                    ]
+                }
+            ]
+        },
+        "Shoot": {
+            "name": "Shoot",
+            "shortname": "Shoot",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "cutie",
+            "submodule": "Behavior",
+            "namespace": "",
+            "file": "src/Behaviors/Shoot.js",
+            "line": 8,
+            "description": "This behavior allows an object",
+            "extends": "Behavior",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "props",
+                    "description": "The properties being passed in.",
+                    "type": "Object",
+                    "optional": true,
+                    "props": [
+                        {
+                            "name": "bullet",
+                            "description": "The obejct to render on a fire.",
+                            "type": "Object",
+                            "optional": true
+                        },
+                        {
+                            "name": "speed",
+                            "description": "The speed of fired bullets in px/s.",
+                            "type": "Number",
+                            "optional": true,
+                            "optdefault": "300"
+                        },
+                        {
+                            "name": "max",
+                            "description": "The maximum number of bullets before they are recycled.\n     (0) indicates no recycling (bullets last forever).",
+                            "type": "Number",
+                            "optional": true,
+                            "optdefault": "100"
+                        },
+                        {
+                            "name": "duration",
+                            "description": "he maximum bullet's lifetime before it get's removed.\n     (0) indicates infinite.",
+                            "type": "Number",
+                            "optional": true,
+                            "optdefault": "0"
+                        },
+                        {
+                            "name": "origin",
+                            "description": "The x and y position from which to fire the bullet, relative\n     to an unrotated object object's x and y position.",
+                            "type": "Object[]",
+                            "optional": true
+                        },
+                        {
+                            "name": "angleOffset",
+                            "description": "This is the orientation where 90 is straight up, \n    the zero point is the cartesian positive x axis and degrees rotate counter-clockwise up from this x axis.",
+                            "type": "Number",
+                            "optional": true,
+                            "optdefault": "90"
+                        },
+                        {
+                            "name": "fireKey",
+                            "description": "The keycode to be used for firing.",
+                            "type": "Number",
+                            "optional": true,
+                            "optdefault": "SPACE"
+                        },
+                        {
+                            "name": "delay",
+                            "description": "The delay in seconds between shots.",
+                            "type": "Number",
+                            "optional": true,
+                            "optdefault": "0"
+                        },
+                        {
+                            "name": "useMouse",
+                            "description": "If set to true, use a mouse click to fire. If false\n    the key will be set to fireKey.",
+                            "type": "Boolean",
+                            "optional": true,
+                            "optdefault": "false"
+                        },
+                        {
+                            "name": "fireRate",
+                            "description": "Number of bullets to fire per second. Used only if\n    fireContinuous is set to true. Default is 5.",
+                            "type": "Number",
+                            "optional": true,
+                            "optdefault": "5"
+                        }
+                    ]
+                },
+                {
+                    "name": "[props.fireContinuous=false}If",
+                    "description": "set, firing will be continuous while key/mouse\n    is pressed.",
+                    "type": "Boolean"
+                }
+            ]
+        },
+        "KeyCodes": {
+            "name": "KeyCodes",
+            "shortname": "KeyCodes",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "cutie",
+            "namespace": "",
+            "file": "src/KeyCodes.js",
+            "line": 7,
+            "description": "Holds a list of ASCII values for commonly-accessed keyboard keys.",
+            "static": 1
+        },
+        "Log": {
+            "name": "Log",
+            "shortname": "Log",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "cutie",
+            "namespace": "",
+            "file": "src/Log.js",
+            "line": 8,
+            "static": 1
+        },
+        "ScaleType": {
+            "name": "ScaleType",
+            "shortname": "ScaleType",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "cutie",
+            "namespace": "",
+            "file": "src/ScaleType.js",
+            "line": 7,
+            "description": "A list of constants for declaring how you want to scale your game.",
+            "static": 1
+        },
+        "Scene": {
+            "name": "Scene",
+            "shortname": "Scene",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "cutie",
+            "namespace": "",
+            "file": "src/Scene.js",
+            "line": 10,
+            "description": "A container that manages a scene in your game. Automatically\nmanages things like preloading and collision detection.",
+            "is_constructor": 1
+        },
+        "Util": {
+            "name": "Util",
+            "shortname": "Util",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "cutie",
+            "namespace": "",
+            "file": "src/Util.js",
+            "line": 3
+        },
+        "cutie": {
+            "name": "cutie",
+            "shortname": "cutie",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "cutie",
+            "namespace": "",
+            "file": "src/cutie.js",
+            "line": 14,
+            "description": "<h1>Cutiepa2D.js</h1>\n<p>Cutiepa2D (pronounced cutie-patootie) is a wrapper for CreateJS. Its purpose is to make developing 2D games in javascript dead simple. It extends CreateJS with additional functionality and structure while still allowing you to access all of CreateJS's existing utilities.</p>\n<p>We think it's quite cute, and we hope you do too.</p>\n<h2>Download</h2>\n<p>Grab it here! <strong><a href=\"build/cutiepa2d.js\">Download</a></strong></p>\n<h2>Getting Started</h2>\n<p>After downloading cutie, include it in your <code>index.html</code>.</p>\n\n    <script type=\"text/javascript\" src=\"cutiepa2d.js\"></script>\n\n<p>You'll also have to run a local server in order to get image loading to work. I recommend <a href=\"http://www.apachefriends.org/index.html\">XAMMP</a> to get started.</p>\n<p>After that, you should be good to go! We have some examples in the <a href=\"https://github.com/greysonp/cutiepa2d\">repo</a>, but we'll be writing proper tutorials (as well as expanding functionality) in the coming days.</p>\n<h2>Getting it on Your Phone</h2>\n<p>Testing in the browser is cool, but testing on your phone/tablet is even cooler. Thankfully, there's an awesome framework out there called <a href=\"https://www.ludei.com/\">CocoonJS</a> that makes this dead-simple. First, they're framework converts your javascript canvas code to fast-performing WebGL code. But one of the coolest parts is that they have an app that you install on your iPhone/Android device that will allow you to literally copy your game files to your phone and play them. You don't even need a developer license on iOS! Very cool stuff. For a tutorial on using the app, check out <a href=\"http://support.ludei.com/hc/en-us/articles/201048463-How-to-use\">this page</a>. </p>\n<h2>Brought to You By</h2>\n<ul>\n    <li><a href=\"https://github.com/greysonp\">greysonp</a></li>\n    <li><a href=\"https://github.com/MaybeNot\">MaybeNot</a></li>\n    <li><a href=\"https://github.com/stephenrlouie\">stephenrlouie</a></li>\n</ul>",
+            "static": 1
+        }
+    },
+    "classitems": [
+        {
+            "file": "src/Behaviors/Behavior.js",
+            "line": 25,
+            "description": "Override this function to declare what happens when the behavior is added. Common\npatterns include adding event listeners and initializing private fields.",
+            "itemtype": "method",
+            "name": "init",
+            "access": "public",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "obj",
+                    "description": "The object the behavior is acting upon.",
+                    "type": "createjs.DisplayObject"
+                }
+            ],
+            "class": "Behavior",
+            "module": "cutie",
+            "submodule": "Behavior"
+        },
+        {
+            "file": "src/Behaviors/Behavior.js",
+            "line": 36,
+            "description": "Override this function to declare what happens when the behavior is removed. Common\npatterns include removing event listeners or getting rid of DisplayObjects you added.",
+            "itemtype": "method",
+            "name": "clean",
+            "access": "public",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "obj",
+                    "description": "The object the behavior is acting upon.",
+                    "type": "createjs.DisplayObject"
+                }
+            ],
+            "class": "Behavior",
+            "module": "cutie",
+            "submodule": "Behavior"
+        },
+        {
+            "file": "src/Behaviors/Behavior.js",
+            "line": 47,
+            "description": "Override this function to declare what happens on every frame update. This is where\nthe behavior should do actual work on the object.",
+            "itemtype": "method",
+            "name": "tick",
+            "access": "public",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "obj",
+                    "description": "The object the behavior is acting upon.",
+                    "type": "createjs.DisplayObject"
+                },
+                {
+                    "name": "e",
+                    "description": "The event for the tick.",
+                    "type": "createjs.Event"
+                }
+            ],
+            "class": "Behavior",
+            "module": "cutie",
+            "submodule": "Behavior"
+        },
+        {
+            "file": "src/KeyCodes.js",
+            "line": 13,
+            "description": "The up arrow key on the keyboad.",
+            "itemtype": "property",
+            "name": "UP",
+            "type": "Number",
+            "class": "KeyCodes",
+            "module": "cutie"
+        },
+        {
+            "file": "src/KeyCodes.js",
+            "line": 20,
+            "description": "The down arrow key on the keyboard.",
+            "itemtype": "property",
+            "name": "DOWN",
+            "type": "Number",
+            "class": "KeyCodes",
+            "module": "cutie"
+        },
+        {
+            "file": "src/KeyCodes.js",
+            "line": 27,
+            "description": "The left arrow key on the keyboard.",
+            "itemtype": "property",
+            "name": "LEFT",
+            "type": "Number",
+            "class": "KeyCodes",
+            "module": "cutie"
+        },
+        {
+            "file": "src/KeyCodes.js",
+            "line": 34,
+            "description": "The right arrow key on the keyboard.",
+            "itemtype": "property",
+            "name": "RIGHT",
+            "type": "Number",
+            "class": "KeyCodes",
+            "module": "cutie"
+        },
+        {
+            "file": "src/KeyCodes.js",
+            "line": 41,
+            "description": "The 'w' key on the keyboard.",
+            "itemtype": "property",
+            "name": "W",
+            "type": "Number",
+            "class": "KeyCodes",
+            "module": "cutie"
+        },
+        {
+            "file": "src/KeyCodes.js",
+            "line": 48,
+            "description": "The 'a' key on the keyboard.",
+            "itemtype": "property",
+            "name": "A",
+            "type": "Number",
+            "class": "KeyCodes",
+            "module": "cutie"
+        },
+        {
+            "file": "src/KeyCodes.js",
+            "line": 55,
+            "description": "The 's' key on the keyboard.",
+            "itemtype": "property",
+            "name": "S",
+            "type": "Number",
+            "class": "KeyCodes",
+            "module": "cutie"
+        },
+        {
+            "file": "src/KeyCodes.js",
+            "line": 62,
+            "description": "The 'd' key on the keyboard.",
+            "itemtype": "property",
+            "name": "D",
+            "type": "Number",
+            "class": "KeyCodes",
+            "module": "cutie"
+        },
+        {
+            "file": "src/KeyCodes.js",
+            "line": 69,
+            "description": "The shift key on the keyboard.",
+            "itemtype": "property",
+            "name": "SHIFT",
+            "type": "Number",
+            "class": "KeyCodes",
+            "module": "cutie"
+        },
+        {
+            "file": "src/KeyCodes.js",
+            "line": 76,
+            "description": "The enter/return key on the keyboard.",
+            "itemtype": "property",
+            "name": "RETURN",
+            "type": "Number",
+            "class": "KeyCodes",
+            "module": "cutie"
+        },
+        {
+            "file": "src/KeyCodes.js",
+            "line": 83,
+            "description": "The control key on the keyboard.",
+            "itemtype": "property",
+            "name": "CTRL",
+            "type": "Number",
+            "class": "KeyCodes",
+            "module": "cutie"
+        },
+        {
+            "file": "src/KeyCodes.js",
+            "line": 90,
+            "description": "The tab key on the keyboard.",
+            "itemtype": "property",
+            "name": "TAB",
+            "type": "Number",
+            "class": "KeyCodes",
+            "module": "cutie"
+        },
+        {
+            "file": "src/KeyCodes.js",
+            "line": 97,
+            "description": "The space key on the keyboard.",
+            "itemtype": "property",
+            "name": "SPACE",
+            "type": "Number",
+            "class": "KeyCodes",
+            "module": "cutie"
+        },
+        {
+            "file": "src/KeyCodes.js",
+            "line": 104,
+            "description": "The 'q' key on the keyboard.",
+            "itemtype": "property",
+            "name": "Q",
+            "type": "Number",
+            "class": "KeyCodes",
+            "module": "cutie"
+        },
+        {
+            "file": "src/KeyCodes.js",
+            "line": 111,
+            "description": "The 'e' key on the keyboard.",
+            "itemtype": "property",
+            "name": "E",
+            "type": "Number",
+            "class": "KeyCodes",
+            "module": "cutie"
+        },
+        {
+            "file": "src/KeyCodes.js",
+            "line": 118,
+            "description": "The 'z' key on the keyboard.",
+            "itemtype": "property",
+            "name": "Z",
+            "type": "Number",
+            "class": "KeyCodes",
+            "module": "cutie"
+        },
+        {
+            "file": "src/KeyCodes.js",
+            "line": 125,
+            "description": "The 'x' key on the keyboard.",
+            "itemtype": "property",
+            "name": "X",
+            "type": "Number",
+            "class": "KeyCodes",
+            "module": "cutie"
+        },
+        {
+            "file": "src/KeyCodes.js",
+            "line": 132,
+            "description": "The 'c' key on the keyboard.",
+            "itemtype": "property",
+            "name": "C",
+            "type": "Number",
+            "class": "KeyCodes",
+            "module": "cutie"
+        },
+        {
+            "file": "src/KeyCodes.js",
+            "line": 139,
+            "description": "The 'v' key on the keyboard.",
+            "itemtype": "property",
+            "name": "V",
+            "type": "Number",
+            "class": "KeyCodes",
+            "module": "cutie"
+        },
+        {
+            "file": "src/KeyCodes.js",
+            "line": 146,
+            "description": "The 'f' key on the keyboard.",
+            "itemtype": "property",
+            "name": "F",
+            "type": "Number",
+            "class": "KeyCodes",
+            "module": "cutie"
+        },
+        {
+            "file": "src/KeyCodes.js",
+            "line": 153,
+            "description": "The '0' key on the keyboard.",
+            "itemtype": "property",
+            "name": "ZERO",
+            "type": "Number",
+            "class": "KeyCodes",
+            "module": "cutie"
+        },
+        {
+            "file": "src/KeyCodes.js",
+            "line": 160,
+            "description": "The '1' key on the keyboard.",
+            "itemtype": "property",
+            "name": "ONE",
+            "type": "Number",
+            "class": "KeyCodes",
+            "module": "cutie"
+        },
+        {
+            "file": "src/KeyCodes.js",
+            "line": 167,
+            "description": "The '2' key on the keyboard.",
+            "itemtype": "property",
+            "name": "TWO",
+            "type": "Number",
+            "class": "KeyCodes",
+            "module": "cutie"
+        },
+        {
+            "file": "src/KeyCodes.js",
+            "line": 174,
+            "description": "The '3' key on the keyboard.",
+            "itemtype": "property",
+            "name": "THREE",
+            "type": "Number",
+            "class": "KeyCodes",
+            "module": "cutie"
+        },
+        {
+            "file": "src/KeyCodes.js",
+            "line": 181,
+            "description": "The '4' key on the keyboard.",
+            "itemtype": "property",
+            "name": "FOUR",
+            "type": "Number",
+            "class": "KeyCodes",
+            "module": "cutie"
+        },
+        {
+            "file": "src/KeyCodes.js",
+            "line": 188,
+            "description": "The '5' key on the keyboard.",
+            "itemtype": "property",
+            "name": "FIVE",
+            "type": "Number",
+            "class": "KeyCodes",
+            "module": "cutie"
+        },
+        {
+            "file": "src/KeyCodes.js",
+            "line": 195,
+            "description": "The '6' key on the keyboard.",
+            "itemtype": "property",
+            "name": "SIX",
+            "type": "Number",
+            "class": "KeyCodes",
+            "module": "cutie"
+        },
+        {
+            "file": "src/KeyCodes.js",
+            "line": 202,
+            "description": "The '7' key on the keyboard.",
+            "itemtype": "property",
+            "name": "SEVEN",
+            "type": "Number",
+            "class": "KeyCodes",
+            "module": "cutie"
+        },
+        {
+            "file": "src/KeyCodes.js",
+            "line": 209,
+            "description": "The '8' key on the keyboard.",
+            "itemtype": "property",
+            "name": "EIGHT",
+            "type": "Number",
+            "class": "KeyCodes",
+            "module": "cutie"
+        },
+        {
+            "file": "src/KeyCodes.js",
+            "line": 216,
+            "description": "The '9' key on the keyboard.",
+            "itemtype": "property",
+            "name": "NINE",
+            "type": "Number",
+            "class": "KeyCodes",
+            "module": "cutie"
+        },
+        {
+            "file": "src/Log.js",
+            "line": 14,
+            "itemtype": "property",
+            "name": "VERBOSE",
+            "type": "Number",
+            "final": 1,
+            "access": "public",
+            "tagname": "",
+            "static": 1,
+            "class": "Log",
+            "module": "cutie"
+        },
+        {
+            "file": "src/Log.js",
+            "line": 23,
+            "itemtype": "property",
+            "name": "DEBUG",
+            "type": "Number",
+            "final": 1,
+            "access": "public",
+            "tagname": "",
+            "static": 1,
+            "class": "Log",
+            "module": "cutie"
+        },
+        {
+            "file": "src/Log.js",
+            "line": 32,
+            "itemtype": "property",
+            "name": "INFO",
+            "type": "Number",
+            "final": 1,
+            "access": "public",
+            "tagname": "",
+            "static": 1,
+            "class": "Log",
+            "module": "cutie"
+        },
+        {
+            "file": "src/Log.js",
+            "line": 41,
+            "itemtype": "property",
+            "name": "WARN",
+            "type": "Number",
+            "final": 1,
+            "access": "public",
+            "tagname": "",
+            "static": 1,
+            "class": "Log",
+            "module": "cutie"
+        },
+        {
+            "file": "src/Log.js",
+            "line": 50,
+            "itemtype": "property",
+            "name": "ERROR",
+            "type": "Number",
+            "final": 1,
+            "access": "public",
+            "tagname": "",
+            "static": 1,
+            "class": "Log",
+            "module": "cutie"
+        },
+        {
+            "file": "src/Log.js",
+            "line": 61,
+            "description": "Logs a message with level cutie.Log.VERBOSE.",
+            "itemtype": "method",
+            "name": "v",
+            "access": "public",
+            "tagname": "",
+            "static": 1,
+            "params": [
+                {
+                    "name": "message",
+                    "description": "The message you want to log.",
+                    "type": "String"
+                }
+            ],
+            "class": "Log",
+            "module": "cutie"
+        },
+        {
+            "file": "src/Log.js",
+            "line": 72,
+            "description": "Logs a message with level cutie.Log.DEBUG.",
+            "itemtype": "method",
+            "name": "d",
+            "access": "public",
+            "tagname": "",
+            "static": 1,
+            "params": [
+                {
+                    "name": "message",
+                    "description": "The message you want to log.",
+                    "type": "String"
+                }
+            ],
+            "class": "Log",
+            "module": "cutie"
+        },
+        {
+            "file": "src/Log.js",
+            "line": 83,
+            "description": "Logs a message with level cutie.Log.INFO.",
+            "itemtype": "method",
+            "name": "i",
+            "access": "public",
+            "tagname": "",
+            "static": 1,
+            "params": [
+                {
+                    "name": "message",
+                    "description": "The message you want to log.",
+                    "type": "String"
+                }
+            ],
+            "class": "Log",
+            "module": "cutie"
+        },
+        {
+            "file": "src/Log.js",
+            "line": 94,
+            "description": "Logs a message with level cutie.Log.WARN.",
+            "itemtype": "method",
+            "name": "w",
+            "access": "public",
+            "tagname": "",
+            "static": 1,
+            "params": [
+                {
+                    "name": "message",
+                    "description": "The message you want to log.",
+                    "type": "String"
+                }
+            ],
+            "class": "Log",
+            "module": "cutie"
+        },
+        {
+            "file": "src/Log.js",
+            "line": 105,
+            "description": "Logs a message with level cutie.Log.ERROR.",
+            "itemtype": "method",
+            "name": "e",
+            "access": "public",
+            "tagname": "",
+            "static": 1,
+            "params": [
+                {
+                    "name": "message",
+                    "description": "The message you want to log.",
+                    "type": "String"
+                }
+            ],
+            "class": "Log",
+            "module": "cutie"
+        },
+        {
+            "file": "src/Log.js",
+            "line": 116,
+            "description": "Sets the log level for the game. No log statements with a level\nlower than the one specified will appear in the console.",
+            "itemtype": "method",
+            "name": "setLogLevel",
+            "access": "public",
+            "tagname": "",
+            "static": 1,
+            "params": [
+                {
+                    "name": "level",
+                    "description": "The level you wish to set the logger to.",
+                    "type": "Number"
+                }
+            ],
+            "class": "Log",
+            "module": "cutie"
+        },
+        {
+            "file": "src/ScaleType.js",
+            "line": 13,
+            "description": "Do not scale.",
+            "itemtype": "property",
+            "name": "NONE",
+            "type": "Number",
+            "final": 1,
+            "class": "ScaleType",
+            "module": "cutie"
+        },
+        {
+            "file": "src/ScaleType.js",
+            "line": 21,
+            "description": "Make it take up the full screen, even if it ruins the aspect ratio.",
+            "itemtype": "property",
+            "name": "STRETCH",
+            "type": "Number",
+            "final": 1,
+            "class": "ScaleType",
+            "module": "cutie"
+        },
+        {
+            "file": "src/ScaleType.js",
+            "line": 29,
+            "description": "Make it take up the full screen, but preserve aspect ratio by using black bars.",
+            "itemtype": "property",
+            "name": "LETTERBOX",
+            "type": "Number",
+            "final": 1,
+            "class": "ScaleType",
+            "module": "cutie"
+        },
+        {
+            "file": "src/Scene.js",
+            "line": 35,
+            "description": "Override this method and load all of your assets you want preloaded for this scene.",
+            "itemtype": "method",
+            "name": "preload",
+            "access": "public",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "loader",
+                    "description": "The loader to load all of your assets into.",
+                    "type": "createjs.Loader"
+                }
+            ],
+            "class": "Scene",
+            "module": "cutie"
+        },
+        {
+            "file": "src/Scene.js",
+            "line": 44,
+            "description": "Override this method and do anything you want when preload progress is updated.",
+            "itemtype": "method",
+            "name": "onPreloadProgress",
+            "access": "public",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "e",
+                    "description": "The event.",
+                    "type": "createjs.Event"
+                }
+            ],
+            "class": "Scene",
+            "module": "cutie"
+        },
+        {
+            "file": "src/Scene.js",
+            "line": 54,
+            "description": "Called when this scene (or list of scenes) is done preloading.",
+            "itemtype": "method",
+            "name": "onPreloadComplete",
+            "access": "public",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "scenes",
+                    "description": "A list of scenes that were in this preload queue.",
+                    "type": "cutie.Scene[]"
+                },
+                {
+                    "name": "e",
+                    "description": "The event info.",
+                    "type": "createjs.Event"
+                }
+            ],
+            "class": "Scene",
+            "module": "cutie"
+        },
+        {
+            "file": "src/Scene.js",
+            "line": 72,
+            "description": "Overwrite this function to declare what happens when the scene starts.",
+            "itemtype": "method",
+            "name": "init",
+            "access": "public",
+            "tagname": "",
+            "class": "Scene",
+            "module": "cutie"
+        },
+        {
+            "file": "src/Scene.js",
+            "line": 80,
+            "description": "Overwrite this function to declare what happens upon updating the scene. In other\nwords, this method is called every 1/framerate seconds.",
+            "itemtype": "method",
+            "name": "tick",
+            "access": "public",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "e",
+                    "description": "The event.",
+                    "type": "createjs.Event"
+                }
+            ],
+            "class": "Scene",
+            "module": "cutie"
+        },
+        {
+            "file": "src/Scene.js",
+            "line": 91,
+            "description": "The 'super' method for the tick that is overwritten by the end user. Does\nsome housekeeping (like calling children's ticks) in addition to calling\nthe user-defined tick().",
+            "itemtype": "method",
+            "name": "_tickInternal",
+            "access": "private",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "e",
+                    "description": "The event.",
+                    "type": "createjs.Event"
+                }
+            ],
+            "class": "Scene",
+            "module": "cutie"
+        },
+        {
+            "file": "src/Util.js",
+            "line": 11,
+            "description": "Finds the distance between two points.",
+            "memberof": "cutie.Util",
+            "itemtype": "method",
+            "name": "distance",
+            "access": "public",
+            "tagname": "",
+            "static": 1,
+            "params": [
+                {
+                    "name": "obj1",
+                    "description": "An object with properties x and y. This includes DisplayObjects.",
+                    "type": "Object"
+                },
+                {
+                    "name": "obj2",
+                    "description": "An object with properties x and y. This includes DisplayObjects.",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "The distance between the two points.",
+                "type": "Number"
+            },
+            "class": "Util",
+            "module": "cutie"
+        },
+        {
+            "file": "src/Util.js",
+            "line": 27,
+            "description": "Finds the angle between two points.",
+            "memberof": "cutie.Util",
+            "itemtype": "method",
+            "name": "angle",
+            "access": "public",
+            "tagname": "",
+            "static": 1,
+            "params": [
+                {
+                    "name": "obj1",
+                    "description": "An object with properties x and y. This includes DisplayObjects.",
+                    "type": "Object"
+                },
+                {
+                    "name": "obj2",
+                    "description": "An object with properties x and y. This includes DisplayObjects.",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "The angle made between the two points.",
+                "type": "Number"
+            },
+            "class": "Util",
+            "module": "cutie"
+        },
+        {
+            "file": "src/cutie.js",
+            "line": 52,
+            "description": "Starts the game.",
+            "itemtype": "method",
+            "name": "start",
+            "access": "public",
+            "tagname": "",
+            "static": 1,
+            "params": [
+                {
+                    "name": "scene",
+                    "description": "\n        The scene to start the game with.",
+                    "type": "Scene"
+                },
+                {
+                    "name": "props",
+                    "description": "A series of properties that affects the overall game and how the scene is set.",
+                    "type": "Object",
+                    "optional": true,
+                    "optdefault": "{}",
+                    "props": [
+                        {
+                            "name": "canvasId",
+                            "description": "The id of the canvas element you want to display your game in.",
+                            "type": "String",
+                            "optional": true,
+                            "optdefault": "\"js-canvas\""
+                        },
+                        {
+                            "name": "preloadScenes",
+                            "description": "Which additional scenes to preload when you load this scene. \n                                              The progress bar for this scene will be representative of this \n                                              list's preload progress.",
+                            "type": "Scene[]",
+                            "optional": true,
+                            "optdefault": "["
+                        },
+                        {
+                            "name": "debugFPS",
+                            "description": "A set of options related to showing the frames per second (FPS) on-screen\n                                     for debug purposes.",
+                            "type": "Object",
+                            "optional": true,
+                            "optdefault": "{}",
+                            "props": [
+                                {
+                                    "name": "size",
+                                    "description": "The size of the FPS text. You must include units.",
+                                    "type": "String",
+                                    "optional": true,
+                                    "optdefault": "\"20px\""
+                                },
+                                {
+                                    "name": "color",
+                                    "description": "The color of the FPS text. Any valid CSS color should work.",
+                                    "type": "String",
+                                    "optional": true,
+                                    "optdefault": "\"#000000\""
+                                },
+                                {
+                                    "name": "updateInterval",
+                                    "description": "How often the FPS should update. Making the update interval too\n                                                     short will just make the number unreadable (it'll change too fast).",
+                                    "type": "Number",
+                                    "optional": true,
+                                    "optdefault": "500"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "scaleType",
+                            "description": "How you want the canvas to scale in the window. Does not impact the in-game with and height.",
+                            "type": "Number",
+                            "optional": true,
+                            "optdefault": "cutie.ScaleType.NONE"
+                        }
+                    ]
+                }
+            ],
+            "class": "cutie",
+            "module": "cutie"
+        },
+        {
+            "file": "src/cutie.js",
+            "line": 99,
+            "description": "Takes the specified scene and sets it as the active scene. This will\nnow be the scene that receives calls to its tick() function. If it is \nnot already preloaded, it will be preloaded",
+            "itemtype": "method",
+            "name": "setScene",
+            "access": "public",
+            "tagname": "",
+            "static": 1,
+            "params": [
+                {
+                    "name": "scene",
+                    "description": "\n       The scene to be made active.",
+                    "type": "Scene"
+                },
+                {
+                    "name": "props",
+                    "description": "\n       A series of properties that affects how the scene is set.\n       \"preloadScenes\": Which additional scenes to preload when you \n                        load this scene. The progress bar for this \n                        scene will be representative of this list's\n                        preload progress.",
+                    "type": "Object"
+                }
+            ],
+            "class": "cutie",
+            "module": "cutie"
+        },
+        {
+            "file": "src/cutie.js",
+            "line": 137,
+            "description": "Adds the scene to the list of registered scenes.",
+            "itemtype": "method",
+            "name": "registerScene",
+            "access": "public",
+            "tagname": "",
+            "static": 1,
+            "params": [
+                {
+                    "name": "scene",
+                    "description": "The scene you want to register.",
+                    "type": "Scene"
+                },
+                {
+                    "name": "name",
+                    "description": "The name you want to associate with the scene. This is the\n                      name you will use when setting and preloading scenes.",
+                    "type": "String"
+                }
+            ],
+            "class": "cutie",
+            "module": "cutie"
+        },
+        {
+            "file": "src/cutie.js",
+            "line": 153,
+            "description": "Gets a references to the stage being managed by cutie.",
+            "itemtype": "method",
+            "name": "getStage",
+            "access": "public",
+            "tagname": "",
+            "static": 1,
+            "return": {
+                "description": "A reference to the stage being managed by cutie.",
+                "type": "createjs.Stage"
+            },
+            "class": "cutie",
+            "module": "cutie"
+        },
+        {
+            "file": "src/cutie.js",
+            "line": 164,
+            "description": "Gets a references to the active scene being managed by cutie.",
+            "itemtype": "method",
+            "name": "getActiveScene",
+            "access": "public",
+            "tagname": "",
+            "static": 1,
+            "return": {
+                "description": "A reference to the active scene being managed by cutie.",
+                "type": "Scene"
+            },
+            "class": "cutie",
+            "module": "cutie"
+        },
+        {
+            "file": "src/cutie.js",
+            "line": 177,
+            "description": "Description",
+            "access": "private",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "e",
+                    "description": "description",
+                    "type": "createjs.Event"
+                }
+            ],
+            "class": "cutie",
+            "module": "cutie"
+        },
+        {
+            "file": "src/cutie.js",
+            "line": 190,
+            "description": "Preloads a list of scenes, and adds the preload event listeners\nto the first scene in the list",
+            "access": "private",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "scenes",
+                    "description": "\n        List of scenes to be preloaded.",
+                    "type": "Scene"
+                }
+            ],
+            "class": "cutie",
+            "module": "cutie"
+        },
+        {
+            "file": "src/cutie.js",
+            "line": 223,
+            "description": "Description",
+            "access": "private",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "sceneNames",
+                    "description": "description",
+                    "type": "String[]"
+                }
+            ],
+            "return": {
+                "description": "description",
+                "type": "Scene[]"
+            },
+            "class": "cutie",
+            "module": "cutie"
+        },
+        {
+            "file": "src/cutie.js",
+            "line": 237,
+            "description": "Description",
+            "access": "private",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "sceneNames",
+                    "description": "description",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "description",
+                "type": "Scene"
+            },
+            "class": "cutie",
+            "module": "cutie"
+        },
+        {
+            "file": "src/cutie.js",
+            "line": 252,
+            "description": "Description",
+            "access": "private",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "props",
+                    "description": "description",
+                    "type": "Object"
+                }
+            ],
+            "class": "cutie",
+            "module": "cutie"
+        },
+        {
+            "file": "src/cutie.js",
+            "line": 269,
+            "description": "Description",
+            "access": "private",
+            "tagname": "",
+            "class": "cutie",
+            "module": "cutie"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "unknown tag: memberof",
+            "line": " src/Util.js:11"
+        },
+        {
+            "message": "unknown tag: memberof",
+            "line": " src/Util.js:27"
+        },
+        {
+            "message": "Missing item type\nDescription",
+            "line": " src/cutie.js:177"
+        },
+        {
+            "message": "Missing item type\nPreloads a list of scenes, and adds the preload event listeners\nto the first scene in the list",
+            "line": " src/cutie.js:190"
+        },
+        {
+            "message": "Missing item type\nDescription",
+            "line": " src/cutie.js:223"
+        },
+        {
+            "message": "Missing item type\nDescription",
+            "line": " src/cutie.js:237"
+        },
+        {
+            "message": "Missing item type\nDescription",
+            "line": " src/cutie.js:252"
+        },
+        {
+            "message": "Missing item type\nDescription",
+            "line": " src/cutie.js:269"
+        }
+    ]
+}

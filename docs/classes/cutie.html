@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../assets/css/yui-cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/favicon.ico">
+    <script src="../assets/js/yui-source.js"></script>
+	<title>cutiepa2d v0.0.0 API Documentation : cutie</title>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><a href=""><img src="../../assets/logo.png" title="cutiepa2d"></a></h1>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Documentation for: 0.0.0</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="../classes/AsteroidMovement.html">AsteroidMovement</a></li>
+            
+                <li><a href="../classes/Behavior.html">Behavior</a></li>
+            
+                <li><a href="../classes/cutie.html">cutie</a></li>
+            
+                <li><a href="../classes/DPadMovement.html">DPadMovement</a></li>
+            
+                <li><a href="../classes/DragAndDrop.html">DragAndDrop</a></li>
+            
+                <li><a href="../classes/EightDirectionalMovement.html">EightDirectionalMovement</a></li>
+            
+                <li><a href="../classes/Follow.html">Follow</a></li>
+            
+                <li><a href="../classes/JoystickMovement.html">JoystickMovement</a></li>
+            
+                <li><a href="../classes/KeyCodes.html">KeyCodes</a></li>
+            
+                <li><a href="../classes/Log.html">Log</a></li>
+            
+                <li><a href="../classes/Route.html">Route</a></li>
+            
+                <li><a href="../classes/ScaleType.html">ScaleType</a></li>
+            
+                <li><a href="../classes/Scene.html">Scene</a></li>
+            
+                <li><a href="../classes/Shoot.html">Shoot</a></li>
+            
+                <li><a href="../classes/Util.html">Util</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+                <li><a href="../modules/Behavior.html">Behavior</a></li>
+            
+                <li><a href="../modules/cutie.html">cutie</a></li>
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+            <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited" checked>
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1>cutie Class</h1>
+<div class="box meta">
+    
+
+    
+
+    
+        <div class="foundat">
+            Defined in: <a href="../files/src_cutie.js.html#l14"><code>cutie:14</code></a>
+        </div>
+    
+
+    
+        
+            Module: <a href="../modules/cutie.html">cutie</a>
+        
+    
+
+    
+</div>
+
+
+
+<div class="box intro">
+    <p><h1>Cutiepa2D.js</h1></p>
+<p>Cutiepa2D (pronounced cutie-patootie) is a wrapper for CreateJS. Its purpose is to make developing 2D games in javascript dead simple. It extends CreateJS with additional functionality and structure while still allowing you to access all of CreateJS&#39;s existing utilities.</p>
+<p>We think it&#39;s quite cute, and we hope you do too.</p>
+<h2>Download</h2>
+<p>Grab it here! <strong><a href="build/cutiepa2d.js">Download</a></strong></p>
+<h2>Getting Started</h2>
+<p>After downloading cutie, include it in your <code>index.html</code>.</p>
+
+<pre class="code prettyprint"><code>&lt;script type="text/javascript" src="cutiepa2d.js"&gt;&lt;/script&gt;</code></pre>
+<p><p>You&#39;ll also have to run a local server in order to get image loading to work. I recommend <a href="http://www.apachefriends.org/index.html">XAMMP</a> to get started.</p></p>
+<p><p>After that, you should be good to go! We have some examples in the <a href="https://github.com/greysonp/cutiepa2d">repo</a>, but we&#39;ll be writing proper tutorials (as well as expanding functionality) in the coming days.</p></p>
+<p><h2>Getting it on Your Phone</h2></p>
+<p><p>Testing in the browser is cool, but testing on your phone/tablet is even cooler. Thankfully, there&#39;s an awesome framework out there called <a href="https://www.ludei.com/">CocoonJS</a> that makes this dead-simple. First, they&#39;re framework converts your javascript canvas code to fast-performing WebGL code. But one of the coolest parts is that they have an app that you install on your iPhone/Android device that will allow you to literally copy your game files to your phone and play them. You don&#39;t even need a developer license on iOS! Very cool stuff. For a tutorial on using the app, check out <a href="http://support.ludei.com/hc/en-us/articles/201048463-How-to-use">this page</a>. </p></p>
+<p><h2>Brought to You By</h2></p>
+<ul>
+    <li><a href="https://github.com/greysonp">greysonp</a></li>
+    <li><a href="https://github.com/MaybeNot">MaybeNot</a></li>
+    <li><a href="https://github.com/stephenrlouie">stephenrlouie</a></li>
+</ul>
+</div>
+
+
+
+<div id="classdocs" class="tabview">
+    <ul class="api-class-tabs">
+        <li class="api-class-tab index"><a href="#index">Index</a></li>
+
+        
+            <li class="api-class-tab methods"><a href="#methods">Methods</a></li>
+        
+        
+        
+        
+    </ul>
+
+    <div>
+        <div id="index" class="api-class-tabpanel index">
+            <h2 class="off-left">Item Index</h2>
+
+            
+                <div class="index-section methods">
+                    <h3>Methods</h3>
+
+                    <ul class="index-list methods">
+                        
+                            <li class="index-item method public">
+                                <a href="#method_getActiveScene">getActiveScene</a>
+
+                                
+                                    <span class="flag static">static</span>
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method public">
+                                <a href="#method_getStage">getStage</a>
+
+                                
+                                    <span class="flag static">static</span>
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method public">
+                                <a href="#method_registerScene">registerScene</a>
+
+                                
+                                    <span class="flag static">static</span>
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method public">
+                                <a href="#method_setScene">setScene</a>
+
+                                
+                                    <span class="flag static">static</span>
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method public">
+                                <a href="#method_start">start</a>
+
+                                
+                                    <span class="flag static">static</span>
+                                
+                                
+                            </li>
+                        
+                    </ul>
+                </div>
+            
+
+            
+
+            
+
+            
+        </div>
+
+        
+            <div id="methods" class="api-class-tabpanel">
+                <h2 class="off-left">Methods</h2>
+
+                
+                    <div id="method_getActiveScene" class="method item public">
+    <h3 class="name"><code>getActiveScene</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/Scene.html" class="crosslink">Scene</a></span>
+        </span>
+    
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+        <span class="flag static">static</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_cutie.js.html#l164"><code>getActiveScene:164</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Gets a references to the active scene being managed by cutie.</p>
+
+    </div>
+
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type"><a href="../classes/Scene.html" class="crosslink">Scene</a></span>:
+                    
+                    <p>A reference to the active scene being managed by cutie.</p>
+
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_getStage" class="method item public">
+    <h3 class="name"><code>getStage</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">createjs.Stage</span>
+        </span>
+    
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+        <span class="flag static">static</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_cutie.js.html#l153"><code>getStage:153</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Gets a references to the stage being managed by cutie.</p>
+
+    </div>
+
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">createjs.Stage</span>:
+                    
+                    <p>A reference to the stage being managed by cutie.</p>
+
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_registerScene" class="method item public">
+    <h3 class="name"><code>registerScene</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>scene</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>name</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+        <span class="flag static">static</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_cutie.js.html#l137"><code>registerScene:137</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Adds the scene to the list of registered scenes.</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">scene</code>
+                        <span class="type"><a href="../classes/Scene.html" class="crosslink">Scene</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The scene you want to register.</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">name</code>
+                        <span class="type">String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The name you want to associate with the scene. This is the
+                      name you will use when setting and preloading scenes.</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_setScene" class="method item public">
+    <h3 class="name"><code>setScene</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>scene</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>props</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+        <span class="flag static">static</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_cutie.js.html#l99"><code>setScene:99</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Takes the specified scene and sets it as the active scene. This will
+now be the scene that receives calls to its tick() function. If it is 
+not already preloaded, it will be preloaded</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">scene</code>
+                        <span class="type"><a href="../classes/Scene.html" class="crosslink">Scene</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <pre><code>   The scene to be made active.</code></pre>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">props</code>
+                        <span class="type">Object</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <pre><code>   A series of properties that affects how the scene is set.
+   "preloadScenes": Which additional scenes to preload when you 
+                    load this scene. The progress bar for this 
+                    scene will be representative of this list&#39;s
+                    preload progress.</code></pre>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_start" class="method item public">
+    <h3 class="name"><code>start</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>scene</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code class="optional">[props={}]</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+        <span class="flag static">static</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_cutie.js.html#l52"><code>start:52</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Starts the game.</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">scene</code>
+                        <span class="type"><a href="../classes/Scene.html" class="crosslink">Scene</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <pre><code>    The scene to start the game with.</code></pre>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name optional">[props={}]</code>
+                        <span class="type">Object</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>A series of properties that affects the overall game and how the scene is set.</p>
+
+                    </div>
+
+                    
+                        <ul class="params-list">
+                            
+                            <li class="param">
+                                
+                                    <code class="param-name optional">[canvasId=&quot;js-canvas&quot;]</code>
+                                    <span class="type">String</span>
+                                    <span class="flag optional" title="This parameter is optional.">optional</span>
+                                
+
+                                <div class="param-description">
+                                    <p>The id of the canvas element you want to display your game in.</p>
+
+                                </div>
+
+                                
+                            </li>
+                            
+                            <li class="param">
+                                
+                                    <code class="param-name optional">[preloadScenes=[]</code>
+                                    <span class="type"><a href="../classes/Scene.html" class="crosslink">Scene[]</a></span>
+                                    <span class="flag optional" title="This parameter is optional.">optional</span>
+                                
+
+                                <div class="param-description">
+                                    <p>Which additional scenes to preload when you load this scene. 
+                                              The progress bar for this scene will be representative of this 
+                                              list&#39;s preload progress.</p>
+
+                                </div>
+
+                                
+                            </li>
+                            
+                            <li class="param">
+                                
+                                    <code class="param-name optional">[debugFPS={}]</code>
+                                    <span class="type">Object</span>
+                                    <span class="flag optional" title="This parameter is optional.">optional</span>
+                                
+
+                                <div class="param-description">
+                                    <p>A set of options related to showing the frames per second (FPS) on-screen
+                                     for debug purposes.</p>
+
+                                </div>
+
+                                
+                                    <ul class="params-list">
+                                        
+                                        <li class="param">
+                                            
+                                                <code class="param-name optional">[size=&quot;20px&quot;]</code>
+                                                <span class="type">String</span>
+                                                <span class="flag optional" title="This parameter is optional.">optional</span>
+                                            
+
+                                            <div class="param-description">
+                                                The size of the FPS text. You must include units.
+                                            </div>
+                                        </li>
+                                        
+                                        <li class="param">
+                                            
+                                                <code class="param-name optional">[color=&quot;#000000&quot;]</code>
+                                                <span class="type">String</span>
+                                                <span class="flag optional" title="This parameter is optional.">optional</span>
+                                            
+
+                                            <div class="param-description">
+                                                The color of the FPS text. Any valid CSS color should work.
+                                            </div>
+                                        </li>
+                                        
+                                        <li class="param">
+                                            
+                                                <code class="param-name optional">[updateInterval=500]</code>
+                                                <span class="type">Number</span>
+                                                <span class="flag optional" title="This parameter is optional.">optional</span>
+                                            
+
+                                            <div class="param-description">
+                                                How often the FPS should update. Making the update interval too
+                                                     short will just make the number unreadable (it'll change too fast).
+                                            </div>
+                                        </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                            
+                            <li class="param">
+                                
+                                    <code class="param-name optional">[scaleType=cutie.ScaleType.NONE]</code>
+                                    <span class="type">Number</span>
+                                    <span class="flag optional" title="This parameter is optional.">optional</span>
+                                
+
+                                <div class="param-description">
+                                    <p>How you want the canvas to scale in the window. Does not impact the in-game with and height.</p>
+
+                                </div>
+
+                                
+                            </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+            </div>
+        
+
+        
+
+        
+
+        
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

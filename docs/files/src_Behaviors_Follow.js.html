@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../assets/css/yui-cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/favicon.ico">
+    <script src="../assets/js/yui-source.js"></script>
+	<title>cutiepa2d v0.0.0 API Documentation : src/Behaviors/Follow.js</title>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><a href=""><img src="../../assets/logo.png" title="cutiepa2d"></a></h1>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Documentation for: 0.0.0</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="../classes/AsteroidMovement.html">AsteroidMovement</a></li>
+            
+                <li><a href="../classes/Behavior.html">Behavior</a></li>
+            
+                <li><a href="../classes/cutie.html">cutie</a></li>
+            
+                <li><a href="../classes/DPadMovement.html">DPadMovement</a></li>
+            
+                <li><a href="../classes/DragAndDrop.html">DragAndDrop</a></li>
+            
+                <li><a href="../classes/EightDirectionalMovement.html">EightDirectionalMovement</a></li>
+            
+                <li><a href="../classes/Follow.html">Follow</a></li>
+            
+                <li><a href="../classes/JoystickMovement.html">JoystickMovement</a></li>
+            
+                <li><a href="../classes/KeyCodes.html">KeyCodes</a></li>
+            
+                <li><a href="../classes/Log.html">Log</a></li>
+            
+                <li><a href="../classes/Route.html">Route</a></li>
+            
+                <li><a href="../classes/ScaleType.html">ScaleType</a></li>
+            
+                <li><a href="../classes/Scene.html">Scene</a></li>
+            
+                <li><a href="../classes/Shoot.html">Shoot</a></li>
+            
+                <li><a href="../classes/Util.html">Util</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+                <li><a href="../modules/Behavior.html">Behavior</a></li>
+            
+                <li><a href="../modules/cutie.html">cutie</a></li>
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+            <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited" checked>
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <script>
+	var name = src/Behaviors/Follow.js      
+</script>
+<h1 class="file-heading">File:Follow.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+this.cutie = this.cutie || {};
+this.cutie.Behavior = this.cutie.Behavior || {};
+
+/**
+ * @submodule Behavior
+ */
+(function(module){
+    /**
+     * Gives an object the ability to follow another object or the mouse.
+     * @constructor
+     * @class Follow
+     * @extends Behavior
+     * @param {Object} [props] The properties being passed in.
+     * @param {Boolean} [props.targetObj=false] This is the object that is going to be followed. 
+     *      If no object is passed in, it will follow the mouse. 
+     * @param {Number} [props.speed=100] This is an integer value giving the speed in px/s
+     * @param {Number} [props.distance=0] This is the follow distance in px. 
+     * @param {Boolean} [props.setCenter=true] This is signifies if the object doing the following should rotate around its center
+     * @param {Number} [props.angleOffset=90] This is the following orientation where 90 is straight up, 
+     *     the zero point is the cartesian positive x axis and degrees rotate counter-clockwise up from this x axis. 
+     */
+
+
+     //NEED TO ALLOW USERS TO ADD X Y COORDINATES TO GO TO A SPOT ON THE TARGET OBJECT
+
+    var Follow = function(props) {
+    	// ================================================
+        // VARIABLE DECLARATIONS
+        // ================================================
+        
+        var props = props || {};
+        var _targetCoord = {};
+
+        var _setCenter = (&#x27;setCenter&#x27; in props)?props.setCenter:true;
+        var _targetObj = (&#x27;targetObj&#x27; in props)?props.targetObj:false;
+        var _speed = (&#x27;speed&#x27; in props)?props.speed:100;
+        var _followDistance = (&#x27;distance&#x27; in props)?props.distance:0;
+        var _angOffset = (&#x27;angleOffset&#x27; in props)?props.angleOffset:90;
+
+        // ================================================
+        // PUBLIC METHODS
+        // ================================================
+        this.init = function(obj) {
+        	//If the mouse is the object
+            setCoords();
+            if(_setCenter) {
+                obj.regX = obj.image.width/2;
+                obj.regY = obj.image.height/2;
+            }
+        };
+
+        this.tick = function(obj, e) {
+            var dist = _speed*e.delta/1000;
+            setCoords();
+            var xDist = _targetCoord.x - obj.x;
+            var yDist = _targetCoord.y - obj.y;
+
+
+            var distanceFrom = Math.sqrt(xDist*xDist + yDist*yDist);
+            //Will keep correct orientation even if within the distance
+            var theta = Math.atan2(yDist,xDist);
+            obj.rotation = (theta * 180 / Math.PI) + _angOffset;
+            if(distanceFrom &gt; _followDistance &amp;&amp; dist &lt; distanceFrom) {
+            	obj.x += dist*Math.cos(theta);
+            	obj.y += dist*Math.sin(theta);
+            }
+
+        };
+
+        // ================================================
+        // PRIVATE METHODS
+        // ================================================
+        
+        function setCoords(){
+            if(!_targetObj) {
+                var stage = cutie.getStage();
+                _targetCoord.x = stage.mouseX;
+                _targetCoord.y = stage.mouseY;
+            }
+            else{
+                _targetCoord.x = _targetObj.x + _targetObj.image.width/2;
+                _targetCoord.y = _targetObj.y + _targetObj.image.height/2;
+            }
+            console.log(_targetObj.image.width);
+        }
+
+    }
+
+    module.Follow = Follow;
+})(this.cutie.Behavior);
+    </pre>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>
