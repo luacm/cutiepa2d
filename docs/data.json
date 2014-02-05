@@ -221,7 +221,7 @@
             },
             "tag": "main",
             "file": "src/cutie.js",
-            "line": 11,
+            "line": 9,
             "description": "For documentation on the various methods cutie has, see the class documentation.",
             "static": 1,
             "itemtype": "main"
@@ -923,7 +923,7 @@
             "module": "cutie",
             "namespace": "",
             "file": "src/cutie.js",
-            "line": 11,
+            "line": 9,
             "description": "# Cutiepa2D.js\nCutiepa2D (pronounced cutie-patootie) is a wrapper for CreateJS. Its purpose is to make developing 2D games in javascript dead simple. It extends CreateJS with additional functionality and structure while still allowing you to access all of CreateJS's existing utilities.\nWe think it's quite cute, and we hope you do too.\n\n## Download\nGrab it here! **[Download](build/cutiepa2d.js)**\n\n## Getting Started\nAfter downloading cutie, include it in your ```index.html```.\n\n    <script type=\"text/javascript\" src=\"cutiepa2d.js\"></script>\n\nYou'll also have to run a local server in order to get image loading to work. I recommend [XAMMP](http://www.apachefriends.org/index.html) to get started.\nAfter that, you should be good to go! We have some examples in the [repo](https://github.com/greysonp/cutiepa2d), but we'll be writing proper tutorials (as well as expanding functionality) in the coming days.\n\n## Getting it on Your Phone\nTesting in the browser is cool, but testing on your phone/tablet is even cooler. Thankfully, there's an awesome framework out there called <a href=\"https://www.ludei.com/\">CocoonJS</a> that makes this dead-simple. First, they're framework converts your javascript canvas code to fast-performing WebGL code. But one of the coolest parts is that they have an app that you install on your iPhone/Android device that will allow you to literally copy your game files to your phone and play them. You don't even need a developer license on iOS! Very cool stuff. For a tutorial on using the app, check out [this page](http://support.ludei.com/hc/en-us/articles/201048463-How-to-use).\n\n## Brought to You By  \n* [greysonp](https://github.com/greysonp)\n* [MaybeNot](https://github.com/MaybeNot)\n* [stephenrlouie](https://github.com/stephenrlouie)",
             "static": 1
         }
@@ -1896,7 +1896,7 @@
         },
         {
             "file": "src/cutie.js",
-            "line": 52,
+            "line": 50,
             "description": "Starts the game.",
             "itemtype": "method",
             "name": "start",
@@ -1975,7 +1975,7 @@
         },
         {
             "file": "src/cutie.js",
-            "line": 99,
+            "line": 97,
             "description": "Takes the specified scene and sets it as the active scene. This will\nnow be the scene that receives calls to its tick() function. If it is \nnot already preloaded, it will be preloaded",
             "itemtype": "method",
             "name": "setScene",
@@ -1999,7 +1999,7 @@
         },
         {
             "file": "src/cutie.js",
-            "line": 141,
+            "line": 139,
             "description": "Adds the scene to the list of registered scenes.",
             "itemtype": "method",
             "name": "registerScene",
@@ -2023,7 +2023,7 @@
         },
         {
             "file": "src/cutie.js",
-            "line": 158,
+            "line": 156,
             "description": "Gets a references to the stage being managed by cutie.",
             "itemtype": "method",
             "name": "getStage",
@@ -2039,7 +2039,7 @@
         },
         {
             "file": "src/cutie.js",
-            "line": 169,
+            "line": 167,
             "description": "Gets a references to the active scene being managed by cutie.",
             "itemtype": "method",
             "name": "getActiveScene",
@@ -2055,7 +2055,7 @@
         },
         {
             "file": "src/cutie.js",
-            "line": 187,
+            "line": 185,
             "description": "Description:\n     Calls the internel Ticks on all scene objects",
             "access": "private",
             "tagname": "",
@@ -2071,7 +2071,7 @@
         },
         {
             "file": "src/cutie.js",
-            "line": 202,
+            "line": 200,
             "description": "Preloads a list of scenes, and adds the preload event listeners\nto the first scene in the list",
             "access": "private",
             "tagname": "",
@@ -2087,7 +2087,7 @@
         },
         {
             "file": "src/cutie.js",
-            "line": 238,
+            "line": 236,
             "description": "Description",
             "access": "private",
             "tagname": "",
@@ -2107,7 +2107,7 @@
         },
         {
             "file": "src/cutie.js",
-            "line": 252,
+            "line": 250,
             "description": "Description",
             "access": "private",
             "tagname": "",
@@ -2127,7 +2127,7 @@
         },
         {
             "file": "src/cutie.js",
-            "line": 267,
+            "line": 265,
             "access": "private",
             "tagname": "",
             "params": [
@@ -2142,7 +2142,7 @@
         },
         {
             "file": "src/cutie.js",
-            "line": 284,
+            "line": 282,
             "access": "private",
             "tagname": "",
             "class": "cutie",
@@ -2150,14 +2150,14 @@
         },
         {
             "file": "src/cutie.js",
-            "line": 342,
+            "line": 340,
             "description": "Fixed touch events for CacoonJS.",
             "class": "cutie",
             "module": "cutie"
         },
         {
             "file": "src/cutie.js",
-            "line": 346,
+            "line": 344,
             "description": "Protected Function updatePointerPosition",
             "itemtype": "method",
             "name": "_updatePointerPosition",
@@ -2259,31 +2259,31 @@
         },
         {
             "message": "Missing item type\nDescription:\n     Calls the internel Ticks on all scene objects",
-            "line": " src/cutie.js:187"
+            "line": " src/cutie.js:185"
         },
         {
             "message": "Missing item type\nPreloads a list of scenes, and adds the preload event listeners\nto the first scene in the list",
-            "line": " src/cutie.js:202"
+            "line": " src/cutie.js:200"
         },
         {
             "message": "Missing item type\nDescription",
-            "line": " src/cutie.js:238"
+            "line": " src/cutie.js:236"
         },
         {
             "message": "Missing item type\nDescription",
-            "line": " src/cutie.js:252"
+            "line": " src/cutie.js:250"
         },
         {
             "message": "Missing item type",
-            "line": " src/cutie.js:267"
+            "line": " src/cutie.js:265"
         },
         {
             "message": "Missing item type",
-            "line": " src/cutie.js:284"
+            "line": " src/cutie.js:282"
         },
         {
             "message": "Missing item type\nFixed touch events for CacoonJS.",
-            "line": " src/cutie.js:342"
+            "line": " src/cutie.js:340"
         }
     ]
 }

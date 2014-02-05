@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../assets/css/yui-cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/favicon.ico">
+    <script src="../assets/js/yui-source.js"></script>
+	<title>cutiepa2d v0.0.0 API Documentation : src/collisionDetector.js</title>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><a href=""><img src="../../assets/logo.png" title="cutiepa2d"></a></h1>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Documentation for: 0.0.0</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="../classes/AsteroidMovement.html">AsteroidMovement</a></li>
+            
+                <li><a href="../classes/Behavior.html">Behavior</a></li>
+            
+                <li><a href="../classes/cutie.html">cutie</a></li>
+            
+                <li><a href="../classes/DPadMovement.html">DPadMovement</a></li>
+            
+                <li><a href="../classes/DragAndDrop.html">DragAndDrop</a></li>
+            
+                <li><a href="../classes/EightDirectionalMovement.html">EightDirectionalMovement</a></li>
+            
+                <li><a href="../classes/Follow.html">Follow</a></li>
+            
+                <li><a href="../classes/JoystickMovement.html">JoystickMovement</a></li>
+            
+                <li><a href="../classes/KeyCodes.html">KeyCodes</a></li>
+            
+                <li><a href="../classes/Log.html">Log</a></li>
+            
+                <li><a href="../classes/Route.html">Route</a></li>
+            
+                <li><a href="../classes/ScaleType.html">ScaleType</a></li>
+            
+                <li><a href="../classes/Scene.html">Scene</a></li>
+            
+                <li><a href="../classes/Shoot.html">Shoot</a></li>
+            
+                <li><a href="../classes/Util.html">Util</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+                <li><a href="../modules/Behavior.html">Behavior</a></li>
+            
+                <li><a href="../modules/cutie.html">cutie</a></li>
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+            <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited" checked>
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <script>
+	var name = src/collisionDetector.js      
+</script>
+<h1 class="file-heading">File:collisionDetector.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+/*
+  The MIT License
+
+  Copyright (c) 2012 Olaf Horstmann, indiegamr.com
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the &quot;Software&quot;), to deal
+  in the Software without restriction, including without limitation the rights
+  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+  THE SOFTWARE.
+*/
+
+
+/**
+* A Pixel Perfect Collision Detection for EaselJS Bitmap-Objects
+* @author olsn, indiegamr.com
+**/
+
+this.cutie = this.cutie || {};
+this.cutie.Collisions = this.cutie.Collisions || {};
+
+(function(module) {
+
+  var collisionCanvas = document.createElement(&#x27;canvas&#x27;);
+  var collisionCtx = collisionCanvas.getContext(&#x27;2d&#x27;);
+      //collisionCtx.globalCompositeOperation = &#x27;source-in&#x27;;
+      collisionCtx.save();
+
+  var collisionCanvas2 = document.createElement(&#x27;canvas&#x27;);
+  var collisionCtx2 = collisionCanvas2.getContext(&#x27;2d&#x27;);
+      collisionCtx2.save();
+
+  var cachedBAFrames = [];
+
+  var checkCircleCollision = function(bitmap1, bitmap2) {
+    var c1, c2;
+    c1 = getCircle(bitmap1);
+    c2 = getCircle(bitmap2);
+    return  calculateCircleIntersection(c1, c2);
+  }
+  module.Collisions.checkCircleCollision = checkCircleCollision;
+
+  var checkCircleRectCollision = function(bitmap1, bitmap2) {
+    var b, c;
+    c = getCircle(bitmap1);
+    b = getBounds(bitmap2);
+    return calculateCircleRectIntersection(c, b);
+  }
+  module.Collisions.checkCircleRectCollision = checkCircleRectCollision;
+
+  var checkRectCollision = function(bitmap1,bitmap2) {
+    var b1, b2;
+    b1 = getBounds(bitmap1);
+    b2 = getBounds(bitmap2)
+    return calculateIntersection(b1,b2);
+  }
+  module.Collisions.checkRectCollision = checkRectCollision;
+
+  var checkPixelCollision = function(bitmap1, bitmap2, alphaThreshold, getRect) {
+    //display the intersecting canvases for debugging
+    if ( module.Log.level &lt;= module.Log.VERBOSE) { 
+      //document.body.appendChild(collisionCanvas);
+      //document.body.appendChild(collisionCanvas2);
+    }
+    
+    getRect = getRect || false;
+
+    var areObjectsCloseEnough,
+        intersetion,
+        imageData1, imageData2,
+        pixelIntersection;
+
+    areObjectsCloseEnough = _collisionDistancePrecheck(bitmap1,bitmap2);
+    if ( !areObjectsCloseEnough ) {
+      return false;
+    }
+
+    intersection = checkRectCollision(bitmap1,bitmap2);
+    if ( !intersection ) {
+      return false;
+    }
+
+    alphaThreshold = alphaThreshold || 0;
+    alphaThreshold = Math.min(0.99999,alphaThreshold);
+
+    //setting the canvas size
+    collisionCanvas.width  = intersection.width;
+    collisionCanvas.height = intersection.height; 
+    collisionCanvas2.width  = intersection.width;
+    collisionCanvas2.height = intersection.height; 
+
+    imageData1 = _intersectingImagePart(intersection,bitmap1,collisionCtx,1);
+    imageData2 = _intersectingImagePart(intersection,bitmap2,collisionCtx2,2);
+
+    //compare the alpha values to the threshold and return the result
+    // = true if pixels are both &gt; alphaThreshold at one coordinate
+    pixelIntersection = _compareAlphaValues(imageData1,imageData2,intersection.width,intersection.height,alphaThreshold, getRect);
+    
+    if ( pixelIntersection ) {
+      pixelIntersection.x  += intersection.x;
+      pixelIntersection.x2 += intersection.x;
+      pixelIntersection.y  += intersection.y;
+      pixelIntersection.y2 += intersection.y;
+    } else {
+      return false;
+    }
+
+    return pixelIntersection;
+  }
+  module.Collisions.checkPixelCollision = checkPixelCollision;
+
+  var _collisionDistancePrecheck = function(bitmap1,bitmap2) {
+    var ir1,ir2,b1,b2;
+
+    b1 = bitmap1.localToGlobal(0,0);
+    b2 = bitmap2.localToGlobal(0,0);
+
+    ir1 = bitmap1 instanceof createjs.Bitmap
+         ? {width:bitmap1.image.width, height:bitmap1.image.height}
+         : bitmap1.spriteSheet.getFrame(bitmap1.currentFrame).rect;
+    ir2 = bitmap2 instanceof createjs.Bitmap
+         ? {width:bitmap2.image.width, height:bitmap2.image.height}
+         : bitmap2.spriteSheet.getFrame(bitmap2.currentFrame).rect;
+    
+    //precheck if objects are even close enough
+    return ( Math.abs(b2.x-b1.x) &lt; ir2.width *bitmap2.scaleX+ir1.width *bitmap1.scaleX
+          &amp;&amp; Math.abs(b2.y-b1.y) &lt; ir2.height*bitmap2.scaleY+ir1.height*bitmap2.scaleY )
+  }
+
+  var _intersectingImagePart = function(intersetion,bitmap,ctx,i) {
+    var bl, image, frameName, sr;
+
+    if ( bitmap instanceof createjs.Bitmap ) {
+      image = bitmap.image;
+    } else if ( bitmap instanceof createjs.Sprite ) {
+    frame = bitmap.spriteSheet.getFrame( bitmap.currentFrame )
+      frameName = frame.image.src + &#x27;:&#x27; + 
+                  frame.rect.x + &#x27;:&#x27; + frame.rect.y + &#x27;:&#x27; + 
+                  frame.rect.width  + &#x27;:&#x27; + frame.rect.height;// + &#x27;:&#x27; + frame.rect.regX  + &#x27;:&#x27; + frame.rect.regY 
+      if ( cachedBAFrames[frameName] ) {
+        image = cachedBAFrames[frameName];
+      } else {
+        cachedBAFrames[frameName] = image = createjs.SpriteSheetUtils.extractFrame(bitmap.spriteSheet,bitmap.currentFrame);
+      }
+    }
+
+    bl = bitmap.globalToLocal(intersetion.x,intersetion.y);
+    ctx.restore();
+    ctx.save();
+    //ctx.clearRect(0,0,intersetion.width,intersetion.height);
+    ctx.rotate(_getParentalCumulatedProperty(bitmap,&#x27;rotation&#x27;)*(Math.PI/180));
+    ctx.scale(_getParentalCumulatedProperty(bitmap,&#x27;scaleX&#x27;,&#x27;*&#x27;),_getParentalCumulatedProperty(bitmap,&#x27;scaleY&#x27;,&#x27;*&#x27;));
+    ctx.translate(-bl.x-intersetion[&#x27;rect&#x27;+i].regX,-bl.y-intersetion[&#x27;rect&#x27;+i].regY);
+    if ( (sr = bitmap.sourceRect) != undefined ) {
+      ctx.drawImage(image,sr.x,sr.y,sr.width,sr.height,0,0,sr.width,sr.height);
+    } else {
+      ctx.drawImage(image,0,0,image.width,image.height);
+    }
+    return ctx.getImageData(0, 0, intersetion.width, intersetion.height).data;
+  }
+
+  var _compareAlphaValues = function(imageData1,imageData2,width,height,alphaThreshold,getRect) {
+    var alpha1, alpha2, x, y, offset = 3,
+        pixelRect = {x:Infinity,y:Infinity,x2:-Infinity,y2:-Infinity};
+
+    // parsing through the pixels checking for an alpha match
+    // TODO: intelligent parsing, not just from 0 to end!
+    for ( y = 0; y &lt; height; ++y) {
+        for ( x = 0; x &lt; width; ++x) {
+            alpha1 = imageData1.length &gt; offset+1 ? imageData1[offset] / 255 : 0;
+            alpha2 = imageData2.length &gt; offset+1 ? imageData2[offset] / 255 : 0;
+            
+            if ( alpha1 &gt; alphaThreshold &amp;&amp; alpha2 &gt; alphaThreshold ) {
+              if ( getRect ) {
+                if ( x &lt; pixelRect.x  ) pixelRect.x  = x;
+                if ( x &gt; pixelRect.x2 ) pixelRect.x2 = x;
+                if ( y &lt; pixelRect.y  ) pixelRect.y  = y;
+                if ( y &gt; pixelRect.y2 ) pixelRect.y2 = y;
+              } else {
+                return {x:x,y:y,width:1,height:1};
+              }
+            }
+            offset += 4;
+        }
+    }
+
+    if ( pixelRect.x != Infinity ) {
+      pixelRect.width  = pixelRect.x2 - pixelRect.x + 1;
+      pixelRect.height = pixelRect.y2 - pixelRect.y + 1;
+      return pixelRect;
+    }
+
+    return null;
+  }
+
+  // this is needed to paint the intersection part correctly,
+  // if the tested bitmap is a child to a rotated/scaled parent
+  // this was not painted correctly before
+  var _getParentalCumulatedProperty = function(child,propName,operation) {
+    operation = operation || &#x27;+&#x27;;
+    if ( child.parent &amp;&amp; child.parent[propName] ) {
+      var cp = child[propName];
+      var pp = _getParentalCumulatedProperty(child.parent,propName,operation);
+      if ( operation == &#x27;*&#x27; ) {
+        return cp * pp;
+      } else {
+        return cp + pp;
+      }
+    }
+
+    return child[propName];
+  }
+
+  var calculateCircleRectIntersection = function(circ, rect) {
+    var dist;
+    var cY = circ.center.y, cX = circ.center.x;
+    var rY = rect.y + rect.height/2, rX = rect.x + rect.width/2;
+    var rD = Math.sqrt(rect.width/2*rect.width/2+rect.height/2*rect.height/2);
+    var min = rD + circ.radius;
+    dist = Math.sqrt((cX-rX)*(cX-rX)+(cY-rY)*(cY-rY));
+
+    if(dist &gt; (rD+circ.radius)) return null;
+    else {
+      var dist1, dist2, dist3, dist4;
+      dist1 = Math.sqrt((cX-rect.x)*(cX-rect.x)+(cY-rect.y)*(cY-rect.y));
+      dist2 = Math.sqrt((cX-rect.x-rect.width)*(cX-rect.x-rect.width)+(cY-rect.y)*(cY-rect.y));
+      dist3 = Math.sqrt((cX-rect.x)*(cX-rect.x)+(cY-rect.y-rect.height)*(cY-rect.y-rect.height));
+      dist4 = Math.sqrt((cX-rect.x-rect.width)*(cX-rect.x-rect.width)+(cY-rect.y-rect.height)*(cY-rect.y-rect.height));
+
+      //circlue is touching a corner
+      if(dist1 &lt; circ.radius|| dist2 &lt; circ.radius|| dist3 &lt; circ.radius|| dist4 &lt; circ.radius) {
+        return {hit: true};
+      }
+      else if(cX &gt;= rect.x &amp;&amp; cX &lt;= (rect.x + rect.width) &amp;&amp; Math.abs(rY - cY) &lt; (circ.radius + rect.height/2)) {
+        return {hit: true};
+      }
+      else if(cY &gt;= rect.y &amp;&amp; cY &lt;= (rect.y + rect.height) &amp;&amp; Math.abs(rX - cX) &lt; (circ.radius + rect.width/2)) {
+        return {hit: true};
+      }
+      else {
+        return null;
+      }
+    }
+
+    //dist2 = Math.sqrt((cX-rect.x-rect.width)*(cX-rect.x-rect.width)+(cY-rect.y)*(cY-rect.y));
+    //dist3 = Math.sqrt((cX-rect.x)*(cX-rect.x)+(cY-rect.y-rect.height)*(cY-rect.y-rect.height));
+    //dist4 = Math.sqrt((cX-rect.x-rect.width)*(cX-rect.x-rect.width)+(cY-rect.y-rect.height)*(cY-rect.y-rect.height));
+  }
+  module.Collisions.calculateCircleRectIntersection = calculateCircleRectIntersection;
+
+  var calculateCircleIntersection = function(circ1, circ2) {
+    var dist = Math.sqrt((circ1.center.x-circ2.center.x)*(circ1.center.x-circ2.center.x) + (circ1.center.y-circ2.center.y)*(circ1.center.y-circ2.center.y));
+    if(dist &lt; (circ1.radius + circ2.radius)) {
+      var centerX = (circ1.center.x + circ2.center.x)/2
+      var centerY = (circ1.center.y + circ2.center.y)/2
+
+      return {
+        x:centerX, 
+        y:centerY
+      }
+    }
+
+    return null;
+  }
+  module.Collisions.calculateCircleIntersection = calculateCircleIntersection;
+
+  var getCircle = function(obj) {
+    var circle = {center: {x:0, y:0}, radius: 0};
+    if(obj instanceof module.Container) {
+      //calculate center and maximum radius of all children
+      var children = obj.children, len = children.length;
+    }
+    else {
+      var gp, img = {};
+      if(obj instanceof module.Sprite) {
+        if(obj.spriteSheet._frames &amp;&amp; obj.spriteSheet._frames[obj.currentFrame] &amp;&amp; obj.spriteSheet._frames[obj.currentFrame].image) {
+          var frame = obj.spriteSheet.getFrame(obj.currentFrame);
+          img.width = frame.rect.width;
+          img.height = frame.rect.height;
+          img.regX = frame.regX;
+          img.regY = frame.regY;
+          img.x = frame.x;
+
+        }
+      }
+      else if(obj instanceof module.Bitmap) {
+        var sr = obj.sourceRect || obj.image;
+        img.width = sr.width;
+        img.height = sr.height;
+        img.regX = sr.regX;
+        img.regY = sr.regY;
+      }
+      circle.radius = (img.width &gt; img.height)? sr.width/2:sr.height/2;
+      img.regX = img.regX || 0;
+      img.regY = img.regY || 0;
+
+      gp = obj.localToGlobal(img.width/2 - img.regX, img.height/2 - img.regY);
+      circle.center.x = gp.x;
+      circle.center.y = gp.y;
+      }
+
+    return circle;
+  }
+  module.Collisions.getCircle = getCircle;
+
+  var calculateIntersection = function(rect1, rect2)
+  {
+    // first we have to calculate the
+    // center of each rectangle and half of
+    // width and height
+    var dx, dy, r1={}, r2={};
+    r1.cx = rect1.x + (r1.hw = (rect1.width /2));
+    r1.cy = rect1.y + (r1.hh = (rect1.height/2));
+    r2.cx = rect2.x + (r2.hw = (rect2.width /2));
+    r2.cy = rect2.y + (r2.hh = (rect2.height/2));
+
+    dx = Math.abs(r1.cx-r2.cx) - (r1.hw + r2.hw);
+    dy = Math.abs(r1.cy-r2.cy) - (r1.hh + r2.hh);
+
+    if (dx &lt; 0 &amp;&amp; dy &lt; 0) {
+      dx = Math.min(Math.min(rect1.width,rect2.width),-dx);
+      dy = Math.min(Math.min(rect1.height,rect2.height),-dy);
+      return {x:Math.max(rect1.x,rect2.x),
+              y:Math.max(rect1.y,rect2.y),
+              width:dx,
+              height:dy,
+              rect1: rect1,
+              rect2: rect2};
+    } else {
+      return null;
+    }
+  }
+  module.Collisions.calculateIntersection = calculateIntersection;
+
+  var getBounds = function(obj) {
+    var bounds={x:Infinity,y:Infinity,width:0,height:0};
+    if ( obj instanceof createjs.Container ) {
+      bounds.x2 = -Infinity;
+      bounds.y2 = -Infinity;
+      var children = obj.children, l=children.length, cbounds, c;
+      for ( c = 0; c &lt; l; c++ ) {
+        cbounds = getBounds(children[c]);
+        if ( cbounds.x &lt; bounds.x ) bounds.x = cbounds.x;
+        if ( cbounds.y &lt; bounds.y ) bounds.y = cbounds.y;
+        if ( cbounds.x + cbounds.width &gt; bounds.x2 ) bounds.x2 = cbounds.x + cbounds.width;
+        if ( cbounds.y + cbounds.height &gt; bounds.y2 ) bounds.y2 = cbounds.y + cbounds.height;
+        //if ( cbounds.x - bounds.x + cbounds.width  &gt; bounds.width  ) bounds.width  = cbounds.x - bounds.x + cbounds.width;
+        //if ( cbounds.y - bounds.y + cbounds.height &gt; bounds.height ) bounds.height = cbounds.y - bounds.y + cbounds.height;
+      }
+      if ( bounds.x == Infinity ) bounds.x = 0;
+      if ( bounds.y == Infinity ) bounds.y = 0;
+      if ( bounds.x2 == Infinity ) bounds.x2 = 0;
+      if ( bounds.y2 == Infinity ) bounds.y2 = 0;
+      
+      bounds.width = bounds.x2 - bounds.x;
+      bounds.height = bounds.y2 - bounds.y;
+      delete bounds.x2;
+      delete bounds.y2;
+    } else {
+      var gp,gp2,gp3,gp4,imgr={},sr;
+      if ( obj instanceof createjs.Bitmap ) {
+        sr = obj.sourceRect || obj.image;
+
+        imgr.width = sr.width;
+        imgr.height = sr.height;
+      } else if ( obj instanceof createjs.Sprite ) {
+        if ( obj.spriteSheet._frames &amp;&amp; obj.spriteSheet._frames[obj.currentFrame] &amp;&amp; obj.spriteSheet._frames[obj.currentFrame].image ) {
+          var cframe = obj.spriteSheet.getFrame(obj.currentFrame);
+          imgr.width =  cframe.rect.width;
+          imgr.height =  cframe.rect.height;
+          imgr.regX = cframe.regX;
+          imgr.regY = cframe.regY;
+        } else {
+          bounds.x = obj.x || 0;
+          bounds.y = obj.y || 0;
+        }
+      } else {
+        bounds.x = obj.x || 0;
+        bounds.y = obj.y || 0;
+      }
+
+      imgr.regX = imgr.regX || 0; imgr.width  = imgr.width  || 0;
+      imgr.regY = imgr.regY || 0; imgr.height = imgr.height || 0;
+      bounds.regX = imgr.regX;
+      bounds.regY = imgr.regY;
+      
+      gp  = obj.localToGlobal(0         -imgr.regX,0          -imgr.regY);
+      gp2 = obj.localToGlobal(imgr.width-imgr.regX,imgr.height-imgr.regY);
+      gp3 = obj.localToGlobal(imgr.width-imgr.regX,0          -imgr.regY);
+      gp4 = obj.localToGlobal(0         -imgr.regX,imgr.height-imgr.regY);
+
+      bounds.x = Math.min(Math.min(Math.min(gp.x,gp2.x),gp3.x),gp4.x);
+      bounds.y = Math.min(Math.min(Math.min(gp.y,gp2.y),gp3.y),gp4.y);
+      bounds.width = Math.max(Math.max(Math.max(gp.x,gp2.x),gp3.x),gp4.x) - bounds.x;
+      bounds.height = Math.max(Math.max(Math.max(gp.y,gp2.y),gp3.y),gp4.y) - bounds.y;
+    }
+    return bounds;
+  }
+  module.Collisions.getBounds = getBounds;
+}(this.cutie));
+    </pre>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

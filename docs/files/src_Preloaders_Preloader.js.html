@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
     <link rel="shortcut icon" type="image/x-icon" href="../assets/favicon.ico">
     <script src="../assets/js/yui-source.js"></script>
-	<title>cutiepa2d v0.0.0 API Documentation : cutie</title>
+	<title>cutiepa2d v0.0.0 API Documentation : src/Preloaders/Preloader.js</title>
 </head>
 <body class="yui3-skin-sam">
 
@@ -111,151 +111,46 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1>cutie Module</h1>
-<div class="box clearfix meta">
-    
+                        <script>
+	var name = src/Preloaders/Preloader.js      
+</script>
+<h1 class="file-heading">File:Preloader.js</h1>
 
-    
+<div class="file">
+    <pre class="code prettyprint linenums">
+/**
+ * A collection of preloaders that show progress while assets are loading.
+ * @namespace cutie.Preloader
+ */
 
-    
-        <div class="foundat">
-            Defined in: <a href="../files/src_cutie.js.html#l9"><code>cutie:9</code></a>
-        </div>
-    
+/**
+ * The constructor. The only real work you can do here is initialize variables that 
+ * don&#x27;t require the object you&#x27;re acting upon, perhaps initializing properties to 
+ * default values. Most of you work will be done in init().
+ * @memberof cutie.Preloader#
+ * @function Preloader
+ * @public
+ * @param {Object} [props] The properties passed in to the Preloader.
+ */
 
-    
-</div>
+/**
+ * Override this function to declare what happens when the preloader is added. Common
+ * patterns include adding event listeners and initializing private fields.
+ * @memberof cutie.Preloader#
+ * @function init
+ * @public
+ */
 
-
-
-<div class="box intro">
-    <p>For documentation on the various methods cutie has, see the class documentation.</p>
-
-</div>
-
-
-
-<div class="yui3-g">
-    <div class="yui3-u-1-2">
-        
-            <p>This module provides the following classes:</p>
-
-            <ul class="module-classes">
-            
-                <li class="module-class">
-                    <a href="../classes/AsteroidMovement.html">
-                        AsteroidMovement
-                    </a>
-                </li>
-            
-                <li class="module-class">
-                    <a href="../classes/Behavior.html">
-                        Behavior
-                    </a>
-                </li>
-            
-                <li class="module-class">
-                    <a href="../classes/cutie.html">
-                        cutie
-                    </a>
-                </li>
-            
-                <li class="module-class">
-                    <a href="../classes/DPadMovement.html">
-                        DPadMovement
-                    </a>
-                </li>
-            
-                <li class="module-class">
-                    <a href="../classes/DragAndDrop.html">
-                        DragAndDrop
-                    </a>
-                </li>
-            
-                <li class="module-class">
-                    <a href="../classes/EightDirectionalMovement.html">
-                        EightDirectionalMovement
-                    </a>
-                </li>
-            
-                <li class="module-class">
-                    <a href="../classes/Follow.html">
-                        Follow
-                    </a>
-                </li>
-            
-                <li class="module-class">
-                    <a href="../classes/JoystickMovement.html">
-                        JoystickMovement
-                    </a>
-                </li>
-            
-                <li class="module-class">
-                    <a href="../classes/KeyCodes.html">
-                        KeyCodes
-                    </a>
-                </li>
-            
-                <li class="module-class">
-                    <a href="../classes/Log.html">
-                        Log
-                    </a>
-                </li>
-            
-                <li class="module-class">
-                    <a href="../classes/Route.html">
-                        Route
-                    </a>
-                </li>
-            
-                <li class="module-class">
-                    <a href="../classes/ScaleType.html">
-                        ScaleType
-                    </a>
-                </li>
-            
-                <li class="module-class">
-                    <a href="../classes/Scene.html">
-                        Scene
-                    </a>
-                </li>
-            
-                <li class="module-class">
-                    <a href="../classes/Shoot.html">
-                        Shoot
-                    </a>
-                </li>
-            
-                <li class="module-class">
-                    <a href="../classes/Util.html">
-                        Util
-                    </a>
-                </li>
-            
-            </ul>
-        
-    </div>
-
-    <div class="yui3-u-1-2">
-        
-            <p>This module is a rollup of the following modules:</p>
-
-            <ul class="module-submodules">
-            
-                <li class="module-submodule">
-                    <a href="../modules/Behavior.html">
-                        Behavior
-                    </a>
-
-                    <div class="module-submodule-description">
-                        A collection of behaviors that add common actions to DisplayObjects. Each member
-should override the methods described here to make a new Behavior class.
-                    </div>
-                </li>
-            
-            </ul>
-        
-    </div>
+/**
+ * Override this function to declare what happens whenever progress is updated. This is where
+ * you&#x27;ll want to update your visual to say what happens when you load more stuff.
+ * @memberof cutie.Preloader#
+ * @function onProgressUpdate
+ * @public
+ * @param {createjs.Event} e The event for the progress update. Contains information about 
+ *                           how much loading has been completed.
+ */
+    </pre>
 </div>
 
                     </div>
