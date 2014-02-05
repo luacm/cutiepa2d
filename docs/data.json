@@ -90,6 +90,22 @@
             "fors": {},
             "namespaces": {}
         },
+        "src/Preloaders/Preloader.js": {
+            "name": "src/Preloaders/Preloader.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {
+                "cutie.Preloader": 1
+            }
+        },
+        "src/DisplayObject.js": {
+            "name": "src/DisplayObject.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
         "src/KeyCodes.js": {
             "name": "src/KeyCodes.js",
             "modules": {},
@@ -132,6 +148,13 @@
             "classes": {
                 "Util": 1
             },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/collisionDetector.js": {
+            "name": "src/collisionDetector.js",
+            "modules": {},
+            "classes": {},
             "fors": {},
             "namespaces": {}
         },
@@ -193,11 +216,13 @@
                 "cutie": 1
             },
             "fors": {},
-            "namespaces": {},
+            "namespaces": {
+                "cutie.Preloader": 1
+            },
             "tag": "main",
             "file": "src/cutie.js",
-            "line": 14,
-            "description": "For more information on the cutie class, see it's documentation.",
+            "line": 11,
+            "description": "For documentation on the various methods cutie has, see the class documentation.",
             "static": 1,
             "itemtype": "main"
         }
@@ -372,6 +397,11 @@
                     "name": "[props.pressedAlpha",
                     "description": "= 0.5] The pressed transparency of the buttons.",
                     "type": "Number"
+                },
+                {
+                    "name": "[props.eightDirectional",
+                    "description": "= false] A Boolean indicating if the DPad should be 4(false) or 8(true) directional.",
+                    "type": "Boolean"
                 }
             ]
         },
@@ -466,7 +496,7 @@
                     "props": [
                         {
                             "name": "targetObj",
-                            "description": "This is the object that is going to be followed. \n     If no object is passed in, it will follow the mouse.",
+                            "description": "This is the object that is going to be followed.\n     If no object is passed in, it will follow the mouse.",
                             "type": "Boolean",
                             "optional": true,
                             "optdefault": "false"
@@ -491,6 +521,33 @@
                             "type": "Boolean",
                             "optional": true,
                             "optdefault": "true"
+                        },
+                        {
+                            "name": "angleOffset",
+                            "description": "This is the following orientation where 90 is straight up,\n    the zero point is the cartesian positive x axis and degrees rotate counter-clockwise up from this x axis.",
+                            "type": "Number",
+                            "optional": true,
+                            "optdefault": "90"
+                        },
+                        {
+                            "name": "followCord",
+                            "description": "The position of the center of the joystick.",
+                            "type": "Number",
+                            "optional": true,
+                            "props": [
+                                {
+                                    "name": "x",
+                                    "description": "The x-coordinate on the image to be pursued (using local image coordinates).",
+                                    "type": "Number",
+                                    "optional": true
+                                },
+                                {
+                                    "name": "y",
+                                    "description": "The y-coordinate on the image to be pursued (using local image coordinates).",
+                                    "type": "Number",
+                                    "optional": true
+                                }
+                            ]
                         },
                         {
                             "name": "angleOffset",
@@ -708,7 +765,7 @@
                     "props": [
                         {
                             "name": "bullet",
-                            "description": "The obejct to render on a fire.",
+                            "description": "The object to render on a fire.",
                             "type": "Object",
                             "optional": true
                         },
@@ -809,7 +866,7 @@
             "module": "cutie",
             "namespace": "",
             "file": "src/Log.js",
-            "line": 8,
+            "line": 20,
             "static": 1
         },
         "ScaleType": {
@@ -838,7 +895,7 @@
             "module": "cutie",
             "namespace": "",
             "file": "src/Scene.js",
-            "line": 10,
+            "line": 11,
             "description": "A container that manages a scene in your game. Automatically\nmanages things like preloading and collision detection.",
             "is_constructor": 1
         },
@@ -866,8 +923,8 @@
             "module": "cutie",
             "namespace": "",
             "file": "src/cutie.js",
-            "line": 14,
-            "description": "<h1>Cutiepa2D.js</h1>\n<p>Cutiepa2D (pronounced cutie-patootie) is a wrapper for CreateJS. Its purpose is to make developing 2D games in javascript dead simple. It extends CreateJS with additional functionality and structure while still allowing you to access all of CreateJS's existing utilities.</p>\n<p>We think it's quite cute, and we hope you do too.</p>\n<h2>Download</h2>\n<p>Grab it here! <strong><a href=\"build/cutiepa2d.js\">Download</a></strong></p>\n<h2>Getting Started</h2>\n<p>After downloading cutie, include it in your <code>index.html</code>.</p>\n\n    <script type=\"text/javascript\" src=\"cutiepa2d.js\"></script>\n\n<p>You'll also have to run a local server in order to get image loading to work. I recommend <a href=\"http://www.apachefriends.org/index.html\">XAMMP</a> to get started.</p>\n<p>After that, you should be good to go! We have some examples in the <a href=\"https://github.com/greysonp/cutiepa2d\">repo</a>, but we'll be writing proper tutorials (as well as expanding functionality) in the coming days.</p>\n<h2>Getting it on Your Phone</h2>\n<p>Testing in the browser is cool, but testing on your phone/tablet is even cooler. Thankfully, there's an awesome framework out there called <a href=\"https://www.ludei.com/\">CocoonJS</a> that makes this dead-simple. First, they're framework converts your javascript canvas code to fast-performing WebGL code. But one of the coolest parts is that they have an app that you install on your iPhone/Android device that will allow you to literally copy your game files to your phone and play them. You don't even need a developer license on iOS! Very cool stuff. For a tutorial on using the app, check out <a href=\"http://support.ludei.com/hc/en-us/articles/201048463-How-to-use\">this page</a>. </p>\n<h2>Brought to You By</h2>\n<ul>\n    <li><a href=\"https://github.com/greysonp\">greysonp</a></li>\n    <li><a href=\"https://github.com/MaybeNot\">MaybeNot</a></li>\n    <li><a href=\"https://github.com/stephenrlouie\">stephenrlouie</a></li>\n</ul>",
+            "line": 11,
+            "description": "# Cutiepa2D.js\nCutiepa2D (pronounced cutie-patootie) is a wrapper for CreateJS. Its purpose is to make developing 2D games in javascript dead simple. It extends CreateJS with additional functionality and structure while still allowing you to access all of CreateJS's existing utilities.\nWe think it's quite cute, and we hope you do too.\n\n## Download\nGrab it here! **[Download](build/cutiepa2d.js)**\n\n## Getting Started\nAfter downloading cutie, include it in your ```index.html```.\n\n    <script type=\"text/javascript\" src=\"cutiepa2d.js\"></script>\n\nYou'll also have to run a local server in order to get image loading to work. I recommend [XAMMP](http://www.apachefriends.org/index.html) to get started.\nAfter that, you should be good to go! We have some examples in the [repo](https://github.com/greysonp/cutiepa2d), but we'll be writing proper tutorials (as well as expanding functionality) in the coming days.\n\n## Getting it on Your Phone\nTesting in the browser is cool, but testing on your phone/tablet is even cooler. Thankfully, there's an awesome framework out there called <a href=\"https://www.ludei.com/\">CocoonJS</a> that makes this dead-simple. First, they're framework converts your javascript canvas code to fast-performing WebGL code. But one of the coolest parts is that they have an app that you install on your iPhone/Android device that will allow you to literally copy your game files to your phone and play them. You don't even need a developer license on iOS! Very cool stuff. For a tutorial on using the app, check out [this page](http://support.ludei.com/hc/en-us/articles/201048463-How-to-use).\n\n## Brought to You By  \n* [greysonp](https://github.com/greysonp)\n* [MaybeNot](https://github.com/MaybeNot)\n* [stephenrlouie](https://github.com/stephenrlouie)",
             "static": 1
         }
     },
@@ -933,6 +990,76 @@
             "class": "Behavior",
             "module": "cutie",
             "submodule": "Behavior"
+        },
+        {
+            "file": "src/Preloaders/Preloader.js",
+            "line": 1,
+            "description": "A collection of preloaders that show progress while assets are loading.",
+            "class": "KeyCodes",
+            "module": "cutie",
+            "namespace": "cutie.Preloader"
+        },
+        {
+            "file": "src/Preloaders/Preloader.js",
+            "line": 6,
+            "description": "The constructor. The only real work you can do here is initialize variables that \ndon't require the object you're acting upon, perhaps initializing properties to \ndefault values. Most of you work will be done in init().",
+            "memberof": "cutie.Preloader#",
+            "itemtype": "method",
+            "name": "Preloader",
+            "access": "public",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "props",
+                    "description": "The properties passed in to the Preloader.",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "class": "KeyCodes",
+            "module": "cutie",
+            "namespace": "cutie.Preloader"
+        },
+        {
+            "file": "src/Preloaders/Preloader.js",
+            "line": 16,
+            "description": "Override this function to declare what happens when the preloader is added. Common\npatterns include adding event listeners and initializing private fields.",
+            "memberof": "cutie.Preloader#",
+            "itemtype": "method",
+            "name": "init",
+            "access": "public",
+            "tagname": "",
+            "class": "KeyCodes",
+            "module": "cutie",
+            "namespace": "cutie.Preloader"
+        },
+        {
+            "file": "src/Preloaders/Preloader.js",
+            "line": 24,
+            "description": "Override this function to declare what happens whenever progress is updated. This is where\nyou'll want to update your visual to say what happens when you load more stuff.",
+            "memberof": "cutie.Preloader#",
+            "itemtype": "method",
+            "name": "onProgressUpdate",
+            "access": "public",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "e",
+                    "description": "The event for the progress update. Contains information about \n                          how much loading has been completed.",
+                    "type": "createjs.Event"
+                }
+            ],
+            "class": "KeyCodes",
+            "module": "cutie",
+            "namespace": "cutie.Preloader"
+        },
+        {
+            "file": "src/DisplayObject.js",
+            "line": 1,
+            "description": "CutiePa2d - Game Framework built on createjs and easeljs\n\nContributors:\n     - Greyson Parrelli @greysonp\n     - Adam Schaub   @maybenot\n     - Stephen Louie @stephenrlouie\n\nDeveloped Jan - Feb 2014 to aid Lehigh studens for the mobiLEhigh competition",
+            "class": "KeyCodes",
+            "module": "cutie",
+            "namespace": "cutie.Preloader"
         },
         {
             "file": "src/KeyCodes.js",
@@ -1236,7 +1363,14 @@
         },
         {
             "file": "src/Log.js",
-            "line": 14,
+            "line": 1,
+            "description": "CutiePa2d - Game Framework built on createjs and easeljs\n\nContributors:\n     - Greyson Parrelli @greysonp\n     - Adam Schaub   @maybenot\n     - Stephen Louie @stephenrlouie\n\nDeveloped Jan - Feb 2014 to aid Lehigh studens for the mobiLEhigh competition",
+            "class": "Log",
+            "module": "cutie"
+        },
+        {
+            "file": "src/Log.js",
+            "line": 26,
             "itemtype": "property",
             "name": "VERBOSE",
             "type": "Number",
@@ -1249,7 +1383,7 @@
         },
         {
             "file": "src/Log.js",
-            "line": 23,
+            "line": 35,
             "itemtype": "property",
             "name": "DEBUG",
             "type": "Number",
@@ -1262,7 +1396,7 @@
         },
         {
             "file": "src/Log.js",
-            "line": 32,
+            "line": 44,
             "itemtype": "property",
             "name": "INFO",
             "type": "Number",
@@ -1275,7 +1409,7 @@
         },
         {
             "file": "src/Log.js",
-            "line": 41,
+            "line": 53,
             "itemtype": "property",
             "name": "WARN",
             "type": "Number",
@@ -1288,7 +1422,7 @@
         },
         {
             "file": "src/Log.js",
-            "line": 50,
+            "line": 62,
             "itemtype": "property",
             "name": "ERROR",
             "type": "Number",
@@ -1301,7 +1435,7 @@
         },
         {
             "file": "src/Log.js",
-            "line": 61,
+            "line": 73,
             "description": "Logs a message with level cutie.Log.VERBOSE.",
             "itemtype": "method",
             "name": "v",
@@ -1320,7 +1454,7 @@
         },
         {
             "file": "src/Log.js",
-            "line": 72,
+            "line": 84,
             "description": "Logs a message with level cutie.Log.DEBUG.",
             "itemtype": "method",
             "name": "d",
@@ -1339,7 +1473,7 @@
         },
         {
             "file": "src/Log.js",
-            "line": 83,
+            "line": 95,
             "description": "Logs a message with level cutie.Log.INFO.",
             "itemtype": "method",
             "name": "i",
@@ -1358,7 +1492,7 @@
         },
         {
             "file": "src/Log.js",
-            "line": 94,
+            "line": 106,
             "description": "Logs a message with level cutie.Log.WARN.",
             "itemtype": "method",
             "name": "w",
@@ -1377,7 +1511,7 @@
         },
         {
             "file": "src/Log.js",
-            "line": 105,
+            "line": 117,
             "description": "Logs a message with level cutie.Log.ERROR.",
             "itemtype": "method",
             "name": "e",
@@ -1396,7 +1530,7 @@
         },
         {
             "file": "src/Log.js",
-            "line": 116,
+            "line": 128,
             "description": "Sets the log level for the game. No log statements with a level\nlower than the one specified will appear in the console.",
             "itemtype": "method",
             "name": "setLogLevel",
@@ -1448,7 +1582,7 @@
         },
         {
             "file": "src/Scene.js",
-            "line": 35,
+            "line": 41,
             "description": "Override this method and load all of your assets you want preloaded for this scene.",
             "itemtype": "method",
             "name": "preload",
@@ -1466,7 +1600,7 @@
         },
         {
             "file": "src/Scene.js",
-            "line": 44,
+            "line": 50,
             "description": "Override this method and do anything you want when preload progress is updated.",
             "itemtype": "method",
             "name": "onPreloadProgress",
@@ -1484,7 +1618,7 @@
         },
         {
             "file": "src/Scene.js",
-            "line": 54,
+            "line": 63,
             "description": "Called when this scene (or list of scenes) is done preloading.",
             "itemtype": "method",
             "name": "onPreloadComplete",
@@ -1507,7 +1641,39 @@
         },
         {
             "file": "src/Scene.js",
-            "line": 72,
+            "line": 81,
+            "description": "Sets the preloader to the one specified.",
+            "params": [
+                {
+                    "name": "preloader",
+                    "description": "The preloader you'd like to use for this scene.",
+                    "type": "createjs.DisplayObject"
+                }
+            ],
+            "class": "Scene",
+            "module": "cutie"
+        },
+        {
+            "file": "src/Scene.js",
+            "line": 91,
+            "description": "The private wrapper for the init function. Handles some preloader stuff.",
+            "itemtype": "method",
+            "name": "init",
+            "access": "private",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "preloader",
+                    "description": "The preloader you'd like to use for this scene.",
+                    "type": "createjs.DisplayObject"
+                }
+            ],
+            "class": "Scene",
+            "module": "cutie"
+        },
+        {
+            "file": "src/Scene.js",
+            "line": 104,
             "description": "Overwrite this function to declare what happens when the scene starts.",
             "itemtype": "method",
             "name": "init",
@@ -1518,7 +1684,7 @@
         },
         {
             "file": "src/Scene.js",
-            "line": 80,
+            "line": 112,
             "description": "Overwrite this function to declare what happens upon updating the scene. In other\nwords, this method is called every 1/framerate seconds.",
             "itemtype": "method",
             "name": "tick",
@@ -1536,7 +1702,7 @@
         },
         {
             "file": "src/Scene.js",
-            "line": 91,
+            "line": 123,
             "description": "The 'super' method for the tick that is overwritten by the end user. Does\nsome housekeeping (like calling children's ticks) in addition to calling\nthe user-defined tick().",
             "itemtype": "method",
             "name": "_tickInternal",
@@ -1547,6 +1713,116 @@
                     "name": "e",
                     "description": "The event.",
                     "type": "createjs.Event"
+                }
+            ],
+            "class": "Scene",
+            "module": "cutie"
+        },
+        {
+            "file": "src/Scene.js",
+            "line": 139,
+            "description": "Use this function to register a new Collision Group with the current scene.",
+            "itemtype": "method",
+            "name": "registerCollisionGroup",
+            "access": "public",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "A unique name identifying a collision group for this scene.",
+                    "type": "String"
+                },
+                {
+                    "name": "props",
+                    "description": "The properties being passed in.",
+                    "type": "Object",
+                    "optional": true,
+                    "props": [
+                        {
+                            "name": "collidesWith",
+                            "description": "An object defining this collision group's interactions with other collision groups.",
+                            "type": "Object[]",
+                            "optional": true,
+                            "props": [
+                                {
+                                    "name": "name",
+                                    "description": "An array of the names of groups which interact with this collision group. \"*\" indicates all registered groups.",
+                                    "type": "String[]",
+                                    "optional": true,
+                                    "optdefault": "\"*\""
+                                },
+                                {
+                                    "name": "handler",
+                                    "description": "A collision handler to be called when an object of this group collides with an object in the group specified in the name array.\n                                                It will have the signature (obj1, obj2, rect). obj1 is the first object involved in the collision. \n                                                obj2 is the second object involved in the collision. rect is the rectangular area representing the intersection between the objects.",
+                                    "type": "Callback",
+                                    "optional": true
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "class": "Scene",
+            "module": "cutie"
+        },
+        {
+            "file": "src/Scene.js",
+            "line": 188,
+            "description": "Use this function to add a DisplayObject to a collision group.",
+            "memberof": "cutie.Scene#",
+            "itemtype": "method",
+            "name": "addCollidable",
+            "access": "public",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "obj",
+                    "description": "The display object to be added to a Collision Group.",
+                    "type": "Object"
+                },
+                {
+                    "name": "props",
+                    "description": "The properties being passed in.",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "groupName",
+                            "description": "The name of the group to which the object will be added.",
+                            "type": "String"
+                        },
+                        {
+                            "name": "collisionType",
+                            "description": "The type if collision detection to apply to object.",
+                            "type": "String",
+                            "optional": true
+                        }
+                    ]
+                }
+            ],
+            "class": "Scene",
+            "module": "cutie"
+        },
+        {
+            "file": "src/Scene.js",
+            "line": 214,
+            "description": "Use this function to remove a DisplayObject from a collision group.",
+            "memberof": "cutie.Scene#",
+            "itemtype": "method",
+            "name": "removeCollidable",
+            "access": "public",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "obj",
+                    "description": "The display object to be removed from the collision group.",
+                    "type": "Object"
+                },
+                {
+                    "name": "groupName",
+                    "description": "The name of the group holding the object. Removes all references by default.",
+                    "type": "String",
+                    "optional": true,
+                    "optdefault": "\"*\""
                 }
             ],
             "class": "Scene",
@@ -1608,6 +1884,14 @@
                 "type": "Number"
             },
             "class": "Util",
+            "module": "cutie"
+        },
+        {
+            "file": "src/collisionDetector.js",
+            "line": 26,
+            "description": "A Pixel Perfect Collision Detection for EaselJS Bitmap-Objects",
+            "author": "olsn, indiegamr.com",
+            "class": "cutie",
             "module": "cutie"
         },
         {
@@ -1715,7 +1999,7 @@
         },
         {
             "file": "src/cutie.js",
-            "line": 137,
+            "line": 141,
             "description": "Adds the scene to the list of registered scenes.",
             "itemtype": "method",
             "name": "registerScene",
@@ -1739,7 +2023,7 @@
         },
         {
             "file": "src/cutie.js",
-            "line": 153,
+            "line": 158,
             "description": "Gets a references to the stage being managed by cutie.",
             "itemtype": "method",
             "name": "getStage",
@@ -1755,7 +2039,7 @@
         },
         {
             "file": "src/cutie.js",
-            "line": 164,
+            "line": 169,
             "description": "Gets a references to the active scene being managed by cutie.",
             "itemtype": "method",
             "name": "getActiveScene",
@@ -1771,8 +2055,8 @@
         },
         {
             "file": "src/cutie.js",
-            "line": 177,
-            "description": "Description",
+            "line": 187,
+            "description": "Description:\n     Calls the internel Ticks on all scene objects",
             "access": "private",
             "tagname": "",
             "params": [
@@ -1787,7 +2071,7 @@
         },
         {
             "file": "src/cutie.js",
-            "line": 190,
+            "line": 202,
             "description": "Preloads a list of scenes, and adds the preload event listeners\nto the first scene in the list",
             "access": "private",
             "tagname": "",
@@ -1803,7 +2087,7 @@
         },
         {
             "file": "src/cutie.js",
-            "line": 223,
+            "line": 238,
             "description": "Description",
             "access": "private",
             "tagname": "",
@@ -1823,7 +2107,7 @@
         },
         {
             "file": "src/cutie.js",
-            "line": 237,
+            "line": 252,
             "description": "Description",
             "access": "private",
             "tagname": "",
@@ -1843,8 +2127,7 @@
         },
         {
             "file": "src/cutie.js",
-            "line": 252,
-            "description": "Description",
+            "line": 267,
             "access": "private",
             "tagname": "",
             "params": [
@@ -1859,15 +2142,93 @@
         },
         {
             "file": "src/cutie.js",
-            "line": 269,
-            "description": "Description",
+            "line": 284,
             "access": "private",
             "tagname": "",
+            "class": "cutie",
+            "module": "cutie"
+        },
+        {
+            "file": "src/cutie.js",
+            "line": 342,
+            "description": "Fixed touch events for CacoonJS.",
+            "class": "cutie",
+            "module": "cutie"
+        },
+        {
+            "file": "src/cutie.js",
+            "line": 346,
+            "description": "Protected Function updatePointerPosition",
+            "itemtype": "method",
+            "name": "_updatePointerPosition",
+            "access": "protected",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "id",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "pageX",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "pageY",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
             "class": "cutie",
             "module": "cutie"
         }
     ],
     "warnings": [
+        {
+            "message": "unknown tag: memberof",
+            "line": " src/Preloaders/Preloader.js:6"
+        },
+        {
+            "message": "replacing incorrect tag: function with method",
+            "line": " src/Preloaders/Preloader.js:6"
+        },
+        {
+            "message": "unknown tag: memberof",
+            "line": " src/Preloaders/Preloader.js:16"
+        },
+        {
+            "message": "replacing incorrect tag: function with method",
+            "line": " src/Preloaders/Preloader.js:16"
+        },
+        {
+            "message": "unknown tag: memberof",
+            "line": " src/Preloaders/Preloader.js:24"
+        },
+        {
+            "message": "replacing incorrect tag: function with method",
+            "line": " src/Preloaders/Preloader.js:24"
+        },
+        {
+            "message": "replacing incorrect tag: function with method",
+            "line": " src/Scene.js:91"
+        },
+        {
+            "message": "unknown tag: memberof",
+            "line": " src/Scene.js:188"
+        },
+        {
+            "message": "replacing incorrect tag: function with method",
+            "line": " src/Scene.js:188"
+        },
+        {
+            "message": "unknown tag: memberof",
+            "line": " src/Scene.js:214"
+        },
+        {
+            "message": "replacing incorrect tag: function with method",
+            "line": " src/Scene.js:214"
+        },
         {
             "message": "unknown tag: memberof",
             "line": " src/Util.js:11"
@@ -1877,28 +2238,52 @@
             "line": " src/Util.js:27"
         },
         {
-            "message": "Missing item type\nDescription",
-            "line": " src/cutie.js:177"
+            "message": "Missing item type\nA collection of preloaders that show progress while assets are loading.",
+            "line": " src/Preloaders/Preloader.js:1"
+        },
+        {
+            "message": "Missing item type\nCutiePa2d - Game Framework built on createjs and easeljs\n\nContributors:\n     - Greyson Parrelli @greysonp\n     - Adam Schaub   @maybenot\n     - Stephen Louie @stephenrlouie\n\nDeveloped Jan - Feb 2014 to aid Lehigh studens for the mobiLEhigh competition",
+            "line": " src/DisplayObject.js:1"
+        },
+        {
+            "message": "Missing item type\nCutiePa2d - Game Framework built on createjs and easeljs\n\nContributors:\n     - Greyson Parrelli @greysonp\n     - Adam Schaub   @maybenot\n     - Stephen Louie @stephenrlouie\n\nDeveloped Jan - Feb 2014 to aid Lehigh studens for the mobiLEhigh competition",
+            "line": " src/Log.js:1"
+        },
+        {
+            "message": "Missing item type\nSets the preloader to the one specified.",
+            "line": " src/Scene.js:81"
+        },
+        {
+            "message": "Missing item type\nA Pixel Perfect Collision Detection for EaselJS Bitmap-Objects",
+            "line": " src/collisionDetector.js:26"
+        },
+        {
+            "message": "Missing item type\nDescription:\n     Calls the internel Ticks on all scene objects",
+            "line": " src/cutie.js:187"
         },
         {
             "message": "Missing item type\nPreloads a list of scenes, and adds the preload event listeners\nto the first scene in the list",
-            "line": " src/cutie.js:190"
+            "line": " src/cutie.js:202"
         },
         {
             "message": "Missing item type\nDescription",
-            "line": " src/cutie.js:223"
-        },
-        {
-            "message": "Missing item type\nDescription",
-            "line": " src/cutie.js:237"
+            "line": " src/cutie.js:238"
         },
         {
             "message": "Missing item type\nDescription",
             "line": " src/cutie.js:252"
         },
         {
-            "message": "Missing item type\nDescription",
-            "line": " src/cutie.js:269"
+            "message": "Missing item type",
+            "line": " src/cutie.js:267"
+        },
+        {
+            "message": "Missing item type",
+            "line": " src/cutie.js:284"
+        },
+        {
+            "message": "Missing item type\nFixed touch events for CacoonJS.",
+            "line": " src/cutie.js:342"
         }
     ]
 }

@@ -11,11 +11,16 @@ this.cutie.Behavior = this.cutie.Behavior || {};
      * @class Follow
      * @extends Behavior
      * @param {Object} [props] The properties being passed in.
-     * @param {Boolean} [props.targetObj=false] This is the object that is going to be followed. 
-     *      If no object is passed in, it will follow the mouse. 
+     * @param {Boolean} [props.targetObj=false] This is the object that is going to be followed.
+     *      If no object is passed in, it will follow the mouse.
      * @param {Number} [props.speed=100] This is an integer value giving the speed in px/s
-     * @param {Number} [props.distance=0] This is the follow distance in px. 
+     * @param {Number} [props.distance=0] This is the follow distance in px.
      * @param {Boolean} [props.setCenter=true] This is signifies if the object doing the following should rotate around its center
+     * @param {Number} [props.angleOffset=90] This is the following orientation where 90 is straight up,
+     *     the zero point is the cartesian positive x axis and degrees rotate counter-clockwise up from this x axis.
+     * @param {Number} [props.followCord] The position of the center of the joystick.
+     * @param {Number} [props.followCord.x] The x-coordinate on the image to be pursued (using local image coordinates).
+     * @param {Number} [props.followCord.y] The y-coordinate on the image to be pursued (using local image coordinates).
      * @param {Number} [props.angleOffset=90] This is the following orientation where 90 is straight up, 
      *     the zero point is the cartesian positive x axis and degrees rotate counter-clockwise up from this x axis. 
      */
@@ -27,8 +32,10 @@ this.cutie.Behavior = this.cutie.Behavior || {};
     	// ================================================
         // VARIABLE DECLARATIONS
         // ================================================
-        
+
         var props = props || {};
+        if (!props.followCord) props.followCord = {};
+
         var _targetCoord = {};
 
         var _setCenter = ('setCenter' in props)?props.setCenter:true;
@@ -70,7 +77,7 @@ this.cutie.Behavior = this.cutie.Behavior || {};
         // ================================================
         // PRIVATE METHODS
         // ================================================
-        
+
         function setCoords(){
             if(!_targetObj) {
                 var stage = cutie.getStage();
@@ -78,10 +85,10 @@ this.cutie.Behavior = this.cutie.Behavior || {};
                 _targetCoord.y = stage.mouseY;
             }
             else{
-                _targetCoord.x = _targetObj.x + _targetObj.image.width/2;
-                _targetCoord.y = _targetObj.y + _targetObj.image.height/2;
+                //Need to decide how this is handled, becuase in DPad it centers
+                _targetCoord.x = _targetObj.x;
+                _targetCoord.y = _targetObj.y;
             }
-            console.log(_targetObj.image.width);
         }
 
     }

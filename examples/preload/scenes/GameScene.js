@@ -3,6 +3,7 @@
 
     scene.preload = function(loader) {
         loader.loadFile({"id": "spidey", "src": "assets/spiderman-ball.png"});
+        this.setPreloader(new cutie.Preloader.TextOnly());
     }
 
     scene.init = function(preloaded) {
@@ -23,5 +24,5 @@
         this.addChild(spidey);
     }
 
-    cutie.registerScene(scene, "title");
+    cutie.registerScene(scene, "game");
 })();

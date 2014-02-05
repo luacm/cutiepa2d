@@ -30,7 +30,7 @@ YUI.add("yuidoc-meta", function(Y) {
         {
             "displayName": "cutie",
             "name": "cutie",
-            "description": "For more information on the cutie class, see it's documentation."
+            "description": "For documentation on the various methods cutie has, see the class documentation."
         }
     ]
 } };

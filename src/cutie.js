@@ -1,37 +1,34 @@
-// Cover up createjs with cutie. Internally. we'll use createjs so we know what's
-// ours and what isn't. Externally, we don't want to confuse the user by having
-// them use two different namespaces.
 this.cutie = createjs;
 
-
-
 /**
- * For more information on the cutie class, see it's documentation.
+ * For documentation on the various methods cutie has, see the class documentation.
  * @module cutie
  * @main cutie
  */
 (function(module) {
     /**
-     * <h1>Cutiepa2D.js</h1>
-     * <p>Cutiepa2D (pronounced cutie-patootie) is a wrapper for CreateJS. Its purpose is to make developing 2D games in javascript dead simple. It extends CreateJS with additional functionality and structure while still allowing you to access all of CreateJS's existing utilities.</p>
-     * <p>We think it's quite cute, and we hope you do too.</p>
-     * <h2>Download</h2>
-     * <p>Grab it here! <strong><a href="build/cutiepa2d.js">Download</a></strong></p>
-     * <h2>Getting Started</h2>
-     * <p>After downloading cutie, include it in your <code>index.html</code>.</p>
+     * # Cutiepa2D.js
+     * Cutiepa2D (pronounced cutie-patootie) is a wrapper for CreateJS. Its purpose is to make developing 2D games in javascript dead simple. It extends CreateJS with additional functionality and structure while still allowing you to access all of CreateJS's existing utilities.
+     * We think it's quite cute, and we hope you do too.
+     * 
+     * ## Download
+     * Grab it here! **[Download](build/cutiepa2d.js)**
+     * 
+     * ## Getting Started
+     * After downloading cutie, include it in your ```index.html```.
      * 
      *     <script type="text/javascript" src="cutiepa2d.js"></script>
      * 
-     * <p>You'll also have to run a local server in order to get image loading to work. I recommend <a href="http://www.apachefriends.org/index.html">XAMMP</a> to get started.</p>
-     * <p>After that, you should be good to go! We have some examples in the <a href="https://github.com/greysonp/cutiepa2d">repo</a>, but we'll be writing proper tutorials (as well as expanding functionality) in the coming days.</p>
-     * <h2>Getting it on Your Phone</h2>
-     * <p>Testing in the browser is cool, but testing on your phone/tablet is even cooler. Thankfully, there's an awesome framework out there called <a href="https://www.ludei.com/">CocoonJS</a> that makes this dead-simple. First, they're framework converts your javascript canvas code to fast-performing WebGL code. But one of the coolest parts is that they have an app that you install on your iPhone/Android device that will allow you to literally copy your game files to your phone and play them. You don't even need a developer license on iOS! Very cool stuff. For a tutorial on using the app, check out <a href="http://support.ludei.com/hc/en-us/articles/201048463-How-to-use">this page</a>. </p>
-     * <h2>Brought to You By</h2>
-     * <ul>
-     *     <li><a href="https://github.com/greysonp">greysonp</a></li>
-     *     <li><a href="https://github.com/MaybeNot">MaybeNot</a></li>
-     *     <li><a href="https://github.com/stephenrlouie">stephenrlouie</a></li>
-     * </ul>
+     * You'll also have to run a local server in order to get image loading to work. I recommend [XAMMP](http://www.apachefriends.org/index.html) to get started.
+     * After that, you should be good to go! We have some examples in the [repo](https://github.com/greysonp/cutiepa2d), but we'll be writing proper tutorials (as well as expanding functionality) in the coming days.
+     * 
+     * ## Getting it on Your Phone
+     * Testing in the browser is cool, but testing on your phone/tablet is even cooler. Thankfully, there's an awesome framework out there called <a href="https://www.ludei.com/">CocoonJS</a> that makes this dead-simple. First, they're framework converts your javascript canvas code to fast-performing WebGL code. But one of the coolest parts is that they have an app that you install on your iPhone/Android device that will allow you to literally copy your game files to your phone and play them. You don't even need a developer license on iOS! Very cool stuff. For a tutorial on using the app, check out [this page](http://support.ludei.com/hc/en-us/articles/201048463-How-to-use).
+     * 
+     * ## Brought to You By  
+     * * [greysonp](https://github.com/greysonp)
+     * * [MaybeNot](https://github.com/MaybeNot)
+     * * [stephenrlouie](https://github.com/stephenrlouie)
      * 
      * @class cutie
      * @static
@@ -41,6 +38,7 @@ this.cutie = createjs;
     var _activeScene = {};
     var _canvas = {};
     var _stage = {};
+    var _loaders = {};
     var _hud = {};
     var _fps = { "sum": 0, "numTicks": 0, "textView": {} };
     module.WIDTH = 0;
@@ -122,16 +120,20 @@ this.cutie = createjs;
 
         // Set it as the active scene
         _activeScene = getScene(sceneName);
+        if (_activeScene) {
+            // Build the list of scenes to preload and then preload them
+            var preloadList = props.preloadScenes || [];
+            preloadList.unshift(sceneName);
+            preloadList = getScenes(preloadList);
+            preloadScenes(preloadList);
 
-        // Build the list of scenes to preload and then preload them
-        var preloadList = props.preloadScenes || [];
-        preloadList.unshift(sceneName);
-        preloadList = getScenes(preloadList);
-        preloadScenes(preloadList);
 
-
-        // Add it to the stage
-        _stage.addChild(_activeScene);
+            // Add it to the stage
+            _stage.addChild(_activeScene);
+        }
+        else {
+            cutie.Log.e("The active scene has been set to null or undefined. This most likely happens when you supply the name of a scene that doesn't exist.");
+        }
     }
 
     /**
@@ -148,6 +150,7 @@ this.cutie = createjs;
             cutie.Log.w("You registered a scene called '" + name + "', but there was already a scene registered with that name. It was overwritten.");
         }
         _scenes[name] = scene;
+        scene.name = name;
     }
 
     /**
@@ -171,13 +174,20 @@ this.cutie = createjs;
     module.getActiveScene = function() {
         return _activeScene;
     }
+
+    module.storeLoader = function(sceneName, loader) {
+        _loaders[sceneName] = loader;
+    }
+
     // ======================================================
     // PRIVATE
     // ======================================================
     /**
-     * Description
-     * @private
-     * @param  {createjs.Event} e description
+     * Description:
+     *      Calls the internel Ticks on all scene objects
+     *      @private
+     *
+     *      @param  {createjs.Event} e description
      */
     function tick(e) {
         _activeScene._tickInternal(e);
@@ -197,26 +207,29 @@ this.cutie = createjs;
     function preloadScenes(scenes) {
         var loader = new createjs.LoadQueue();
         loader.installPlugin(createjs.Sound);
-        
+
         // Have all of the scene add onto the the same LoadQueue
         var needsPreload = false;
         for (var i = 0; i < scenes.length; i++) {
-            if (!scenes[i].isPreloaded) {
-                // Create a new LoadQueue and give it to the scene to preload
+            // If we don't have a stored loader for this scene
+            if (!_loaders[scenes[i].name]) {
+                // Create a new LoadQueue and give it to the scene to preload and store the loader
                 scenes[i].preload(loader);
                 needsPreload = true;
             }
         }
-
+        // If we need to preload, attach the appropriate events to the first scene in the list (which is our main scene - 
+        // the rest are just being loaded ahead of time).
         if (needsPreload) {
-            loader.on("complete", scenes[0].onPreloadComplete.bind(scenes[0], scenes), scenes[0]);
+            loader.on("complete", scenes[0].onPreloadComplete.bind(scenes[0], scenes, loader), scenes[0]);
             loader.on("progress", scenes[0].onPreloadProgress, scenes[0]);
 
             // Kick-off the loading (just in case any files were added to the queue and set to not immmediately load)
             loader.load();
         }
+        // If you don't need to preload anything, just kick off the init
         else {
-            scenes[0].init();
+            scenes[0]._init(_loaders[scenes[0].name]);
         }
     }
 
@@ -250,9 +263,9 @@ this.cutie = createjs;
     }
 
     /**
-     * Description
-     * @private
-     * @param  {Object} props description
+     *      @private
+     *
+     *      @param  {Object} props description
      */
     function showFPS(props) {
         if (props && props.visible) {
@@ -267,8 +280,8 @@ this.cutie = createjs;
     }
 
     /**
-     * Description
-     * @private
+     *      @private
+     *
      */
     function updateFPS() {
         var avg = _fps.sum/_fps.numTicks;
@@ -323,3 +336,54 @@ this.cutie = createjs;
     }
 
 })(this.cutie);
+
+/**
+ * Fixed touch events for CacoonJS.
+ */
+(function(){
+  /**
+   * Protected Function updatePointerPosition
+   *    @method _updatePointerPosition
+   *    @protected
+   *
+   *    @param {Number} id
+   *    @param {Number} pageX
+   *    @param {Number} pageY
+   **/
+  createjs.Stage.prototype._updatePointerPosition = function(id, e, pageX, pageY) {
+    var rect = this._getElementRect(this.canvas);
+    var w = this.canvas.width;
+    var h = this.canvas.height;
+
+    // CocoonJS Touchfix
+    if( isNaN(rect.left)   ) rect.left = 0;
+    if( isNaN(rect.top)    ) rect.top = 0;
+    if( isNaN(rect.right)  ) rect.right = w;
+    if( isNaN(rect.bottom) ) rect.bottom = h;
+    // \CocoonJS Touchfix end
+
+    pageX -= rect.left;
+    pageY -= rect.top;
+
+    pageX /= (rect.right-rect.left)/w;
+    pageY /= (rect.bottom-rect.top)/h;
+    var o = this._getPointerData(id);
+    if (o.inBounds = (pageX >= 0 && pageY >= 0 && pageX <= w-1 && pageY <= h-1)) {
+      o.x = pageX;
+      o.y = pageY;
+    } else if (this.mouseMoveOutside) {
+      o.x = pageX < 0 ? 0 : (pageX > w-1 ? w-1 : pageX);
+      o.y = pageY < 0 ? 0 : (pageY > h-1 ? h-1 : pageY);
+    }
+
+    o.rawX = pageX;
+    o.rawY = pageY;
+
+    if (id == this._primaryPointerID) {
+      this.mouseX = o.x;
+      this.mouseY = o.y;
+      this.mouseInBounds = o.inBounds;
+    }
+  }
+
+})();
