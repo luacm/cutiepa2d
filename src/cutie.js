@@ -12,7 +12,7 @@ this.cutie = createjs;
      * We think it's quite cute, and we hope you do too.
      * 
      * ## Download
-     * Grab it here! **[Download](build/cutiepa2d.js)**
+     * Grab it here! **[Download](../../build/cutiepa2d.js)**
      * 
      * ## Getting Started
      * After downloading cutie, include it in your ```index.html```.
