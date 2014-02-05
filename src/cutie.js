@@ -1,30 +1,35 @@
 this.cutie = createjs;
 
 /**
- * <h1>Cutiepa2D.js</h1>
- * <p>Cutiepa2D (pronounced cutie-patootie) is a wrapper for CreateJS. Its purpose is to make developing 2D games in javascript dead simple. It extends CreateJS with additional functionality and structure while still allowing you to access all of CreateJS's existing utilities.</p>
- * <p>We think it's quite cute, and we hope you do too.</p>
- * <h2>Download</h2>
- * <p>Grab it here! <strong><a href="build/cutiepa2d.js">Download</a></strong></p>
- * <h2>Getting Started</h2>
- * <p>After downloading cutie, include it in your <code>index.html</code>.</p>
- * <p><code>&lt;script type="text/javascript" src="cutiepa2d.js"&gt;&lt;/script&gt;</code></p>
- * <p>You'll also have to run a local server in order to get image loading to work. I recommend <a href="http://www.apachefriends.org/index.html">XAMMP</a> to get started.</p>
- * <p>After that, you should be good to go! We have some examples in the <a href="https://github.com/greysonp/cutiepa2d">repo</a>, but we'll be writing proper tutorials (as well as expanding functionality) in the coming days.</p>
- * <h2>Getting it on Your Phone</h2>
- * <p>Testing in the browser is cool, but testing on your phone/tablet is even cooler. Thankfully, there's an awesome framework out there called <a href="https://www.ludei.com/">CocoonJS</a> that makes this dead-simple. First, they're framework converts your javascript canvas code to fast-performing WebGL code. But one of the coolest parts is that they have an app that you install on your iPhone/Android device that will allow you to literally copy your game files to your phone and play them. You don't even need a developer license on iOS! Very cool stuff. For a tutorial on using the app, check out <a href="http://support.ludei.com/hc/en-us/articles/201048463-How-to-use">this page</a>. </p>
- * <h2>Brought to You By</h2>
- * <ul>
- *     <li><a href="https://github.com/greysonp">greysonp</a></li>
- *     <li><a href="https://github.com/MaybeNot">MaybeNot</a></li>
- *     <li><a href="https://github.com/stephenrlouie">stephenrlouie</a></li>
- * </ul>
- * 
+ * For documentation on the various methods cutie has, see the class documentation.
  * @module cutie
  * @main cutie
  */
 (function(module) {
     /**
+     * # Cutiepa2D.js
+     * Cutiepa2D (pronounced cutie-patootie) is a wrapper for CreateJS. Its purpose is to make developing 2D games in javascript dead simple. It extends CreateJS with additional functionality and structure while still allowing you to access all of CreateJS's existing utilities.
+     * We think it's quite cute, and we hope you do too.
+     * 
+     * ## Download
+     * Grab it here! **[Download](build/cutiepa2d.js)**
+     * 
+     * ## Getting Started
+     * After downloading cutie, include it in your ```index.html```.
+     * 
+     *     <script type="text/javascript" src="cutiepa2d.js"></script>
+     * 
+     * You'll also have to run a local server in order to get image loading to work. I recommend [XAMMP](http://www.apachefriends.org/index.html) to get started.
+     * After that, you should be good to go! We have some examples in the [repo](https://github.com/greysonp/cutiepa2d), but we'll be writing proper tutorials (as well as expanding functionality) in the coming days.
+     * 
+     * ## Getting it on Your Phone
+     * Testing in the browser is cool, but testing on your phone/tablet is even cooler. Thankfully, there's an awesome framework out there called <a href="https://www.ludei.com/">CocoonJS</a> that makes this dead-simple. First, they're framework converts your javascript canvas code to fast-performing WebGL code. But one of the coolest parts is that they have an app that you install on your iPhone/Android device that will allow you to literally copy your game files to your phone and play them. You don't even need a developer license on iOS! Very cool stuff. For a tutorial on using the app, check out [this page](http://support.ludei.com/hc/en-us/articles/201048463-How-to-use).
+     * 
+     * ## Brought to You By  
+     * * [greysonp](https://github.com/greysonp)
+     * * [MaybeNot](https://github.com/MaybeNot)
+     * * [stephenrlouie](https://github.com/stephenrlouie)
+     * 
      * @class cutie
      * @static
      */

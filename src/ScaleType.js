@@ -35,4 +35,6 @@ this.cutie = this.cutie || {};
         "LETTERBOX": 2
     };
 
+    module.ScaleType = ScaleType;
+
 })(this.cutie);

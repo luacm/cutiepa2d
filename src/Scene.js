@@ -136,26 +136,17 @@ this.cutie = this.cutie || {};
         this._checkCollisions();
     }
 
-
-    /** 
-     * A method which is called on a collision between two objects.
-     * @name CollisionHandler
-     * @function
-     * @param {Object} obj1 The first object involved in the collision.
-     * @param {Object} obj2 The second object involved in the collision.
-     * @param {Object} rect A rectangular area representing the intersection between the objects.
-     *      
-     */
     /**
      * Use this function to register a new Collision Group with the current scene.
-     * @memberof cutie.Scene#
-     * @function registerCollisionGroup
+     * @method registerCollisionGroup
      * @public
      * @param  {String} name A unique name identifying a collision group for this scene.
      * @param  {Object} [props] The properties being passed in.
      * @param  {Object[]} [props.collidesWith] An object defining this collision group's interactions with other collision groups.
      * @param  {String[]} [props.collidesWith.name="*"] An array of the names of groups which interact with this collision group. "*" indicates all registered groups.
-     * @param  {CollisionHandler} [props.collidesWith.handler] A collision handler to be called when an object of this group collides with an object in the group specified in the name array.
+     * @param  {Callback} [props.collidesWith.handler] A collision handler to be called when an object of this group collides with an object in the group specified in the name array.
+     *                                                 It will have the signature (obj1, obj2, rect). obj1 is the first object involved in the collision. 
+     *                                                 obj2 is the second object involved in the collision. rect is the rectangular area representing the intersection between the objects.
      */
     Scene.prototype.registerCollisionGroup = function(name, props) {
         if(name === "") cutie.Log.w("Adding collision group with no name.");
