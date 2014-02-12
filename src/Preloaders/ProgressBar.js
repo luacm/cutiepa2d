@@ -23,19 +23,21 @@ this.cutie.Preloader = this.cutie.Preloader || {};
         this.addChild(this.text);
 
         this.loadBar = new createjs.Shape();
-        this.loadBar.graphics.beginFill("#ffffff").drawRect(0 + cutie.WIDTH/4, 0 + cutie.HEIGHT/4, cutie.WIDTH * (3/4), cutie.HEIGHT * (3/4));
+        this.loadBar.graphics.beginFill("#fafafa").drawRect(cutie.WIDTH/4,(cutie.HEIGHT * 9 / 20), cutie.WIDTH * (1/2), cutie.HEIGHT/20);
         this.addChild(this.loadBar);
+        
     }
 
 
     ProgressBar.prototype.onPreloadProgress = function(e){
         console.log('e.progress:' + e.progress);
-        this.removeChild(this.text);
+        this.removeChild(this.completeBar);
 
-        //this.text = new createjs.Text("Loading " + (e.progress * 100).toFixed(1), "36px Arial", "#ffffff");
-        //this.addChild(this.text);
+        this.completeBar = new createjs.Shape();
+        this.completeBar.graphics.beginFill("#a1a1a1").drawRect(cutie.WIDTH/4,(cutie.HEIGHT * 9 / 20), cutie.WIDTH * (1/2) * e.progress, cutie.HEIGHT/20);
+        this.addChild(this.completeBar);
     }
 
-    module.TextOnly = TextOnly;
+    module.ProgressBar = ProgressBar;
 
 })(this.cutie.Preloader);
