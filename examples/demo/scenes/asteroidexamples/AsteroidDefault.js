@@ -36,6 +36,10 @@
         backButton = new createjs.Container();
         backButton.addEventListener("click", function() {
             console.log('back clicked');
+            cutie.getActiveScene().removeChild(spidey);
+            cutie.getActiveScene().removeChild(back);
+            cutie.getActiveScene().removeChild(backButton);
+            cutie.getActiveScene().removeChild(titleLabel);
             cutie.setScene("asteroidbehaviors");
         });
         backButton.addChild(back,backLabel);

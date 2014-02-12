@@ -6,14 +6,12 @@
     }
 
     scene.init = function(preloaded) {
-        cutie.Log.d("fasterasteroid.init()");
+        cutie.Log.d("fasterdpad.init()");
         var spidey = new cutie.Bitmap(preloaded.getResult("spidey"));
         spidey.x = cutie.WIDTH/2 - spidey.image.width/2;
         spidey.y = cutie.HEIGHT/2 - spidey.image.height/2;
-        spidey.addBehavior(new cutie.Behavior.AsteroidMovement({
-            'acceleration': 250,
-            'deceleration': 100,
-            'rotation': 160
+        spidey.addBehavior(new cutie.Behavior.DPadMovement({
+            'speed':200
         }));
         this.addChild(spidey);
 
@@ -23,7 +21,7 @@
         //The Default
         //Title and Back Button
 
-        titleLabel = new createjs.Text("Faster Asteroid", "36px Arial", "#000000");
+        titleLabel = new createjs.Text("Faster DPad", "36px Arial", "#000000");
         titleLabel.x = cutie.WIDTH/2 - titleLabel.getMeasuredWidth()/2;
         titleLabel.y = 40;
         this.addChild(titleLabel);
@@ -40,18 +38,20 @@
         backButton = new createjs.Container();
         backButton.addEventListener("click", function() {
             console.log('back clicked');
+            spidey.removeBehavior();
             cutie.getActiveScene().removeChild(spidey);
             cutie.getActiveScene().removeChild(back);
             cutie.getActiveScene().removeChild(backButton);
             cutie.getActiveScene().removeChild(titleLabel);
-            cutie.setScene("asteroidbehaviors");
+            cutie.setScene("dpadbehaviors");
         });
         backButton.addChild(back,backLabel);
-        backButton.setTransform(20,420);
+        backButton.setTransform(cutie.WIDTH/2 - buttonWidth/2,420);
         this.addChild(backButton);
+        console.log(cutie.WIDTH);
 
 
     }
 
-    cutie.registerScene(scene, "fasterasteroid");
+    cutie.registerScene(scene, "fasterdpad");
 })();

@@ -46,106 +46,91 @@
        
 //********************************************************
 
-        eightDir = new createjs.Shape();
-        eightDir.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
-        this.addChild(eightDir);
-        eightDirLabel = new createjs.Text("Eight Dir", "36px Arial", "#ff0000");
-        eightDirLabel.x = buttonWidth/2 - eightDirLabel.getMeasuredWidth()/2;
-        eightDirLabel.y = buttonHeight/2 - eightDirLabel.getMeasuredHeight()/2;
+        defaultDPad = new createjs.Shape();
+        defaultDPad.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
+        this.addChild(defaultDPad);
+        defaultDPadLabel = new createjs.Text("Default", "36px Arial", "#ff0000");
+        defaultDPadLabel.x = buttonWidth/2 - defaultDPadLabel.getMeasuredWidth()/2;
+        defaultDPadLabel.y = buttonHeight/2 - defaultDPadLabel.getMeasuredHeight()/2;
         
-        eightDirButton = new createjs.Container();
-        eightDirButton.addEventListener("click", function() {
-            console.log('eightDir clicked');
-            //cutie.setScene("game");
+        defaultDPadButton = new createjs.Container();
+        defaultDPadButton.addEventListener("click", function() {
+            console.log('default clicked');
+            cutie.setScene("dpaddefault");
         });
-        eightDirButton.addChild(eightDir,eightDirLabel);
-        eightDirButton.setTransform(50,200);
-        this.addChild(eightDirButton);
+        defaultDPadButton.addChild(defaultDPad,defaultDPadLabel);
+        defaultDPadButton.setTransform(50,200);
+        this.addChild(defaultDPadButton);
         
 
-        follow = new createjs.Shape();
-        follow.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
-        this.addChild(follow);
-        followLabel = new createjs.Text("Follow", "36px Arial", "#ff0000");
-        followLabel.x = buttonWidth/2 - followLabel.getMeasuredWidth()/2;
-        followLabel.y = buttonHeight/2 - followLabel.getMeasuredHeight()/2;
+        faster = new createjs.Shape();
+        faster.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
+        this.addChild(faster);
+        fasterLabel = new createjs.Text("Faster", "36px Arial", "#ff0000");
+        fasterLabel.x = buttonWidth/2 - fasterLabel.getMeasuredWidth()/2;
+        fasterLabel.y = buttonHeight/2 - fasterLabel.getMeasuredHeight()/2;
         
-        followButton = new createjs.Container();
-        followButton.addEventListener("click", function() {
-            console.log('follow clicked');
-            //cutie.setScene("game");
+        fasterButton = new createjs.Container();
+        fasterButton.addEventListener("click", function() {
+            console.log('faster clicked');
+            cutie.setScene("fasterdpad");
         });
-        followButton.addChild(follow,followLabel);
-        followButton.setTransform(230,200);
-        this.addChild(followButton);
+        fasterButton.addChild(faster,fasterLabel);
+        fasterButton.setTransform(230,200);
+        this.addChild(fasterButton);
 
-        joyStick = new createjs.Shape();
-        joyStick.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
-        this.addChild(joyStick);
-        joyStickLabel = new createjs.Text("Joy Stick", "34px Arial", "#ff0000");
-        joyStickLabel.x = buttonWidth/2 - joyStickLabel.getMeasuredWidth()/2;
-        joyStickLabel.y = buttonHeight/2 - joyStickLabel.getMeasuredHeight()/2;
+        faceFalse = new createjs.Shape();
+        faceFalse.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
+        this.addChild(faceFalse);
+        faceFalseLabel = new createjs.Text("Face=F", "34px Arial", "#ff0000");
+        faceFalseLabel.x = buttonWidth/2 - faceFalseLabel.getMeasuredWidth()/2;
+        faceFalseLabel.y = buttonHeight/2 - faceFalseLabel.getMeasuredHeight()/2;
         
-        joyStickButton = new createjs.Container();
-        joyStickButton.addEventListener("click", function() {
-            console.log('joy Stick clicked');
-            //cutie.setScene("game");
+        faceFalseButton = new createjs.Container();
+        faceFalseButton.addEventListener("click", function() {
+            console.log('face false clicked');
+            cutie.setScene("facefalse");
         });
-        joyStickButton.addChild(joyStick,joyStickLabel);
-        joyStickButton.setTransform(420,200);
-        this.addChild(joyStickButton);
+        faceFalseButton.addChild(faceFalse,faceFalseLabel);
+        faceFalseButton.setTransform(420,200);
+        this.addChild(faceFalseButton);
 
 
 //********************************************************
 
-        route = new createjs.Shape();
-        route.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
-        this.addChild(route);
-        routeLabel = new createjs.Text("Route", "36px Arial", "#ff0000");
-        routeLabel.x = buttonWidth/2 - routeLabel.getMeasuredWidth()/2;
-        routeLabel.y = buttonHeight/2 - routeLabel.getMeasuredHeight()/2;
+        dpadDiffs = new createjs.Shape();
+        dpadDiffs.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
+        this.addChild(dpadDiffs);
+        dpadDiffsLabel = new createjs.Text("PadDiff", "36px Arial", "#ff0000");
+        dpadDiffsLabel.x = buttonWidth/2 - dpadDiffsLabel.getMeasuredWidth()/2;
+        dpadDiffsLabel.y = buttonHeight/2 - dpadDiffsLabel.getMeasuredHeight()/2;
         
-        routeButton = new createjs.Container();
-        routeButton.addEventListener("click", function() {
-            console.log('route clicked');
-            //cutie.setScene("game");
+        dpadDiffsButton = new createjs.Container();
+        dpadDiffsButton.addEventListener("click", function() {
+            console.log('DPadDiffs clicked');
+            cutie.setScene("dpadchanges");
         });
-        routeButton.addChild(route,routeLabel);
-        routeButton.setTransform(50,280);
-        this.addChild(routeButton);
+        dpadDiffsButton.addChild(dpadDiffs,dpadDiffsLabel);
+        dpadDiffsButton.setTransform(50,280);
+        this.addChild(dpadDiffsButton);
         
 
-        shoot = new createjs.Shape();
-        shoot.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
-        this.addChild(shoot);
-        shootLabel = new createjs.Text("Shoot", "36px Arial", "#ff0000");
-        shootLabel.x = buttonWidth/2 - shootLabel.getMeasuredWidth()/2;
-        shootLabel.y = buttonHeight/2 - shootLabel.getMeasuredHeight()/2;
+        dpad8 = new createjs.Shape();
+        dpad8.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
+        this.addChild(dpad8);
+        dpad8Label = new createjs.Text("8 DPad", "36px Arial", "#ff0000");
+        dpad8Label.x = buttonWidth/2 - dpad8Label.getMeasuredWidth()/2;
+        dpad8Label.y = buttonHeight/2 - dpad8Label.getMeasuredHeight()/2;
         
-        shootButton = new createjs.Container();
-        shootButton.addEventListener("click", function() {
-            console.log('shoot clicked');
-            //cutie.setScene("game");
+        dpad8Button = new createjs.Container();
+        dpad8Button.addEventListener("click", function() {
+            console.log('8 DPad clicked');
+            cutie.setScene("dpadeight");
         });
-        shootButton.addChild(shoot,shootLabel);
-        shootButton.setTransform(230,280);
-        this.addChild(shootButton);
+        dpad8Button.addChild(dpad8,dpad8Label);
+        dpad8Button.setTransform(230,280);
+        this.addChild(dpad8Button);
 
-        collision = new createjs.Shape();
-        collision.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
-        this.addChild(collision);
-        collisionLabel = new createjs.Text("Collision", "34px Arial", "#ff0000");
-        collisionLabel.x = buttonWidth/2 - collisionLabel.getMeasuredWidth()/2;
-        collisionLabel.y = buttonHeight/2 - collisionLabel.getMeasuredHeight()/2;
-        
-        collisionButton = new createjs.Container();
-        collisionButton.addEventListener("click", function() {
-            console.log('collision clicked');
-            //cutie.setScene("game");
-        });
-        collisionButton.addChild(collision,collisionLabel);
-        collisionButton.setTransform(420,280);
-        this.addChild(collisionButton);
     }
     cutie.registerScene(scene, "dpadbehaviors");
 })();

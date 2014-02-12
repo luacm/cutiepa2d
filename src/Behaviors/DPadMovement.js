@@ -65,6 +65,7 @@ this.cutie.Behavior = this.cutie.Behavior || {};
             _leftButton.graphics.beginFill(_buttonColor || "#ccc").drawRect(0, 0, _buttonSize, _buttonSize);
             _leftButton.x = px - (_buttonSize * 1.5);
             _leftButton.y = py - (_buttonSize * 0.5);
+            _leftButton.alpha = _normalAlpha;
             _leftButton.addEventListener("mousedown", fourDirectionMouseDown.bind(this, _leftButton), false);
             _leftButton.addEventListener("pressup", fourDirectionMouseUp.bind(this, _leftButton), false);
             _leftButton.pressed = false;
@@ -75,6 +76,7 @@ this.cutie.Behavior = this.cutie.Behavior || {};
             _rightButton.graphics.beginFill(_buttonColor || "#ccc").drawRect(0, 0, _buttonSize, _buttonSize);
             _rightButton.x = px + (_buttonSize * 0.5);
             _rightButton.y = py - (_buttonSize * 0.5);
+            _rightButton.alpha = _normalAlpha;
             _rightButton.addEventListener("mousedown", fourDirectionMouseDown.bind(this, _rightButton), false);
             _rightButton.addEventListener("pressup", fourDirectionMouseUp.bind(this, _rightButton), false);
             _rightButton.pressed = false;
@@ -85,6 +87,7 @@ this.cutie.Behavior = this.cutie.Behavior || {};
             _upButton.graphics.beginFill(_buttonColor || "#ccc").drawRect(0, 0, _buttonSize, _buttonSize);
             _upButton.x = px - (_buttonSize * 0.5);
             _upButton.y = py - (_buttonSize * 1.5);
+            _upButton.alpha = _normalAlpha;
             _upButton.addEventListener("mousedown", fourDirectionMouseDown.bind(this, _upButton), false);
             _upButton.addEventListener("pressup", fourDirectionMouseUp.bind(this, _upButton), false);
             _upButton.pressed = false;
@@ -94,6 +97,7 @@ this.cutie.Behavior = this.cutie.Behavior || {};
             _downButton.graphics.beginFill(_buttonColor || "#ccc").drawRect(0, 0, _buttonSize, _buttonSize);
             _downButton.x = px - (_buttonSize * 0.5);
             _downButton.y = py + (_buttonSize * 0.5);
+            _downButton.alpha = _normalAlpha;
             _downButton.addEventListener("mousedown", fourDirectionMouseDown.bind(this, _downButton), false);
             _downButton.addEventListener("pressup", fourDirectionMouseUp.bind(this, _downButton), false);
             _downButton.pressed = false;
@@ -149,6 +153,14 @@ this.cutie.Behavior = this.cutie.Behavior || {};
         };
 
         this.clean = function(obj) {
+            cutie.getStage().removeChild(_downRightButton);
+            cutie.getStage().removeChild(_downLeftButton);
+            cutie.getStage().removeChild(_upRightButton);
+            cutie.getStage().removeChild(_upLeftButton);
+            cutie.getStage().removeChild(_rightButton);
+            cutie.getStage().removeChild(_leftButton);
+            cutie.getStage().removeChild(_upButton);
+            cutie.getStage().removeChild(_downButton);
         }
 
         this.tick = function(obj, e) {
