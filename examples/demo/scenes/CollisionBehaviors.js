@@ -16,10 +16,10 @@
         logo.x = cutie.WIDTH/2 - logo.image.width/2;
         this.addChild(logo);
 
+        //************************
+        //Title & Back Button
         buttonWidth = 150
         buttonHeight = 40
-        
-
         
         titleLabel = new createjs.Text("Collision Behaviors", "36px Arial", "#000000");
         titleLabel.x = cutie.WIDTH/2 - titleLabel.getMeasuredWidth()/2;
