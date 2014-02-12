@@ -11,7 +11,7 @@ this.cutie.Preloader = this.cutie.Preloader || {};
     TextOnly.prototype.initialize = function() {
         // Call super constructor
         this.Container_initialize();
-        
+
         // ==================================================
         // DEFINITIONS
         // ==================================================
@@ -20,6 +20,15 @@ this.cutie.Preloader = this.cutie.Preloader || {};
         this.addChild(this.bkg);
 
         this.text = new createjs.Text("Loading", "36px Arial", "#ffffff");
+        this.addChild(this.text);
+    }
+
+
+    TextOnly.prototype.onPreloadProgress = function(e){
+        console.log('e.progress:' + e.progress);
+        this.removeChild(this.text);
+
+        this.text = new createjs.Text("Loading " + (e.progress * 100).toFixed(1), "36px Arial", "#ffffff");
         this.addChild(this.text);
     }
 
