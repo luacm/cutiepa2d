@@ -11,7 +11,7 @@ this.cutie.Behavior = this.cutie.Behavior || {};
      * @extends Behavior
      * @constructor
      * @param {Object} [props] The properties being passed in.
-     * @param {Array} [props.path[]] Array of coorinates {x,y} to follow, ordered from first to last.
+     * @param {Array} props.path[] Array of coorinates {x,y} to follow, ordered from first to last.
      * @param {Number} [props.speed=100] Speed in px/s.
      * @param {Number} [props.repeat=1] Number of times to repeat the path. -1 for continuous.
      * @param {Boolean} [props.setCenter=true] Automatically register the image center.

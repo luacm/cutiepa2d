@@ -45,106 +45,76 @@
 
 //********************************************************
 
-        eightDir = new createjs.Shape();
-        eightDir.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
-        this.addChild(eightDir);
-        eightDirLabel = new createjs.Text("Eight Dir", "34px Arial", "#888888");
-        eightDirLabel.x = buttonWidth/2 - eightDirLabel.getMeasuredWidth()/2;
-        eightDirLabel.y = buttonHeight/2 - eightDirLabel.getMeasuredHeight()/2;
+        defaultRoute = new createjs.Shape();
+        defaultRoute.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
+        this.addChild(defaultRoute);
+        defaultRouteLabel = new createjs.Text("Default", "34px Arial", "#888888");
+        defaultRouteLabel.x = buttonWidth/2 - defaultRouteLabel.getMeasuredWidth()/2;
+        defaultRouteLabel.y = buttonHeight/2 - defaultRouteLabel.getMeasuredHeight()/2;
         
-        eightDirButton = new createjs.Container();
-        eightDirButton.addEventListener("click", function() {
-            console.log('eightDir clicked');
-            //cutie.setScene("game");
+        defaultRouteButton = new createjs.Container();
+        defaultRouteButton.addEventListener("click", function() {
+            console.log('defaultRoute clicked');
+            cutie.setScene("routedefault");
         });
-        eightDirButton.addChild(eightDir,eightDirLabel);
-        eightDirButton.setTransform(50,200);
-        this.addChild(eightDirButton);
+        defaultRouteButton.addChild(defaultRoute,defaultRouteLabel);
+        defaultRouteButton.setTransform(50,200);
+        this.addChild(defaultRouteButton);
         
 
-        follow = new createjs.Shape();
-        follow.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
-        this.addChild(follow);
-        followLabel = new createjs.Text("Follow", "34px Arial", "#888888");
-        followLabel.x = buttonWidth/2 - followLabel.getMeasuredWidth()/2;
-        followLabel.y = buttonHeight/2 - followLabel.getMeasuredHeight()/2;
+        routeContinue = new createjs.Shape();
+        routeContinue.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
+        this.addChild(routeContinue);
+        routeContinueLabel = new createjs.Text("Continue", "34px Arial", "#888888");
+        routeContinueLabel.x = buttonWidth/2 - routeContinueLabel.getMeasuredWidth()/2;
+        routeContinueLabel.y = buttonHeight/2 - routeContinueLabel.getMeasuredHeight()/2;
         
-        followButton = new createjs.Container();
-        followButton.addEventListener("click", function() {
-            console.log('follow clicked');
-            //cutie.setScene("game");
+        routeContinueButton = new createjs.Container();
+        routeContinueButton.addEventListener("click", function() {
+            console.log('routeContinue clicked');
+            cutie.setScene("routecontinue");
         });
-        followButton.addChild(follow,followLabel);
-        followButton.setTransform(230,200);
-        this.addChild(followButton);
+        routeContinueButton.addChild(routeContinue,routeContinueLabel);
+        routeContinueButton.setTransform(230,200);
+        this.addChild(routeContinueButton);
 
-        joyStick = new createjs.Shape();
-        joyStick.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
-        this.addChild(joyStick);
-        joyStickLabel = new createjs.Text("Joy Stick", "34px Arial", "#888888");
-        joyStickLabel.x = buttonWidth/2 - joyStickLabel.getMeasuredWidth()/2;
-        joyStickLabel.y = buttonHeight/2 - joyStickLabel.getMeasuredHeight()/2;
+        routeFast = new createjs.Shape();
+        routeFast.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
+        this.addChild(routeFast);
+        routeFastLabel = new createjs.Text("Faster", "34px Arial", "#888888");
+        routeFastLabel.x = buttonWidth/2 - routeFastLabel.getMeasuredWidth()/2;
+        routeFastLabel.y = buttonHeight/2 - routeFastLabel.getMeasuredHeight()/2;
         
-        joyStickButton = new createjs.Container();
-        joyStickButton.addEventListener("click", function() {
-            console.log('joy Stick clicked');
-            //cutie.setScene("game");
+        routeFastButton = new createjs.Container();
+        routeFastButton.addEventListener("click", function() {
+            console.log('fast clicked');
+            cutie.setScene("routefast");
         });
-        joyStickButton.addChild(joyStick,joyStickLabel);
-        joyStickButton.setTransform(420,200);
-        this.addChild(joyStickButton);
+        routeFastButton.addChild(routeFast,routeFastLabel);
+        routeFastButton.setTransform(420,200);
+        this.addChild(routeFastButton);
 
 
 //********************************************************
 
-        route = new createjs.Shape();
-        route.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
-        this.addChild(route);
-        routeLabel = new createjs.Text("Route", "34px Arial", "#888888");
-        routeLabel.x = buttonWidth/2 - routeLabel.getMeasuredWidth()/2;
-        routeLabel.y = buttonHeight/2 - routeLabel.getMeasuredHeight()/2;
+        routeCenerFalse = new createjs.Shape();
+        routeCenerFalse.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
+        this.addChild(routeCenerFalse);
+        routeCenerFalseLabel = new createjs.Text("Center=F", "34px Arial", "#888888");
+        routeCenerFalseLabel.x = buttonWidth/2 - routeCenerFalseLabel.getMeasuredWidth()/2;
+        routeCenerFalseLabel.y = buttonHeight/2 - routeCenerFalseLabel.getMeasuredHeight()/2;
         
-        routeButton = new createjs.Container();
-        routeButton.addEventListener("click", function() {
-            console.log('route clicked');
-            //cutie.setScene("game");
+        routeCenerFalseButton = new createjs.Container();
+        routeCenerFalseButton.addEventListener("click", function() {
+            console.log('routeCenerFalse clicked');
+            cutie.setScene("routecenterfalse");
         });
-        routeButton.addChild(route,routeLabel);
-        routeButton.setTransform(50,280);
-        this.addChild(routeButton);
+        routeCenerFalseButton.addChild(routeCenerFalse,routeCenerFalseLabel);
+        routeCenerFalseButton.setTransform(50,280);
+        this.addChild(routeCenerFalseButton);
         
 
-        shoot = new createjs.Shape();
-        shoot.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
-        this.addChild(shoot);
-        shootLabel = new createjs.Text("Shoot", "34px Arial", "#888888");
-        shootLabel.x = buttonWidth/2 - shootLabel.getMeasuredWidth()/2;
-        shootLabel.y = buttonHeight/2 - shootLabel.getMeasuredHeight()/2;
         
-        shootButton = new createjs.Container();
-        shootButton.addEventListener("click", function() {
-            console.log('shoot clicked');
-            //cutie.setScene("game");
-        });
-        shootButton.addChild(shoot,shootLabel);
-        shootButton.setTransform(230,280);
-        this.addChild(shootButton);
-
-        collision = new createjs.Shape();
-        collision.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
-        this.addChild(collision);
-        collisionLabel = new createjs.Text("Collision", "34px Arial", "#888888");
-        collisionLabel.x = buttonWidth/2 - collisionLabel.getMeasuredWidth()/2;
-        collisionLabel.y = buttonHeight/2 - collisionLabel.getMeasuredHeight()/2;
-        
-        collisionButton = new createjs.Container();
-        collisionButton.addEventListener("click", function() {
-            console.log('collision clicked');
-            //cutie.setScene("game");
-        });
-        collisionButton.addChild(collision,collisionLabel);
-        collisionButton.setTransform(420,280);
-        this.addChild(collisionButton);
     }
     cutie.registerScene(scene, "routebehaviors");
 })();
