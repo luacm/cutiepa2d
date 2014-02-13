@@ -21,7 +21,7 @@
         
         asteroid = new createjs.Shape();
         asteroid.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
-        asteroidLabel = new createjs.Text("Asteroid", "36px Arial", "#888888");
+        asteroidLabel = new createjs.Text("Asteroid", "34px Arial", "#888888");
         asteroidLabel.x = buttonWidth/2 - asteroidLabel.getMeasuredWidth()/2;
         asteroidLabel.y = buttonHeight/2 - asteroidLabel.getMeasuredHeight()/2;
         
@@ -39,7 +39,7 @@
         dPad = new createjs.Shape();
         dPad.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
         this.addChild(dPad);
-        dPadLabel = new createjs.Text("DPad", "36px Arial", "#888888");
+        dPadLabel = new createjs.Text("DPad", "34px Arial", "#888888");
         dPadLabel.x = buttonWidth/2 - dPadLabel.getMeasuredWidth()/2;
         dPadLabel.y = buttonHeight/2 - dPadLabel.getMeasuredHeight()/2;
         
@@ -73,7 +73,7 @@
         eightDir = new createjs.Shape();
         eightDir.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
         this.addChild(eightDir);
-        eightDirLabel = new createjs.Text("Eight Dir", "36px Arial", "#888888");
+        eightDirLabel = new createjs.Text("Eight Dir", "34px Arial", "#888888");
         eightDirLabel.x = buttonWidth/2 - eightDirLabel.getMeasuredWidth()/2;
         eightDirLabel.y = buttonHeight/2 - eightDirLabel.getMeasuredHeight()/2;
         
@@ -90,7 +90,7 @@
         follow = new createjs.Shape();
         follow.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
         this.addChild(follow);
-        followLabel = new createjs.Text("Follow", "36px Arial", "#888888");
+        followLabel = new createjs.Text("Follow", "34px Arial", "#888888");
         followLabel.x = buttonWidth/2 - followLabel.getMeasuredWidth()/2;
         followLabel.y = buttonHeight/2 - followLabel.getMeasuredHeight()/2;
         
@@ -125,7 +125,7 @@
         route = new createjs.Shape();
         route.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
         this.addChild(route);
-        routeLabel = new createjs.Text("Route", "36px Arial", "#888888");
+        routeLabel = new createjs.Text("Route", "34px Arial", "#888888");
         routeLabel.x = buttonWidth/2 - routeLabel.getMeasuredWidth()/2;
         routeLabel.y = buttonHeight/2 - routeLabel.getMeasuredHeight()/2;
         
@@ -142,7 +142,7 @@
         shoot = new createjs.Shape();
         shoot.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
         this.addChild(shoot);
-        shootLabel = new createjs.Text("Shoot", "36px Arial", "#888888");
+        shootLabel = new createjs.Text("Shoot", "34px Arial", "#888888");
         shootLabel.x = buttonWidth/2 - shootLabel.getMeasuredWidth()/2;
         shootLabel.y = buttonHeight/2 - shootLabel.getMeasuredHeight()/2;
         

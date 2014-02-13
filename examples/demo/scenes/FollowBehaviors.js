@@ -22,7 +22,7 @@
         buttonWidth = 150
         buttonHeight = 40
 
-        titleLabel = new createjs.Text("Follow Behaviors", "36px Arial", "#000000");
+        titleLabel = new createjs.Text("Follow Behaviors", "34px Arial", "#000000");
         titleLabel.x = cutie.WIDTH/2 - titleLabel.getMeasuredWidth()/2;
         titleLabel.y = 120;
         this.addChild(titleLabel);
@@ -30,7 +30,7 @@
         back = new createjs.Shape();
         back.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
         this.addChild(back);
-        backLabel = new createjs.Text("Back", "36px Arial", "#888888");
+        backLabel = new createjs.Text("Back", "34px Arial", "#888888");
         backLabel.x = buttonWidth/2 - backLabel.getMeasuredWidth()/2;
         backLabel.y = buttonHeight/2 - backLabel.getMeasuredHeight()/2;
         
@@ -48,7 +48,7 @@
         defaultFollow = new createjs.Shape();
         defaultFollow.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
         this.addChild(defaultFollow);
-        defaultFollowLabel = new createjs.Text("Default", "36px Arial", "#888888");
+        defaultFollowLabel = new createjs.Text("Default", "34px Arial", "#888888");
         defaultFollowLabel.x = buttonWidth/2 - defaultFollowLabel.getMeasuredWidth()/2;
         defaultFollowLabel.y = buttonHeight/2 - defaultFollowLabel.getMeasuredHeight()/2;
         
@@ -65,7 +65,7 @@
         fastFollow = new createjs.Shape();
         fastFollow.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
         this.addChild(fastFollow);
-        fastFollowLabel = new createjs.Text("Faster", "36px Arial", "#888888");
+        fastFollowLabel = new createjs.Text("Faster", "34px Arial", "#888888");
         fastFollowLabel.x = buttonWidth/2 - fastFollowLabel.getMeasuredWidth()/2;
         fastFollowLabel.y = buttonHeight/2 - fastFollowLabel.getMeasuredHeight()/2;
         
@@ -100,7 +100,7 @@
         centerFalse = new createjs.Shape();
         centerFalse.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
         this.addChild(centerFalse);
-        centerFalseLabel = new createjs.Text("Center=F", "36px Arial", "#888888");
+        centerFalseLabel = new createjs.Text("Center=F", "34px Arial", "#888888");
         centerFalseLabel.x = buttonWidth/2 - centerFalseLabel.getMeasuredWidth()/2;
         centerFalseLabel.y = buttonHeight/2 - centerFalseLabel.getMeasuredHeight()/2;
         
@@ -117,7 +117,7 @@
         regXY = new createjs.Shape();
         regXY.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
         this.addChild(regXY);
-        regXYLabel = new createjs.Text("regXY", "36px Arial", "#888888");
+        regXYLabel = new createjs.Text("regXY", "34px Arial", "#888888");
         regXYLabel.x = buttonWidth/2 - regXYLabel.getMeasuredWidth()/2;
         regXYLabel.y = buttonHeight/2 - regXYLabel.getMeasuredHeight()/2;
         
@@ -152,7 +152,7 @@
         target = new createjs.Shape();
         target.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
         this.addChild(target);
-        targetLabel = new createjs.Text("Target", "36px Arial", "#888888");
+        targetLabel = new createjs.Text("Target", "34px Arial", "#888888");
         targetLabel.x = buttonWidth/2 - targetLabel.getMeasuredWidth()/2;
         targetLabel.y = buttonHeight/2 - targetLabel.getMeasuredHeight()/2;
         
@@ -169,7 +169,7 @@
         followCord = new createjs.Shape();
         followCord.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
         this.addChild(followCord);
-        followCordLabel = new createjs.Text("Cord.", "36px Arial", "#888888");
+        followCordLabel = new createjs.Text("Cord.", "34px Arial", "#888888");
         followCordLabel.x = buttonWidth/2 - followCordLabel.getMeasuredWidth()/2;
         followCordLabel.y = buttonHeight/2 - followCordLabel.getMeasuredHeight()/2;
         

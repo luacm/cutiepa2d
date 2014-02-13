@@ -22,7 +22,7 @@
         buttonWidth = 150
         buttonHeight = 40
 
-        titleLabel = new createjs.Text("Joystick Behaviors", "36px Arial", "#000000");
+        titleLabel = new createjs.Text("Joystick Behaviors", "34px Arial", "#000000");
         titleLabel.x = cutie.WIDTH/2 - titleLabel.getMeasuredWidth()/2;
         titleLabel.y = 120;
         this.addChild(titleLabel);
@@ -30,7 +30,7 @@
         back = new createjs.Shape();
         back.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
         this.addChild(back);
-        backLabel = new createjs.Text("Back", "36px Arial", "#888888");
+        backLabel = new createjs.Text("Back", "34px Arial", "#888888");
         backLabel.x = buttonWidth/2 - backLabel.getMeasuredWidth()/2;
         backLabel.y = buttonHeight/2 - backLabel.getMeasuredHeight()/2;
         
@@ -45,106 +45,91 @@
 
 //********************************************************
 
-        eightDir = new createjs.Shape();
-        eightDir.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
-        this.addChild(eightDir);
-        eightDirLabel = new createjs.Text("Eight Dir", "36px Arial", "#888888");
-        eightDirLabel.x = buttonWidth/2 - eightDirLabel.getMeasuredWidth()/2;
-        eightDirLabel.y = buttonHeight/2 - eightDirLabel.getMeasuredHeight()/2;
+        defaultJoystick = new createjs.Shape();
+        defaultJoystick.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
+        this.addChild(defaultJoystick);
+        defaultJoystickLabel = new createjs.Text("Default", "34px Arial", "#888888");
+        defaultJoystickLabel.x = buttonWidth/2 - defaultJoystickLabel.getMeasuredWidth()/2;
+        defaultJoystickLabel.y = buttonHeight/2 - defaultJoystickLabel.getMeasuredHeight()/2;
         
-        eightDirButton = new createjs.Container();
-        eightDirButton.addEventListener("click", function() {
-            console.log('eightDir clicked');
-            //cutie.setScene("game");
+        defaultJoystickButton = new createjs.Container();
+        defaultJoystickButton.addEventListener("click", function() {
+            console.log('defaultJoystick clicked');
+            cutie.setScene("joystickdefault");
         });
-        eightDirButton.addChild(eightDir,eightDirLabel);
-        eightDirButton.setTransform(50,200);
-        this.addChild(eightDirButton);
+        defaultJoystickButton.addChild(defaultJoystick,defaultJoystickLabel);
+        defaultJoystickButton.setTransform(50,200);
+        this.addChild(defaultJoystickButton);
         
 
-        follow = new createjs.Shape();
-        follow.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
-        this.addChild(follow);
-        followLabel = new createjs.Text("Follow", "36px Arial", "#888888");
-        followLabel.x = buttonWidth/2 - followLabel.getMeasuredWidth()/2;
-        followLabel.y = buttonHeight/2 - followLabel.getMeasuredHeight()/2;
+        fastJoystick = new createjs.Shape();
+        fastJoystick.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
+        this.addChild(fastJoystick);
+        fastJoystickLabel = new createjs.Text("Faster", "34px Arial", "#888888");
+        fastJoystickLabel.x = buttonWidth/2 - fastJoystickLabel.getMeasuredWidth()/2;
+        fastJoystickLabel.y = buttonHeight/2 - fastJoystickLabel.getMeasuredHeight()/2;
         
-        followButton = new createjs.Container();
-        followButton.addEventListener("click", function() {
-            console.log('follow clicked');
-            //cutie.setScene("game");
+        fastJoystickButton = new createjs.Container();
+        fastJoystickButton.addEventListener("click", function() {
+            console.log('fastJoystick clicked');
+            cutie.setScene("fastjoystick");
         });
-        followButton.addChild(follow,followLabel);
-        followButton.setTransform(230,200);
-        this.addChild(followButton);
+        fastJoystickButton.addChild(fastJoystick,fastJoystickLabel);
+        fastJoystickButton.setTransform(230,200);
+        this.addChild(fastJoystickButton);
 
-        joyStick = new createjs.Shape();
-        joyStick.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
-        this.addChild(joyStick);
-        joyStickLabel = new createjs.Text("Joy Stick", "34px Arial", "#888888");
-        joyStickLabel.x = buttonWidth/2 - joyStickLabel.getMeasuredWidth()/2;
-        joyStickLabel.y = buttonHeight/2 - joyStickLabel.getMeasuredHeight()/2;
+        faceTrueJoystick = new createjs.Shape();
+        faceTrueJoystick.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
+        this.addChild(faceTrueJoystick);
+        faceTrueJoystickLabel = new createjs.Text("Face = T", "34px Arial", "#888888");
+        faceTrueJoystickLabel.x = buttonWidth/2 - faceTrueJoystickLabel.getMeasuredWidth()/2;
+        faceTrueJoystickLabel.y = buttonHeight/2 - faceTrueJoystickLabel.getMeasuredHeight()/2;
         
-        joyStickButton = new createjs.Container();
-        joyStickButton.addEventListener("click", function() {
-            console.log('joy Stick clicked');
-            //cutie.setScene("game");
+        faceTrueJoystickButton = new createjs.Container();
+        faceTrueJoystickButton.addEventListener("click", function() {
+            console.log('Face True clicked');
+            cutie.setScene("facetruejoystick");
         });
-        joyStickButton.addChild(joyStick,joyStickLabel);
-        joyStickButton.setTransform(420,200);
-        this.addChild(joyStickButton);
+        faceTrueJoystickButton.addChild(faceTrueJoystick,faceTrueJoystickLabel);
+        faceTrueJoystickButton.setTransform(420,200);
+        this.addChild(faceTrueJoystickButton);
 
 
 //********************************************************
 
-        route = new createjs.Shape();
-        route.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
-        this.addChild(route);
-        routeLabel = new createjs.Text("Route", "36px Arial", "#888888");
-        routeLabel.x = buttonWidth/2 - routeLabel.getMeasuredWidth()/2;
-        routeLabel.y = buttonHeight/2 - routeLabel.getMeasuredHeight()/2;
+        angleOffsetJoystick = new createjs.Shape();
+        angleOffsetJoystick.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
+        this.addChild(angleOffsetJoystick);
+        angleOffsetJoystickLabel = new createjs.Text("AngleOff", "34px Arial", "#888888");
+        angleOffsetJoystickLabel.x = buttonWidth/2 - angleOffsetJoystickLabel.getMeasuredWidth()/2;
+        angleOffsetJoystickLabel.y = buttonHeight/2 - angleOffsetJoystickLabel.getMeasuredHeight()/2;
         
-        routeButton = new createjs.Container();
-        routeButton.addEventListener("click", function() {
-            console.log('route clicked');
-            //cutie.setScene("game");
+        angleOffsetJoystickButton = new createjs.Container();
+        angleOffsetJoystickButton.addEventListener("click", function() {
+            console.log('angleOffsetJoystick clicked');
+            cutie.setScene("anglejoystick");
         });
-        routeButton.addChild(route,routeLabel);
-        routeButton.setTransform(50,280);
-        this.addChild(routeButton);
+        angleOffsetJoystickButton.addChild(angleOffsetJoystick,angleOffsetJoystickLabel);
+        angleOffsetJoystickButton.setTransform(50,280);
+        this.addChild(angleOffsetJoystickButton);
         
 
-        shoot = new createjs.Shape();
-        shoot.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
-        this.addChild(shoot);
-        shootLabel = new createjs.Text("Shoot", "36px Arial", "#888888");
-        shootLabel.x = buttonWidth/2 - shootLabel.getMeasuredWidth()/2;
-        shootLabel.y = buttonHeight/2 - shootLabel.getMeasuredHeight()/2;
+        modJoystick = new createjs.Shape();
+        modJoystick.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
+        this.addChild(modJoystick);
+        modJoystickLabel = new createjs.Text("Mod JS", "34px Arial", "#888888");
+        modJoystickLabel.x = buttonWidth/2 - modJoystickLabel.getMeasuredWidth()/2;
+        modJoystickLabel.y = buttonHeight/2 - modJoystickLabel.getMeasuredHeight()/2;
         
-        shootButton = new createjs.Container();
-        shootButton.addEventListener("click", function() {
-            console.log('shoot clicked');
-            //cutie.setScene("game");
+        modJoystickButton = new createjs.Container();
+        modJoystickButton.addEventListener("click", function() {
+            console.log('modJoystick clicked');
+            cutie.setScene("modjoystick");
         });
-        shootButton.addChild(shoot,shootLabel);
-        shootButton.setTransform(230,280);
-        this.addChild(shootButton);
+        modJoystickButton.addChild(modJoystick,modJoystickLabel);
+        modJoystickButton.setTransform(230,280);
+        this.addChild(modJoystickButton);
 
-        collision = new createjs.Shape();
-        collision.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
-        this.addChild(collision);
-        collisionLabel = new createjs.Text("Collision", "34px Arial", "#888888");
-        collisionLabel.x = buttonWidth/2 - collisionLabel.getMeasuredWidth()/2;
-        collisionLabel.y = buttonHeight/2 - collisionLabel.getMeasuredHeight()/2;
-        
-        collisionButton = new createjs.Container();
-        collisionButton.addEventListener("click", function() {
-            console.log('collision clicked');
-            //cutie.setScene("game");
-        });
-        collisionButton.addChild(collision,collisionLabel);
-        collisionButton.setTransform(420,280);
-        this.addChild(collisionButton);
     }
     cutie.registerScene(scene, "joystickbehaviors");
 })();

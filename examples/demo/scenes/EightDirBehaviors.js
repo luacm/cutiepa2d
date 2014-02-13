@@ -22,7 +22,7 @@
         buttonWidth = 150
         buttonHeight = 40
         
-        titleLabel = new createjs.Text("Eight Directional Behaviors", "36px Arial", "#000000");
+        titleLabel = new createjs.Text("Eight Directional Behaviors", "34px Arial", "#000000");
         titleLabel.x = cutie.WIDTH/2 - titleLabel.getMeasuredWidth()/2;
         titleLabel.y = 120;
         this.addChild(titleLabel);
@@ -30,7 +30,7 @@
         back = new createjs.Shape();
         back.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
         this.addChild(back);
-        backLabel = new createjs.Text("Back", "36px Arial", "#888888");
+        backLabel = new createjs.Text("Back", "34px Arial", "#888888");
         backLabel.x = buttonWidth/2 - backLabel.getMeasuredWidth()/2;
         backLabel.y = buttonHeight/2 - backLabel.getMeasuredHeight()/2;
         
@@ -48,7 +48,7 @@
         eightDirDefault = new createjs.Shape();
         eightDirDefault.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
         this.addChild(eightDirDefault);
-        eightDirDefaultLabel = new createjs.Text("Default", "36px Arial", "#888888");
+        eightDirDefaultLabel = new createjs.Text("Default", "34px Arial", "#888888");
         eightDirDefaultLabel.x = buttonWidth/2 - eightDirDefaultLabel.getMeasuredWidth()/2;
         eightDirDefaultLabel.y = buttonHeight/2 - eightDirDefaultLabel.getMeasuredHeight()/2;
         
@@ -65,7 +65,7 @@
         fastEightDir = new createjs.Shape();
         fastEightDir.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
         this.addChild(fastEightDir);
-        fastEightDirLabel = new createjs.Text("Faster", "36px Arial", "#888888");
+        fastEightDirLabel = new createjs.Text("Faster", "34px Arial", "#888888");
         fastEightDirLabel.x = buttonWidth/2 - fastEightDirLabel.getMeasuredWidth()/2;
         fastEightDirLabel.y = buttonHeight/2 - fastEightDirLabel.getMeasuredHeight()/2;
         
