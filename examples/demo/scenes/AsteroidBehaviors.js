@@ -30,7 +30,7 @@
         back = new createjs.Shape();
         back.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
         this.addChild(back);
-        backLabel = new createjs.Text("Back", "36px Arial", "#ff0000");
+        backLabel = new createjs.Text("Back", "36px Arial", "#888888");
         backLabel.x = buttonWidth/2 - backLabel.getMeasuredWidth()/2;
         backLabel.y = buttonHeight/2 - backLabel.getMeasuredHeight()/2;
         
@@ -48,7 +48,7 @@
         asteroidDefault = new createjs.Shape();
         asteroidDefault.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
         this.addChild(asteroidDefault);
-        asteroidDefaultLabel = new createjs.Text("Default", "36px Arial", "#ff0000");
+        asteroidDefaultLabel = new createjs.Text("Default", "36px Arial", "#888888");
         asteroidDefaultLabel.x = buttonWidth/2 - asteroidDefaultLabel.getMeasuredWidth()/2;
         asteroidDefaultLabel.y = buttonHeight/2 - asteroidDefaultLabel.getMeasuredHeight()/2;
         
@@ -65,7 +65,7 @@
         faster = new createjs.Shape();
         faster.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
         this.addChild(faster);
-        fasterLabel = new createjs.Text("Faster", "36px Arial", "#ff0000");
+        fasterLabel = new createjs.Text("Faster", "36px Arial", "#888888");
         fasterLabel.x = buttonWidth/2 - fasterLabel.getMeasuredWidth()/2;
         fasterLabel.y = buttonHeight/2 - fasterLabel.getMeasuredHeight()/2;
         
@@ -81,7 +81,7 @@
         turret = new createjs.Shape();
         turret.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
         this.addChild(turret);
-        turretLabel = new createjs.Text("Turret", "34px Arial", "#ff0000");
+        turretLabel = new createjs.Text("Turret", "34px Arial", "#888888");
         turretLabel.x = buttonWidth/2 - turretLabel.getMeasuredWidth()/2;
         turretLabel.y = buttonHeight/2 - turretLabel.getMeasuredHeight()/2;
         
@@ -100,7 +100,7 @@
         route = new createjs.Shape();
         route.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
         this.addChild(route);
-        routeLabel = new createjs.Text("!=Center", "36px Arial", "#ff0000");
+        routeLabel = new createjs.Text("!=Center", "36px Arial", "#888888");
         routeLabel.x = buttonWidth/2 - routeLabel.getMeasuredWidth()/2;
         routeLabel.y = buttonHeight/2 - routeLabel.getMeasuredHeight()/2;
         
@@ -117,7 +117,7 @@
         angleOffset = new createjs.Shape();
         angleOffset.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
         this.addChild(angleOffset);
-        angleOffsetLabel = new createjs.Text("Angle Off", "36px Arial", "#ff0000");
+        angleOffsetLabel = new createjs.Text("Angle Off", "36px Arial", "#888888");
         angleOffsetLabel.x = buttonWidth/2 - angleOffsetLabel.getMeasuredWidth()/2;
         angleOffsetLabel.y = buttonHeight/2 - angleOffsetLabel.getMeasuredHeight()/2;
         

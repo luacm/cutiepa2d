@@ -30,7 +30,7 @@
         back = new createjs.Shape();
         back.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
         this.addChild(back);
-        backLabel = new createjs.Text("Back", "36px Arial", "#ff0000");
+        backLabel = new createjs.Text("Back", "36px Arial", "#888888");
         backLabel.x = buttonWidth/2 - backLabel.getMeasuredWidth()/2;
         backLabel.y = buttonHeight/2 - backLabel.getMeasuredHeight()/2;
         
@@ -49,7 +49,7 @@
         defaultDPad = new createjs.Shape();
         defaultDPad.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
         this.addChild(defaultDPad);
-        defaultDPadLabel = new createjs.Text("Default", "36px Arial", "#ff0000");
+        defaultDPadLabel = new createjs.Text("Default", "36px Arial", "#888888");
         defaultDPadLabel.x = buttonWidth/2 - defaultDPadLabel.getMeasuredWidth()/2;
         defaultDPadLabel.y = buttonHeight/2 - defaultDPadLabel.getMeasuredHeight()/2;
         
@@ -66,7 +66,7 @@
         faster = new createjs.Shape();
         faster.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
         this.addChild(faster);
-        fasterLabel = new createjs.Text("Faster", "36px Arial", "#ff0000");
+        fasterLabel = new createjs.Text("Faster", "36px Arial", "#888888");
         fasterLabel.x = buttonWidth/2 - fasterLabel.getMeasuredWidth()/2;
         fasterLabel.y = buttonHeight/2 - fasterLabel.getMeasuredHeight()/2;
         
@@ -82,7 +82,7 @@
         faceFalse = new createjs.Shape();
         faceFalse.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
         this.addChild(faceFalse);
-        faceFalseLabel = new createjs.Text("Face=F", "34px Arial", "#ff0000");
+        faceFalseLabel = new createjs.Text("Face=F", "34px Arial", "#888888");
         faceFalseLabel.x = buttonWidth/2 - faceFalseLabel.getMeasuredWidth()/2;
         faceFalseLabel.y = buttonHeight/2 - faceFalseLabel.getMeasuredHeight()/2;
         
@@ -101,7 +101,7 @@
         dpadDiffs = new createjs.Shape();
         dpadDiffs.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
         this.addChild(dpadDiffs);
-        dpadDiffsLabel = new createjs.Text("PadDiff", "36px Arial", "#ff0000");
+        dpadDiffsLabel = new createjs.Text("PadDiff", "36px Arial", "#888888");
         dpadDiffsLabel.x = buttonWidth/2 - dpadDiffsLabel.getMeasuredWidth()/2;
         dpadDiffsLabel.y = buttonHeight/2 - dpadDiffsLabel.getMeasuredHeight()/2;
         
@@ -118,7 +118,7 @@
         dpad8 = new createjs.Shape();
         dpad8.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
         this.addChild(dpad8);
-        dpad8Label = new createjs.Text("8 DPad", "36px Arial", "#ff0000");
+        dpad8Label = new createjs.Text("8 DPad", "36px Arial", "#888888");
         dpad8Label.x = buttonWidth/2 - dpad8Label.getMeasuredWidth()/2;
         dpad8Label.y = buttonHeight/2 - dpad8Label.getMeasuredHeight()/2;
         

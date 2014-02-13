@@ -30,7 +30,7 @@
         back = new createjs.Shape();
         back.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
         this.addChild(back);
-        backLabel = new createjs.Text("Back", "36px Arial", "#ff0000");
+        backLabel = new createjs.Text("Back", "36px Arial", "#888888");
         backLabel.x = buttonWidth/2 - backLabel.getMeasuredWidth()/2;
         backLabel.y = buttonHeight/2 - backLabel.getMeasuredHeight()/2;
         
@@ -45,106 +45,54 @@
 
 //********************************************************
 
-        eightDir = new createjs.Shape();
-        eightDir.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
-        this.addChild(eightDir);
-        eightDirLabel = new createjs.Text("Eight Dir", "36px Arial", "#ff0000");
-        eightDirLabel.x = buttonWidth/2 - eightDirLabel.getMeasuredWidth()/2;
-        eightDirLabel.y = buttonHeight/2 - eightDirLabel.getMeasuredHeight()/2;
+        eightDirDefault = new createjs.Shape();
+        eightDirDefault.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
+        this.addChild(eightDirDefault);
+        eightDirDefaultLabel = new createjs.Text("Default", "36px Arial", "#888888");
+        eightDirDefaultLabel.x = buttonWidth/2 - eightDirDefaultLabel.getMeasuredWidth()/2;
+        eightDirDefaultLabel.y = buttonHeight/2 - eightDirDefaultLabel.getMeasuredHeight()/2;
         
-        eightDirButton = new createjs.Container();
-        eightDirButton.addEventListener("click", function() {
-            console.log('eightDir clicked');
-            //cutie.setScene("game");
+        eightDirDefaultButton = new createjs.Container();
+        eightDirDefaultButton.addEventListener("click", function() {
+            console.log('eightDirDefault clicked');
+            cutie.setScene("eightdirdefault");
         });
-        eightDirButton.addChild(eightDir,eightDirLabel);
-        eightDirButton.setTransform(50,200);
-        this.addChild(eightDirButton);
+        eightDirDefaultButton.addChild(eightDirDefault,eightDirDefaultLabel);
+        eightDirDefaultButton.setTransform(50,200);
+        this.addChild(eightDirDefaultButton);
         
 
-        follow = new createjs.Shape();
-        follow.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
-        this.addChild(follow);
-        followLabel = new createjs.Text("Follow", "36px Arial", "#ff0000");
-        followLabel.x = buttonWidth/2 - followLabel.getMeasuredWidth()/2;
-        followLabel.y = buttonHeight/2 - followLabel.getMeasuredHeight()/2;
+        fastEightDir = new createjs.Shape();
+        fastEightDir.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
+        this.addChild(fastEightDir);
+        fastEightDirLabel = new createjs.Text("Faster", "36px Arial", "#888888");
+        fastEightDirLabel.x = buttonWidth/2 - fastEightDirLabel.getMeasuredWidth()/2;
+        fastEightDirLabel.y = buttonHeight/2 - fastEightDirLabel.getMeasuredHeight()/2;
         
-        followButton = new createjs.Container();
-        followButton.addEventListener("click", function() {
-            console.log('follow clicked');
-            //cutie.setScene("game");
+        fastEightDirButton = new createjs.Container();
+        fastEightDirButton.addEventListener("click", function() {
+            console.log('fastEightDir clicked');
+            cutie.setScene("fasteightdir");
         });
-        followButton.addChild(follow,followLabel);
-        followButton.setTransform(230,200);
-        this.addChild(followButton);
+        fastEightDirButton.addChild(fastEightDir,fastEightDirLabel);
+        fastEightDirButton.setTransform(230,200);
+        this.addChild(fastEightDirButton);
 
-        joyStick = new createjs.Shape();
-        joyStick.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
-        this.addChild(joyStick);
-        joyStickLabel = new createjs.Text("Joy Stick", "34px Arial", "#ff0000");
-        joyStickLabel.x = buttonWidth/2 - joyStickLabel.getMeasuredWidth()/2;
-        joyStickLabel.y = buttonHeight/2 - joyStickLabel.getMeasuredHeight()/2;
+        wasd = new createjs.Shape();
+        wasd.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
+        this.addChild(wasd);
+        wasdLabel = new createjs.Text("WASD", "34px Arial", "#888888");
+        wasdLabel.x = buttonWidth/2 - wasdLabel.getMeasuredWidth()/2;
+        wasdLabel.y = buttonHeight/2 - wasdLabel.getMeasuredHeight()/2;
         
-        joyStickButton = new createjs.Container();
-        joyStickButton.addEventListener("click", function() {
-            console.log('joy Stick clicked');
-            //cutie.setScene("game");
+        wasdButton = new createjs.Container();
+        wasdButton.addEventListener("click", function() {
+            console.log('wasd clicked');
+            cutie.setScene("wasd");
         });
-        joyStickButton.addChild(joyStick,joyStickLabel);
-        joyStickButton.setTransform(420,200);
-        this.addChild(joyStickButton);
-
-
-//********************************************************
-
-        route = new createjs.Shape();
-        route.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
-        this.addChild(route);
-        routeLabel = new createjs.Text("Route", "36px Arial", "#ff0000");
-        routeLabel.x = buttonWidth/2 - routeLabel.getMeasuredWidth()/2;
-        routeLabel.y = buttonHeight/2 - routeLabel.getMeasuredHeight()/2;
-        
-        routeButton = new createjs.Container();
-        routeButton.addEventListener("click", function() {
-            console.log('route clicked');
-            //cutie.setScene("game");
-        });
-        routeButton.addChild(route,routeLabel);
-        routeButton.setTransform(50,280);
-        this.addChild(routeButton);
-        
-
-        shoot = new createjs.Shape();
-        shoot.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
-        this.addChild(shoot);
-        shootLabel = new createjs.Text("Shoot", "36px Arial", "#ff0000");
-        shootLabel.x = buttonWidth/2 - shootLabel.getMeasuredWidth()/2;
-        shootLabel.y = buttonHeight/2 - shootLabel.getMeasuredHeight()/2;
-        
-        shootButton = new createjs.Container();
-        shootButton.addEventListener("click", function() {
-            console.log('shoot clicked');
-            //cutie.setScene("game");
-        });
-        shootButton.addChild(shoot,shootLabel);
-        shootButton.setTransform(230,280);
-        this.addChild(shootButton);
-
-        collision = new createjs.Shape();
-        collision.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
-        this.addChild(collision);
-        collisionLabel = new createjs.Text("Collision", "34px Arial", "#ff0000");
-        collisionLabel.x = buttonWidth/2 - collisionLabel.getMeasuredWidth()/2;
-        collisionLabel.y = buttonHeight/2 - collisionLabel.getMeasuredHeight()/2;
-        
-        collisionButton = new createjs.Container();
-        collisionButton.addEventListener("click", function() {
-            console.log('collision clicked');
-            //cutie.setScene("game");
-        });
-        collisionButton.addChild(collision,collisionLabel);
-        collisionButton.setTransform(420,280);
-        this.addChild(collisionButton);
+        wasdButton.addChild(wasd,wasdLabel);
+        wasdButton.setTransform(420,200);
+        this.addChild(wasdButton);
     }
     cutie.registerScene(scene, "eightdirbehaviors");
 })();

@@ -18,11 +18,9 @@ this.cutie.Behavior = this.cutie.Behavior || {};
      * @param {Boolean} [props.setCenter=true] This is signifies if the object doing the following should rotate around its center
      * @param {Number} [props.angleOffset=90] This is the following orientation where 90 is straight up,
      *     the zero point is the cartesian positive x axis and degrees rotate counter-clockwise up from this x axis.
-     * @param {Number} [props.followCord] The position of the center of the joystick.
+     * @param {Number} [props.followCord] The position on the target to follow.
      * @param {Number} [props.followCord.x] The x-coordinate on the image to be pursued (using local image coordinates).
      * @param {Number} [props.followCord.y] The y-coordinate on the image to be pursued (using local image coordinates).
-     * @param {Number} [props.angleOffset=90] This is the following orientation where 90 is straight up, 
-     *     the zero point is the cartesian positive x axis and degrees rotate counter-clockwise up from this x axis. 
      */
 
 

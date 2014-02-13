@@ -131,7 +131,8 @@ this.cutie = this.cutie || {};
     Scene.prototype._tickInternal = function(e) {
         this.tick(e);
         for(var i = 0; i < this.children.length; i++) {
-            this.children[i]._tickInternal(e);
+            if(this.children[i]._tickInternal)
+                this.children[i]._tickInternal(e);
         }
         this._checkCollisions();
     }

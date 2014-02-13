@@ -30,7 +30,7 @@
         back = new createjs.Shape();
         back.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
         this.addChild(back);
-        backLabel = new createjs.Text("Back", "36px Arial", "#ff0000");
+        backLabel = new createjs.Text("Back", "36px Arial", "#888888");
         backLabel.x = buttonWidth/2 - backLabel.getMeasuredWidth()/2;
         backLabel.y = buttonHeight/2 - backLabel.getMeasuredHeight()/2;
         
@@ -45,106 +45,159 @@
 
 //********************************************************
 
-        eightDir = new createjs.Shape();
-        eightDir.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
-        this.addChild(eightDir);
-        eightDirLabel = new createjs.Text("Eight Dir", "36px Arial", "#ff0000");
-        eightDirLabel.x = buttonWidth/2 - eightDirLabel.getMeasuredWidth()/2;
-        eightDirLabel.y = buttonHeight/2 - eightDirLabel.getMeasuredHeight()/2;
+        defaultFollow = new createjs.Shape();
+        defaultFollow.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
+        this.addChild(defaultFollow);
+        defaultFollowLabel = new createjs.Text("Default", "36px Arial", "#888888");
+        defaultFollowLabel.x = buttonWidth/2 - defaultFollowLabel.getMeasuredWidth()/2;
+        defaultFollowLabel.y = buttonHeight/2 - defaultFollowLabel.getMeasuredHeight()/2;
         
-        eightDirButton = new createjs.Container();
-        eightDirButton.addEventListener("click", function() {
-            console.log('eightDir clicked');
-            //cutie.setScene("eightdirbehaviors");
+        defaultFollowButton = new createjs.Container();
+        defaultFollowButton.addEventListener("click", function() {
+            console.log('defaultFollow clicked');
+            cutie.setScene("followdefault");
         });
-        eightDirButton.addChild(eightDir,eightDirLabel);
-        eightDirButton.setTransform(50,200);
-        this.addChild(eightDirButton);
+        defaultFollowButton.addChild(defaultFollow,defaultFollowLabel);
+        defaultFollowButton.setTransform(50,200);
+        this.addChild(defaultFollowButton);
         
 
-        follow = new createjs.Shape();
-        follow.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
-        this.addChild(follow);
-        followLabel = new createjs.Text("Follow", "36px Arial", "#ff0000");
-        followLabel.x = buttonWidth/2 - followLabel.getMeasuredWidth()/2;
-        followLabel.y = buttonHeight/2 - followLabel.getMeasuredHeight()/2;
+        fastFollow = new createjs.Shape();
+        fastFollow.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
+        this.addChild(fastFollow);
+        fastFollowLabel = new createjs.Text("Faster", "36px Arial", "#888888");
+        fastFollowLabel.x = buttonWidth/2 - fastFollowLabel.getMeasuredWidth()/2;
+        fastFollowLabel.y = buttonHeight/2 - fastFollowLabel.getMeasuredHeight()/2;
         
-        followButton = new createjs.Container();
-        followButton.addEventListener("click", function() {
-            console.log('follow clicked');
-            //cutie.setScene("followbehaviors");
+        fastFollowButton = new createjs.Container();
+        fastFollowButton.addEventListener("click", function() {
+            console.log('fastFollow clicked');
+            cutie.setScene("fastfollow");
         });
-        followButton.addChild(follow,followLabel);
-        followButton.setTransform(230,200);
-        this.addChild(followButton);
+        fastFollowButton.addChild(fastFollow,fastFollowLabel);
+        fastFollowButton.setTransform(230,200);
+        this.addChild(fastFollowButton);
 
-        joyStick = new createjs.Shape();
-        joyStick.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
-        this.addChild(joyStick);
-        joyStickLabel = new createjs.Text("Joy Stick", "34px Arial", "#ff0000");
-        joyStickLabel.x = buttonWidth/2 - joyStickLabel.getMeasuredWidth()/2;
-        joyStickLabel.y = buttonHeight/2 - joyStickLabel.getMeasuredHeight()/2;
+        distanceFollow = new createjs.Shape();
+        distanceFollow.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
+        this.addChild(distanceFollow);
+        distanceFollowLabel = new createjs.Text("Distance", "34px Arial", "#888888");
+        distanceFollowLabel.x = buttonWidth/2 - distanceFollowLabel.getMeasuredWidth()/2;
+        distanceFollowLabel.y = buttonHeight/2 - distanceFollowLabel.getMeasuredHeight()/2;
         
-        joyStickButton = new createjs.Container();
-        joyStickButton.addEventListener("click", function() {
-            console.log('joy Stick clicked');
-            //cutie.setScene("joystickbehaviors");
+        distanceFollowButton = new createjs.Container();
+        distanceFollowButton.addEventListener("click", function() {
+            console.log('Distance clicked');
+            cutie.setScene("distancefollow");
         });
-        joyStickButton.addChild(joyStick,joyStickLabel);
-        joyStickButton.setTransform(420,200);
-        this.addChild(joyStickButton);
+        distanceFollowButton.addChild(distanceFollow,distanceFollowLabel);
+        distanceFollowButton.setTransform(420,200);
+        this.addChild(distanceFollowButton);
 
 
 //********************************************************
 
-        route = new createjs.Shape();
-        route.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
-        this.addChild(route);
-        routeLabel = new createjs.Text("Route", "36px Arial", "#ff0000");
-        routeLabel.x = buttonWidth/2 - routeLabel.getMeasuredWidth()/2;
-        routeLabel.y = buttonHeight/2 - routeLabel.getMeasuredHeight()/2;
+        centerFalse = new createjs.Shape();
+        centerFalse.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
+        this.addChild(centerFalse);
+        centerFalseLabel = new createjs.Text("Center=F", "36px Arial", "#888888");
+        centerFalseLabel.x = buttonWidth/2 - centerFalseLabel.getMeasuredWidth()/2;
+        centerFalseLabel.y = buttonHeight/2 - centerFalseLabel.getMeasuredHeight()/2;
         
-        routeButton = new createjs.Container();
-        routeButton.addEventListener("click", function() {
-            console.log('route clicked');
-            //cutie.setScene("game");
+        centerFalseButton = new createjs.Container();
+        centerFalseButton.addEventListener("click", function() {
+            console.log('centerFalse clicked');
+            cutie.setScene("centerfalse");
         });
-        routeButton.addChild(route,routeLabel);
-        routeButton.setTransform(50,280);
-        this.addChild(routeButton);
+        centerFalseButton.addChild(centerFalse,centerFalseLabel);
+        centerFalseButton.setTransform(50,280);
+        this.addChild(centerFalseButton);
         
 
-        shoot = new createjs.Shape();
-        shoot.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
-        this.addChild(shoot);
-        shootLabel = new createjs.Text("Shoot", "36px Arial", "#ff0000");
-        shootLabel.x = buttonWidth/2 - shootLabel.getMeasuredWidth()/2;
-        shootLabel.y = buttonHeight/2 - shootLabel.getMeasuredHeight()/2;
+        regXY = new createjs.Shape();
+        regXY.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
+        this.addChild(regXY);
+        regXYLabel = new createjs.Text("regXY", "36px Arial", "#888888");
+        regXYLabel.x = buttonWidth/2 - regXYLabel.getMeasuredWidth()/2;
+        regXYLabel.y = buttonHeight/2 - regXYLabel.getMeasuredHeight()/2;
         
-        shootButton = new createjs.Container();
-        shootButton.addEventListener("click", function() {
-            console.log('shoot clicked');
-            //cutie.setScene("game");
+        regXYButton = new createjs.Container();
+        regXYButton.addEventListener("click", function() {
+            console.log('regXY clicked');
+            cutie.setScene("regxy");
         });
-        shootButton.addChild(shoot,shootLabel);
-        shootButton.setTransform(230,280);
-        this.addChild(shootButton);
+        regXYButton.addChild(regXY,regXYLabel);
+        regXYButton.setTransform(230,280);
+        this.addChild(regXYButton);
 
-        collision = new createjs.Shape();
-        collision.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
-        this.addChild(collision);
-        collisionLabel = new createjs.Text("Collision", "34px Arial", "#ff0000");
-        collisionLabel.x = buttonWidth/2 - collisionLabel.getMeasuredWidth()/2;
-        collisionLabel.y = buttonHeight/2 - collisionLabel.getMeasuredHeight()/2;
+        angleOff = new createjs.Shape();
+        angleOff.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
+        this.addChild(angleOff);
+        angleOffLabel = new createjs.Text("Angle Off", "34px Arial", "#888888");
+        angleOffLabel.x = buttonWidth/2 - angleOffLabel.getMeasuredWidth()/2;
+        angleOffLabel.y = buttonHeight/2 - angleOffLabel.getMeasuredHeight()/2;
         
-        collisionButton = new createjs.Container();
-        collisionButton.addEventListener("click", function() {
-            console.log('collision clicked');
-            //cutie.setScene("game");
+        angleOffButton = new createjs.Container();
+        angleOffButton.addEventListener("click", function() {
+            console.log('angleOff clicked');
+            cutie.setScene("angleoffsetfollow");
         });
-        collisionButton.addChild(collision,collisionLabel);
-        collisionButton.setTransform(420,280);
-        this.addChild(collisionButton);
+        angleOffButton.addChild(angleOff,angleOffLabel);
+        angleOffButton.setTransform(420,280);
+        this.addChild(angleOffButton);
+
+
+//********************************************************
+
+        centerFalse = new createjs.Shape();
+        centerFalse.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
+        this.addChild(centerFalse);
+        centerFalseLabel = new createjs.Text("Center=F", "36px Arial", "#888888");
+        centerFalseLabel.x = buttonWidth/2 - centerFalseLabel.getMeasuredWidth()/2;
+        centerFalseLabel.y = buttonHeight/2 - centerFalseLabel.getMeasuredHeight()/2;
+        
+        centerFalseButton = new createjs.Container();
+        centerFalseButton.addEventListener("click", function() {
+            console.log('centerFalse clicked');
+            cutie.setScene("centerfalse");
+        });
+        centerFalseButton.addChild(centerFalse,centerFalseLabel);
+        centerFalseButton.setTransform(50,280);
+        this.addChild(centerFalseButton);
+        
+
+        regXY = new createjs.Shape();
+        regXY.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
+        this.addChild(regXY);
+        regXYLabel = new createjs.Text("regXY", "36px Arial", "#888888");
+        regXYLabel.x = buttonWidth/2 - regXYLabel.getMeasuredWidth()/2;
+        regXYLabel.y = buttonHeight/2 - regXYLabel.getMeasuredHeight()/2;
+        
+        regXYButton = new createjs.Container();
+        regXYButton.addEventListener("click", function() {
+            console.log('regXY clicked');
+            cutie.setScene("regxy");
+        });
+        regXYButton.addChild(regXY,regXYLabel);
+        regXYButton.setTransform(230,280);
+        this.addChild(regXYButton);
+
+        angleOff = new createjs.Shape();
+        angleOff.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
+        this.addChild(angleOff);
+        angleOffLabel = new createjs.Text("Angle Off", "34px Arial", "#888888");
+        angleOffLabel.x = buttonWidth/2 - angleOffLabel.getMeasuredWidth()/2;
+        angleOffLabel.y = buttonHeight/2 - angleOffLabel.getMeasuredHeight()/2;
+        
+        angleOffButton = new createjs.Container();
+        angleOffButton.addEventListener("click", function() {
+            console.log('angleOff clicked');
+            cutie.setScene("angleoffsetfollow");
+        });
+        angleOffButton.addChild(angleOff,angleOffLabel);
+        angleOffButton.setTransform(420,280);
+        this.addChild(angleOffButton);
+        
     }
     cutie.registerScene(scene, "followbehaviors");
 })();

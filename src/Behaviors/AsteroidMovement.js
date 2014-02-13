@@ -25,7 +25,6 @@ this.cutie.Behavior = this.cutie.Behavior || {};
     	// ================================================
         // VARIABLE DECLARATIONS
         // ================================================
-        ('angleOffset' in props)?props.angleOffset:90;
 
 
         var props = props || {};
@@ -44,7 +43,7 @@ this.cutie.Behavior = this.cutie.Behavior || {};
         var _accel = ('acceleration' in props)?props.acceleration:100;
         var _decel = ('deceleration' in props)?props.deceleration:40;
 
-        var _angOffset = ('angleOffset' in props)?props.angularOffset:_angOffset = 90;
+        var _angOffset = ('angleOffset' in props)?props.angleOffset:90;
 
         var _velocity = {"x":0, "y":0};//speed, orientation
 

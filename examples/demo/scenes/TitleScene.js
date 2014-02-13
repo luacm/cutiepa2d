@@ -21,7 +21,7 @@
         
         asteroid = new createjs.Shape();
         asteroid.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
-        asteroidLabel = new createjs.Text("Asteroid", "36px Arial", "#ff0000");
+        asteroidLabel = new createjs.Text("Asteroid", "36px Arial", "#888888");
         asteroidLabel.x = buttonWidth/2 - asteroidLabel.getMeasuredWidth()/2;
         asteroidLabel.y = buttonHeight/2 - asteroidLabel.getMeasuredHeight()/2;
         
@@ -39,7 +39,7 @@
         dPad = new createjs.Shape();
         dPad.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
         this.addChild(dPad);
-        dPadLabel = new createjs.Text("DPad", "36px Arial", "#ff0000");
+        dPadLabel = new createjs.Text("DPad", "36px Arial", "#888888");
         dPadLabel.x = buttonWidth/2 - dPadLabel.getMeasuredWidth()/2;
         dPadLabel.y = buttonHeight/2 - dPadLabel.getMeasuredHeight()/2;
         
@@ -55,7 +55,7 @@
         dragDrop = new createjs.Shape();
         dragDrop.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
         this.addChild(dragDrop);
-        dragDropLabel = new createjs.Text("DragDrop", "34px Arial", "#ff0000");
+        dragDropLabel = new createjs.Text("DragDrop", "34px Arial", "#888888");
         dragDropLabel.x = buttonWidth/2 - dragDropLabel.getMeasuredWidth()/2;
         dragDropLabel.y = buttonHeight/2 - dragDropLabel.getMeasuredHeight()/2;
         
@@ -73,7 +73,7 @@
         eightDir = new createjs.Shape();
         eightDir.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
         this.addChild(eightDir);
-        eightDirLabel = new createjs.Text("Eight Dir", "36px Arial", "#ff0000");
+        eightDirLabel = new createjs.Text("Eight Dir", "36px Arial", "#888888");
         eightDirLabel.x = buttonWidth/2 - eightDirLabel.getMeasuredWidth()/2;
         eightDirLabel.y = buttonHeight/2 - eightDirLabel.getMeasuredHeight()/2;
         
@@ -90,7 +90,7 @@
         follow = new createjs.Shape();
         follow.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
         this.addChild(follow);
-        followLabel = new createjs.Text("Follow", "36px Arial", "#ff0000");
+        followLabel = new createjs.Text("Follow", "36px Arial", "#888888");
         followLabel.x = buttonWidth/2 - followLabel.getMeasuredWidth()/2;
         followLabel.y = buttonHeight/2 - followLabel.getMeasuredHeight()/2;
         
@@ -106,7 +106,7 @@
         joystick = new createjs.Shape();
         joystick.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
         this.addChild(joystick);
-        joystickLabel = new createjs.Text("Joystick", "34px Arial", "#ff0000");
+        joystickLabel = new createjs.Text("Joystick", "34px Arial", "#888888");
         joystickLabel.x = buttonWidth/2 - joystickLabel.getMeasuredWidth()/2;
         joystickLabel.y = buttonHeight/2 - joystickLabel.getMeasuredHeight()/2;
         
@@ -125,7 +125,7 @@
         route = new createjs.Shape();
         route.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
         this.addChild(route);
-        routeLabel = new createjs.Text("Route", "36px Arial", "#ff0000");
+        routeLabel = new createjs.Text("Route", "36px Arial", "#888888");
         routeLabel.x = buttonWidth/2 - routeLabel.getMeasuredWidth()/2;
         routeLabel.y = buttonHeight/2 - routeLabel.getMeasuredHeight()/2;
         
@@ -142,7 +142,7 @@
         shoot = new createjs.Shape();
         shoot.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
         this.addChild(shoot);
-        shootLabel = new createjs.Text("Shoot", "36px Arial", "#ff0000");
+        shootLabel = new createjs.Text("Shoot", "36px Arial", "#888888");
         shootLabel.x = buttonWidth/2 - shootLabel.getMeasuredWidth()/2;
         shootLabel.y = buttonHeight/2 - shootLabel.getMeasuredHeight()/2;
         
@@ -158,7 +158,7 @@
         collision = new createjs.Shape();
         collision.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
         this.addChild(collision);
-        collisionLabel = new createjs.Text("Collision", "34px Arial", "#ff0000");
+        collisionLabel = new createjs.Text("Collision", "34px Arial", "#888888");
         collisionLabel.x = buttonWidth/2 - collisionLabel.getMeasuredWidth()/2;
         collisionLabel.y = buttonHeight/2 - collisionLabel.getMeasuredHeight()/2;
         

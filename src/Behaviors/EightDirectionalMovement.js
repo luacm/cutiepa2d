@@ -13,7 +13,7 @@ this.cutie.Behavior = this.cutie.Behavior || {};
      * @extends Behavior
      * @constructor
      * @param {Object} [props] The properties being passed in.
-     * @param {Number[]} [props.keys=['UpArrow','RightArrow','LeftArrow']] The keycodes for directional movement. {forward, turnRight, turnLeft}
+     * @param {Number[]} [props.keys=['UpArrow', 'DownArrow' 'RightArrow','LeftArrow']] The keycodes for directional movement. {forward, down, turnRight, turnLeft}
      * @param {Number} [props.speed=100] Speed in px/s.
      */
   
