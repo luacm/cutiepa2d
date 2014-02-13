@@ -28,7 +28,7 @@
         //The Default
         //Title and Back Button
 
-        titleLabel = new createjs.Text("Asteroid with Follow Coord: x = 50 y = -25", "36px Arial", "#000000");
+        titleLabel = new createjs.Text("Asteroid Follow: x = 50 y = -25", "36px Arial", "#000000");
         titleLabel.x = cutie.WIDTH/2 - titleLabel.getMeasuredWidth()/2;
         titleLabel.y = 40;
         this.addChild(titleLabel);
