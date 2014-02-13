@@ -149,55 +149,55 @@
 
 //********************************************************
 
-        centerFalse = new createjs.Shape();
-        centerFalse.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
-        this.addChild(centerFalse);
-        centerFalseLabel = new createjs.Text("Center=F", "36px Arial", "#888888");
-        centerFalseLabel.x = buttonWidth/2 - centerFalseLabel.getMeasuredWidth()/2;
-        centerFalseLabel.y = buttonHeight/2 - centerFalseLabel.getMeasuredHeight()/2;
+        target = new createjs.Shape();
+        target.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
+        this.addChild(target);
+        targetLabel = new createjs.Text("Target", "36px Arial", "#888888");
+        targetLabel.x = buttonWidth/2 - targetLabel.getMeasuredWidth()/2;
+        targetLabel.y = buttonHeight/2 - targetLabel.getMeasuredHeight()/2;
         
-        centerFalseButton = new createjs.Container();
-        centerFalseButton.addEventListener("click", function() {
-            console.log('centerFalse clicked');
-            cutie.setScene("centerfalse");
+        targetButton = new createjs.Container();
+        targetButton.addEventListener("click", function() {
+            console.log('target clicked');
+            cutie.setScene("targetfollow");
         });
-        centerFalseButton.addChild(centerFalse,centerFalseLabel);
-        centerFalseButton.setTransform(50,280);
-        this.addChild(centerFalseButton);
+        targetButton.addChild(target,targetLabel);
+        targetButton.setTransform(50,360);
+        this.addChild(targetButton);
         
 
-        regXY = new createjs.Shape();
-        regXY.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
-        this.addChild(regXY);
-        regXYLabel = new createjs.Text("regXY", "36px Arial", "#888888");
-        regXYLabel.x = buttonWidth/2 - regXYLabel.getMeasuredWidth()/2;
-        regXYLabel.y = buttonHeight/2 - regXYLabel.getMeasuredHeight()/2;
+        followCord = new createjs.Shape();
+        followCord.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
+        this.addChild(followCord);
+        followCordLabel = new createjs.Text("Cord.", "36px Arial", "#888888");
+        followCordLabel.x = buttonWidth/2 - followCordLabel.getMeasuredWidth()/2;
+        followCordLabel.y = buttonHeight/2 - followCordLabel.getMeasuredHeight()/2;
         
-        regXYButton = new createjs.Container();
-        regXYButton.addEventListener("click", function() {
-            console.log('regXY clicked');
-            cutie.setScene("regxy");
+        followCordButton = new createjs.Container();
+        followCordButton.addEventListener("click", function() {
+            console.log('followCord clicked');
+            cutie.setScene("followcord");
         });
-        regXYButton.addChild(regXY,regXYLabel);
-        regXYButton.setTransform(230,280);
-        this.addChild(regXYButton);
+        followCordButton.addChild(followCord,followCordLabel);
+        followCordButton.setTransform(230,360);
+        this.addChild(followCordButton);
 
-        angleOff = new createjs.Shape();
-        angleOff.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
-        this.addChild(angleOff);
-        angleOffLabel = new createjs.Text("Angle Off", "34px Arial", "#888888");
-        angleOffLabel.x = buttonWidth/2 - angleOffLabel.getMeasuredWidth()/2;
-        angleOffLabel.y = buttonHeight/2 - angleOffLabel.getMeasuredHeight()/2;
+        snakeFollow = new createjs.Shape();
+        snakeFollow.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
+        this.addChild(snakeFollow);
+        snakeFollowLabel = new createjs.Text("Snake", "34px Arial", "#888888");
+        snakeFollowLabel.x = buttonWidth/2 - snakeFollowLabel.getMeasuredWidth()/2;
+        snakeFollowLabel.y = buttonHeight/2 - snakeFollowLabel.getMeasuredHeight()/2;
         
-        angleOffButton = new createjs.Container();
-        angleOffButton.addEventListener("click", function() {
-            console.log('angleOff clicked');
-            cutie.setScene("angleoffsetfollow");
+        snakeFollowButton = new createjs.Container();
+        snakeFollowButton.addEventListener("click", function() {
+            console.log('snakeFollow clicked');
+            cutie.setScene("snakefollow");
         });
-        angleOffButton.addChild(angleOff,angleOffLabel);
-        angleOffButton.setTransform(420,280);
-        this.addChild(angleOffButton);
-        
+        snakeFollowButton.addChild(snakeFollow,snakeFollowLabel);
+        snakeFollowButton.setTransform(420,360);
+        this.addChild(snakeFollowButton);
+
     }
     cutie.registerScene(scene, "followbehaviors");
 })();

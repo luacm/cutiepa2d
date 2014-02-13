@@ -18,9 +18,9 @@ this.cutie.Behavior = this.cutie.Behavior || {};
      * @param {Boolean} [props.setCenter=true] This is signifies if the object doing the following should rotate around its center
      * @param {Number} [props.angleOffset=90] This is the following orientation where 90 is straight up,
      *     the zero point is the cartesian positive x axis and degrees rotate counter-clockwise up from this x axis.
-     * @param {Number} [props.followCord] The position on the target to follow.
-     * @param {Number} [props.followCord.x] The x-coordinate on the image to be pursued (using local image coordinates).
-     * @param {Number} [props.followCord.y] The y-coordinate on the image to be pursued (using local image coordinates).
+     * @param {Number} [props.followCoord] The position on the target to follow.
+     * @param {Number} [props.followCoord.x] The x-coordinate on the image to be pursued off of the regX position.
+     * @param {Number} [props.followCoord.y] The y-coordinate on the image to be pursued off of the regY position.
      */
 
 
@@ -32,7 +32,7 @@ this.cutie.Behavior = this.cutie.Behavior || {};
         // ================================================
 
         var props = props || {};
-        if (!props.followCord) props.followCord = {};
+        var _followCord = ('followCoord' in props)?props.followCoord:{'x':0,'y':0};
 
         var _targetCoord = {};
 
@@ -72,9 +72,14 @@ this.cutie.Behavior = this.cutie.Behavior || {};
 
         };
 
+        this.clean = function(obj) {
+        }
+
         // ================================================
         // PRIVATE METHODS
         // ================================================
+
+
 
         function setCoords(){
             if(!_targetObj) {
@@ -84,8 +89,8 @@ this.cutie.Behavior = this.cutie.Behavior || {};
             }
             else{
                 //Need to decide how this is handled, becuase in DPad it centers
-                _targetCoord.x = _targetObj.x;
-                _targetCoord.y = _targetObj.y;
+                _targetCoord.x = _targetObj.x + _followCord.x;
+                _targetCoord.y = _targetObj.y + _followCord.y;
             }
         }
 
