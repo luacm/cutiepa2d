@@ -262,14 +262,14 @@
                             "description": "Speed gained in pixels/s^2.",
                             "type": "Number",
                             "optional": true,
-                            "optdefault": "5"
+                            "optdefault": "100"
                         },
                         {
                             "name": "deceleration",
                             "description": "Speed lost in pixels/s^2 (when no key is pressed).",
                             "type": "Number",
                             "optional": true,
-                            "optdefault": "1"
+                            "optdefault": "40"
                         },
                         {
                             "name": "rotation",
@@ -454,13 +454,6 @@
                     "optional": true,
                     "props": [
                         {
-                            "name": "keys",
-                            "description": "The keycodes for directional movement. {forward, turnRight, turnLeft}",
-                            "type": "Number[]",
-                            "optional": true,
-                            "optdefault": "['UpArrow','RightArrow','LeftArrow'"
-                        },
-                        {
                             "name": "speed",
                             "description": "Speed in px/s.",
                             "type": "Number",
@@ -468,6 +461,11 @@
                             "optdefault": "100"
                         }
                     ]
+                },
+                {
+                    "name": "[props.keys=['UpArrow',",
+                    "description": "'DownArrow' 'RightArrow','LeftArrow']] The keycodes for directional movement. {forward, down, turnRight, turnLeft}",
+                    "type": "Number[]"
                 }
             ]
         },
@@ -530,31 +528,24 @@
                             "optdefault": "90"
                         },
                         {
-                            "name": "followCord",
-                            "description": "The position of the center of the joystick.",
+                            "name": "followCoord",
+                            "description": "The position on the target to follow.",
                             "type": "Number",
                             "optional": true,
                             "props": [
                                 {
                                     "name": "x",
-                                    "description": "The x-coordinate on the image to be pursued (using local image coordinates).",
+                                    "description": "The x-coordinate on the image to be pursued off of the regX position.",
                                     "type": "Number",
                                     "optional": true
                                 },
                                 {
                                     "name": "y",
-                                    "description": "The y-coordinate on the image to be pursued (using local image coordinates).",
+                                    "description": "The y-coordinate on the image to be pursued off of the regY position.",
                                     "type": "Number",
                                     "optional": true
                                 }
                             ]
-                        },
-                        {
-                            "name": "angleOffset",
-                            "description": "This is the following orientation where 90 is straight up, \n    the zero point is the cartesian positive x axis and degrees rotate counter-clockwise up from this x axis.",
-                            "type": "Number",
-                            "optional": true,
-                            "optdefault": "90"
                         }
                     ]
                 }
@@ -599,7 +590,7 @@
                         },
                         {
                             "name": "angleOffset",
-                            "description": "This is the following orientation where 90 is straight up, \n    the zero point is the cartesian positive x axis and degrees rotate counter-clockwise up from this x axis.",
+                            "description": "This is the object orientation where 90 is straight up, \n    the zero point is the cartesian positive x axis and degrees rotate counter-clockwise up from this x axis.",
                             "type": "Number",
                             "optional": true,
                             "optdefault": "90"
@@ -1720,7 +1711,7 @@
         },
         {
             "file": "src/Scene.js",
-            "line": 139,
+            "line": 140,
             "description": "Use this function to register a new Collision Group with the current scene.",
             "itemtype": "method",
             "name": "registerCollisionGroup",
@@ -1767,7 +1758,7 @@
         },
         {
             "file": "src/Scene.js",
-            "line": 188,
+            "line": 189,
             "description": "Use this function to add a DisplayObject to a collision group.",
             "memberof": "cutie.Scene#",
             "itemtype": "method",
@@ -1804,7 +1795,7 @@
         },
         {
             "file": "src/Scene.js",
-            "line": 214,
+            "line": 215,
             "description": "Use this function to remove a DisplayObject from a collision group.",
             "memberof": "cutie.Scene#",
             "itemtype": "method",
@@ -2215,19 +2206,19 @@
         },
         {
             "message": "unknown tag: memberof",
-            "line": " src/Scene.js:188"
+            "line": " src/Scene.js:189"
         },
         {
             "message": "replacing incorrect tag: function with method",
-            "line": " src/Scene.js:188"
+            "line": " src/Scene.js:189"
         },
         {
             "message": "unknown tag: memberof",
-            "line": " src/Scene.js:214"
+            "line": " src/Scene.js:215"
         },
         {
             "message": "replacing incorrect tag: function with method",
-            "line": " src/Scene.js:214"
+            "line": " src/Scene.js:215"
         },
         {
             "message": "unknown tag: memberof",

@@ -134,8 +134,8 @@ this.cutie.Behavior = this.cutie.Behavior || {};
      * @constructor
      * @param {Object} [props] The properties being passed in.
      * @param {Number[]} [props.keys=[&#x27;UpArrow&#x27;,&#x27;RightArrow&#x27;,&#x27;LeftArrow&#x27;]] The keycodes for directional movement. {forward, turnRight, turnLeft}
-     * @param {Number} [props.acceleration=5] Speed gained in pixels/s^2.
-     * @param {Number} [props.deceleration=1] Speed lost in pixels/s^2 (when no key is pressed).
+     * @param {Number} [props.acceleration=100] Speed gained in pixels/s^2.
+     * @param {Number} [props.deceleration=40] Speed lost in pixels/s^2 (when no key is pressed).
      * @param {Number} [props.rotation=90] Rotation speed in deg/s.
      * @param {Boolean} [props.setCenter=true] Automatically register the image center.
      * @param {Number} [props.angleOffset=90] This is the orientation where 90 is straight up, 
@@ -145,28 +145,25 @@ this.cutie.Behavior = this.cutie.Behavior || {};
     	// ================================================
         // VARIABLE DECLARATIONS
         // ================================================
-        
+
+
         var props = props || {};
         var keys = props.keys || {};
         var _forwardKey = keys.forward || cutie.KeyCodes.UP;
         var _rightKey = keys.turnRight || cutie.KeyCodes.RIGHT;
         var _leftKey = keys.turnLeft || cutie.KeyCodes.LEFT;
 
-        var _setCenter = props.setCenter || true;
+        var _setCenter = (&#x27;setCenter&#x27; in props)?props.setCenter:true;
 
         var _forwardDown = false;
         var _rightDown = false;
         var _leftDown = false;
 
-        var _rotation = props.rotation || 90;
-        var _accel = props.acceleration || 100;
-        var _decel = props.deceleration || 40;
+        var _rotation = (&#x27;rotation&#x27; in props)?props.rotation:90;
+        var _accel = (&#x27;acceleration&#x27; in props)?props.acceleration:100;
+        var _decel = (&#x27;deceleration&#x27; in props)?props.deceleration:40;
 
-        var _angOffset;
-        if(&#x27;angleOffset&#x27; in props)
-            _angOffset = props.angularOffset;
-        else
-            _angOffset = 90;
+        var _angOffset = (&#x27;angleOffset&#x27; in props)?props.angleOffset:90;
 
         var _velocity = {&quot;x&quot;:0, &quot;y&quot;:0};//speed, orientation
 
