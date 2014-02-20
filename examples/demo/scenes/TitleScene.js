@@ -5,11 +5,11 @@
         loader.loadFile({"id": "logo", "src": "../../../assets/logo.png"});
     }
 
-     scene.init = function(preloaded) {
+    scene.init = function(preloaded) {
         cutie.Log.d("title.init()");
 
         this.bkg = new createjs.Shape();
-        this.bkg.graphics.beginFill("#888888").drawRect(0, 0, cutie.WIDTH, cutie.HEIGHT);
+        this.bkg.graphics.beginFill("#ffffff").drawRect(0, 0, cutie.WIDTH, cutie.HEIGHT);
         this.addChild(this.bkg);
 
         var logo = new cutie.Bitmap(preloaded.getResult("logo"));
