@@ -115,6 +115,15 @@
             "fors": {},
             "namespaces": {}
         },
+        "src/Joystick.js": {
+            "name": "src/Joystick.js",
+            "modules": {},
+            "classes": {
+                "Joystick": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "src/KeyCodes.js": {
             "name": "src/KeyCodes.js",
             "modules": {},
@@ -218,6 +227,7 @@
                 "Route": 1,
                 "Shoot": 1,
                 "Button": 1,
+                "Joystick": 1,
                 "KeyCodes": 1,
                 "Log": 1,
                 "ScaleType": 1,
@@ -606,82 +616,10 @@
                             "optdefault": "90"
                         },
                         {
-                            "name": "position",
-                            "description": "The position of the center of the joystick.",
-                            "type": "Number",
-                            "optional": true,
-                            "props": [
-                                {
-                                    "name": "x",
-                                    "description": "The x-coordinate of the center of the joystick.",
-                                    "type": "Number",
-                                    "optional": true
-                                },
-                                {
-                                    "name": "y",
-                                    "description": "The y-coordinate of the center of the joystick.",
-                                    "type": "Number",
-                                    "optional": true
-                                }
-                            ]
-                        },
-                        {
-                            "name": "baseDisk",
-                            "description": "Properties of the lower base disk of the joystick - the part that doens't move.",
-                            "type": "Number",
-                            "optional": true,
-                            "props": [
-                                {
-                                    "name": "color",
-                                    "description": "What color the base disk should be.",
-                                    "type": "String",
-                                    "optional": true,
-                                    "optdefault": "\"#ccc\""
-                                },
-                                {
-                                    "name": "radius",
-                                    "description": "The radius of the base disk.",
-                                    "type": "Number",
-                                    "optional": true,
-                                    "optdefault": "60"
-                                },
-                                {
-                                    "name": "alpha",
-                                    "description": "The level of transparency of the base disk.",
-                                    "type": "Number",
-                                    "optional": true,
-                                    "optdefault": "0.3"
-                                }
-                            ]
-                        },
-                        {
-                            "name": "pointerDisk",
-                            "description": "Properties of the upper pointer disk of the joystick - the part that moves.",
-                            "type": "Number",
-                            "optional": true,
-                            "props": [
-                                {
-                                    "name": "color",
-                                    "description": "What color the pointer disk should be.",
-                                    "type": "String",
-                                    "optional": true,
-                                    "optdefault": "\"#aaa\""
-                                },
-                                {
-                                    "name": "radius",
-                                    "description": "The radius of the pointer disk.",
-                                    "type": "Number",
-                                    "optional": true,
-                                    "optdefault": "30"
-                                },
-                                {
-                                    "name": "alpha",
-                                    "description": "The level of transparency of the pointer disk.",
-                                    "type": "Number",
-                                    "optional": true,
-                                    "optdefault": "0.3"
-                                }
-                            ]
+                            "name": "joystick",
+                            "description": "The joystick object you'd like to use.",
+                            "type": "cutie.Joystick",
+                            "optional": true
                         }
                     ]
                 }
@@ -920,6 +858,109 @@
                 }
             ]
         },
+        "Joystick": {
+            "name": "Joystick",
+            "shortname": "Joystick",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "cutie",
+            "namespace": "",
+            "file": "src/Joystick.js",
+            "line": 6,
+            "description": "Creates an on-screen joystick that you can poll for angle and magnitude.",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "props",
+                    "description": "The properties being passed in.",
+                    "type": "Object",
+                    "optional": true,
+                    "props": [
+                        {
+                            "name": "position",
+                            "description": "The position of the center of the joystick.",
+                            "type": "Number",
+                            "optional": true,
+                            "props": [
+                                {
+                                    "name": "x",
+                                    "description": "The x-coordinate of the center of the joystick.",
+                                    "type": "Number",
+                                    "optional": true
+                                },
+                                {
+                                    "name": "y",
+                                    "description": "The y-coordinate of the center of the joystick.",
+                                    "type": "Number",
+                                    "optional": true
+                                }
+                            ]
+                        },
+                        {
+                            "name": "baseDisk",
+                            "description": "Properties of the lower base disk of the joystick - the part that doens't move.",
+                            "type": "Number",
+                            "optional": true,
+                            "props": [
+                                {
+                                    "name": "color",
+                                    "description": "What color the base disk should be.",
+                                    "type": "String",
+                                    "optional": true,
+                                    "optdefault": "\"#ccc\""
+                                },
+                                {
+                                    "name": "radius",
+                                    "description": "The radius of the base disk.",
+                                    "type": "Number",
+                                    "optional": true,
+                                    "optdefault": "60"
+                                },
+                                {
+                                    "name": "alpha",
+                                    "description": "The level of transparency of the base disk.",
+                                    "type": "Number",
+                                    "optional": true,
+                                    "optdefault": "0.3"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "pointerDisk",
+                            "description": "Properties of the upper pointer disk of the joystick - the part that moves.",
+                            "type": "Number",
+                            "optional": true,
+                            "props": [
+                                {
+                                    "name": "color",
+                                    "description": "What color the pointer disk should be.",
+                                    "type": "String",
+                                    "optional": true,
+                                    "optdefault": "\"#aaa\""
+                                },
+                                {
+                                    "name": "radius",
+                                    "description": "The radius of the pointer disk.",
+                                    "type": "Number",
+                                    "optional": true,
+                                    "optdefault": "20"
+                                },
+                                {
+                                    "name": "alpha",
+                                    "description": "The level of transparency of the pointer disk.",
+                                    "type": "Number",
+                                    "optional": true,
+                                    "optdefault": "0.3"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
         "KeyCodes": {
             "name": "KeyCodes",
             "shortname": "KeyCodes",
@@ -1155,7 +1196,7 @@
             "file": "src/DisplayObject.js",
             "line": 1,
             "description": "CutiePa2d - Game Framework built on createjs and easeljs\n\nContributors:\n     - Greyson Parrelli @greysonp\n     - Adam Schaub   @maybenot\n     - Stephen Louie @stephenrlouie\n\nDeveloped Jan - Feb 2014 to aid Lehigh studens for the mobiLEhigh competition",
-            "class": "KeyCodes",
+            "class": "Joystick",
             "module": "cutie"
         },
         {
@@ -1792,7 +1833,7 @@
         },
         {
             "file": "src/Scene.js",
-            "line": 119,
+            "line": 121,
             "description": "Overwrite this function to declare what happens upon updating the scene. In other\nwords, this method is called every 1/framerate seconds.",
             "itemtype": "method",
             "name": "tick",
@@ -1810,7 +1851,7 @@
         },
         {
             "file": "src/Scene.js",
-            "line": 130,
+            "line": 132,
             "description": "The 'super' method for the tick that is overwritten by the end user. Does\nsome housekeeping (like calling children's ticks) in addition to calling\nthe user-defined tick().",
             "itemtype": "method",
             "name": "_tickInternal",
@@ -1828,7 +1869,7 @@
         },
         {
             "file": "src/Scene.js",
-            "line": 147,
+            "line": 149,
             "description": "Use this function to register a new Collision Group with the current scene.",
             "itemtype": "method",
             "name": "registerCollisionGroup",
@@ -1875,7 +1916,7 @@
         },
         {
             "file": "src/Scene.js",
-            "line": 196,
+            "line": 198,
             "description": "Use this function to add a DisplayObject to a collision group.",
             "memberof": "cutie.Scene#",
             "itemtype": "method",
@@ -1912,7 +1953,7 @@
         },
         {
             "file": "src/Scene.js",
-            "line": 222,
+            "line": 224,
             "description": "Use this function to remove a DisplayObject from a collision group.",
             "memberof": "cutie.Scene#",
             "itemtype": "method",
@@ -2083,7 +2124,7 @@
         },
         {
             "file": "src/cutie.js",
-            "line": 97,
+            "line": 95,
             "description": "Takes the specified scene and sets it as the active scene. This will\nnow be the scene that receives calls to its tick() function. If it is \nnot already preloaded, it will be preloaded",
             "itemtype": "method",
             "name": "setScene",
@@ -2124,7 +2165,7 @@
         },
         {
             "file": "src/cutie.js",
-            "line": 144,
+            "line": 140,
             "description": "Adds the scene to the list of registered scenes.",
             "itemtype": "method",
             "name": "registerScene",
@@ -2148,7 +2189,7 @@
         },
         {
             "file": "src/cutie.js",
-            "line": 161,
+            "line": 157,
             "description": "Gets a references to the stage being managed by cutie.",
             "itemtype": "method",
             "name": "getStage",
@@ -2164,7 +2205,7 @@
         },
         {
             "file": "src/cutie.js",
-            "line": 172,
+            "line": 168,
             "description": "Gets a references to the active scene being managed by cutie.",
             "itemtype": "method",
             "name": "getActiveScene",
@@ -2180,7 +2221,7 @@
         },
         {
             "file": "src/cutie.js",
-            "line": 183,
+            "line": 179,
             "description": "Puts the loader (used from preloading) in a map we can use to reference later.",
             "params": [
                 {
@@ -2199,7 +2240,7 @@
         },
         {
             "file": "src/cutie.js",
-            "line": 195,
+            "line": 191,
             "description": "Description:\n     Calls the internel Ticks on all scene objects",
             "access": "private",
             "tagname": "",
@@ -2215,7 +2256,7 @@
         },
         {
             "file": "src/cutie.js",
-            "line": 210,
+            "line": 206,
             "description": "Preloads a list of scenes, and adds the preload event listeners\nto the first scene in the list",
             "access": "private",
             "tagname": "",
@@ -2231,7 +2272,7 @@
         },
         {
             "file": "src/cutie.js",
-            "line": 246,
+            "line": 242,
             "description": "Description",
             "access": "private",
             "tagname": "",
@@ -2251,7 +2292,7 @@
         },
         {
             "file": "src/cutie.js",
-            "line": 260,
+            "line": 256,
             "description": "Description",
             "access": "private",
             "tagname": "",
@@ -2271,7 +2312,7 @@
         },
         {
             "file": "src/cutie.js",
-            "line": 275,
+            "line": 271,
             "itemtype": "method",
             "name": "showFPS",
             "access": "private",
@@ -2288,7 +2329,7 @@
         },
         {
             "file": "src/cutie.js",
-            "line": 292,
+            "line": 288,
             "itemtype": "method",
             "name": "updateFPS",
             "access": "private",
@@ -2298,14 +2339,14 @@
         },
         {
             "file": "src/cutie.js",
-            "line": 350,
+            "line": 346,
             "description": "Fixed touch events for CacoonJS.",
             "class": "cutie",
             "module": "cutie"
         },
         {
             "file": "src/cutie.js",
-            "line": 354,
+            "line": 350,
             "description": "Protected Function updatePointerPosition",
             "itemtype": "method",
             "name": "_updatePointerPosition",
@@ -2363,19 +2404,19 @@
         },
         {
             "message": "unknown tag: memberof",
-            "line": " src/Scene.js:196"
+            "line": " src/Scene.js:198"
         },
         {
             "message": "replacing incorrect tag: function with method",
-            "line": " src/Scene.js:196"
+            "line": " src/Scene.js:198"
         },
         {
             "message": "unknown tag: memberof",
-            "line": " src/Scene.js:222"
+            "line": " src/Scene.js:224"
         },
         {
             "message": "replacing incorrect tag: function with method",
-            "line": " src/Scene.js:222"
+            "line": " src/Scene.js:224"
         },
         {
             "message": "unknown tag: memberof",
@@ -2407,27 +2448,27 @@
         },
         {
             "message": "Missing item type\nPuts the loader (used from preloading) in a map we can use to reference later.",
-            "line": " src/cutie.js:183"
+            "line": " src/cutie.js:179"
         },
         {
             "message": "Missing item type\nDescription:\n     Calls the internel Ticks on all scene objects",
-            "line": " src/cutie.js:195"
+            "line": " src/cutie.js:191"
         },
         {
             "message": "Missing item type\nPreloads a list of scenes, and adds the preload event listeners\nto the first scene in the list",
-            "line": " src/cutie.js:210"
+            "line": " src/cutie.js:206"
         },
         {
             "message": "Missing item type\nDescription",
-            "line": " src/cutie.js:246"
+            "line": " src/cutie.js:242"
         },
         {
             "message": "Missing item type\nDescription",
-            "line": " src/cutie.js:260"
+            "line": " src/cutie.js:256"
         },
         {
             "message": "Missing item type\nFixed touch events for CacoonJS.",
-            "line": " src/cutie.js:350"
+            "line": " src/cutie.js:346"
         }
     ]
 }

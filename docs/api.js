@@ -8,6 +8,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "DragAndDrop",
         "EightDirectionalMovement",
         "Follow",
+        "Joystick",
         "JoystickMovement",
         "KeyCodes",
         "Log",

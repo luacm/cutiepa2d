@@ -56,6 +56,8 @@
             
                 <li><a href="../classes/Follow.html">Follow</a></li>
             
+                <li><a href="../classes/Joystick.html">Joystick</a></li>
+            
                 <li><a href="../classes/JoystickMovement.html">JoystickMovement</a></li>
             
                 <li><a href="../classes/KeyCodes.html">KeyCodes</a></li>
@@ -287,11 +289,9 @@ this.cutie.Behavior = this.cutie.Behavior || {};
             while(--i &gt;= 0) {
                 var b = _bullets[i];
                 b.pos = b.pos.add(b.dir.scale(time));
-
-                if(b.pos.x &lt; 0 || b.pos.x &gt; _stageWidth || b.pos.y &lt; 0 || b.pos.y &gt; _stageHeight) {
+                if((b.pos.x + b.obj.image.width/2) &lt; 0 || (b.pos.x - b.obj.image.width/2) &gt; _stageWidth || (b.pos.y + b.obj.image.height/2) &lt; 0 || (b.pos.y - b.obj.image.height/2) &gt; _stageHeight) {
                     removeBullet(_bullets[i]);
                     _bullets.splice(i, 1);
-                    cutie.Log.v(&quot;out of bounds&quot;);
                 }
 
                 b.obj.x = b.pos.x;
