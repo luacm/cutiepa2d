@@ -44,6 +44,8 @@
             
                 <li><a href="../classes/Behavior.html">Behavior</a></li>
             
+                <li><a href="../classes/Button.html">Button</a></li>
+            
                 <li><a href="../classes/cutie.html">cutie</a></li>
             
                 <li><a href="../classes/DPadMovement.html">DPadMovement</a></li>
@@ -227,6 +229,16 @@ this.cutie = this.cutie || {};
      * @public
      */
     Scene.prototype.init = function() {
+    }
+
+    /**
+     * Overwrite this function to declare what happens when the scene resets. By default, it
+     * simply removes all children.
+     * @method reset
+     * @public
+     */
+    Scene.prototype.reset = function() {
+        this.removeAllChildren();
     }
 
     /**

@@ -44,6 +44,8 @@
             
                 <li><a href="../classes/Behavior.html">Behavior</a></li>
             
+                <li><a href="../classes/Button.html">Button</a></li>
+            
                 <li><a href="../classes/cutie.html">cutie</a></li>
             
                 <li><a href="../classes/DPadMovement.html">DPadMovement</a></li>
@@ -223,11 +225,25 @@ After that, you should be good to go! We have some examples in the <a href="http
                                 
                             </li>
                         
+                            <li class="index-item method private">
+                                <a href="#method_showFPS">showFPS</a>
+
+                                
+                                
+                            </li>
+                        
                             <li class="index-item method public">
                                 <a href="#method_start">start</a>
 
                                 
                                     <span class="flag static">static</span>
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method private">
+                                <a href="#method_updateFPS">updateFPS</a>
+
                                 
                                 
                             </li>
@@ -304,7 +320,7 @@ After that, you should be good to go! We have some examples in the <a href="http
             
         
         
-        <a href="../files/src_cutie.js.html#l344"><code>_updatePointerPosition:344</code></a>
+        <a href="../files/src_cutie.js.html#l354"><code>_updatePointerPosition:354</code></a>
         
         </p>
 
@@ -420,7 +436,7 @@ After that, you should be good to go! We have some examples in the <a href="http
             
         
         
-        <a href="../files/src_cutie.js.html#l167"><code>getActiveScene:167</code></a>
+        <a href="../files/src_cutie.js.html#l172"><code>getActiveScene:172</code></a>
         
         </p>
 
@@ -497,7 +513,7 @@ After that, you should be good to go! We have some examples in the <a href="http
             
         
         
-        <a href="../files/src_cutie.js.html#l156"><code>getStage:156</code></a>
+        <a href="../files/src_cutie.js.html#l161"><code>getStage:161</code></a>
         
         </p>
 
@@ -586,7 +602,7 @@ After that, you should be good to go! We have some examples in the <a href="http
             
         
         
-        <a href="../files/src_cutie.js.html#l139"><code>registerScene:139</code></a>
+        <a href="../files/src_cutie.js.html#l144"><code>registerScene:144</code></a>
         
         </p>
 
@@ -665,7 +681,7 @@ After that, you should be good to go! We have some examples in the <a href="http
             
                 <li class="arg">
                     
-                        <code>props</code>
+                        <code class="optional">[props={}]</code>
                     
                 </li>
             
@@ -734,12 +750,142 @@ not already preloaded, it will be preloaded</p>
                     
 
                     <div class="param-description">
-                        <pre><code>   The scene to be made active.</code></pre>
+                        <p>The scene to be made active.</p>
 
                     </div>
 
                     
                 </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name optional">[props={}]</code>
+                        <span class="type">Object</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>A series of properties that affects how the scene is set.</p>
+
+                    </div>
+
+                    
+                        <ul class="params-list">
+                            
+                            <li class="param">
+                                
+                                    <code class="param-name optional">[preloadScenes]</code>
+                                    <span class="type">String</span>
+                                    <span class="flag optional" title="This parameter is optional.">optional</span>
+                                
+
+                                <div class="param-description">
+                                    <p>Which additional scenes to preload when you load 
+                                        this scene. The progress bar for this scene will 
+                                        be representative of this list&#39;s preload progress.</p>
+
+                                </div>
+
+                                
+                            </li>
+                            
+                            <li class="param">
+                                
+                                    <code class="param-name optional">[reset=false]</code>
+                                    <span class="type">Boolean</span>
+                                    <span class="flag optional" title="This parameter is optional.">optional</span>
+                                
+
+                                <div class="param-description">
+                                    <p>If true, it will call the reset() method on the scene
+                                     before initializing it. This is useful if you are 
+                                     revisiting a scene, but don&#39;t want it to keep its
+                                     former state.</p>
+
+                                </div>
+
+                                
+                            </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_showFPS" class="method item private">
+    <h3 class="name"><code>showFPS</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>props</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_cutie.js.html#l275"><code>showFPS:275</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
             
                 <li class="param">
                     
@@ -750,11 +896,7 @@ not already preloaded, it will be preloaded</p>
                     
 
                     <div class="param-description">
-                        <pre><code>   A series of properties that affects how the scene is set.
-   "preloadScenes": Which additional scenes to preload when you 
-                    load this scene. The progress bar for this 
-                    scene will be representative of this list&#39;s
-                    preload progress.</code></pre>
+                        <p>description</p>
 
                     </div>
 
@@ -987,6 +1129,62 @@ not already preloaded, it will be preloaded</p>
             
             </ul>
         </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_updateFPS" class="method item private">
+    <h3 class="name"><code>updateFPS</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_cutie.js.html#l292"><code>updateFPS:292</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        
+    </div>
+
     
 
     

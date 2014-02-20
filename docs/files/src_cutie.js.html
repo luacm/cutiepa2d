@@ -44,6 +44,8 @@
             
                 <li><a href="../classes/Behavior.html">Behavior</a></li>
             
+                <li><a href="../classes/Button.html">Button</a></li>
+            
                 <li><a href="../classes/cutie.html">cutie</a></li>
             
                 <li><a href="../classes/DPadMovement.html">DPadMovement</a></li>
@@ -221,14 +223,15 @@ this.cutie = createjs;
      * @method setScene
      * @public
      * @static
-     * @param {Scene} scene 
-     *        The scene to be made active.
-     * @param {Object} props 
-     *        A series of properties that affects how the scene is set.
-     *        &quot;preloadScenes&quot;: Which additional scenes to preload when you 
-     *                         load this scene. The progress bar for this 
-     *                         scene will be representative of this list&#x27;s
-     *                         preload progress.
+     * @param {Scene} scene The scene to be made active.
+     * @param {Object} [props={}] A series of properties that affects how the scene is set.
+     * @param {String[]} [props.preloadScenes] Which additional scenes to preload when you load 
+     *                                         this scene. The progress bar for this scene will 
+     *                                         be representative of this list&#x27;s preload progress.
+     * @param {Boolean} [props.reset=false] If true, it will call the reset() method on the scene
+     *                                      before initializing it. This is useful if you are 
+     *                                      revisiting a scene, but don&#x27;t want it to keep its
+     *                                      former state. 
      */
     module.setScene = function(sceneName, props) {
         cutie.Log.v(&quot;cutie.setScene()&quot;);
@@ -240,13 +243,17 @@ this.cutie = createjs;
 
         // Set it as the active scene
         _activeScene = getScene(sceneName);
+
         if (_activeScene) {
+            // Reset it if specified
+            if (props.reset)
+                _activeScene.reset();
+
             // Build the list of scenes to preload and then preload them
             var preloadList = props.preloadScenes || [];
             preloadList.unshift(sceneName);
             preloadList = getScenes(preloadList);
             preloadScenes(preloadList);
-
 
             // Add it to the stage
             _stage.addChild(_activeScene);
@@ -295,6 +302,11 @@ this.cutie = createjs;
         return _activeScene;
     }
 
+    /**
+     * Puts the loader (used from preloading) in a map we can use to reference later.
+     * @param  {String} sceneName The name of the scene whose loader you&#x27;re storing.
+     * @param  {createjs.Loader} loader The loader you wish to store.
+     */
     module.storeLoader = function(sceneName, loader) {
         _loaders[sceneName] = loader;
     }
@@ -383,9 +395,9 @@ this.cutie = createjs;
     }
 
     /**
-     *      @private
-     *
-     *      @param  {Object} props description
+     * @method showFPS
+     * @private
+     * @param  {Object} props description
      */
     function showFPS(props) {
         if (props &amp;&amp; props.visible) {
@@ -400,8 +412,8 @@ this.cutie = createjs;
     }
 
     /**
-     *      @private
-     *
+     * @method updateFPS
+     * @private
      */
     function updateFPS() {
         var avg = _fps.sum/_fps.numTicks;
@@ -463,12 +475,12 @@ this.cutie = createjs;
 (function(){
   /**
    * Protected Function updatePointerPosition
-   *    @method _updatePointerPosition
-   *    @protected
+   * @method _updatePointerPosition
+   * @protected
    *
-   *    @param {Number} id
-   *    @param {Number} pageX
-   *    @param {Number} pageY
+   * @param {Number} id
+   * @param {Number} pageX
+   * @param {Number} pageY
    **/
   createjs.Stage.prototype._updatePointerPosition = function(id, e, pageX, pageY) {
     var rect = this._getElementRect(this.canvas);

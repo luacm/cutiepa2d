@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
     <link rel="shortcut icon" type="image/x-icon" href="../assets/favicon.ico">
     <script src="../assets/js/yui-source.js"></script>
-	<title>cutiepa2d v0.0.0 API Documentation : AsteroidMovement</title>
+	<title>cutiepa2d v0.0.0 API Documentation : Button</title>
 </head>
 <body class="yui3-skin-sam">
 
@@ -113,26 +113,21 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1>AsteroidMovement Class</h1>
+                        <h1>Button Class</h1>
 <div class="box meta">
     
 
     
-        <div class="extends">
-            Extends <a href="../classes/Behavior.html" class="crosslink">Behavior</a>
-        </div>
-    
 
     
         <div class="foundat">
-            Defined in: <a href="../files/src_Behaviors_AsteroidMovement.js.html#l8"><code>AsteroidMovement:8</code></a>
+            Defined in: <a href="../files/src_Button.js.html#l11"><code>Button:11</code></a>
         </div>
     
 
     
         
-            Module: <a href="../modules/Behavior.html">Behavior</a><br>
-            Parent Module: <a href="../modules/cutie.html">cutie</a>
+            Module: <a href="../modules/cutie.html">cutie</a>
         
     
 
@@ -142,17 +137,15 @@
 
 
 <div class="box intro">
-    <p>This behavior give the object controls like the classic asteroid game;
-thrust forward, turn left, and turn right. The center of rotation of the
-object must be set seperately.</p>
+    <p>A cute little button.</p>
 
 </div>
 
 
     <div class="constructor">
         <h2>Constructor</h2>
-        <div id="method_AsteroidMovement" class="method item">
-    <h3 class="name"><code>AsteroidMovement</code></h3>
+        <div id="method_Button" class="method item">
+    <h3 class="name"><code>Button</code></h3>
 
     
         <div class="args">
@@ -160,7 +153,43 @@ object must be set seperately.</p>
             
                 <li class="arg">
                     
-                        <code class="optional">[props]</code>
+                        <code>x</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>y</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>width</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>height</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code class="optional">[text=&quot;&quot;]</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code class="optional">[styleProps={}]</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>[styleProps.textStyle=&quot;18px</code>
                     
                 </li>
             
@@ -193,7 +222,7 @@ object must be set seperately.</p>
             
         
         
-        <a href="../files/src_Behaviors_AsteroidMovement.js.html#l8"><code>AsteroidMovement:8</code></a>
+        <a href="../files/src_Button.js.html#l11"><code>Button:11</code></a>
         
         </p>
 
@@ -215,7 +244,83 @@ object must be set seperately.</p>
             
                 <li class="param">
                     
-                        <code class="param-name optional">[props]</code>
+                        <code class="param-name">x</code>
+                        <span class="type">Number</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">y</code>
+                        <span class="type">Number</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">width</code>
+                        <span class="type">Number</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">height</code>
+                        <span class="type">Number</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name optional">[text=&quot;&quot;]</code>
+                        <span class="type">String</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name optional">[styleProps={}]</code>
                         <span class="type">Object</span>
                         <span class="flag optional" title="This parameter is optional.">optional</span>
                     
@@ -223,8 +328,7 @@ object must be set seperately.</p>
                     
 
                     <div class="param-description">
-                        <p>The properties being passed in.</p>
-
+                         
                     </div>
 
                     
@@ -232,14 +336,13 @@ object must be set seperately.</p>
                             
                             <li class="param">
                                 
-                                    <code class="param-name optional">[keys=[&#x27;UpArrow&#x27;,&#x27;RightArrow&#x27;,&#x27;LeftArrow&#x27;]</code>
-                                    <span class="type">Number</span>
+                                    <code class="param-name optional">[fgColor=&quot;#f3f3f3&quot;]</code>
+                                    <span class="type">String</span>
                                     <span class="flag optional" title="This parameter is optional.">optional</span>
                                 
 
                                 <div class="param-description">
-                                    <p>The keycodes for directional movement. {forward, turnRight, turnLeft}</p>
-
+                                    
                                 </div>
 
                                 
@@ -247,14 +350,13 @@ object must be set seperately.</p>
                             
                             <li class="param">
                                 
-                                    <code class="param-name optional">[acceleration=100]</code>
-                                    <span class="type">Number</span>
+                                    <code class="param-name optional">[bgColor=&quot;#cccccc&quot;]</code>
+                                    <span class="type">String</span>
                                     <span class="flag optional" title="This parameter is optional.">optional</span>
                                 
 
                                 <div class="param-description">
-                                    <p>Speed gained in pixels/s^2.</p>
-
+                                    
                                 </div>
 
                                 
@@ -262,66 +364,35 @@ object must be set seperately.</p>
                             
                             <li class="param">
                                 
-                                    <code class="param-name optional">[deceleration=40]</code>
-                                    <span class="type">Number</span>
+                                    <code class="param-name optional">[textColor=&quot;#000000&quot;]</code>
+                                    <span class="type">String</span>
                                     <span class="flag optional" title="This parameter is optional.">optional</span>
                                 
 
                                 <div class="param-description">
-                                    <p>Speed lost in pixels/s^2 (when no key is pressed).</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name optional">[rotation=90]</code>
-                                    <span class="type">Number</span>
-                                    <span class="flag optional" title="This parameter is optional.">optional</span>
-                                
-
-                                <div class="param-description">
-                                    <p>Rotation speed in deg/s.</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name optional">[setCenter=true]</code>
-                                    <span class="type">Boolean</span>
-                                    <span class="flag optional" title="This parameter is optional.">optional</span>
-                                
-
-                                <div class="param-description">
-                                    <p>Automatically register the image center.</p>
-
-                                </div>
-
-                                
-                            </li>
-                            
-                            <li class="param">
-                                
-                                    <code class="param-name optional">[angleOffset=90]</code>
-                                    <span class="type">Number</span>
-                                    <span class="flag optional" title="This parameter is optional.">optional</span>
-                                
-
-                                <div class="param-description">
-                                    <p>This is the orientation where 90 is straight up, 
-    the zero point is the cartesian positive x axis and degrees rotate counter-clockwise up from this x axis.</p>
-
+                                    
                                 </div>
 
                                 
                             </li>
                             
                         </ul>
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">[styleProps.textStyle=&quot;18px</code>
+                        <span class="type">String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Arial"]</p>
+
+                    </div>
+
                     
                 </li>
             
@@ -357,24 +428,31 @@ object must be set seperately.</p>
                 <div class="index-section methods">
                     <h3>Methods</h3>
 
-                    <ul class="index-list methods extends">
+                    <ul class="index-list methods">
                         
-                            <li class="index-item method public inherited">
-                                <a href="#method_clean">clean</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method public inherited">
+                            <li class="index-item method public">
                                 <a href="#method_init">init</a>
 
                                 
                                 
                             </li>
                         
-                            <li class="index-item method public inherited">
-                                <a href="#method_tick">tick</a>
+                            <li class="index-item method public">
+                                <a href="#method_onProgressUpdate">onProgressUpdate</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method public">
+                                <a href="#method_preload">preload</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method public">
+                                <a href="#method_Preloader">Preloader</a>
 
                                 
                                 
@@ -396,110 +474,11 @@ object must be set seperately.</p>
                 <h2 class="off-left">Methods</h2>
 
                 
-                    <div id="method_clean" class="method item public inherited">
-    <h3 class="name"><code>clean</code></h3>
-
-    
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>obj</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
-    
-
-    
-
-    
-
-    
-        <span class="flag public">public</span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                <p>Inherited from
-                <a href="../classes/Behavior.html#method_clean">Behavior</a>:
-            
-        
-        
-        <a href="../files/src_Behaviors_Behavior.js.html#l36"><code>clean:36</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>Override this function to declare what happens when the behavior is removed. Common
-patterns include removing event listeners or getting rid of DisplayObjects you added.</p>
-
-    </div>
-
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">obj</code>
-                        <span class="type">createjs.DisplayObject</span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>The object the behavior is acting upon.</p>
-
-                    </div>
-
-                    
-                </li>
-            
-            </ul>
-        </div>
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="method_init" class="method item public inherited">
+                    <div id="method_init" class="method item public">
     <h3 class="name"><code>init</code></h3>
 
     
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>obj</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
+        <span class="paren">()</span>
     
 
     
@@ -521,12 +500,15 @@ patterns include removing event listeners or getting rid of DisplayObjects you a
     <div class="meta">
         
             
-                <p>Inherited from
-                <a href="../classes/Behavior.html#method_init">Behavior</a>:
+                
+                <p>
+                
+                Defined in
+                
             
         
         
-        <a href="../files/src_Behaviors_Behavior.js.html#l25"><code>init:25</code></a>
+        <a href="../files/src_Preloaders_Preloader.js.html#l16"><code>init:16</code></a>
         
         </p>
 
@@ -537,36 +519,12 @@ patterns include removing event listeners or getting rid of DisplayObjects you a
     </div>
 
     <div class="description">
-        <p>Override this function to declare what happens when the behavior is added. Common
+        <p>Override this function to declare what happens when the preloader is added. Common
 patterns include adding event listeners and initializing private fields.</p>
 
     </div>
 
     
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">obj</code>
-                        <span class="type">createjs.DisplayObject</span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>The object the behavior is acting upon.</p>
-
-                    </div>
-
-                    
-                </li>
-            
-            </ul>
-        </div>
-    
 
     
 
@@ -574,18 +532,12 @@ patterns include adding event listeners and initializing private fields.</p>
 </div>
 
                 
-                    <div id="method_tick" class="method item public inherited">
-    <h3 class="name"><code>tick</code></h3>
+                    <div id="method_onProgressUpdate" class="method item public">
+    <h3 class="name"><code>onProgressUpdate</code></h3>
 
     
         <div class="args">
             <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>obj</code>
-                    
-                </li>
             
                 <li class="arg">
                     
@@ -616,12 +568,15 @@ patterns include adding event listeners and initializing private fields.</p>
     <div class="meta">
         
             
-                <p>Inherited from
-                <a href="../classes/Behavior.html#method_tick">Behavior</a>:
+                
+                <p>
+                
+                Defined in
+                
             
         
         
-        <a href="../files/src_Behaviors_Behavior.js.html#l47"><code>tick:47</code></a>
+        <a href="../files/src_Preloaders_Preloader.js.html#l24"><code>onProgressUpdate:24</code></a>
         
         </p>
 
@@ -632,8 +587,8 @@ patterns include adding event listeners and initializing private fields.</p>
     </div>
 
     <div class="description">
-        <p>Override this function to declare what happens on every frame update. This is where
-the behavior should do actual work on the object.</p>
+        <p>Override this function to declare what happens whenever progress is updated. This is where
+you&#39;ll want to update your visual to say what happens when you load more stuff.</p>
 
     </div>
 
@@ -645,22 +600,6 @@ the behavior should do actual work on the object.</p>
             
                 <li class="param">
                     
-                        <code class="param-name">obj</code>
-                        <span class="type">createjs.DisplayObject</span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>The object the behavior is acting upon.</p>
-
-                    </div>
-
-                    
-                </li>
-            
-                <li class="param">
-                    
                         <code class="param-name">e</code>
                         <span class="type">createjs.Event</span>
                     
@@ -668,7 +607,193 @@ the behavior should do actual work on the object.</p>
                     
 
                     <div class="param-description">
-                        <p>The event for the tick.</p>
+                        <p>The event for the progress update. Contains information about 
+                          how much loading has been completed.</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_preload" class="method item public">
+    <h3 class="name"><code>preload</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>loader</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_Button.js.html#l86"><code>preload:86</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Override this method and load all of your assets you want preloaded for this scene.</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">loader</code>
+                        <span class="type">createjs.Loader</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The loader to load all of your assets into.</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_Preloader" class="method item public">
+    <h3 class="name"><code>Preloader</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code class="optional">[props]</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_Preloaders_Preloader.js.html#l6"><code>Preloader:6</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>The constructor. The only real work you can do here is initialize variables that 
+don&#39;t require the object you&#39;re acting upon, perhaps initializing properties to 
+default values. Most of you work will be done in init().</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name optional">[props]</code>
+                        <span class="type">Object</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The properties passed in to the Preloader.</p>
 
                     </div>
 

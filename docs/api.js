@@ -3,6 +3,7 @@ YUI.add("yuidoc-meta", function(Y) {
     "classes": [
         "AsteroidMovement",
         "Behavior",
+        "Button",
         "DPadMovement",
         "DragAndDrop",
         "EightDirectionalMovement",

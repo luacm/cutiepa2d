@@ -99,6 +99,15 @@
                 "cutie.Preloader": 1
             }
         },
+        "src/Button.js": {
+            "name": "src/Button.js",
+            "modules": {},
+            "classes": {
+                "Button": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "src/DisplayObject.js": {
             "name": "src/DisplayObject.js",
             "modules": {},
@@ -208,6 +217,7 @@
                 "JoystickMovement": 1,
                 "Route": 1,
                 "Shoot": 1,
+                "Button": 1,
                 "KeyCodes": 1,
                 "Log": 1,
                 "ScaleType": 1,
@@ -701,12 +711,6 @@
                     "optional": true,
                     "props": [
                         {
-                            "name": "path[",
-                            "description": "Array of coorinates {x,y} to follow, ordered from first to last.",
-                            "type": "Array",
-                            "optional": true
-                        },
-                        {
                             "name": "speed",
                             "description": "Speed in px/s.",
                             "type": "Number",
@@ -728,6 +732,12 @@
                             "optdefault": "true"
                         }
                     ]
+                },
+                {
+                    "name": "",
+                    "description": "Array of coorinates {x,y} to follow, ordered from first to last.",
+                    "type": "Array",
+                    "optional": true
                 }
             ]
         },
@@ -744,7 +754,7 @@
             "namespace": "",
             "file": "src/Behaviors/Shoot.js",
             "line": 8,
-            "description": "This behavior allows an object",
+            "description": "This behavior allows an object to shoot projectiles.",
             "extends": "Behavior",
             "is_constructor": 1,
             "params": [
@@ -752,13 +762,11 @@
                     "name": "props",
                     "description": "The properties being passed in.",
                     "type": "Object",
-                    "optional": true,
                     "props": [
                         {
                             "name": "bullet",
                             "description": "The object to render on a fire.",
-                            "type": "Object",
-                            "optional": true
+                            "type": "Object"
                         },
                         {
                             "name": "speed",
@@ -769,27 +777,27 @@
                         },
                         {
                             "name": "max",
-                            "description": "The maximum number of bullets before they are recycled.\n     (0) indicates no recycling (bullets last forever).",
+                            "description": "The maximum number of bullets before they are recycled. (0) indicates \n                                no recycling (bullets last forever).",
                             "type": "Number",
                             "optional": true,
                             "optdefault": "100"
                         },
                         {
                             "name": "duration",
-                            "description": "he maximum bullet's lifetime before it get's removed.\n     (0) indicates infinite.",
+                            "description": "The maximum bullet's lifetime before it get's removed. (0) indicates infinite.",
                             "type": "Number",
                             "optional": true,
                             "optdefault": "0"
                         },
                         {
                             "name": "origin",
-                            "description": "The x and y position from which to fire the bullet, relative\n     to an unrotated object object's x and y position.",
+                            "description": "The x and y position from which to fire the bullet, relative to an unrotated \n                                 object object's x and y position.",
                             "type": "Object[]",
                             "optional": true
                         },
                         {
                             "name": "angleOffset",
-                            "description": "This is the orientation where 90 is straight up, \n    the zero point is the cartesian positive x axis and degrees rotate counter-clockwise up from this x axis.",
+                            "description": "This is the orientation where 90 is straight up, the zero point is the \n                                       cartesian positive x axis and degrees rotate counter-clockwise up from this x axis.",
                             "type": "Number",
                             "optional": true,
                             "optdefault": "90"
@@ -810,24 +818,105 @@
                         },
                         {
                             "name": "useMouse",
-                            "description": "If set to true, use a mouse click to fire. If false\n    the key will be set to fireKey.",
+                            "description": "If set to true, use a mouse click to fire. If false the key will be set to fireKey.",
+                            "type": "Boolean",
+                            "optional": true,
+                            "optdefault": "true"
+                        },
+                        {
+                            "name": "fireContinuous",
+                            "description": "If set, firing will be continuous while key/mouse is pressed.",
                             "type": "Boolean",
                             "optional": true,
                             "optdefault": "false"
                         },
                         {
                             "name": "fireRate",
-                            "description": "Number of bullets to fire per second. Used only if\n    fireContinuous is set to true. Default is 5.",
+                            "description": "Number of bullets to fire per second. Used only if fireContinuous is set to true. \n                                   Default is 5.",
                             "type": "Number",
                             "optional": true,
                             "optdefault": "5"
                         }
                     ]
+                }
+            ]
+        },
+        "Button": {
+            "name": "Button",
+            "shortname": "Button",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "cutie",
+            "namespace": "",
+            "file": "src/Button.js",
+            "line": 11,
+            "description": "A cute little button.",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "x",
+                    "description": "",
+                    "type": "Number"
                 },
                 {
-                    "name": "[props.fireContinuous=false}If",
-                    "description": "set, firing will be continuous while key/mouse\n    is pressed.",
-                    "type": "Boolean"
+                    "name": "y",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "width",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "height",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "text",
+                    "description": "",
+                    "type": "String",
+                    "optional": true,
+                    "optdefault": "\"\""
+                },
+                {
+                    "name": "styleProps",
+                    "description": "",
+                    "type": "Object",
+                    "optional": true,
+                    "optdefault": "{}",
+                    "props": [
+                        {
+                            "name": "fgColor",
+                            "description": "",
+                            "type": "String",
+                            "optional": true,
+                            "optdefault": "\"#f3f3f3\""
+                        },
+                        {
+                            "name": "bgColor",
+                            "description": "",
+                            "type": "String",
+                            "optional": true,
+                            "optdefault": "\"#cccccc\""
+                        },
+                        {
+                            "name": "textColor",
+                            "description": "",
+                            "type": "String",
+                            "optional": true,
+                            "optdefault": "\"#000000\""
+                        }
+                    ]
+                },
+                {
+                    "name": "[styleProps.textStyle=\"18px",
+                    "description": "Arial\"]",
+                    "type": "String"
                 }
             ]
         },
@@ -986,7 +1075,7 @@
             "file": "src/Preloaders/Preloader.js",
             "line": 1,
             "description": "A collection of preloaders that show progress while assets are loading.",
-            "class": "KeyCodes",
+            "class": "Button",
             "module": "cutie",
             "namespace": "cutie.Preloader"
         },
@@ -1007,7 +1096,7 @@
                     "optional": true
                 }
             ],
-            "class": "KeyCodes",
+            "class": "Button",
             "module": "cutie",
             "namespace": "cutie.Preloader"
         },
@@ -1020,7 +1109,7 @@
             "name": "init",
             "access": "public",
             "tagname": "",
-            "class": "KeyCodes",
+            "class": "Button",
             "module": "cutie",
             "namespace": "cutie.Preloader"
         },
@@ -1040,17 +1129,34 @@
                     "type": "createjs.Event"
                 }
             ],
-            "class": "KeyCodes",
+            "class": "Button",
             "module": "cutie",
             "namespace": "cutie.Preloader"
+        },
+        {
+            "file": "src/Button.js",
+            "line": 86,
+            "description": "Override this method and load all of your assets you want preloaded for this scene.",
+            "itemtype": "method",
+            "name": "preload",
+            "access": "public",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "loader",
+                    "description": "The loader to load all of your assets into.",
+                    "type": "createjs.Loader"
+                }
+            ],
+            "class": "Button",
+            "module": "cutie"
         },
         {
             "file": "src/DisplayObject.js",
             "line": 1,
             "description": "CutiePa2d - Game Framework built on createjs and easeljs\n\nContributors:\n     - Greyson Parrelli @greysonp\n     - Adam Schaub   @maybenot\n     - Stephen Louie @stephenrlouie\n\nDeveloped Jan - Feb 2014 to aid Lehigh studens for the mobiLEhigh competition",
             "class": "KeyCodes",
-            "module": "cutie",
-            "namespace": "cutie.Preloader"
+            "module": "cutie"
         },
         {
             "file": "src/KeyCodes.js",
@@ -1676,6 +1782,17 @@
         {
             "file": "src/Scene.js",
             "line": 112,
+            "description": "Overwrite this function to declare what happens when the scene resets. By default, it\nsimply removes all children.",
+            "itemtype": "method",
+            "name": "reset",
+            "access": "public",
+            "tagname": "",
+            "class": "Scene",
+            "module": "cutie"
+        },
+        {
+            "file": "src/Scene.js",
+            "line": 122,
             "description": "Overwrite this function to declare what happens upon updating the scene. In other\nwords, this method is called every 1/framerate seconds.",
             "itemtype": "method",
             "name": "tick",
@@ -1693,7 +1810,7 @@
         },
         {
             "file": "src/Scene.js",
-            "line": 123,
+            "line": 133,
             "description": "The 'super' method for the tick that is overwritten by the end user. Does\nsome housekeeping (like calling children's ticks) in addition to calling\nthe user-defined tick().",
             "itemtype": "method",
             "name": "_tickInternal",
@@ -1711,7 +1828,7 @@
         },
         {
             "file": "src/Scene.js",
-            "line": 140,
+            "line": 150,
             "description": "Use this function to register a new Collision Group with the current scene.",
             "itemtype": "method",
             "name": "registerCollisionGroup",
@@ -1758,7 +1875,7 @@
         },
         {
             "file": "src/Scene.js",
-            "line": 189,
+            "line": 199,
             "description": "Use this function to add a DisplayObject to a collision group.",
             "memberof": "cutie.Scene#",
             "itemtype": "method",
@@ -1795,7 +1912,7 @@
         },
         {
             "file": "src/Scene.js",
-            "line": 215,
+            "line": 225,
             "description": "Use this function to remove a DisplayObject from a collision group.",
             "memberof": "cutie.Scene#",
             "itemtype": "method",
@@ -1976,13 +2093,30 @@
             "params": [
                 {
                     "name": "scene",
-                    "description": "\n       The scene to be made active.",
+                    "description": "The scene to be made active.",
                     "type": "Scene"
                 },
                 {
                     "name": "props",
-                    "description": "\n       A series of properties that affects how the scene is set.\n       \"preloadScenes\": Which additional scenes to preload when you \n                        load this scene. The progress bar for this \n                        scene will be representative of this list's\n                        preload progress.",
-                    "type": "Object"
+                    "description": "A series of properties that affects how the scene is set.",
+                    "type": "Object",
+                    "optional": true,
+                    "optdefault": "{}",
+                    "props": [
+                        {
+                            "name": "preloadScenes",
+                            "description": "Which additional scenes to preload when you load \n                                        this scene. The progress bar for this scene will \n                                        be representative of this list's preload progress.",
+                            "type": "String[]",
+                            "optional": true
+                        },
+                        {
+                            "name": "reset",
+                            "description": "If true, it will call the reset() method on the scene\n                                     before initializing it. This is useful if you are \n                                     revisiting a scene, but don't want it to keep its\n                                     former state.",
+                            "type": "Boolean",
+                            "optional": true,
+                            "optdefault": "false"
+                        }
+                    ]
                 }
             ],
             "class": "cutie",
@@ -1990,7 +2124,7 @@
         },
         {
             "file": "src/cutie.js",
-            "line": 139,
+            "line": 144,
             "description": "Adds the scene to the list of registered scenes.",
             "itemtype": "method",
             "name": "registerScene",
@@ -2014,7 +2148,7 @@
         },
         {
             "file": "src/cutie.js",
-            "line": 156,
+            "line": 161,
             "description": "Gets a references to the stage being managed by cutie.",
             "itemtype": "method",
             "name": "getStage",
@@ -2030,7 +2164,7 @@
         },
         {
             "file": "src/cutie.js",
-            "line": 167,
+            "line": 172,
             "description": "Gets a references to the active scene being managed by cutie.",
             "itemtype": "method",
             "name": "getActiveScene",
@@ -2046,7 +2180,26 @@
         },
         {
             "file": "src/cutie.js",
-            "line": 185,
+            "line": 183,
+            "description": "Puts the loader (used from preloading) in a map we can use to reference later.",
+            "params": [
+                {
+                    "name": "sceneName",
+                    "description": "The name of the scene whose loader you're storing.",
+                    "type": "String"
+                },
+                {
+                    "name": "loader",
+                    "description": "The loader you wish to store.",
+                    "type": "createjs.Loader"
+                }
+            ],
+            "class": "cutie",
+            "module": "cutie"
+        },
+        {
+            "file": "src/cutie.js",
+            "line": 195,
             "description": "Description:\n     Calls the internel Ticks on all scene objects",
             "access": "private",
             "tagname": "",
@@ -2062,7 +2215,7 @@
         },
         {
             "file": "src/cutie.js",
-            "line": 200,
+            "line": 210,
             "description": "Preloads a list of scenes, and adds the preload event listeners\nto the first scene in the list",
             "access": "private",
             "tagname": "",
@@ -2078,7 +2231,7 @@
         },
         {
             "file": "src/cutie.js",
-            "line": 236,
+            "line": 246,
             "description": "Description",
             "access": "private",
             "tagname": "",
@@ -2098,7 +2251,7 @@
         },
         {
             "file": "src/cutie.js",
-            "line": 250,
+            "line": 260,
             "description": "Description",
             "access": "private",
             "tagname": "",
@@ -2118,7 +2271,9 @@
         },
         {
             "file": "src/cutie.js",
-            "line": 265,
+            "line": 275,
+            "itemtype": "method",
+            "name": "showFPS",
             "access": "private",
             "tagname": "",
             "params": [
@@ -2133,7 +2288,9 @@
         },
         {
             "file": "src/cutie.js",
-            "line": 282,
+            "line": 292,
+            "itemtype": "method",
+            "name": "updateFPS",
             "access": "private",
             "tagname": "",
             "class": "cutie",
@@ -2141,14 +2298,14 @@
         },
         {
             "file": "src/cutie.js",
-            "line": 340,
+            "line": 350,
             "description": "Fixed touch events for CacoonJS.",
             "class": "cutie",
             "module": "cutie"
         },
         {
             "file": "src/cutie.js",
-            "line": 344,
+            "line": 354,
             "description": "Protected Function updatePointerPosition",
             "itemtype": "method",
             "name": "_updatePointerPosition",
@@ -2206,19 +2363,19 @@
         },
         {
             "message": "unknown tag: memberof",
-            "line": " src/Scene.js:189"
+            "line": " src/Scene.js:199"
         },
         {
             "message": "replacing incorrect tag: function with method",
-            "line": " src/Scene.js:189"
+            "line": " src/Scene.js:199"
         },
         {
             "message": "unknown tag: memberof",
-            "line": " src/Scene.js:215"
+            "line": " src/Scene.js:225"
         },
         {
             "message": "replacing incorrect tag: function with method",
-            "line": " src/Scene.js:215"
+            "line": " src/Scene.js:225"
         },
         {
             "message": "unknown tag: memberof",
@@ -2249,32 +2406,28 @@
             "line": " src/collisionDetector.js:26"
         },
         {
+            "message": "Missing item type\nPuts the loader (used from preloading) in a map we can use to reference later.",
+            "line": " src/cutie.js:183"
+        },
+        {
             "message": "Missing item type\nDescription:\n     Calls the internel Ticks on all scene objects",
-            "line": " src/cutie.js:185"
+            "line": " src/cutie.js:195"
         },
         {
             "message": "Missing item type\nPreloads a list of scenes, and adds the preload event listeners\nto the first scene in the list",
-            "line": " src/cutie.js:200"
+            "line": " src/cutie.js:210"
         },
         {
             "message": "Missing item type\nDescription",
-            "line": " src/cutie.js:236"
+            "line": " src/cutie.js:246"
         },
         {
             "message": "Missing item type\nDescription",
-            "line": " src/cutie.js:250"
-        },
-        {
-            "message": "Missing item type",
-            "line": " src/cutie.js:265"
-        },
-        {
-            "message": "Missing item type",
-            "line": " src/cutie.js:282"
+            "line": " src/cutie.js:260"
         },
         {
             "message": "Missing item type\nFixed touch events for CacoonJS.",
-            "line": " src/cutie.js:340"
+            "line": " src/cutie.js:350"
         }
     ]
 }

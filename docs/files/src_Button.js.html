@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
     <link rel="shortcut icon" type="image/x-icon" href="../assets/favicon.ico">
     <script src="../assets/js/yui-source.js"></script>
-	<title>cutiepa2d v0.0.0 API Documentation : src/Behaviors/Behavior.js</title>
+	<title>cutiepa2d v0.0.0 API Documentation : src/Button.js</title>
 </head>
 <body class="yui3-skin-sam">
 
@@ -114,76 +114,107 @@
                 <div id="docs-main">
                     <div class="content">
                         <script>
-	var name = src/Behaviors/Behavior.js      
+	var name = src/Button.js      
 </script>
-<h1 class="file-heading">File:Behavior.js</h1>
+<h1 class="file-heading">File:Button.js</h1>
 
 <div class="file">
     <pre class="code prettyprint linenums">
 this.cutie = this.cutie || {};
 
 /**
- * A collection of behaviors that add common actions to DisplayObjects. Each member
- * should override the methods described here to make a new Behavior class.
  * @module cutie
- * @submodule Behavior
  */
-
 (function(module) {
+
+    // ======================================================
+    // CONSTRUCTOR
+    // ======================================================
     /**
-     * This is a template for a Behavior. A Behavior is a modular bit of code that invokes
-     * a common pattern of actions on an object. Examples are giving an item eight-directional
-     * movement, having an object follow another object, etc. Cutie already comes with a variety
-     * of Behaviors, but if you&#x27;d like to build one yourself, simply override the methods described
-     * here. *Note: This is just a template. You should never actually create an instance of this
-     * class - it won&#x27;t do anything.*
-     * @class Behavior
+     * A cute little button.
+     * @class Button
      * @constructor
-     * @public
-     * @param {Object} [props] The properties passed in to the Behavior.
+     * @param {Number} x
+     * @param {Number} y
+     * @param {Number} width
+     * @param {Number} height
+     * @param {String} [text=&quot;&quot;]
+     * @param {Object} [styleProps={}]
+     * @param {String} [styleProps.fgColor=&quot;#f3f3f3&quot;]
+     * @param {String} [styleProps.bgColor=&quot;#cccccc&quot;]
+     * @param {String} [styleProps.textStyle=&quot;18px Arial&quot;]
+     * @param {String} [styleProps.textColor=&quot;#000000&quot;]
      */
-    var Behavior = function(props) {
+    var Button = function(x, y, width, height, text, styleProps) {
+        text = text || &quot;&quot;;
 
-        /**
-         * Override this function to declare what happens when the behavior is added. Common
-         * patterns include adding event listeners and initializing private fields.
-         * @method init
-         * @public
-         * @param {createjs.DisplayObject} obj The object the behavior is acting upon.
-         */
-        this.init = function(obj) {
+        styleProps = styleProps || {};
+        styleProps.fgColor = styleProps.fgColor || &quot;#f3f3f3&quot;;
+        styleProps.bgColor = styleProps.bgColor || &quot;#cccccc&quot;
+        styleProps.cornerRadius = (typeof styleProps.cornerRadius != &quot;undefined&quot;) ? styleProps.cornerRadius : 5;
+        styleProps.textStyle = styleProps.textStyle || &quot;18px Arial&quot;;
+        styleProps.textColor = styleProps.textColor || &quot;#000000&quot;;
 
-        }   
-
-        /**
-         * Override this function to declare what happens when the behavior is removed. Common
-         * patterns include removing event listeners or getting rid of DisplayObjects you added.
-         * @method clean
-         * @public
-         * @param  {createjs.DisplayObject} obj The object the behavior is acting upon.
-         */
-        this.clean = function(obj) {
-
-        }
-
-        /**
-         * Override this function to declare what happens on every frame update. This is where
-         * the behavior should do actual work on the object.
-         * @method tick
-         * @public
-         * @param {createjs.DisplayObject} obj The object the behavior is acting upon.
-         * @param {createjs.Event} e The event for the tick.
-         */
-        this.tick = function(obj, e) {
-
-        } 
+        this.initialize(x, y, width, height, text, styleProps);
     }
-});
 
+    Button.prototype = new createjs.Container();
+    Button.prototype.Container_initialize = Button.prototype.initialize;
+    Button.prototype.initialize = function(x, y, width, height, text, styleProps) {
+        // Call super constructor
+        this.Container_initialize();
 
+        // ==================================================
+        // DEFINITIONS
+        // ==================================================
+        
+        // Background
+        this._bg = new createjs.Shape();
+        this._bg.graphics.beginFill(styleProps.bgColor).drawRoundRect(3, 3, width, height, styleProps.cornerRadius);
+        this.addChild(this._bg);
 
+        // Foreground
+        this._fg = new createjs.Shape();
+        this._fg.graphics.beginFill(styleProps.fgColor).drawRoundRect(0, 0, width, height, styleProps.cornerRadius);
+        this.addChild(this._fg);
 
+        // Text
+        this._text = new createjs.Text(text, styleProps.textStyle, styleProps.textColor);
+        var tWidth = this._text.getMeasuredWidth();
+        var tHeight = this._text.getMeasuredHeight();
+        this._text.x = width/2 - tWidth/2;
+        this._text.y = height/2 - tHeight/2;
+        this.addChild(this._text);
 
+        // Events
+        this._fg.addEventListener(&quot;mousedown&quot;, function(e) {
+            e.target.x = 2;
+            e.target.y = 2;
+        });
+
+        this._fg.addEventListener(&quot;pressup&quot;, function(e) {
+          e.target.x = 0;
+          e.target.y = 0;
+        });
+
+        // Set position
+        this.x = x;
+        this.y = y;
+    }
+
+    // ======================================================
+    // PUBLIC FUNCTIONS
+    // ======================================================
+    /**
+     * Override this method and load all of your assets you want preloaded for this scene.
+     * @method preload
+     * @public
+     * @param  {createjs.Loader} loader The loader to load all of your assets into.
+     */
+    
+     
+    module.Button = Button;
+})(this.cutie);
 
     </pre>
 </div>
