@@ -110,6 +110,14 @@ this.cutie = this.cutie || {};
     }
 
     /**
+     * Overwrite this function to declare what happens when the scene resets.
+     * @method reset
+     * @public
+     */
+    Scene.prototype.reset = function() {
+    }
+
+    /**
      * Overwrite this function to declare what happens upon updating the scene. In other
      * words, this method is called every 1/framerate seconds.
      * @method tick

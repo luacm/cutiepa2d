@@ -101,14 +101,11 @@ this.cutie = createjs;
      * @method setScene
      * @public
      * @static
-     * @param {Scene} scene 
-     *        The scene to be made active.
-     * @param {Object} props 
-     *        A series of properties that affects how the scene is set.
-     *        "preloadScenes": Which additional scenes to preload when you 
-     *                         load this scene. The progress bar for this 
-     *                         scene will be representative of this list's
-     *                         preload progress.
+     * @param {Scene} scene The scene to be made active.
+     * @param {Object} [props={}] A series of properties that affects how the scene is set.
+     * @param {String[]} props.preloadScenes Which additional scenes to preload when you load 
+     *                                       this scene. The progress bar for this scene will 
+     *                                       be representative of this list's preload progress.
      */
     module.setScene = function(sceneName, props) {
         cutie.Log.v("cutie.setScene()");
@@ -175,6 +172,11 @@ this.cutie = createjs;
         return _activeScene;
     }
 
+    /**
+     * Puts the loader (used from preloading) in a map we can use to reference later.
+     * @param  {String} sceneName The name of the scene whose loader you're storing.
+     * @param  {createjs.Loader} loader The loader you wish to store.
+     */
     module.storeLoader = function(sceneName, loader) {
         _loaders[sceneName] = loader;
     }
@@ -263,9 +265,9 @@ this.cutie = createjs;
     }
 
     /**
-     *      @private
-     *
-     *      @param  {Object} props description
+     * @method showFPS
+     * @private
+     * @param  {Object} props description
      */
     function showFPS(props) {
         if (props && props.visible) {
@@ -280,8 +282,8 @@ this.cutie = createjs;
     }
 
     /**
-     *      @private
-     *
+     * @method updateFPS
+     * @private
      */
     function updateFPS() {
         var avg = _fps.sum/_fps.numTicks;
@@ -343,12 +345,12 @@ this.cutie = createjs;
 (function(){
   /**
    * Protected Function updatePointerPosition
-   *    @method _updatePointerPosition
-   *    @protected
+   * @method _updatePointerPosition
+   * @protected
    *
-   *    @param {Number} id
-   *    @param {Number} pageX
-   *    @param {Number} pageY
+   * @param {Number} id
+   * @param {Number} pageX
+   * @param {Number} pageY
    **/
   createjs.Stage.prototype._updatePointerPosition = function(id, e, pageX, pageY) {
     var rect = this._getElementRect(this.canvas);

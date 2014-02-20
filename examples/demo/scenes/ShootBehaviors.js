@@ -18,12 +18,8 @@
 
         // Declare pairs of button texts and scene names
         var buttonInfo = [
-            ["Eight Dir", ""],
-            ["Follow", ""],
-            ["Joystick", ""],
-            ["Route", ""],
-            ["Shoot", ""],
-            ["Collision", ""]
+            ["Default", "shootdefault"],
+            ["Turret", "shootturret"]
         ];
 
         //Puts components together

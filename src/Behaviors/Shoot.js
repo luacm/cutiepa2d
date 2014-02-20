@@ -6,31 +6,27 @@ this.cutie.Behavior = this.cutie.Behavior || {};
  */
 (function(module){
     /**
-     * This behavior allows an object
+     * This behavior allows an object to shoot projectiles.
      * @class Shoot
      * @extends Behavior
      * @constructor
-     * @param {Object} [props] The properties being passed in.
-     * @param {Object} [props.bullet] The object to render on a fire.
+     * @param {Object} props The properties being passed in.
+     * @param {Object} props.bullet The object to render on a fire.
      * @param {Number} [props.speed=300] The speed of fired bullets in px/s.
-     * @param {Number} [props.max=100] The maximum number of bullets before they are recycled.
-     *      (0) indicates no recycling (bullets last forever).
-     * @param {Number} [props.duration=0] he maximum bullet's lifetime before it get's removed.
-     *      (0) indicates infinite.
-     * @param {Object[]} [props.origin] The x and y position from which to fire the bullet, relative
-     *      to an unrotated object object's x and y position.
-     * @param {Number} [props.angleOffset=90] This is the orientation where 90 is straight up, 
-     *     the zero point is the cartesian positive x axis and degrees rotate counter-clockwise up from this x axis.
+     * @param {Number} [props.max=100] The maximum number of bullets before they are recycled. (0) indicates 
+     *                                 no recycling (bullets last forever).
+     * @param {Number} [props.duration=0] The maximum bullet's lifetime before it get's removed. (0) indicates infinite.
+     * @param {Object[]} [props.origin] The x and y position from which to fire the bullet, relative to an unrotated 
+     *                                  object object's x and y position.
+     * @param {Number} [props.angleOffset=90] This is the orientation where 90 is straight up, the zero point is the 
+     *                                        cartesian positive x axis and degrees rotate counter-clockwise up from this x axis.
      * @param {Number} [props.fireKey=SPACE] The keycode to be used for firing.
      * @param {Number} [props.delay=0] The delay in seconds between shots.
-     * @param {Boolean} [props.useMouse=false] If set to true, use a mouse click to fire. If false
-     *     the key will be set to fireKey.
-     * @param {Boolean} [props.fireContinuous=false}If set, firing will be continuous while key/mouse
-     *     is pressed.
-     * @param {Number} [props.fireRate=5] Number of bullets to fire per second. Used only if
-     *     fireContinuous is set to true. Default is 5.
+     * @param {Boolean} [props.useMouse=true] If set to true, use a mouse click to fire. If false the key will be set to fireKey.
+     * @param {Boolean} [props.fireContinuous=false] If set, firing will be continuous while key/mouse is pressed.
+     * @param {Number} [props.fireRate=5] Number of bullets to fire per second. Used only if fireContinuous is set to true. 
+     *                                    Default is 5.
      */
-
     var Shoot = function(props) {
         // ================================================
         // VARIABLE DECLARATIONS
@@ -39,15 +35,13 @@ this.cutie.Behavior = this.cutie.Behavior || {};
         var _bullet = props.bullet || new module.BitmapText('none');
         var _key = props.fireKey || cutie.KeyCodes.SPACE;
         var _rate = 1/props.fireRate || 1/5; //seconds per bullet
-        var _origin = props.origin || new cutie.Vector(0, 0);
-
-        _origin = new cutie.Vector(props.origin.x, props.origin.y);
+        var _origin = props.origin ? new cutie.Vector(props.origin.x, props.origin.y) : new cutie.Vector(0, 0);
 
         var _angOffset = ('angleOffset' in props)?props.angleOffset:90;
         var _delay = ('delay' in props)? props.delay:0;
         var _speed = ('speed' in props)? props.speed:300;
         var _max = ('max' in props)? props.max:10;
-        var _useMouse = ('useMouse' in props)? props.useMouse:false;
+        var _useMouse = ('useMouse' in props)? props.useMouse:true;
         var _cont = ('fireContinuous' in props)? props.fireContinuous:false;
 
         var _fired = false;
