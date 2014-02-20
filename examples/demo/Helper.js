@@ -21,6 +21,13 @@ this.Helper = this.Helper || {};
         return backButton;
     }
 
+    module.makeGameTitle = function(text) {
+        var titleLabel = new createjs.Text(text, "36px Arial", "#000000");
+        titleLabel.x = cutie.WIDTH/2 - titleLabel.getMeasuredWidth()/2;
+        titleLabel.y = 40;
+        return titleLabel;
+    }
+
     module.makeButtonGrid = function(title, buttonInfo, cols, padding, buttonWidth, buttonHeight, img) {
         var container = new createjs.Container();
 

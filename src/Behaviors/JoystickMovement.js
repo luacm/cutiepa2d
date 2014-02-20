@@ -63,7 +63,7 @@ this.cutie.Behavior = this.cutie.Behavior || {};
             _baseDisk.y = py;
             _baseDisk.alpha = props.baseDisk.alpha || 0.3;
             _baseDisk.radius = baseRadius;
-            cutie.getStage().addChild(_baseDisk);
+            cutie.getActiveScene().addChild(_baseDisk);
 
             _pointerDisk = new createjs.Shape();
             _pointerDisk.graphics.beginFill(props.pointerDisk.color || "#aaa").drawCircle(0, 0, pointerRadius);
@@ -73,10 +73,12 @@ this.cutie.Behavior = this.cutie.Behavior || {};
             _pointerDisk.radius = pointerRadius;
             _pointerDisk.addEventListener("mousedown", pointerMouseDown.bind(this, _pointerDisk), false);
             _pointerDisk.addEventListener("pressup", pointerMouseUp, false);
-            cutie.getStage().addChild(_pointerDisk);
+            cutie.getActiveScene().addChild(_pointerDisk);
         };
 
         this.clean = function(obj) {
+            cutie.getActiveScene().removeChild(_baseDisk);
+            cutie.getActiveScene().removeChild(_pointerDisk);
         }
 
         this.tick = function(obj, e) {
