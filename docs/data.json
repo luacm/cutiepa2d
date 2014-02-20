@@ -586,10 +586,10 @@
                     "props": [
                         {
                             "name": "speed",
-                            "description": "The maximum speed the object can travel.",
+                            "description": "The maximum speed the object can travel (in pixels/sec).",
                             "type": "Number",
                             "optional": true,
-                            "optdefault": "5"
+                            "optdefault": "200"
                         },
                         {
                             "name": "faceDirection",
@@ -1738,7 +1738,7 @@
         },
         {
             "file": "src/Scene.js",
-            "line": 81,
+            "line": 79,
             "description": "Sets the preloader to the one specified.",
             "params": [
                 {
@@ -1752,7 +1752,7 @@
         },
         {
             "file": "src/Scene.js",
-            "line": 91,
+            "line": 88,
             "description": "The private wrapper for the init function. Handles some preloader stuff.",
             "itemtype": "method",
             "name": "init",
@@ -1770,7 +1770,7 @@
         },
         {
             "file": "src/Scene.js",
-            "line": 104,
+            "line": 101,
             "description": "Overwrite this function to declare what happens when the scene starts.",
             "itemtype": "method",
             "name": "init",
@@ -1781,7 +1781,7 @@
         },
         {
             "file": "src/Scene.js",
-            "line": 112,
+            "line": 109,
             "description": "Overwrite this function to declare what happens when the scene resets. By default, it\nsimply removes all children.",
             "itemtype": "method",
             "name": "reset",
@@ -1792,7 +1792,7 @@
         },
         {
             "file": "src/Scene.js",
-            "line": 122,
+            "line": 119,
             "description": "Overwrite this function to declare what happens upon updating the scene. In other\nwords, this method is called every 1/framerate seconds.",
             "itemtype": "method",
             "name": "tick",
@@ -1810,7 +1810,7 @@
         },
         {
             "file": "src/Scene.js",
-            "line": 133,
+            "line": 130,
             "description": "The 'super' method for the tick that is overwritten by the end user. Does\nsome housekeeping (like calling children's ticks) in addition to calling\nthe user-defined tick().",
             "itemtype": "method",
             "name": "_tickInternal",
@@ -1828,7 +1828,7 @@
         },
         {
             "file": "src/Scene.js",
-            "line": 150,
+            "line": 147,
             "description": "Use this function to register a new Collision Group with the current scene.",
             "itemtype": "method",
             "name": "registerCollisionGroup",
@@ -1875,7 +1875,7 @@
         },
         {
             "file": "src/Scene.js",
-            "line": 199,
+            "line": 196,
             "description": "Use this function to add a DisplayObject to a collision group.",
             "memberof": "cutie.Scene#",
             "itemtype": "method",
@@ -1912,7 +1912,7 @@
         },
         {
             "file": "src/Scene.js",
-            "line": 225,
+            "line": 222,
             "description": "Use this function to remove a DisplayObject from a collision group.",
             "memberof": "cutie.Scene#",
             "itemtype": "method",
@@ -2359,23 +2359,23 @@
         },
         {
             "message": "replacing incorrect tag: function with method",
-            "line": " src/Scene.js:91"
+            "line": " src/Scene.js:88"
         },
         {
             "message": "unknown tag: memberof",
-            "line": " src/Scene.js:199"
+            "line": " src/Scene.js:196"
         },
         {
             "message": "replacing incorrect tag: function with method",
-            "line": " src/Scene.js:199"
+            "line": " src/Scene.js:196"
         },
         {
             "message": "unknown tag: memberof",
-            "line": " src/Scene.js:225"
+            "line": " src/Scene.js:222"
         },
         {
             "message": "replacing incorrect tag: function with method",
-            "line": " src/Scene.js:225"
+            "line": " src/Scene.js:222"
         },
         {
             "message": "unknown tag: memberof",
@@ -2399,7 +2399,7 @@
         },
         {
             "message": "Missing item type\nSets the preloader to the one specified.",
-            "line": " src/Scene.js:81"
+            "line": " src/Scene.js:79"
         },
         {
             "message": "Missing item type\nA Pixel Perfect Collision Detection for EaselJS Bitmap-Objects",
