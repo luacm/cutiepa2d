@@ -6,16 +6,17 @@
     }
 
     scene.init = function(preloaded) {
-        cutie.Log.d("title.init()");
-
+        // Set our background to be white
         this.bkg = new createjs.Shape();
         this.bkg.graphics.beginFill("#ffffff").drawRect(0, 0, cutie.WIDTH, cutie.HEIGHT);
         this.addChild(this.bkg);
 
+        // Add our logo to the top of the scene
         var logo = new cutie.Bitmap(preloaded.getResult("logo"));
         logo.x = cutie.WIDTH/2 - logo.image.width/2;
         this.addChild(logo);
 
+        // Declare pairs of button texts and scene names
         var buttonInfo = [
             ["Asteroid", "asteroidbehaviors"],
             ["DPad", "dpadbehaviors"],
@@ -50,7 +51,7 @@
         var button = new cutie.Button(x, y, width, height, text, {
             "textStyle": "24px Arial"
         });
-        button.addEventListener("pressup", function() {
+        button.addEventListener("click", function() {
             cutie.setScene(sceneName);
         });
         this.addChild(button);
