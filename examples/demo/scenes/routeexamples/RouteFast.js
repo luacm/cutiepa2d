@@ -6,11 +6,15 @@
     }
 
     scene.init = function(preloaded) {
-        cutie.Log.d("dragdropdefault.init()");
+        cutie.Log.d("routefast.init()");
         var spidey = new cutie.Bitmap(preloaded.getResult("spidey"));
         spidey.x = cutie.WIDTH/2 - spidey.image.width/2;
         spidey.y = cutie.HEIGHT/2 - spidey.image.height/2;
-        spidey.addBehavior(new cutie.Behavior.DragAndDrop({}));
+        spidey.addBehavior(new cutie.Behavior.Route({
+            'path': [{'x':100,'y':100},{'x':300,'y':100},{'x':300,'y':200},{'x':100,'y':200}],
+            'repeat': -1,
+            'speed': 200
+        }));
         this.addChild(spidey);
 
 
@@ -19,7 +23,7 @@
         //The Default
         //Title and Back Button
 
-        titleLabel = new createjs.Text("Default DPad", "36px Arial", "#000000");
+        titleLabel = new createjs.Text("Route Fast", "36px Arial", "#000000");
         titleLabel.x = cutie.WIDTH/2 - titleLabel.getMeasuredWidth()/2;
         titleLabel.y = 40;
         this.addChild(titleLabel);
@@ -40,5 +44,5 @@
         this.addChild(backButton);
     }
 
-    cutie.registerScene(scene, "dragdropdefault");
+    cutie.registerScene(scene, "routefast");
 })();
