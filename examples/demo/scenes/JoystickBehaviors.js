@@ -22,7 +22,7 @@
             ["Faster", "fastjoystick"],
             ["Face Direction", "facetruejoystick"],
             ["Angle Offset", "anglejoystick"],
-            ["Mod Joystick", "modjoystick"]
+            ["Styled Joystick", "modjoystick"]
         ];
 
         //Puts components together

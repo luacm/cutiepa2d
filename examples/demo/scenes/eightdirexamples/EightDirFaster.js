@@ -26,30 +26,20 @@
         titleLabel.y = 40;
         this.addChild(titleLabel);
 
-        back = new createjs.Shape();
-        back.graphics.beginFill("#000000").drawRect(0, 0, buttonWidth, buttonHeight);
-        this.addChild(back);
+        var buttonWidth = 150;
+        var buttonHeight = 60;
+        var padding = 20;
 
-        buttonWidth = 150
-        buttonHeight = 40
-        backLabel = new createjs.Text("Back", "36px Arial", "#ff0000");
-        backLabel.x = buttonWidth/2 - backLabel.getMeasuredWidth()/2;
-        backLabel.y = buttonHeight/2 - backLabel.getMeasuredHeight()/2;
-        backButton = new createjs.Container();
-        backButton.addEventListener("click", function() {
-            console.log('back clicked');
-            cutie.getActiveScene().removeChild(spidey);
-            cutie.getActiveScene().removeChild(back);
-            cutie.getActiveScene().removeChild(backButton);
-            cutie.getActiveScene().removeChild(titleLabel);
-            cutie.setScene("eightdirbehaviors");
+        // Create a back button
+        var backButton = new cutie.Button(padding, cutie.HEIGHT - buttonHeight - padding, buttonWidth, buttonHeight, "Back", {
+            "fgColor": "#cccccc",
+            "bgColor": "#aaaaaa",
+            "textStyle": "24px Arial"
         });
-        backButton.addChild(back,backLabel);
-        backButton.setTransform(cutie.WIDTH/2 - buttonWidth/2,420);
+        backButton.addEventListener("click", function() {
+            cutie.setScene("title");
+        });
         this.addChild(backButton);
-        console.log(cutie.WIDTH);
-
-
     }
 
     cutie.registerScene(scene, "fasteightdir");
