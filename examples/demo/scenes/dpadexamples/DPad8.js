@@ -11,7 +11,11 @@
         spidey.x = cutie.WIDTH/2 - spidey.image.width/2;
         spidey.y = cutie.HEIGHT/2 - spidey.image.height/2;
         spidey.addBehavior(new cutie.Behavior.DPadMovement({
-            'eightDirectional': true
+            'eightDirectional': true,
+            'position': {
+                'x': cutie.Width - 80,
+                'y': cutie.Height - 80
+            }
         }));
         this.addChild(spidey);
 

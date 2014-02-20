@@ -6,6 +6,7 @@
     }
 
      scene.init = function(preloaded) {
+
         // Set our background to be white
         this.bkg = new createjs.Shape();
         this.bkg.graphics.beginFill("#ffffff").drawRect(0, 0, cutie.WIDTH, cutie.HEIGHT);
@@ -18,12 +19,8 @@
 
         // Declare pairs of button texts and scene names
         var buttonInfo = [
-            ["Eight Dir", ""],
-            ["Follow", ""],
-            ["Joystick", ""],
-            ["Route", ""],
-            ["Shoot", ""],
-            ["Collision", ""]
+            ["Basic Collisions", "collisiondemo"],
+            ["Pushing a Block", "collisionblock"]
         ];
 
         //Puts components together
@@ -66,7 +63,6 @@
             "textStyle": "24px Arial"
         });
         button.addEventListener("click", function() {
-            cutie.setScene(sceneName);
             cutie.setScene(sceneName, {"reset": true});
         });
         this.addChild(button);
