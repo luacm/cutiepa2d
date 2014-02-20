@@ -69,7 +69,7 @@ this.cutie.Behavior = this.cutie.Behavior || {};
             _leftButton.addEventListener("mousedown", fourDirectionMouseDown.bind(this, _leftButton), false);
             _leftButton.addEventListener("pressup", fourDirectionMouseUp.bind(this, _leftButton), false);
             _leftButton.pressed = false;
-            cutie.getStage().addChild(_leftButton);
+            cutie.getActiveScene().addChild(_leftButton);
 
             
             _rightButton = new createjs.Shape();
@@ -80,7 +80,7 @@ this.cutie.Behavior = this.cutie.Behavior || {};
             _rightButton.addEventListener("mousedown", fourDirectionMouseDown.bind(this, _rightButton), false);
             _rightButton.addEventListener("pressup", fourDirectionMouseUp.bind(this, _rightButton), false);
             _rightButton.pressed = false;
-            cutie.getStage().addChild(_rightButton);
+            cutie.getActiveScene().addChild(_rightButton);
 
             
             _upButton = new createjs.Shape();
@@ -91,7 +91,7 @@ this.cutie.Behavior = this.cutie.Behavior || {};
             _upButton.addEventListener("mousedown", fourDirectionMouseDown.bind(this, _upButton), false);
             _upButton.addEventListener("pressup", fourDirectionMouseUp.bind(this, _upButton), false);
             _upButton.pressed = false;
-            cutie.getStage().addChild(_upButton);
+            cutie.getActiveScene().addChild(_upButton);
 
             _downButton = new createjs.Shape();
             _downButton.graphics.beginFill(_buttonColor || "#ccc").drawRect(0, 0, _buttonSize, _buttonSize);
@@ -101,7 +101,7 @@ this.cutie.Behavior = this.cutie.Behavior || {};
             _downButton.addEventListener("mousedown", fourDirectionMouseDown.bind(this, _downButton), false);
             _downButton.addEventListener("pressup", fourDirectionMouseUp.bind(this, _downButton), false);
             _downButton.pressed = false;
-            cutie.getStage().addChild(_downButton);
+            cutie.getActiveScene().addChild(_downButton);
 
             if(_eightDirectional){
                 _upLeftButton = new createjs.Shape();
@@ -112,7 +112,7 @@ this.cutie.Behavior = this.cutie.Behavior || {};
                 _upLeftButton.addEventListener("pressup", cornerMouseUp.bind(this, _upLeftButton), false);
                 _upLeftButton.pressed = false;
                 _upLeftButton.alpha = 0.01;
-                cutie.getStage().addChild(_upLeftButton);
+                cutie.getActiveScene().addChild(_upLeftButton);
 
                 
                 _upRightButton = new createjs.Shape();
@@ -123,7 +123,7 @@ this.cutie.Behavior = this.cutie.Behavior || {};
                 _upRightButton.addEventListener("pressup", cornerMouseUp.bind(this, _upRightButton), false);
                 _upRightButton.pressed = false;
                 _upRightButton.alpha = 0.01;
-                cutie.getStage().addChild(_upRightButton);
+                cutie.getActiveScene().addChild(_upRightButton);
 
                 
                 _downLeftButton = new createjs.Shape();
@@ -134,7 +134,7 @@ this.cutie.Behavior = this.cutie.Behavior || {};
                 _downLeftButton.addEventListener("pressup", cornerMouseUp.bind(this, _downLeftButton), false);
                 _downLeftButton.pressed = false;
                 _downLeftButton.alpha = 0.01;
-                cutie.getStage().addChild(_downLeftButton);
+                cutie.getActiveScene().addChild(_downLeftButton);
 
                 
                 _downRightButton = new createjs.Shape();
@@ -145,7 +145,7 @@ this.cutie.Behavior = this.cutie.Behavior || {};
                 _downRightButton.addEventListener("pressup", cornerMouseUp.bind(this, _downRightButton), false);
                 _downRightButton.pressed = false;
                 _downRightButton.alpha = 0.01;
-                cutie.getStage().addChild(_downRightButton);
+                cutie.getActiveScene().addChild(_downRightButton);
             }
 
 
@@ -153,14 +153,14 @@ this.cutie.Behavior = this.cutie.Behavior || {};
         };
 
         this.clean = function(obj) {
-            cutie.getStage().removeChild(_downRightButton);
-            cutie.getStage().removeChild(_downLeftButton);
-            cutie.getStage().removeChild(_upRightButton);
-            cutie.getStage().removeChild(_upLeftButton);
-            cutie.getStage().removeChild(_rightButton);
-            cutie.getStage().removeChild(_leftButton);
-            cutie.getStage().removeChild(_upButton);
-            cutie.getStage().removeChild(_downButton);
+            cutie.getActiveScene().removeChild(_downRightButton);
+            cutie.getActiveScene().removeChild(_downLeftButton);
+            cutie.getActiveScene().removeChild(_upRightButton);
+            cutie.getActiveScene().removeChild(_upLeftButton);
+            cutie.getActiveScene().removeChild(_rightButton);
+            cutie.getActiveScene().removeChild(_leftButton);
+            cutie.getActiveScene().removeChild(_upButton);
+            cutie.getActiveScene().removeChild(_downButton);
         }
 
         this.tick = function(obj, e) {
