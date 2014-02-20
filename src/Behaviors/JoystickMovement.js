@@ -16,27 +16,13 @@ this.cutie.Behavior = this.cutie.Behavior || {};
     * @param {Boolean} [props.faceDirection=false] Whether or not you want the object to face in the direction it's moving/
     * @param {Number} [props.angleOffset=90] This is the object orientation where 90 is straight up, 
     *     the zero point is the cartesian positive x axis and degrees rotate counter-clockwise up from this x axis. 
-    * @param {Number} [props.position] The position of the center of the joystick.
-    * @param {Number} [props.position.x] The x-coordinate of the center of the joystick.
-    * @param {Number} [props.position.y] The y-coordinate of the center of the joystick.
-    * @param {Number} [props.baseDisk] Properties of the lower base disk of the joystick - the part that doens't move.
-    * @param {String} [props.baseDisk.color="#ccc"] What color the base disk should be.
-    * @param {Number} [props.baseDisk.radius=60] The radius of the base disk.
-    * @param {Number} [props.baseDisk.alpha=0.3] The level of transparency of the base disk.
-    * @param {Number} [props.pointerDisk] Properties of the upper pointer disk of the joystick - the part that moves.
-    * @param {String} [props.pointerDisk.color="#aaa"] What color the pointer disk should be.
-    * @param {Number} [props.pointerDisk.radius=30] The radius of the pointer disk.
-    * @param {Number} [props.pointerDisk.alpha=0.3] The level of transparency of the pointer disk.
+    * @param {cutie.Joystick} [props.joystick] The joystick object you'd like to use.
     */
     var JoystickMovement = function(props) {
-        if (!props.baseDisk) props.baseDisk = {};
-        if (!props.pointerDisk) props.pointerDisk = {};
-        if (!props.position) props.position = {};
         // ================================================
         // VARIABLE DECLARATIONS
         // ================================================
-        var _baseDisk = {};
-        var _pointerDisk = {};
+        var _joystick = props.joystick || new cutie.Joystick();
         var _isDragging = false;
         var _speed = props.speed || 200;
         var _faceDirection = props.faceDirection || false;
@@ -52,74 +38,25 @@ this.cutie.Behavior = this.cutie.Behavior || {};
                 obj.regY = obj.image.height/2;
             }
 
-            var baseRadius = props.baseDisk.radius || 60;
-            var pointerRadius = props.pointerDisk.radius || 20;
-            var px = props.position.x || (baseRadius + pointerRadius + 20);
-            var py = props.position.y || (cutie.HEIGHT - (baseRadius + pointerRadius + 20));
-
-            _baseDisk = new createjs.Shape();
-            _baseDisk.graphics.beginFill(props.baseDisk.color || "#ccc").drawCircle(0, 0, baseRadius);
-            _baseDisk.x = px;
-            _baseDisk.y = py;
-            _baseDisk.alpha = props.baseDisk.alpha || 0.3;
-            _baseDisk.radius = baseRadius;
-            cutie.getActiveScene().addChild(_baseDisk);
-
-            _pointerDisk = new createjs.Shape();
-            _pointerDisk.graphics.beginFill(props.pointerDisk.color || "#aaa").drawCircle(0, 0, pointerRadius);
-            _pointerDisk.x = _pointerDisk.defaultX = px;
-            _pointerDisk.y = _pointerDisk.defaultY = py;
-            _pointerDisk.alpha = props.pointerDisk.alpha || 0.3;
-            _pointerDisk.radius = pointerRadius;
-            _pointerDisk.addEventListener("mousedown", pointerMouseDown.bind(this, _pointerDisk), false);
-            _pointerDisk.addEventListener("pressup", pointerMouseUp, false);
-            cutie.getActiveScene().addChild(_pointerDisk);
+            cutie.getActiveScene().addChild(_joystick);
         };
 
         this.clean = function(obj) {
-            cutie.getActiveScene().removeChild(_baseDisk);
-            cutie.getActiveScene().removeChild(_pointerDisk);
+            cutie.getActiveScene().removeChild(_joystick);
         }
 
         this.tick = function(obj, e) {
-            if (_pointerDisk.isDragging) {
-                var stage = cutie.getStage();
-                _pointerDisk.x = stage.mouseX - _pointerDisk.clickOffsetX;
-                _pointerDisk.y = stage.mouseY - _pointerDisk.clickOffsetY;
+            if (_joystick.isDragging) {
+                var angle = _joystick.angle;
+                var magnitude = _joystick.magnitude;
 
-                var angle = cutie.Util.angle(_pointerDisk, _baseDisk);
                 if (_faceDirection) obj.rotation = angle * 180/Math.PI + _angleOffset;
-
-                // Ensure it stays in bounds of the _baseDisk
-                if (cutie.Util.distance(_pointerDisk, _baseDisk) > _baseDisk.radius) {
-                    _pointerDisk.x = Math.cos(angle) * _baseDisk.radius + _pointerDisk.defaultX;
-                    _pointerDisk.y = Math.sin(angle) * _baseDisk.radius + _pointerDisk.defaultY;
-                }
-
-                // Need to re-calculate distance in case the previously-calculated distance is out-of-bounds
-                var distance = cutie.Util.distance(_pointerDisk, _baseDisk);
-                var magnitude = distance/_baseDisk.radius;
 
                 var time = e.delta/1000;
                 obj.x += Math.cos(angle) * (_speed * magnitude * time);
                 obj.y += Math.sin(angle) * (_speed * magnitude * time);
             }
-        };
-
-        // ================================================
-        // PRIVATE METHODS
-        // ================================================
-        function pointerMouseDown(obj, e) {
-            _pointerDisk.isDragging = true;
-            _pointerDisk.clickOffsetX = e.stageX - obj.x;
-            _pointerDisk.clickOffsetY = e.stageY - obj.y;
         }
-
-        function pointerMouseUp(e) {
-            _pointerDisk.isDragging = false;
-            createjs.Tween.get(_pointerDisk).to({ "x": _pointerDisk.defaultX, "y": _pointerDisk.defaultY }, 50);
-        }
-       
     }
 
     module.JoystickMovement = JoystickMovement;

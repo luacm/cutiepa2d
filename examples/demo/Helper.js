@@ -15,7 +15,7 @@ this.Helper = this.Helper || {};
             "textStyle": "24px Arial"
         });
         backButton.addEventListener("click", function() {
-            cutie.setScene("title");
+            cutie.setScene("title", { "reset": true });
         });
 
         return backButton;
@@ -85,7 +85,7 @@ this.Helper = this.Helper || {};
             "textStyle": "24px Arial"
         });
         backButton.addEventListener("click", function() {
-            cutie.setScene("title");
+            cutie.setScene("title", {"reset": true});
         });
 
         return backButton;
