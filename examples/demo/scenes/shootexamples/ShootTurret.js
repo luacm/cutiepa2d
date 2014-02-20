@@ -27,20 +27,7 @@
         titleLabel.y = 40;
         this.addChild(titleLabel);
 
-        var buttonWidth = 150;
-        var buttonHeight = 60;
-        var padding = 20;
-
-        // Create a back button
-        var backButton = new cutie.Button(padding, cutie.HEIGHT - buttonHeight - padding, buttonWidth, buttonHeight, "Back", {
-            "fgColor": "#cccccc",
-            "bgColor": "#aaaaaa",
-            "textStyle": "24px Arial"
-        });
-        backButton.addEventListener("click", function() {
-            cutie.setScene("title");
-        });
-        this.addChild(backButton);
+        this.addChild(Helper.makeGameBackButton());
     }
 
     cutie.registerScene(scene, "shootturret");

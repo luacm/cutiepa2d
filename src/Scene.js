@@ -68,8 +68,6 @@ this.cutie = this.cutie || {};
      * @param  {createjs.Event} e The event info.
      */
     Scene.prototype.onPreloadComplete = function(scenes, loader, e) {
-        cutie.Log.v("cutie.Scene.onPreloadComplete()");
-
         // Store this loader as the loader for all for all of the scenes in this preload batch
         for (var i = 0; i < scenes.length; i++)
             cutie.storeLoader(scenes[i].name, loader);
@@ -85,7 +83,6 @@ this.cutie = this.cutie || {};
     Scene.prototype.setPreloader = function(preloader) {
         this._preloader = preloader;
         this.addChild(preloader);
-        console.log("SET PRELOADER");
     }
 
     /**
