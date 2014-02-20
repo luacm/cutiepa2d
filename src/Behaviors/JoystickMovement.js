@@ -12,7 +12,7 @@ this.cutie.Behavior = this.cutie.Behavior || {};
     * @extends Behavior
     * @constructor
     * @param {Object} [props] The properties being passed in.
-    * @param {Number} [props.speed=5] The maximum speed the object can travel.
+    * @param {Number} [props.speed=200] The maximum speed the object can travel (in pixels/sec).
     * @param {Boolean} [props.faceDirection=false] Whether or not you want the object to face in the direction it's moving/
     * @param {Number} [props.angleOffset=90] This is the object orientation where 90 is straight up, 
     *     the zero point is the cartesian positive x axis and degrees rotate counter-clockwise up from this x axis. 
@@ -38,7 +38,7 @@ this.cutie.Behavior = this.cutie.Behavior || {};
         var _baseDisk = {};
         var _pointerDisk = {};
         var _isDragging = false;
-        var _speed = props.speed || 5;
+        var _speed = props.speed || 200;
         var _faceDirection = props.faceDirection || false;
         var _angleOffset = ('angleOffset' in props)?props.angleOffset:90;
 
@@ -98,11 +98,11 @@ this.cutie.Behavior = this.cutie.Behavior || {};
 
                 // Need to re-calculate distance in case the previously-calculated distance is out-of-bounds
                 var distance = cutie.Util.distance(_pointerDisk, _baseDisk);
-
                 var magnitude = distance/_baseDisk.radius;
 
-                obj.x += Math.cos(angle) * (_speed * magnitude);
-                obj.y += Math.sin(angle) * (_speed * magnitude);
+                var time = e.delta/1000;
+                obj.x += Math.cos(angle) * (_speed * magnitude * time);
+                obj.y += Math.sin(angle) * (_speed * magnitude * time);
             }
         };
 
