@@ -229,7 +229,6 @@ this.cutie = this.cutie || {};
      */
     Scene.prototype.removeCollidable = function(obj, groupName) {
         var groupName = groupName || "*";
-
         if(groupName === "*") {
             var len = this._collisionGroups.length;
             for(var i = 0; i < len; i++) {
@@ -337,7 +336,17 @@ this.cutie = this.cutie || {};
             }
         }
     }
-    
-     
+
+    Scene.prototype.removeChild = function(child) {
+        var l = arguments.length;
+        if (l > 1) {
+            var good = true;
+            for (var i=0; i<l; i++) { good = good && this.removeChild(arguments[i]);}
+            return good;
+        }
+        this.removeCollidable(child);
+        return this.removeChildAt(createjs.indexOf(this.children, child));
+    }
+
     module.Scene = Scene;
 })(this.cutie);

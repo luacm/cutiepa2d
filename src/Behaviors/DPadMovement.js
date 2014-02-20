@@ -114,7 +114,7 @@ this.cutie.Behavior = this.cutie.Behavior || {};
                 _upLeftButton.alpha = 0.01;
                 cutie.getActiveScene().addChild(_upLeftButton);
 
-                
+
                 _upRightButton = new createjs.Shape();
                 _upRightButton.graphics.beginFill('#000').drawRect(0, 0, _buttonSize, _buttonSize);
                 _upRightButton.x = px + (_buttonSize * 0.5);

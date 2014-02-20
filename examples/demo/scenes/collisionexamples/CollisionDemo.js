@@ -26,19 +26,24 @@
                 "name": "block",
                 "handle": function(obj1, obj2, pt){
                     cutie.Log.v("Player->Block Collision")
-                    cutie.getActiveScene().removeChild(obj2);
+                    var scene = cutie.getActiveScene();
+                    scene.removeChild(obj2);
+                    //scene.removeCollidable(obj2);
                 }
             },
             {
                 "name": "player",
                 "handle": function(obj1, obj2, pt) {
                     cutie.Log.v("Player->Player Collision")
+                    var scene = cutie.getActiveScene();
+                    scene.removeChild(obj2);
+                    //scene.removeCollidable(obj2);
                 }
             }
             ]
         });
         this.addCollidable(spidey, {"groupName": "player", "collisionType": "circle"});
-        this.addCollidable(blue, {"groupName": "block", "collisionType": "rectangle"});
+        this.addCollidable(blue, {"groupName": "player", "collisionType": "rectangle"});
         this.addCollidable(spidey2, {"groupName": "block", "collisionType": "circle"})
 
         spidey.addBehavior(new cutie.Behavior.JoystickMovement({}));
