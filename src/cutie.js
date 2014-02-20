@@ -68,8 +68,6 @@ this.cutie = createjs;
      * @param  {Number} [props.scaleType=cutie.ScaleType.NONE] How you want the canvas to scale in the window. Does not impact the in-game with and height.
      */
     module.start = function(scene, props) {
-        cutie.Log.v("cutie.start()");
-
         props = props || {};
 
         _canvas = document.getElementById(props.canvasId || "js-canvas");
@@ -112,8 +110,6 @@ this.cutie = createjs;
      *                                      former state. 
      */
     module.setScene = function(sceneName, props) {
-        cutie.Log.v("cutie.setScene()");
-
         props = props || {};
 
         // Remove the previously active scene

@@ -165,11 +165,9 @@ this.cutie.Behavior = this.cutie.Behavior || {};
             while(--i >= 0) {
                 var b = _bullets[i];
                 b.pos = b.pos.add(b.dir.scale(time));
-
-                if(b.pos.x < 0 || b.pos.x > _stageWidth || b.pos.y < 0 || b.pos.y > _stageHeight) {
+                if((b.pos.x + b.obj.image.width/2) < 0 || (b.pos.x - b.obj.image.width/2) > _stageWidth || (b.pos.y + b.obj.image.height/2) < 0 || (b.pos.y - b.obj.image.height/2) > _stageHeight) {
                     removeBullet(_bullets[i]);
                     _bullets.splice(i, 1);
-                    cutie.Log.v("out of bounds");
                 }
 
                 b.obj.x = b.pos.x;
