@@ -1833,7 +1833,7 @@
         },
         {
             "file": "src/Scene.js",
-            "line": 121,
+            "line": 119,
             "description": "Overwrite this function to declare what happens upon updating the scene. In other\nwords, this method is called every 1/framerate seconds.",
             "itemtype": "method",
             "name": "tick",
@@ -1851,7 +1851,7 @@
         },
         {
             "file": "src/Scene.js",
-            "line": 132,
+            "line": 130,
             "description": "The 'super' method for the tick that is overwritten by the end user. Does\nsome housekeeping (like calling children's ticks) in addition to calling\nthe user-defined tick().",
             "itemtype": "method",
             "name": "_tickInternal",
@@ -1869,7 +1869,7 @@
         },
         {
             "file": "src/Scene.js",
-            "line": 149,
+            "line": 147,
             "description": "Use this function to register a new Collision Group with the current scene.",
             "itemtype": "method",
             "name": "registerCollisionGroup",
@@ -1916,7 +1916,7 @@
         },
         {
             "file": "src/Scene.js",
-            "line": 198,
+            "line": 196,
             "description": "Use this function to add a DisplayObject to a collision group.",
             "memberof": "cutie.Scene#",
             "itemtype": "method",
@@ -1953,7 +1953,7 @@
         },
         {
             "file": "src/Scene.js",
-            "line": 224,
+            "line": 222,
             "description": "Use this function to remove a DisplayObject from a collision group.",
             "memberof": "cutie.Scene#",
             "itemtype": "method",
@@ -2404,19 +2404,19 @@
         },
         {
             "message": "unknown tag: memberof",
-            "line": " src/Scene.js:198"
+            "line": " src/Scene.js:196"
         },
         {
             "message": "replacing incorrect tag: function with method",
-            "line": " src/Scene.js:198"
+            "line": " src/Scene.js:196"
         },
         {
             "message": "unknown tag: memberof",
-            "line": " src/Scene.js:224"
+            "line": " src/Scene.js:222"
         },
         {
             "message": "replacing incorrect tag: function with method",
-            "line": " src/Scene.js:224"
+            "line": " src/Scene.js:222"
         },
         {
             "message": "unknown tag: memberof",
