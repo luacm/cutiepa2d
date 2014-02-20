@@ -113,9 +113,7 @@ this.cutie = this.cutie || {};
      * @public
      */
     Scene.prototype.reset = function() {
-        console.log("before: " + this.getNumChildren());
         this.removeAllChildren();
-        console.log("after: " + this.getNumChildren());
     }
 
     /**
