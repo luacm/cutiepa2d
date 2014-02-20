@@ -110,11 +110,13 @@ this.cutie = this.cutie || {};
     }
 
     /**
-     * Overwrite this function to declare what happens when the scene resets.
+     * Overwrite this function to declare what happens when the scene resets. By default, it
+     * simply removes all children.
      * @method reset
      * @public
      */
     Scene.prototype.reset = function() {
+        this.removeAllChildren();
     }
 
     /**

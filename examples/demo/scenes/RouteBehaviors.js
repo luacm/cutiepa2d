@@ -64,7 +64,7 @@
             "textStyle": "24px Arial"
         });
         button.addEventListener("click", function() {
-            cutie.setScene(sceneName);
+            cutie.setScene(sceneName, {"reset": true});
         });
         this.addChild(button);
     }

@@ -103,9 +103,13 @@ this.cutie = createjs;
      * @static
      * @param {Scene} scene The scene to be made active.
      * @param {Object} [props={}] A series of properties that affects how the scene is set.
-     * @param {String[]} props.preloadScenes Which additional scenes to preload when you load 
-     *                                       this scene. The progress bar for this scene will 
-     *                                       be representative of this list's preload progress.
+     * @param {String[]} [props.preloadScenes] Which additional scenes to preload when you load 
+     *                                         this scene. The progress bar for this scene will 
+     *                                         be representative of this list's preload progress.
+     * @param {Boolean} [props.reset=false] If true, it will call the reset() method on the scene
+     *                                      before initializing it. This is useful if you are 
+     *                                      revisiting a scene, but don't want it to keep its
+     *                                      former state. 
      */
     module.setScene = function(sceneName, props) {
         cutie.Log.v("cutie.setScene()");
@@ -117,13 +121,17 @@ this.cutie = createjs;
 
         // Set it as the active scene
         _activeScene = getScene(sceneName);
+
         if (_activeScene) {
+            // Reset it if specified
+            if (props.reset)
+                _activeScene.reset();
+
             // Build the list of scenes to preload and then preload them
             var preloadList = props.preloadScenes || [];
             preloadList.unshift(sceneName);
             preloadList = getScenes(preloadList);
             preloadScenes(preloadList);
-
 
             // Add it to the stage
             _stage.addChild(_activeScene);
